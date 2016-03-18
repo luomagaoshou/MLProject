@@ -11,7 +11,74 @@
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "ML_NSOjbectChain.h"
 #import "NSObject+ML_NSOjbectChain.h"
+#import "NSObject+ChainInvocation.h"
 #import <Masonry/Masonry.h>
+//从Mansonry得来
+static inline id _ml_chain_MASBoxValue(const char *type, ...) {
+    va_list v;
+    va_start(v, type);
+    id obj = nil;
+    if (strcmp(type, @encode(id)) == 0) {
+        id actual = va_arg(v, id);
+        obj = actual;
+    } else if (strcmp(type, @encode(CGPoint)) == 0) {
+        CGPoint actual = (CGPoint)va_arg(v, CGPoint);
+        obj = [NSValue value:&actual withObjCType:type];
+    } else if (strcmp(type, @encode(CGSize)) == 0) {
+        CGSize actual = (CGSize)va_arg(v, CGSize);
+        obj = [NSValue value:&actual withObjCType:type];
+    }else if (strcmp(type, @encode(CGRect)) == 0) {
+        CGRect actual = (CGRect)va_arg(v, CGRect);
+        obj = [NSValue value:&actual withObjCType:type];
+    }else if (strcmp(type, @encode(UIEdgeInsets)) == 0) {
+        UIEdgeInsets actual = (UIEdgeInsets)va_arg(v, UIEdgeInsets);
+        obj = [NSValue value:&actual withObjCType:type];
+    } else if (strcmp(type, @encode(double)) == 0) {
+        double actual = (double)va_arg(v, double);
+        obj = [NSNumber numberWithDouble:actual];
+    } else if (strcmp(type, @encode(float)) == 0) {
+        float actual = (float)va_arg(v, double);
+        obj = [NSNumber numberWithFloat:actual];
+    } else if (strcmp(type, @encode(int)) == 0) {
+        int actual = (int)va_arg(v, int);
+        obj = [NSNumber numberWithInt:actual];
+    } else if (strcmp(type, @encode(long)) == 0) {
+        long actual = (long)va_arg(v, long);
+        obj = [NSNumber numberWithLong:actual];
+    } else if (strcmp(type, @encode(long long)) == 0) {
+        long long actual = (long long)va_arg(v, long long);
+        obj = [NSNumber numberWithLongLong:actual];
+    } else if (strcmp(type, @encode(short)) == 0) {
+        short actual = (short)va_arg(v, int);
+        obj = [NSNumber numberWithShort:actual];
+    } else if (strcmp(type, @encode(char)) == 0) {
+        char actual = (char)va_arg(v, int);
+        obj = [NSNumber numberWithChar:actual];
+    } else if (strcmp(type, @encode(bool)) == 0) {
+        bool actual = (bool)va_arg(v, int);
+        obj = [NSNumber numberWithBool:actual];
+    } else if (strcmp(type, @encode(unsigned char)) == 0) {
+        unsigned char actual = (unsigned char)va_arg(v, unsigned int);
+        obj = [NSNumber numberWithUnsignedChar:actual];
+    } else if (strcmp(type, @encode(unsigned int)) == 0) {
+        unsigned int actual = (unsigned int)va_arg(v, unsigned int);
+        obj = [NSNumber numberWithUnsignedInt:actual];
+    } else if (strcmp(type, @encode(unsigned long)) == 0) {
+        unsigned long actual = (unsigned long)va_arg(v, unsigned long);
+        obj = [NSNumber numberWithUnsignedLong:actual];
+    } else if (strcmp(type, @encode(unsigned long long)) == 0) {
+        unsigned long long actual = (unsigned long long)va_arg(v, unsigned long long);
+        obj = [NSNumber numberWithUnsignedLongLong:actual];
+    } else if (strcmp(type, @encode(unsigned short)) == 0) {
+        unsigned short actual = (unsigned short)va_arg(v, unsigned int);
+        obj = [NSNumber numberWithUnsignedShort:actual];
+    }
+    va_end(v);
+    return obj;
+}
+
+#define ml_chain_MASBoxValue(value) _ml_chain_MASBoxValue(@encode(__typeof__((value))), (value))
+
 
 #define ml_concat(...) metamacro_concat(ml_concat, metamacro_argcount(__VA_ARGS__))(__VA_ARGS__)
 #define ml_concat2(A, B) metamacro_concat(A , B)
@@ -19,83 +86,16 @@
 #define ml_concat4(A, B, C, D) metamacro_concat(ml_concat3(A, B, C), D)
 #define ml_concat5(A, B, C, D, E) metamacro_concat(ml_concat4(A, B, C, D), E)
 
-//ARRAY
-#define IDARRAY(...) (id []){ __VA_ARGS__ }
-#define IDCOUNT(...) (sizeof(IDARRAY(__VA_ARGS__)) / sizeof(id))
-#define ARRAY(...) [NSArray arrayWithObjects: IDARRAY(__VA_ARGS__) count: IDCOUNT(__VA_ARGS__)]
-
-//Block_make
-#define ml_chain_block_make_all(CLASS) @class ml_concat(ML_, CLASS, Chain);\
-ml_chain_block_make_1Param(CLASS);\
-ml_chain_block_make_2Param(CLASS);\
-ml_chain_block_make_3Param(CLASS);\
-ml_chain_block_make_4Param(CLASS);\
-ml_chain_block_make_5Param(CLASS);\
-ml_chain_block_make_6Param(CLASS)
-
-#define ml_chain_block_make(CLASS, NUMBER) ml_chain_block_make_(CLASS, NUMBER)
-#define ml_chain_block_make_(CLASS, NUMBER) ml_concat(ml_chain_block_make_, NUMBER, Param)(CLASS)
-
-#define ml_chain_block_make_1Param(CLASS) typedef ml_concat(ML_, CLASS, Chain)* (^ml_concat(ML_, CLASS, 1ParamBlock))(id object)
-#define ml_chain_block_make_2Param(CLASS) typedef ml_concat(ML_, CLASS, Chain)* (^ml_concat(ML_, CLASS, 2ParamBlock))(id param1, id param2)
-#define ml_chain_block_make_3Param(CLASS) typedef ml_concat(ML_, CLASS, Chain)* (^ml_concat(ML_, CLASS, 3ParamBlock))(id param1, id param2, id param3)
-#define ml_chain_block_make_4Param(CLASS) typedef ml_concat(ML_, CLASS, Chain)* (^ml_concat(ML_, CLASS, 4ParamBlock))(id param1, id param2, id param3,  id param4)
-#define ml_chain_block_make_5Param(CLASS) typedef ml_concat(ML_, CLASS, Chain)* (^ml_concat(ML_, CLASS, 5ParamBlock))(id param1, id param2, id param3,  id param4, id param5)
-#define ml_chain_block_make_6Param(CLASS) typedef ml_concat(ML_, CLASS, Chain)* (^ml_concat(ML_, CLASS, 6ParamBlock))(id param1, id param2, id param3,  id param4, id param5, id param6)
-
-#define ml_to_obj_at_0(...) MASBoxValue(metamacro_at0(__VA_ARGS__))
-#define ml_to_obj_at_1(...) MASBoxValue(metamacro_at1(__VA_ARGS__))
-#define ml_to_obj_at_2(...) MASBoxValue(metamacro_at2(__VA_ARGS__))
-#define ml_to_obj_at_3(...) MASBoxValue(metamacro_at3(__VA_ARGS__))
-#define ml_to_obj_at_4(...) MASBoxValue(metamacro_at4(__VA_ARGS__))
-#define ml_to_obj_at_5(...) MASBoxValue(metamacro_at5(__VA_ARGS__))
-
-
-//ml_chain_implementation
-#define ml_chain_implementation(NUMBEROFARGUMENT, CLASS,  PROPERTY, SELECTOR , ...) ml_chain_implementation_(NUMBEROFARGUMENT, CLASS,  PROPERTY, SELECTOR,  __VA_ARGS__)
-#define ml_chain_implementation_(NUMBEROFARGUMENT, CLASS,  PROPERTY, SELECTOR, ...) ml_concat(ml_chain_implementation_, NUMBEROFARGUMENT, Param)(CLASS,  PROPERTY, __VA_ARGS__) )
 
 
 
-#define ml_chain_implementation_1Param(CLASS, PROPERTY, SELECTOR, ...) - (ml_concat(ML_, CLASS, 1ParamBlock))PROPERTY{\
-__weak typeof(self) weakSelf = self;\
-return ^ml_concat(ML_, CLASS, Chain) *(id param1){\
-__strong typeof(weakSelf) strongSelf = weakSelf;\
-id ChainObject = ChainObjectOfChainMaker(strongSelf, [CLASS class]);\
-[NSObject invocationForArguments:ChainObject, NSStringFromSelector(SELECTOR), param1];\
-return weakSelf;\
-};\
-}
 
-#define ml_chain_implementation_2Param(CLASS, PROPERTY, SELECTOR, ...) - (ml_concat(ML_, CLASS, 2ParamBlock))PROPERTY{\
-__weak typeof(self) weakSelf = self;\
-return ^ml_concat(ML_, CLASS, Chain) *(id param1, id param2){\
-__strong typeof(weakSelf) strongSelf = weakSelf;\
-id ChainObject = ChainObjectOfChainMaker(strongSelf, [CLASS class]);\
-[NSObject invocationForArguments:ChainObject, NSStringFromSelector(SELECTOR), param1, param2];\
-return weakSelf;\
-};\
-}
-
-#define ml_chain_implementation_3Param(CLASS, PROPERTY, SELECTOR, ...) - (ml_concat(ML_, CLASS, 3ParamBlock))PROPERTY{\
-__weak typeof(self) weakSelf = self;\
-return ^ml_concat(ML_, CLASS, Chain) *(id param1, id param2, id param3){\
-__strong typeof(weakSelf) strongSelf = weakSelf;\
-id ChainObject = ChainObjectOfChainMaker(strongSelf, [CLASS class]);\
-[NSObject invocationForArguments:ChainObject, NSStringFromSelector(SELECTOR), param1, param2, param3, ];\
-return weakSelf;\
-};\
-}
-
-#define ml_chain_implementation_4Param(CLASS, PROPERTY, SELECTOR, ...) - (ml_concat(ML_, CLASS, 4ParamBlock))PROPERTY{\
-__weak typeof(self) weakSelf = self;\
-return ^ml_concat(ML_, CLASS, Chain) *(id param1, id param2, id param3, id param4){\
-__strong typeof(weakSelf) strongSelf = weakSelf;\
-id ChainObject = ChainObjectOfChainMaker(strongSelf, [CLASS class]);\
-[NSObject invocationForArguments:ChainObject, NSStringFromSelector(SELECTOR), param1, param2, param3, param4];\
-return weakSelf;\
-};\
-}
+#define ml_to_obj_at_0(...) ml_chain_MASBoxValue(metamacro_at0(__VA_ARGS__))
+#define ml_to_obj_at_1(...) ml_chain_MASBoxValue(metamacro_at1(__VA_ARGS__))
+#define ml_to_obj_at_2(...) ml_chain_MASBoxValue(metamacro_at2(__VA_ARGS__))
+#define ml_to_obj_at_3(...) ml_chain_MASBoxValue(metamacro_at3(__VA_ARGS__))
+#define ml_to_obj_at_4(...) ml_chain_MASBoxValue(metamacro_at4(__VA_ARGS__))
+#define ml_to_obj_at_5(...) ml_chain_MASBoxValue(metamacro_at5(__VA_ARGS__))
 
 
 
@@ -129,8 +129,16 @@ NSInteger numberOfArguments = [sig numberOfArguments];\
 return numberOfArguments;\
 }(TARGET ,SELECTOER)
 
-#define ml_chain_block_maker(CLASS) typedef ml_concat(ML_, CLASS, Chain)* (^ml_concat(ML_, CLASS, ParamBlock))(id object, ...)
 
+
+//block声明 在链对类的h文件声明
+#define ml_chain_block_maker(CLASS) @class ml_concat(ML_, CLASS, Chain);\
+typedef ml_concat(ML_, CLASS, Chain)* (^ml_concat(ML_, CLASS, ParamBlock))(id object, ...)
+//block实现 默认setter方法 在链式类的m文件声明
+#define ml_chain_default_setter_with_getter(PROPERTY) [NSObject setterSelectorWithGetterNameChar:#PROPERTY]
+#define ml_chain_block_implementation_default(CLASS, PROPERTY) ml_chain_block_implementation(CLASS, PROPERTY, ml_chain_default_setter_with_getter(PROPERTY))
+
+//block实现 在链式类的m文件声明
 #define ml_chain_block_implementation(CLASS, PROPERTY, SELECTOR) - (ml_concat(ML_, CLASS, ParamBlock))PROPERTY{\
 __weak typeof(self) weakSelf = self;\
 return ^ml_concat(ML_, CLASS, Chain) *(id firstObject, ...){\
@@ -140,7 +148,7 @@ id chainObject = ChainObjectOfChainMaker(strongSelf, [CLASS class]);\
 NSArray *argumentTypes = [NSObject argumentTypesWithTarget:chainObject selectorName:selectorName];\
 va_list arglist;\
 va_start(arglist, firstObject);\
-NSArray *argments = [NSObject pullArgumentsWithArgumentList:arglist firstObject:firstObject target:strongSelf.view selName:selectorName argumentOperationTypes:argumentTypes];\
+NSArray *argments = [NSObject pullArgumentsWithArgumentList:arglist firstObject:firstObject target:chainObject selName:selectorName argumentOperationTypes:argumentTypes];\
 va_end(arglist);\
 NSMethodSignature *sig = [chainObject methodSignatureForSelector:SELECTOR];\
 [NSObject excuteSettingWith:sig configArguments:argments];\
@@ -148,6 +156,7 @@ return weakSelf;\
 };\
 }
 
+//在category声明方法
 #define ml_chain_category_method_declear(CLASS) + (ml_concat(ML_, CLASS, Chain) *) ml_make;\
 - (ml_concat(ML_, CLASS, Chain) *)ml_make;\
 - (ml_concat(ML_, CLASS, Chain) *)ml_makeConfigs:(void(^)(ml_concat(ML_, CLASS, Chain) * make))block

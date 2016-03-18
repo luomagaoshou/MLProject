@@ -12,16 +12,14 @@
 
 @implementation ML_UIViewChain
 
-ml_chain_block_implementation(UIView, backgroundColor, @selector(setBackgroundColor:))
 
-ml_chain_block_implementation(UIView, hidden, @selector(setHidden:));
+ml_chain_block_implementation_default(UIView, backgroundColor);
+ml_chain_block_implementation_default(UIView, hidden);
+ml_chain_block_implementation_default(UIView, size);
+ml_chain_block_implementation_default(UIView, origin);
+ml_chain_block_implementation_default(UIView, center);
+ml_chain_block_implementation_default(UIView, bounds);
+ml_chain_block_implementation_default(UIView, frame);
 
-ml_chain_block_implementation(UIView, size, @selector(setSize:));
-ml_chain_block_implementation(UIView, origin, @selector(setOrigin:));
-
-
-ml_chain_block_implementation(UIView, center, @selector(setCenter:))
-ml_chain_block_implementation(UIView, frame, @selector(setFrame:));
-ml_chain_block_implementation(UIView, bounds, @selector(setBounds:));
 
 @end

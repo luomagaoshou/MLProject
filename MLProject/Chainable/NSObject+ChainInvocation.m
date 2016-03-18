@@ -310,6 +310,17 @@
 
 }
 #pragma mark - ========= Helper =========
++ (SEL)setterSelectorWithGetterNameChar:(char *)getterNameChar
+{
+    return [self setterSelectorWithGetterNameString:[NSString stringWithUTF8String:getterNameChar]];
+}
++ (SEL)setterSelectorWithGetterNameString:(NSString *)getterNameString
+{
+    NSString *upcaseGetterFirstLetter = [[getterNameString substringToIndex:1].uppercaseString stringByAppendingString:[getterNameString substringFromIndex:1]];
+    NSMutableString *setterNameString = [NSMutableString stringWithFormat:@"set%@:", upcaseGetterFirstLetter];
+ 
+    return NSSelectorFromString(setterNameString);
+}
 + (NSString *)tryToFixSelNameWithTarget:(id)target selectorName:(NSString *)selectorName
 {
     return nil;

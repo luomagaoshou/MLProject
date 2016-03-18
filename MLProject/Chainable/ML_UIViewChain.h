@@ -9,10 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "ML_Chain_Macro.h"
-@interface ML_UIViewChain : ML_NSOjbectChain
-
-
 ml_chain_block_maker(UIView);
+@interface ML_UIViewChain : ML_NSOjbectChain
 @property (nonatomic, strong) UIView *view;
 
 @property (nonatomic, strong, readonly) ML_UIViewParamBlock backgroundColor;

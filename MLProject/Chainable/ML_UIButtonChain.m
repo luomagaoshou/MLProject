@@ -9,6 +9,5 @@
 #import "ML_UIButtonChain.h"
 #import "NSObject+ChainInvocation.h"
 @implementation ML_UIButtonChain
-
-
+ml_chain_block_implementation(UIButton, titleForState, @selector(setTitle:forState:));
 @end
