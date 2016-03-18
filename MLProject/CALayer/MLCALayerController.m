@@ -1,0 +1,237 @@
+//
+//  MLCALayerController.m
+//  MLProject
+//
+//  Created by 妙龙赖 on 16/2/1.
+//  Copyright © 2016年 妙龙赖. All rights reserved.
+//
+
+#import "MLCALayerController.h"
+#import "MLCALayerView2.h"
+#import <objc/runtime.h>
+#import "UIBezierPath+ML_Tools.h"
+#import "UIView+GestureBlock.h"
+#define WIDTH 50
+
+@interface MLCALayerController ()
+
+@end
+
+@implementation MLCALayerController
+
+#pragma mark - ========= View LifeCycle =========
+//nib初始化
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        
+    }
+    return self;
+}
+//初始化，是UIViewController的子类就会调用
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        
+    }
+    return self;
+}
+//加载
+- (void)loadView
+{
+    [super loadView];
+    
+}
+
+//加载完成
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self initUI];
+    [self downloadData];
+}
+//即将出现
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+}
+//排列SubViews
+- (void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+}
+//排列SubViews完成
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    
+}
+//已经出现
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+//即将消失
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+}
+//已经消失
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+}
+//内存警告
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - ========= InitialUI =========
+- (void)initUI
+{
+    [self initLayer];
+    MLCALayerView2 *layerView2 = [[MLCALayerView2 alloc] initWithFrame:CGRectMake(100, 300, 150, 150)];
+    [self.view addSubview:layerView2];
+    
+}
+- (void)initLayer
+{
+    //[self drawMyLayer];
+   // [self drawShapeLayer];
+   // [self addMask];
+}
+- (void)drawShapeLayer
+{
+    
+    UIView *shapeView = [[UIView alloc] init];
+    [shapeView tapWithConfig:nil event:^(id gesture) {
+        [self drawShapeLayer];
+    }];
+    [self.view addSubview:shapeView];
+    shapeView.backgroundColor = [UIColor orangeColor];
+    shapeView.frame = CGRectMake(SCREEN_WIDTH/4, SCREEN_HEIGHT/2, 100, 100);
+    UIBezierPath *tPath;
+    tPath = [UIBezierPath bezierPathWithRoundedRect:shapeView.bounds cornerRadius:5];
+    [[UIColor redColor] set];
+    [tPath addLineToPoint:CGPointMake(shapeView.x, shapeView.y)];
+    [tPath addLineToPoint:CGPointMake(shapeView.x + shapeView.width, shapeView.y)];
+    tPath.lineWidth = 5;
+    [tPath stroke];
+    
+  
+    CAShapeLayer *shapeLayer = [CAShapeLayer layer];
+
+    
+    CALayer *subLayer = [[CALayer alloc] init];
+    subLayer.bounds = shapeView.bounds;
+    subLayer.backgroundColor = [UIColor redColor].CGColor;
+    [shapeLayer addSublayer:subLayer];
+    
+    
+    
+    shapeLayer.path = tPath.CGPath;
+    shapeView.layer.mask = shapeLayer;
+
+    
+}
+- (void)addMask{
+    UIButton * _maskButton = [[UIButton alloc] init];
+    [_maskButton setFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    [_maskButton setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.7]];
+    [self.view addSubview:_maskButton];
+
+     [[UIColor redColor] set];
+    [[UIColor redColor] setStroke];
+    //create path
+    UIBezierPath *path = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    [path stroke];
+    [path fill];
+    [[UIColor redColor] setStroke];
+    // MARK: circlePath
+    [path appendPath:[UIBezierPath bezierPathWithArcCenter:CGPointMake(SCREEN_WIDTH / 2, 200) radius:100 startAngle:0 endAngle:2*M_PI clockwise:NO]];
+    [path stroke];
+    [path fill];
+      [[UIColor redColor] setStroke];
+    // MARK: roundRectanglePath
+    [path appendPath:[[UIBezierPath bezierPathWithRoundedRect:CGRectMake(20, 300, SCREEN_WIDTH - 40, 100) cornerRadius:15] bezierPathByReversingPath]];
+    [path appendPath:[[UIBezierPath drawLineOnLeftWithView:_maskButton lineColor:[UIColor redColor] lineWidth:10] bezierPathByReversingPath]];
+     [path stroke];
+ [[UIColor redColor] setStroke];
+    UIBezierPath *subPath =  [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, 5, 300) cornerRadius:15];
+    subPath.lineWidth = 5;
+
+    [[UIColor redColor] setStroke];
+      [path appendPath:[subPath bezierPathByReversingPath]];
+    CAShapeLayer *shapeLayer = [CAShapeLayer layer];
+    
+    shapeLayer.path = path.CGPath;
+    
+    [_maskButton.layer setMask:shapeLayer];
+}
+
+#pragma mark 绘制图层
+-(void)drawMyLayer{
+    CGSize size=[UIScreen mainScreen].bounds.size;
+    
+    //获得根图层
+    CALayer *layer=[[CALayer alloc]init];
+    //设置背景颜色,由于QuartzCore是跨平台框架，无法直接使用UIColor
+    layer.backgroundColor=[UIColor colorWithRed:0 green:146/255.0 blue:1.0 alpha:1.0].CGColor;
+    //设置中心点
+    layer.position=CGPointMake(size.width/4, size.height/4);
+    //设置大小
+    layer.bounds=CGRectMake(0, 0, WIDTH,WIDTH);
+    //设置圆角,当圆角半径等于矩形的一半时看起来就是一个圆形
+    layer.cornerRadius=WIDTH/2;
+    //设置阴影
+    layer.shadowColor=[UIColor redColor].CGColor;
+    layer.shadowOffset=CGSizeMake(2, 2);
+    layer.shadowOpacity=.2;
+    //设置边框
+        layer.borderColor=[UIColor whiteColor].CGColor;
+        layer.borderWidth=1;
+    
+    //设置锚点
+       layer.anchorPoint=CGPointZero;
+    objc_setAssociatedObject(self, @selector(drawMyLayer), layer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self.view.layer addSublayer:layer];
+    
+}
+
+#pragma mark 点击放大
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+    UITouch *touch=[touches anyObject];
+    CALayer *layer= objc_getAssociatedObject(self, @selector(drawMyLayer));
+    CGFloat width=layer.bounds.size.width;
+    if (width==WIDTH) {
+        width=WIDTH*4;
+    }else{
+        width=WIDTH;
+    }
+    layer.bounds=CGRectMake(0, 0, width, width);
+    layer.position=[touch locationInView:self.view];
+    layer.cornerRadius=width/2;
+  
+}
+
+#pragma mark - ========= DownloadData =========
+- (void)downloadData
+{
+    
+}
+
+
+#pragma mark - ========= Event Methods =========
+- (void)handleSenderEvent:(UIView *)sender
+{
+    
+}
+#pragma mark - ========= Setter & Getter =========
+
+
+
+@end

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--Algorithm Play Controller-->
+        <scene sceneID="pWS-2o-eoL">
+            <objects>
+                <viewController storyboardIdentifier="AlgorithmPlayController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wbb-Yn-hLk" customClass="AlgorithmPlayController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="24o-eC-Y0Y"/>
+                        <viewControllerLayoutGuide type="bottom" id="kfb-qi-n2x"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="E0C-vZ-W24">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L04-EE-8uP">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="竞赛题" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YLw-RC-ke1">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="L04-EE-8uP" firstAttribute="leading" secondItem="E0C-vZ-W24" secondAttribute="leading" id="0Na-z5-Htu"/>
+                            <constraint firstItem="kfb-qi-n2x" firstAttribute="top" secondItem="L04-EE-8uP" secondAttribute="bottom" id="Kfy-s5-iz4"/>
+                            <constraint firstAttribute="trailing" secondItem="L04-EE-8uP" secondAttribute="trailing" id="VTa-fl-6eC"/>
+                            <constraint firstItem="L04-EE-8uP" firstAttribute="top" secondItem="E0C-vZ-W24" secondAttribute="top" id="XVV-uh-jt7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="L04-EE-8uP" id="qUW-Rm-m9E"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="js3-pg-PKm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="514" y="101"/>
+        </scene>
+    </scenes>
+</document>
