@@ -94,6 +94,7 @@
 		18DC19821C58C9C40049BD18 /* UICollectionView+MLCollectionSeparationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DC197B1C58C9C40049BD18 /* UICollectionView+MLCollectionSeparationManager.m */; };
 		18DC19841C58C9C40049BD18 /* UITableView+MLSeparationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DC197D1C58C9C40049BD18 /* UITableView+MLSeparationManager.m */; };
 		18DC19891C58CA5B0049BD18 /* DelegateSeparationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DC19881C58CA5B0049BD18 /* DelegateSeparationController.m */; };
+		18E727F81C9D35E500DA9438 /* CALayer+Line.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E727F71C9D35E500DA9438 /* CALayer+Line.m */; };
 		18FCA22F1C7D3B5C002C4E5C /* image1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18FCA2291C7D3B5C002C4E5C /* image1.jpg */; };
 		18FCA2301C7D3B5C002C4E5C /* image2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18FCA22A1C7D3B5C002C4E5C /* image2.jpg */; };
 		18FCA2311C7D3B5C002C4E5C /* WHC_ModelCreate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FCA22C1C7D3B5C002C4E5C /* WHC_ModelCreate.m */; };
@@ -348,6 +349,8 @@
 		18DC197D1C58C9C40049BD18 /* UITableView+MLSeparationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+MLSeparationManager.m"; sourceTree = "<group>"; };
 		18DC19871C58CA5B0049BD18 /* DelegateSeparationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DelegateSeparationController.h; sourceTree = "<group>"; };
 		18DC19881C58CA5B0049BD18 /* DelegateSeparationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DelegateSeparationController.m; sourceTree = "<group>"; };
+		18E727F61C9D35E500DA9438 /* CALayer+Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Line.h"; sourceTree = "<group>"; };
+		18E727F71C9D35E500DA9438 /* CALayer+Line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Line.m"; sourceTree = "<group>"; };
 		18FCA2271C7D39FB002C4E5C /* PublicColorDeclear.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicColorDeclear.h; sourceTree = "<group>"; };
 		18FCA2291C7D3B5C002C4E5C /* image1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image1.jpg; sourceTree = "<group>"; };
 		18FCA22A1C7D3B5C002C4E5C /* image2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image2.jpg; sourceTree = "<group>"; };
@@ -665,6 +668,8 @@
 				18D8E07A1C84576400706195 /* NSObject+ML_Tools.m */,
 				18D8E07B1C84576400706195 /* UITableView+Refresh.h */,
 				18D8E07C1C84576400706195 /* UITableView+Refresh.m */,
+				18E727F61C9D35E500DA9438 /* CALayer+Line.h */,
+				18E727F71C9D35E500DA9438 /* CALayer+Line.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1386,6 +1391,7 @@
 				FE972D091C5FAB8B00C34DC0 /* MLCALayerController.m in Sources */,
 				FE29A27F1C54F7D0006FF01E /* UIViewController+Storyboard.m in Sources */,
 				FE514DB21C1BFCDB00E3AC0C /* RunTimeController.m in Sources */,
+				18E727F81C9D35E500DA9438 /* CALayer+Line.m in Sources */,
 				18D8E07E1C84576400706195 /* UITableView+Refresh.m in Sources */,
 				18C276671C7D41020055C19D /* NSPredicate+Tools.m in Sources */,
 				188D54131C9102C500841588 /* ML_NSOjbectChain.m in Sources */,

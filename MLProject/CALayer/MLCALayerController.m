@@ -11,6 +11,8 @@
 #import <objc/runtime.h>
 #import "UIBezierPath+ML_Tools.h"
 #import "UIView+GestureBlock.h"
+#import "CALayer+Line.h"
+
 #define WIDTH 50
 
 @interface MLCALayerController ()
@@ -94,8 +96,39 @@
 - (void)initUI
 {
     [self initLayer];
-    MLCALayerView2 *layerView2 = [[MLCALayerView2 alloc] initWithFrame:CGRectMake(100, 300, 150, 150)];
-    [self.view addSubview:layerView2];
+//    MLCALayerView2 *layerView2 = [[MLCALayerView2 alloc] initWithFrame:CGRectMake(100, 300, 150, 150)];
+//    [self.view addSubview:layerView2];
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(100, 300, 200, 200)];
+    [self.view addSubview:view];
+    view.backgroundColor = [UIColor greenColor];
+    
+    [view.layer makeLineWithPositionType:CALayerDrawLineTypePositionTop  lineWidthOrHeight:10 insets:UIEdgeInsetsMake(3, 5, 0, 5) lineColor:[UIColor redColor]];
+    [view.layer makeLineWithPositionType:CALayerDrawLineTypePositionRight lineWidthOrHeight:10 insets:UIEdgeInsetsMake(3, 0, 3, 2) lineColor:[UIColor yellowColor]];
+    [view.layer makeLineWithPositionType:CALayerDrawLineTypePositionBottom lineWidthOrHeight:10 insets:UIEdgeInsetsMake(3, 0, 3, 2) lineColor:[UIColor blueColor]];
+    [view.layer makeLineWithPositionType:CALayerDrawLineTypePositionLeft lineWidthOrHeight:10 insets:UIEdgeInsetsMake(3, 0, 3, 2) lineColor:[UIColor cyanColor]];
+//    CAShapeLayer *shapeLayer = [[CAShapeLayer alloc] init];
+//    shapeLayer.backgroundColor = [UIColor greenColor].CGColor;
+//    shapeLayer.frame = view.bounds;
+//    [view.layer addSublayer:shapeLayer];
+//    
+//    CALayer *lineLayer = [[CALayer alloc] init];
+//    lineLayer.backgroundColor = [UIColor yellowColor].CGColor;
+//    lineLayer.frame = CGRectMake(0, view.height - 20, view.width, 20);
+//    [view.layer addSublayer:lineLayer];
+//    
+//  
+//    
+//    CAShapeLayer *bezierPathLayer = [[CAShapeLayer alloc] init];
+//    bezierPathLayer.frame = view.bounds;
+//    bezierPathLayer.backgroundColor = [UIColor orangeColor].CGColor;
+//    
+//     UIBezierPath *subPath =  [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, view.width, 10) cornerRadius:0];
+//    
+
+//    bezierPathLayer.path = subPath.CGPath;
+//    [view.layer addSublayer:bezierPathLayer];
+    
     
 }
 - (void)initLayer
