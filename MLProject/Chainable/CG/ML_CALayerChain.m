@@ -10,13 +10,17 @@
 
 @implementation ML_CALayerChain
 
-
-
-
-ml_chain_block_implementation(CALayer, borderWidth, @selector(setBorderWidth:));
-ml_chain_block_implementation(CALayer, borderColor, @selector(setBorderColor:));
-ml_chain_block_implementation(CALayer, backgroundColor, @selector(setBackgroundColor:));
+ml_chain_block_implementation_default(CALayer, frame);
+ml_chain_block_implementation_default(CALayer, bounds);
+ml_chain_block_implementation_default(CALayer, cornerRadius);
+ml_chain_block_implementation_default(CALayer, borderWidth);
+ml_chain_block_implementation_default(CALayer, borderColor);
+ml_chain_block_implementation_default(CALayer, backgroundColor);
 
 ml_chain_block_implementation_default(CALayer, shadowColor);
-ml_chain_block_implementation_default(CALayer, shadowOffset)
+ml_chain_block_implementation_default(CALayer, shadowOffset);
+ml_chain_block_implementation_default(CALayer, shadowRadius);
+ml_chain_block_implementation_default(CALayer, shadowOpacity);
+ml_chain_block_implementation_default(CALayer, affineTransform);
+ml_chain_block_implementation_default(CALayer, transform);
 @end

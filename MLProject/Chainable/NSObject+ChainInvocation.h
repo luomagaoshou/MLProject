@@ -16,7 +16,10 @@ id getObjectFromVarlistAtIndex(va_list list, id firstObject, NSInteger index);
 + (NSArray *)argumentTypesWithTarget:(id)target selectorName: (NSString *)selectorName;
 + (NSArray *)pullArgumentsWithArgumentList:(va_list)argumentList firstObject:(id)firstObject target:(id)target selName:(NSString *)selName argumentOperationTypes:(NSArray *)argumentOperationTypes;
 + (void)excuteSettingWith:(NSMethodSignature *)methodSignature configArguments:(NSArray *)configArguments;
-id ChainObjectOfChainMaker(id maker, Class class);
+
 + (SEL)setterSelectorWithGetterNameChar:(char *)getterNameChar;
 + (NSString *)tryToFixSelNameWithTarget:(id)target selectorName:(NSString *)selectorName;
+
+NSString * ChainObjectNameOfClass(Class class);
+id ChainObjectOfChainMaker(id maker, Class class);
 @end

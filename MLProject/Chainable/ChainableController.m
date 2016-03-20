@@ -28,6 +28,7 @@
 #import "vk_msgSend.h"
 #import "NSObject+vk_msgSend.h"
 #import <ReactiveCocoa/NSInvocation+RACTypeParsing.h>
+#import "CALayer+ML_CALayerChain.h"
  #define MAS_SHORTHAND_GLOBALS
     typedef NSString *(^testBlcok)(NSString *);
 
@@ -147,8 +148,8 @@ return numberOfArguments;
     btn.backgroundColor = [UIColor greenColor];
     [self.view addSubview:btn];
    
-    btn.ml_make.backgroundColor([UIColor redColor]).frame(self.view.width/2, self.view.height/2,200, 200).center(self.view.width/2, self.view.height/2);
-    btn.ml_make.titleForState(@"sfsdf", UIControlStateNormal);
+  //  btn.ml_make.backgroundColor([UIColor redColor]).frame(self.view.width/2, self.view.height/2,200, 200).center(self.view.width/2, self.view.height/2).backgroundColor([UIColor redColor]);
+   // btn.ml_make.titleForState(@"sfsdf", UIControlStateNormal);
 
     UIView *view = [[UIView alloc] init];
     [self.view addSubview:view];
@@ -156,7 +157,35 @@ return numberOfArguments;
  
     NSLog(@"%@", [CALayer getIvarList]);
 
+#define frame_(x, y , width, height) CGRectMake(x, y, width, height)
+    
 
+    CALayer *layer =[[CALayer alloc] init];
+    layer.ml_make.frame(100, 100, 200, 200);
+
+    layer.ml_make.affineTransform(1.1, 2.2, 3.3, 4.4, 5.5, 6.6);
+   //layer.ml_make.frame(100 ,100 ,200, 100).backgroundColor([UIColor yellowColor]).shadowRadius(19).shadowColor([UIColor blueColor]).shadowOffset(-50, 50).borderWidth(10).shadowOpacity(1).borderColor([UIColor cyanColor]).shadowColor([UIColor greenColor]);
+  //  layer.ml_make.transform(CATransform3DMakeAffineTransform(<#CGAffineTransform m#>));
+
+   // layer.transform = CATransform3DMakeAffineTransform(CGAffineTransformMake(2, 0, 0, 1, 2, 2));
+
+    CATransform3D transform = CATransform3DMakeTranslation(2, 2, 2);
+    layer.transform = transform;
+ //   layer.ml_make.transform(transform);
+    
+    
+//    // 圆角
+//    layer.cornerRadius = 20;
+//    
+//    // 阴影
+//    //layer.shadowOffset = CGSizeMake(-50, 50);
+//   // layer.shadowColor = [UIColor orangeColor].CGColor;
+//    layer.shadowOpacity = 1.0;  // 阴影透明度
+//    layer.shadowRadius = 20;    // 阴影的半径
+    
+    [self.view.layer addSublayer:layer];
+
+    
 
     
 }

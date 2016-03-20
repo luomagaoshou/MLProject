@@ -11,17 +11,32 @@
 ml_chain_block_maker(CALayer);
 @interface ML_CALayerChain : ML_NSOjbectChain
 @property (nonatomic, strong) CALayer *layer;
+
+@property (nonatomic, copy, readonly) ML_CALayerParamBlock bounds;
+
+@property (nonatomic, copy, readonly) ML_CALayerParamBlock frame;
+#define cornerRadius(...) ml_chain_arg(cornerRadius, __VA_ARGS__)
 @property (nonatomic, copy, readonly) ML_CALayerParamBlock cornerRadius;
 
-#define borberWidth(...) borderColor(MASBoxValue(ml_to_obj_at_0(__VA_ARGS__)))
+#define borderWidth(...) ml_chain_arg(borderWidth, __VA_ARGS__)
 @property (nonatomic, copy, readonly) ML_CALayerParamBlock borderWidth;
-#define borderColor(...) borderColor(MASBoxValue(ml_to_obj_at_0(__VA_ARGS__)))
 
 @property (nonatomic, copy, readonly) ML_CALayerParamBlock borderColor;
+
 @property (nonatomic, copy, readonly) ML_CALayerParamBlock backgroundColor;
 
+
 @property (nonatomic, copy, readonly) ML_CALayerParamBlock shadowColor;
+#define shadowOffset(...) ml_chain_arg(shadowOffset, __VA_ARGS__)
 @property (nonatomic, copy, readonly) ML_CALayerParamBlock shadowOffset;
+#define shadowRadius(...) ml_chain_arg(shadowRadius, __VA_ARGS__)
 @property (nonatomic, copy, readonly) ML_CALayerParamBlock shadowRadius;
+#define shadowOpacity(...) ml_chain_arg(shadowOpacity, __VA_ARGS__)
+@property (nonatomic, copy, readonly) ML_CALayerParamBlock shadowOpacity;
 @property (nonatomic, copy, readonly) ML_CALayerParamBlock shadowPath;
+#define affineTransform(...) ml_chain_arg(affineTransform, __VA_ARGS__)
+@property (nonatomic, copy, readonly) ML_CALayerParamBlock affineTransform;
+#define transform(...) ml_chain_arg(transform, __VA_ARGS__)
+@property (nonatomic, copy, readonly) ML_CALayerParamBlock transform;
+
 @end

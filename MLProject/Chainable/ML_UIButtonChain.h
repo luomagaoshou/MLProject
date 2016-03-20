@@ -15,7 +15,8 @@ ml_chain_block_maker(UIButton);
 @interface ML_UIButtonChain : ML_UIViewChain
 
 @property (nonatomic, strong) UIButton *button;
-#define titleForState(...)  titleForState(ml_to_obj_at_0(__VA_ARGS__), ml_to_obj_at_1(__VA_ARGS__))
+#define titleForState(...) ml_chain_arg(titleForState, __VA_ARGS__)
+
 @property (nonatomic, strong) ML_UIButtonParamBlock titleForState;
 
 

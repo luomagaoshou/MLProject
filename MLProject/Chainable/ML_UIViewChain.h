@@ -14,21 +14,17 @@ ml_chain_block_maker(UIView);
 @property (nonatomic, strong) UIView *view;
 
 @property (nonatomic, strong, readonly) ML_UIViewParamBlock backgroundColor;
-
-#define origin(...) origin(ml_to_obj_at_0(__VA_ARGS__), ml_to_obj_at_1(__VA_ARGS__))
+#define origin(...) ml_chain_arg(origin, __VA_ARGS__)
 @property (nonatomic, strong, readonly) ML_UIViewParamBlock origin;
-
-#define center(...) center(ml_to_obj_at_0(__VA_ARGS__), ml_to_obj_at_1(__VA_ARGS__))
+#define center(...) ml_chain_arg(center, __VA_ARGS__)
 @property (nonatomic, strong, readonly) ML_UIViewParamBlock center;
-
-
-#define size(...) size(ml_to_obj_at_0(__VA_ARGS__), ml_to_obj_at_1(__VA_ARGS__))
+#define size(...) ml_chain_arg(size, __VA_ARGS__)
 @property (nonatomic, strong, readonly) ML_UIViewParamBlock size;
-#define frame(...) frame(ml_to_obj_at_0(__VA_ARGS__), ml_to_obj_at_1(__VA_ARGS__), ml_to_obj_at_2(__VA_ARGS__), ml_to_obj_at_3(__VA_ARGS__))
+#define frame(...) ml_chain_arg(frame, __VA_ARGS__)
 @property (nonatomic, strong, readonly) ML_UIViewParamBlock frame;
-#define bounds(...) bounds(ml_to_obj_at_0(__VA_ARGS__), ml_to_obj_at_1(__VA_ARGS__), ml_to_obj_at_2(__VA_ARGS__), ml_to_obj_at_3(__VA_ARGS__))
+#define bounds(...) ml_chain_arg(bounds, __VA_ARGS__)
 @property (nonatomic, strong, readonly) ML_UIViewParamBlock bounds;
-#define hidden(...) hidden(ml_to_obj_at_0(__VA_ARGS__))
+#define hidden(...) ml_chain_arg(hidden, __VA_ARGS__)
 @property (nonatomic, strong, readonly) ML_UIViewParamBlock hidden;
 
 
