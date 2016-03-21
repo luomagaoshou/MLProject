@@ -16,9 +16,9 @@ ml_chain_block_maker(UIView);
 @property (nonatomic, strong, readonly) ML_UIViewParamBlock backgroundColor;
 #define origin(...) ml_chain_arg(origin, __VA_ARGS__)
 @property (nonatomic, strong, readonly) ML_UIViewParamBlock origin;
-#define center(...) ml_chain_arg(center, __VA_ARGS__)
+#define center(...) center(ml_chain_MASBoxValue(CGPointMake(__VA_ARGS__)))
 @property (nonatomic, strong, readonly) ML_UIViewParamBlock center;
-#define size(...) ml_chain_arg(size, __VA_ARGS__)
+//#define size(...) ml_chain_arg(size, __VA_ARGS__)
 @property (nonatomic, strong, readonly) ML_UIViewParamBlock size;
 #define frame(...) ml_chain_arg(frame, __VA_ARGS__)
 @property (nonatomic, strong, readonly) ML_UIViewParamBlock frame;

@@ -143,12 +143,15 @@ return numberOfArguments;
 #pragma mark - ========= InitialUI =========
 - (void)initUI
 {
-
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
     btn.backgroundColor = [UIColor greenColor];
     [self.view addSubview:btn];
+    btn.frame = CGRectMake(0, 0, 200, 200);
    
-  //  btn.ml_make.backgroundColor([UIColor redColor]).frame(self.view.width/2, self.view.height/2,200, 200).center(self.view.width/2, self.view.height/2).backgroundColor([UIColor redColor]);
+  //  btn.ml_make.backgroundColor([UIColor redColor]).frame(self.view.width/2, self.view.height/2,200, 200).backgroundColor([UIColor redColor]);
+    btn.ml_make.center(200 ,200);
+   
+   // id point = ml_chain_MASBoxValue(CGPointMake(200, 200));
    // btn.ml_make.titleForState(@"sfsdf", UIControlStateNormal);
 
     UIView *view = [[UIView alloc] init];
@@ -157,20 +160,20 @@ return numberOfArguments;
  
     NSLog(@"%@", [CALayer getIvarList]);
 
-#define frame_(x, y , width, height) CGRectMake(x, y, width, height)
+    
     
 
-    CALayer *layer =[[CALayer alloc] init];
-    layer.ml_make.frame(100, 100, 200, 200);
-
-    layer.ml_make.affineTransform(1.1, 2.2, 3.3, 4.4, 5.5, 6.6);
+//    CALayer *layer =[[CALayer alloc] init];
+//    layer.ml_make.frame(100, 100, 200, 200);
+//
+//    layer.ml_make.affineTransform(1.1, 2.2, 3.3, 4.4, 5.5, 6.6);
    //layer.ml_make.frame(100 ,100 ,200, 100).backgroundColor([UIColor yellowColor]).shadowRadius(19).shadowColor([UIColor blueColor]).shadowOffset(-50, 50).borderWidth(10).shadowOpacity(1).borderColor([UIColor cyanColor]).shadowColor([UIColor greenColor]);
   //  layer.ml_make.transform(CATransform3DMakeAffineTransform(<#CGAffineTransform m#>));
 
    // layer.transform = CATransform3DMakeAffineTransform(CGAffineTransformMake(2, 0, 0, 1, 2, 2));
 
-    CATransform3D transform = CATransform3DMakeTranslation(2, 2, 2);
-    layer.transform = transform;
+   // CATransform3D transform = CATransform3DMakeTranslation(2, 2, 2);
+ //   layer.transform = transform;
  //   layer.ml_make.transform(transform);
     
     
@@ -183,11 +186,26 @@ return numberOfArguments;
 //    layer.shadowOpacity = 1.0;  // 阴影透明度
 //    layer.shadowRadius = 20;    // 阴影的半径
     
-    [self.view.layer addSublayer:layer];
+    //[self.view.layer addSublayer:layer];
 
     
-
-    
+//
+//    CGFloat originalMoney = 1.4;
+//    CGFloat interestRate = 0.12;
+//    CGFloat interestForThisYear = 0;
+//    CGFloat storeMoney = 0;
+//    CGFloat beginMoneyForEveryYear = 0;
+//    
+//    double amount;
+//    for (int i = 1; i <= 25; i++) {
+//        amount += originalMoney;
+//        beginMoneyForEveryYear = amount;
+//        interestForThisYear = beginMoneyForEveryYear * interestRate;
+//        amount += interestForThisYear;
+//        storeMoney += originalMoney;
+//        printf("第%d年，总投资:%.4lf万元，复利前总额:%.4lf   当年利息:%.4lf 复利后总额（本金加利息）:%.4lf万元\n", i, storeMoney, beginMoneyForEveryYear, interestForThisYear, amount);
+//    }
+//    NSLog(@"%lf", amount);
 }
 
 - (char *)getArgumentTypeWith:(SEL)selector target:(id)target index:(NSInteger)index

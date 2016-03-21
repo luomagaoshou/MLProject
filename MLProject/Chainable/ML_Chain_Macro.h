@@ -157,13 +157,11 @@ __strong typeof(weakSelf) strongSelf = weakSelf;\
 SEL SELECTOR = ml_chain_default_setter_with_getter(PROPERTY);\
 NSString *selectorName = NSStringFromSelector(SELECTOR);\
 id chainObject = ChainObjectOfChainMaker(strongSelf, [CLASS class]);\
-NSArray *argumentTypes = [NSObject argumentTypesWithTarget:chainObject selectorName:selectorName];\
 va_list arglist;\
 va_start(arglist, firstObject);\
-NSArray *argments = [NSObject pullArgumentsWithArgumentList:arglist firstObject:firstObject target:chainObject selName:selectorName argumentOperationTypes:argumentTypes];\
+NSArray *arguments = [NSObject argumentsWithTarget:chainObject selectorName:selectorName arglist:arglist firstObject:firstObject];\
 va_end(arglist);\
-NSMethodSignature *sig = [chainObject methodSignatureForSelector:SELECTOR];\
-[NSObject excuteSettingWith:sig configArguments:argments];\
+[NSObject excuteSettingWithTarget:chainObject selectorName:selectorName configArguments:arguments];\
 return weakSelf;\
 };\
 }
