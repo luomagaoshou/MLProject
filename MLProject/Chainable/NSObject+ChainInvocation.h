@@ -15,9 +15,6 @@ id getObjectFromVarlistAtIndex(va_list list, id firstObject, NSInteger index);
 + (NSArray *)argumentsWithTarget:(id)target selectorName: (NSString *)selectorName arglist:(va_list)arglist firstObject:(id)firstObject;
 + (void)excuteSettingWithTarget:(id)target selectorName: (NSString *)selectorName configArguments:(NSArray *)configArguments;
 
-+ (NSArray *)argumentTypesWithTarget:(id)target selectorName: (NSString *)selectorName;
-+ (NSArray *)pullArgumentsWithArgumentList:(va_list)argumentList firstObject:(id)firstObject target:(id)target selName:(NSString *)selName argumentOperationTypes:(NSArray *)argumentOperationTypes;
-+ (void)excuteSettingWith:(NSMethodSignature *)methodSignature configArguments:(NSArray *)configArguments;
 
 + (SEL)setterSelectorWithGetterNameChar:(char *)getterNameChar;
 + (NSString *)tryToFixSelNameWithTarget:(id)target selectorName:(NSString *)selectorName;

@@ -7,8 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef NS_ENUM(NSInteger, UIBezierPathDrawLineSide) {
+    UIBezierPathDrawLineSideTop,
+    UIBezierPathDrawLineSideLeft,
+    UIBezierPathDrawLineSideBottom,
+    UIBezierPathDrawLineSideRight,
+};
 @interface UIBezierPath (ML_Tools)
+
++ (UIBezierPath *)drawLineOnView:(UIView *)view
+                          withSide:(UIBezierPathDrawLineSide)side
+                       lineColor:(UIColor *)lineColor
+                       lineWidth:(CGFloat)lineWidth
+                          insets:(UIEdgeInsets)insets;
 //在低边画一条线
 + (UIBezierPath *)drawLineOnButtomWithView:(UIView *)view
                                  lineColor:(UIColor *)lineColor

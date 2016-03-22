@@ -9,6 +9,46 @@
 #import "UIBezierPath+ML_Tools.h"
 
 @implementation UIBezierPath (ML_Tools)
++ (UIBezierPath *)drawLineOnView:(UIView *)view withSide:(UIBezierPathDrawLineSide)side lineColor:(UIColor *)lineColor lineWidth:(CGFloat)lineWidth insets:(UIEdgeInsets)insets
+{
+    UIBezierPath *path = [UIBezierPath bezierPathWithRect:[self getFrameWithView:view withSide:side lineColor:lineColor lineWidth:lineWidth insets:insets]];
+    [lineColor set];
+    [path stroke];
+    [path fill];
+    return nil;
+}
++ (CGRect)getFrameWithView:(UIView *)view withSide:(UIBezierPathDrawLineSide)side lineColor:(UIColor *)lineColor lineWidth:(CGFloat)lineWidth insets:(UIEdgeInsets)insets
+{
+    CGRect frame;
+    switch (side) {
+        case UIBezierPathDrawLineSideTop:
+        {
+        frame = CGRectMake(0, 0, view.bounds.size.width, lineWidth);
+        }
+            break;
+        case UIBezierPathDrawLineSideLeft:
+        {
+        frame = CGRectMake(0, 0, lineWidth, view.bounds.size.height);
+        }
+            break;
+        case UIBezierPathDrawLineSideBottom:
+        {
+        frame = CGRectMake(0, view.bounds.size.height - lineWidth, view.bounds.size.width, lineWidth);
+        }
+            break;
+        case UIBezierPathDrawLineSideRight:
+        {
+        frame = CGRectMake(view.bounds.size.width - lineWidth, 0, lineWidth, view.bounds.size.height);
+        }
+            break;
+        default:
+            break;
+    }
+    
+    frame = UIEdgeInsetsInsetRect(frame, insets);
+    return frame;
+}
+
 + (UIBezierPath *)drawLineOnButtomWithView:(UIView *)view
                                  lineColor:(UIColor *)lineColor
                                  lineWidth:(CGFloat)lineWidth

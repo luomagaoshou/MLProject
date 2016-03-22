@@ -114,27 +114,6 @@ static inline id _ml_chain_MASBoxValue(const char *type, ...) {
 
 
 
-//
-#define ml_c_struct_value_in_array_of(TYPE, ARRAY) ml_c_struct_value_in_array_of_(TYPE, ARRAY)
-
-#define ml_c_struct_value_in_array_of_(TYPE, ARRAY) metamacro_concat(ml_c_struct_value_in_array_of_, TYPE)(ARRAY)
-//CGPiont
-#define ml_c_struct_value_in_array_of_CGPoint(ARRAY) CGPointMake([ARRAY[0] floatValue], [ARRAY[1] floatValue])
-//CGize
-#define ml_c_struct_value_in_array_of_CGSize(ARRAY) CGSizeMake([ARRAY[0] floatValue], [ARRAY[1] floatValue])
-//CGRect
-#define ml_c_struct_value_in_array_of_CGRect(ARRAY) CGRectMake([ARRAY[0] floatValue], [ARRAY[1] floatValue], [ARRAY[2] floatValue], [ARRAY[3] floatValue])
-//CGVector
-#define ml_c_struct_value_in_array_of_CGVector(ARRAY) CGVectorMake([ARRAY[0] floatValue], [ARRAY[1] floatValue])
-//CGAffineTransform
-#define ml_c_struct_value_in_array_of_CGAffineTransform(ARRAY) CGAffineTransformMake([ARRAY[0] floatValue], [ARRAY[1] floatValue], [ARRAY[2] floatValue], [ARRAY[3] floatValue], [ARRAY[4] floatValue], [ARRAY[5] floatValue])
-//NSRange
-#define ml_c_struct_value_in_array_of_NSRange(ARRAY) NSMakeRange([ARRAY[0] floatValue], [ARRAY[1] floatValue])
-//UIOffset
-#define ml_c_struct_value_in_array_of_UIOffset(ARRAY) UIOffsetMake([ARRAY[0] floatValue], [ARRAY[1] floatValue])
-//UIEdgeInsets
-#define ml_c_struct_value_in_array_of_UIEdgeInsets(ARRAY) UIEdgeInsetsMake([ARRAY[0] floatValue], [ARRAY[1] floatValue], [ARRAY[2] floatValue], [ARRAY[3] floatValue])
-
 
 
 #define get_selector_number_of_argument(TARGET, SELECTOER)    ^ (id target, SEL selector){\
@@ -156,7 +135,7 @@ return ^ml_concat(ML_, CLASS, Chain) *(id firstObject, ...){\
 __strong typeof(weakSelf) strongSelf = weakSelf;\
 SEL SELECTOR = ml_chain_default_setter_with_getter(PROPERTY);\
 NSString *selectorName = NSStringFromSelector(SELECTOR);\
-id chainObject = ChainObjectOfChainMaker(strongSelf, [CLASS class]);\
+id chainObject = ChainObjectOfChainMaker(strongSelf, [UIView class]);\
 va_list arglist;\
 va_start(arglist, firstObject);\
 NSArray *arguments = [NSObject argumentsWithTarget:chainObject selectorName:selectorName arglist:arglist firstObject:firstObject];\
@@ -172,18 +151,15 @@ __weak typeof(self) weakSelf = self;\
 return ^ml_concat(ML_, CLASS, Chain) *(id firstObject, ...){\
 __strong typeof(weakSelf) strongSelf = weakSelf;\
 NSString *selectorName = NSStringFromSelector(SELECTOR);\
-id chainObject = ChainObjectOfChainMaker(strongSelf, [CLASS class]);\
-NSArray *argumentTypes = [NSObject argumentTypesWithTarget:chainObject selectorName:selectorName];\
+id chainObject = ChainObjectOfChainMaker(strongSelf, [UIView class]);\
 va_list arglist;\
 va_start(arglist, firstObject);\
-NSArray *argments = [NSObject pullArgumentsWithArgumentList:arglist firstObject:firstObject target:chainObject selName:selectorName argumentOperationTypes:argumentTypes];\
+NSArray *arguments = [NSObject argumentsWithTarget:chainObject selectorName:selectorName arglist:arglist firstObject:firstObject];\
 va_end(arglist);\
-NSMethodSignature *sig = [chainObject methodSignatureForSelector:SELECTOR];\
-[NSObject excuteSettingWith:sig configArguments:argments];\
+[NSObject excuteSettingWithTarget:chainObject selectorName:selectorName configArguments:arguments];\
 return weakSelf;\
 };\
 }
-
 //在category声明方法
 #define ml_chain_category_method_declear(CLASS) + (ml_concat(ML_, CLASS, Chain) *) ml_make;\
 - (ml_concat(ML_, CLASS, Chain) *)ml_make;\

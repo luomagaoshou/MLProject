@@ -29,11 +29,15 @@
 #import "NSObject+vk_msgSend.h"
 #import <ReactiveCocoa/NSInvocation+RACTypeParsing.h>
 #import "CALayer+ML_CALayerChain.h"
+#import "CALayer+Line.h"
+#import "UIView+DrawRectBlock.h"
+#import "UIBezierPath+ML_Tools.h"
  #define MAS_SHORTHAND_GLOBALS
     typedef NSString *(^testBlcok)(NSString *);
 
 @interface ChainableController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *xibButton;
 
 @end
 
@@ -122,6 +126,8 @@ return numberOfArguments;
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+   
+
 }
 //即将消失
 - (void)viewWillDisappear:(BOOL)animated
@@ -143,13 +149,29 @@ return numberOfArguments;
 #pragma mark - ========= InitialUI =========
 - (void)initUI
 {
+    
+    [self.xibButton setNeedsLayout];
+    [self.xibButton setNeedsUpdateConstraints];
+    CALayer *subLayer = [[CALayer alloc] init];
+    subLayer.backgroundColor = [UIColor redColor].CGColor;
+    subLayer.frame = self.xibButton.bounds;
+    [self.xibButton.layer addSublayer:subLayer];
+    self.xibButton.layer.frame = self.xibButton.bounds;
+    //  self.xibButton.layer.masksToBounds = YES;
+    [subLayer makeLineWithPositionType:CALayerDrawLineTypePositionBottom lineWidthOrHeight:10 insets:UIEdgeInsetsMake(0, 0, 0, 0)  lineColor:[UIColor yellowColor]];
+    self.xibButton.drawRectBlock = ^(CGContextRef ref, CGRect rect){
+        
+        [UIBezierPath drawLineOnRightWithView:self.xibButton lineColor:[UIColor redColor] lineWidth:10 insets:UIEdgeInsetsMake(5, 0, 5, 0)];
+        [UIBezierPath drawLineOnView:self.xibButton withSide:UIBezierPathDrawLineSideBottom lineColor:[UIColor greenColor] lineWidth:10 insets:UIEdgeInsetsMake(1, 20, 0, 20)];
+    };
+    
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
     btn.backgroundColor = [UIColor greenColor];
     [self.view addSubview:btn];
     btn.frame = CGRectMake(0, 0, 200, 200);
    
   //  btn.ml_make.backgroundColor([UIColor redColor]).frame(self.view.width/2, self.view.height/2,200, 200).backgroundColor([UIColor redColor]);
-    btn.ml_make.center(200 ,200);
+    btn.ml_make.center(200 ,200).frame(300, 300, 150, 200);
    
    // id point = ml_chain_MASBoxValue(CGPointMake(200, 200));
    // btn.ml_make.titleForState(@"sfsdf", UIControlStateNormal);
@@ -161,8 +183,7 @@ return numberOfArguments;
     NSLog(@"%@", [CALayer getIvarList]);
 
     
-    
-
+   
 //    CALayer *layer =[[CALayer alloc] init];
 //    layer.ml_make.frame(100, 100, 200, 200);
 //

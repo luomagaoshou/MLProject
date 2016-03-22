@@ -14,17 +14,17 @@ ml_chain_block_maker(UIView);
 @property (nonatomic, strong) UIView *view;
 
 @property (nonatomic, strong, readonly) ML_UIViewParamBlock backgroundColor;
-#define origin(...) ml_chain_arg(origin, __VA_ARGS__)
+#define origin(...) origin(ml_chain_MASBoxValue(CGPointMake(__VA_ARGS__)))
 @property (nonatomic, strong, readonly) ML_UIViewParamBlock origin;
 #define center(...) center(ml_chain_MASBoxValue(CGPointMake(__VA_ARGS__)))
 @property (nonatomic, strong, readonly) ML_UIViewParamBlock center;
-//#define size(...) ml_chain_arg(size, __VA_ARGS__)
+#define size(...) size(ml_chain_MASBoxValue(CGSizeMake(__VA_ARGS__)))
 @property (nonatomic, strong, readonly) ML_UIViewParamBlock size;
-#define frame(...) ml_chain_arg(frame, __VA_ARGS__)
+#define frame(...) frame(ml_chain_MASBoxValue(CGRectMake(__VA_ARGS__)))
 @property (nonatomic, strong, readonly) ML_UIViewParamBlock frame;
-#define bounds(...) ml_chain_arg(bounds, __VA_ARGS__)
+#define bounds(...) bounds(ml_chain_MASBoxValue(CGRectMake(__VA_ARGS__)))
 @property (nonatomic, strong, readonly) ML_UIViewParamBlock bounds;
-#define hidden(...) ml_chain_arg(hidden, __VA_ARGS__)
+#define hidden(...) hidden(ml_chain_MASBoxValue(__VA_ARGS__)
 @property (nonatomic, strong, readonly) ML_UIViewParamBlock hidden;
 
 
