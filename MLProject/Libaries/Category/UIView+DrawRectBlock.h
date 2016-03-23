@@ -18,4 +18,5 @@ typedef void (^UIViewDrawRectBlock)(CGContextRef ref, CGRect rect);
 @property (nonatomic, strong) NSMutableArray *drawRectViewArray;
 - (void)removeAllDrawRectViews;
 - (void)removeLastDrawRectView;
+- (void)configDrawRectBlock:(UIViewDrawRectBlock)drawRectBlock;
 @end

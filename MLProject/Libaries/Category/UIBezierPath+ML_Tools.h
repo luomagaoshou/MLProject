@@ -7,68 +7,28 @@
 //
 
 #import <UIKit/UIKit.h>
-typedef NS_ENUM(NSInteger, UIBezierPathDrawLineSide) {
-    UIBezierPathDrawLineSideTop,
-    UIBezierPathDrawLineSideLeft,
-    UIBezierPathDrawLineSideBottom,
-    UIBezierPathDrawLineSideRight,
+typedef NS_ENUM(NSInteger, UIBezierPathDrawLineOptionSide) {
+    UIBezierPathDrawLineOptionSideTop = 1 << 1,
+    UIBezierPathDrawLineOptionSideLeft = 1 << 2,
+    UIBezierPathDrawLineOptionSideBottom = 1 << 3,
+    UIBezierPathDrawLineOptionSideRight = 1 << 4,
 };
 @interface UIBezierPath (ML_Tools)
 
-+ (UIBezierPath *)drawLineOnView:(UIView *)view
-                          withSide:(UIBezierPathDrawLineSide)side
++ (void)drawLineOnView:(UIView *)view
+                          withSide:(UIBezierPathDrawLineOptionSide)side
                        lineColor:(UIColor *)lineColor
                        lineWidth:(CGFloat)lineWidth
                           insets:(UIEdgeInsets)insets;
-//在低边画一条线
-+ (UIBezierPath *)drawLineOnButtomWithView:(UIView *)view
-                                 lineColor:(UIColor *)lineColor
-                                 lineWidth:(CGFloat)lineWidth;
-+ (UIBezierPath *)drawLineOnTopWithView:(UIView *)view
-                                 lineColor:(UIColor *)lineColor
-                                 lineWidth:(CGFloat)lineWidth;
-+ (UIBezierPath *)drawLineOnTopWithView:(UIView *)view
-                              lineColor:(UIColor *)lineColor
-                              lineWidth:(CGFloat)lineWidth insets:(UIEdgeInsets)insets;
-+ (UIBezierPath *)drawLineOnLeftWithView:(UIView *)view
-                              lineColor:(UIColor *)lineColor
-                              lineWidth:(CGFloat)lineWidth;
-+ (UIBezierPath *)drawLineOnRightWithView:(UIView *)view
-                               lineColor:(UIColor *)lineColor
-                               lineWidth:(CGFloat)lineWidth;
-+ (UIBezierPath *)drawLineOnRightWithView:(UIView *)view lineColor:(UIColor *)lineColor lineWidth:(CGFloat)lineWidth insets:(UIEdgeInsets)insets;
-//
-+ (UIBezierPath *)drawLineOnVerticalCenterWithView:(UIView *)view
-                                lineColor:(UIColor *)lineColor
-                                lineWidth:(CGFloat)lineWidth;
-+ (UIBezierPath *)drawLineOnHorizontalCenterWithView:(UIView *)view
-                                           lineColor:(UIColor *)lineColor
-                                           lineWidth:(CGFloat)lineWidth;
-+ (UIBezierPath *)drawUpsideAngleWithView:(UIView *)view
-                                 lineColor:(UIColor *)lineColor
-                                 lineWidth:(CGFloat)lineWidth;
-+ (UIBezierPath *)drawUpsidedownAngleWithView:(UIView *)view
-                                lineColor:(UIColor *)lineColor
-                                lineWidth:(CGFloat)lineWidth;
++ (void)drawLineOnTopWithView:(UIView *)view lineColor:(UIColor *)lineColor lineWidth:(CGFloat)lineWidth;
++ (void)drawLineOnTopWithView:(UIView *)view lineColor:(UIColor *)lineColor lineWidth:(CGFloat)lineWidth insets:(UIEdgeInsets)insets;
 
-+ (UIBezierPath *)drawLineWithStartPoint:(CGPoint)statrPoint
-                      endPoint:(CGPoint)endPoint
-                     lineColor:(UIColor *)lineColor
-                     lineWidth:(CGFloat)lineWidth;
-+ (UIBezierPath *)drawBorderWithRect:(CGRect)rect
-    edgeInset:(UIEdgeInsets)edgeInset
-                 lineColor:(UIColor *)lineColor
-                 lineWidth:(CGFloat)lineWidth;
++ (void)drawLineOnLeftWithView:(UIView *)view lineColor:(UIColor *)lineColor lineWidth:(CGFloat)lineWidth;
++ (void)drawLineOnLeftWithView:(UIView *)view lineColor:(UIColor *)lineColor lineWidth:(CGFloat)lineWidth insets:(UIEdgeInsets)insets;
 
++ (void)drawLineOnBottomWithView:(UIView *)view lineColor:(UIColor *)lineColor lineWidth:(CGFloat)lineWidth;
++ (void)drawLineOnBottomWithView:(UIView *)view lineColor:(UIColor *)lineColor lineWidth:(CGFloat)lineWidth insets:(UIEdgeInsets)insets;
 
-
-+ (UIBezierPath *)drawCenterEquilateralTriangleWithRect:(CGRect)rect
-                                                 length:(CGFloat)length;
-+ (UIBezierPath *)drawWithPoints:(NSArray *)points
-                       lineColor:(UIColor *)lineColor
-                       lineWidth:(CGFloat)lineWidth;
-+ (UIBezierPath *)drawWithPoints:(NSArray *)points
-                       lineColor:(UIColor *)lineColor
-                       lineWidth:(CGFloat)lineWidth
-                          isFill:(BOOL)isFill;
++ (void)drawLineOnRightWithView:(UIView *)view lineColor:(UIColor *)lineColor lineWidth:(CGFloat)lineWidth;
++ (void)drawLineOnRightWithView:(UIView *)view lineColor:(UIColor *)lineColor lineWidth:(CGFloat)lineWidth insets:(UIEdgeInsets)insets;
 @end

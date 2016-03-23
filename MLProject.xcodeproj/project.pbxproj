@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18463CEC1CA247E300DD87BE /* UIBezierPath+ML_Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18463CEA1CA247E300DD87BE /* UIBezierPath+ML_Tools.m */; };
 		187D54AE1C8400ED0066EC67 /* MLAttributeStringController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187D54AD1C8400ED0066EC67 /* MLAttributeStringController.m */; };
 		187D54B21C84011E0066EC67 /* MLAttributeString.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 187D54B11C84011E0066EC67 /* MLAttributeString.storyboard */; };
 		188D54131C9102C500841588 /* ML_NSOjbectChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 188D54121C9102C500841588 /* ML_NSOjbectChain.m */; };
@@ -45,7 +46,6 @@
 		18C2766C1C7D41020055C19D /* NSString+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C275F61C7D41020055C19D /* NSString+Size.m */; };
 		18C2766D1C7D41020055C19D /* UIBarButtonItem+EventBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C275F81C7D41020055C19D /* UIBarButtonItem+EventBlock.m */; };
 		18C2766E1C7D41020055C19D /* UIBarButtonItem+ML_Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C275FA1C7D41020055C19D /* UIBarButtonItem+ML_Tools.m */; };
-		18C2766F1C7D41020055C19D /* UIBezierPath+ML_Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C275FC1C7D41020055C19D /* UIBezierPath+ML_Tools.m */; };
 		18C276701C7D41020055C19D /* UIButton+CommonType.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C275FE1C7D41020055C19D /* UIButton+CommonType.m */; };
 		18C276711C7D41020055C19D /* UIButton+CustomType.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C276001C7D41020055C19D /* UIButton+CustomType.m */; };
 		18C276721C7D41020055C19D /* UIButton+Init.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C276021C7D41020055C19D /* UIButton+Init.m */; };
@@ -173,6 +173,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18463CEA1CA247E300DD87BE /* UIBezierPath+ML_Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+ML_Tools.m"; sourceTree = "<group>"; };
+		18463CEB1CA247E300DD87BE /* UIBezierPath+ML_Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+ML_Tools.h"; sourceTree = "<group>"; };
 		187D54AC1C8400ED0066EC67 /* MLAttributeStringController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLAttributeStringController.h; sourceTree = "<group>"; };
 		187D54AD1C8400ED0066EC67 /* MLAttributeStringController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLAttributeStringController.m; sourceTree = "<group>"; };
 		187D54B11C84011E0066EC67 /* MLAttributeString.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLAttributeString.storyboard; sourceTree = "<group>"; };
@@ -249,8 +251,6 @@
 		18C275F81C7D41020055C19D /* UIBarButtonItem+EventBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+EventBlock.m"; sourceTree = "<group>"; };
 		18C275F91C7D41020055C19D /* UIBarButtonItem+ML_Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+ML_Tools.h"; sourceTree = "<group>"; };
 		18C275FA1C7D41020055C19D /* UIBarButtonItem+ML_Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+ML_Tools.m"; sourceTree = "<group>"; };
-		18C275FB1C7D41020055C19D /* UIBezierPath+ML_Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+ML_Tools.h"; sourceTree = "<group>"; };
-		18C275FC1C7D41020055C19D /* UIBezierPath+ML_Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+ML_Tools.m"; sourceTree = "<group>"; };
 		18C275FD1C7D41020055C19D /* UIButton+CommonType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+CommonType.h"; sourceTree = "<group>"; };
 		18C275FE1C7D41020055C19D /* UIButton+CommonType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+CommonType.m"; sourceTree = "<group>"; };
 		18C275FF1C7D41020055C19D /* UIButton+CustomType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+CustomType.h"; sourceTree = "<group>"; };
@@ -587,12 +587,12 @@
 				18C275F41C7D41020055C19D /* NSString+NumberFormat.m */,
 				18C275F51C7D41020055C19D /* NSString+Size.h */,
 				18C275F61C7D41020055C19D /* NSString+Size.m */,
+				18463CEA1CA247E300DD87BE /* UIBezierPath+ML_Tools.m */,
+				18463CEB1CA247E300DD87BE /* UIBezierPath+ML_Tools.h */,
 				18C275F71C7D41020055C19D /* UIBarButtonItem+EventBlock.h */,
 				18C275F81C7D41020055C19D /* UIBarButtonItem+EventBlock.m */,
 				18C275F91C7D41020055C19D /* UIBarButtonItem+ML_Tools.h */,
 				18C275FA1C7D41020055C19D /* UIBarButtonItem+ML_Tools.m */,
-				18C275FB1C7D41020055C19D /* UIBezierPath+ML_Tools.h */,
-				18C275FC1C7D41020055C19D /* UIBezierPath+ML_Tools.m */,
 				18C275FD1C7D41020055C19D /* UIButton+CommonType.h */,
 				18C275FE1C7D41020055C19D /* UIButton+CommonType.m */,
 				18C275FF1C7D41020055C19D /* UIButton+CustomType.h */,
@@ -1294,7 +1294,6 @@
 				1895E1331C5B534B0046411D /* IQKeyboardManagerView.m in Sources */,
 				18D8E07D1C84576400706195 /* NSObject+ML_Tools.m in Sources */,
 				FEE30BBB1C03421C00B79F8D /* UIView+Ext.m in Sources */,
-				18C2766F1C7D41020055C19D /* UIBezierPath+ML_Tools.m in Sources */,
 				18C276881C7D41020055C19D /* UITableView+Separator.m in Sources */,
 				18C276721C7D41020055C19D /* UIButton+Init.m in Sources */,
 				18C276851C7D41020055C19D /* UINavigationBar+Appearance.m in Sources */,
@@ -1361,6 +1360,7 @@
 				18C2766C1C7D41020055C19D /* NSString+Size.m in Sources */,
 				18C2768E1C7D41020055C19D /* UIView+CellXib.m in Sources */,
 				FE31D0E51BFE15FF00D63286 /* MultiThreadController.m in Sources */,
+				18463CEC1CA247E300DD87BE /* UIBezierPath+ML_Tools.m in Sources */,
 				18C276891C7D41020055C19D /* UITableViewCell+Separator.m in Sources */,
 				18C276871C7D41020055C19D /* UITableView+ML_Tools.m in Sources */,
 				18FCA2321C7D3B5C002C4E5C /* WHC_XMLParser.m in Sources */,

@@ -190,8 +190,8 @@
     [path fill];
       [[UIColor redColor] setStroke];
     // MARK: roundRectanglePath
-    [path appendPath:[[UIBezierPath bezierPathWithRoundedRect:CGRectMake(20, 300, SCREEN_WIDTH - 40, 100) cornerRadius:15] bezierPathByReversingPath]];
-    [path appendPath:[[UIBezierPath drawLineOnLeftWithView:_maskButton lineColor:[UIColor redColor] lineWidth:10] bezierPathByReversingPath]];
+  
+
      [path stroke];
  [[UIColor redColor] setStroke];
     UIBezierPath *subPath =  [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, 5, 300) cornerRadius:15];

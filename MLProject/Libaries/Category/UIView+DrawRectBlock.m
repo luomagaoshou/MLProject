@@ -28,7 +28,11 @@ static const char *externDrawRectViewArrayKey;
    
  
 }
-- (void)drawInsideWithBlock:(UIViewDrawRectBlock)block{
+- (void)configDrawRectBlock:(UIViewDrawRectBlock)drawRectBlock
+{
+    self.drawRectBlock = drawRectBlock;
+}
+- (void)startDrawInsideWithBlock:(UIViewDrawRectBlock)block{
     if (block) {
         
         // Add subview
@@ -68,7 +72,8 @@ static const char *externDrawRectViewArrayKey;
 - (void)setDrawRectBlock:(UIViewDrawRectBlock)drawRectBlock
 {
     [self setAssociationValue:drawRectBlock withKey:&externDrawRectBlockKey];
-    [self drawInsideWithBlock:drawRectBlock];
+    
+    [self startDrawInsideWithBlock:drawRectBlock];
    
 }
 - (UIViewDrawRectBlock)drawRectBlock

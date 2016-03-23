@@ -42,8 +42,7 @@
 
     [[UIColor blueColor] set];
     
-    [UIBezierPath drawLineOnLeftWithView:self lineColor:[UIColor orangeColor] lineWidth:borderWidth];
-    [path appendPath:[UIBezierPath drawLineOnRightWithView:self lineColor:[UIColor redColor] lineWidth:borderWidth]];
+ 
   shapeLayer.path  = path.CGPath;
     [self.layer addSublayer:shapeLayer];
     [shapeLayer mask];
