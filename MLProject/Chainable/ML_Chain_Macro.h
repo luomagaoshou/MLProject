@@ -135,7 +135,7 @@ return ^ml_concat(ML_, CLASS, Chain) *(id firstObject, ...){\
 __strong typeof(weakSelf) strongSelf = weakSelf;\
 SEL SELECTOR = ml_chain_default_setter_with_getter(PROPERTY);\
 NSString *selectorName = NSStringFromSelector(SELECTOR);\
-id chainObject = ChainObjectOfChainMaker(strongSelf, [UIView class]);\
+id chainObject = ChainObjectOfChainMaker(strongSelf, [CLASS class]);\
 va_list arglist;\
 va_start(arglist, firstObject);\
 NSArray *arguments = [NSObject argumentsWithTarget:chainObject selectorName:selectorName arglist:arglist firstObject:firstObject];\
@@ -151,7 +151,7 @@ __weak typeof(self) weakSelf = self;\
 return ^ml_concat(ML_, CLASS, Chain) *(id firstObject, ...){\
 __strong typeof(weakSelf) strongSelf = weakSelf;\
 NSString *selectorName = NSStringFromSelector(SELECTOR);\
-id chainObject = ChainObjectOfChainMaker(strongSelf, [UIView class]);\
+id chainObject = ChainObjectOfChainMaker(strongSelf, [CLASS class]);\
 va_list arglist;\
 va_start(arglist, firstObject);\
 NSArray *arguments = [NSObject argumentsWithTarget:chainObject selectorName:selectorName arglist:arglist firstObject:firstObject];\

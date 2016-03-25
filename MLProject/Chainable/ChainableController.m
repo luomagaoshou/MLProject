@@ -149,6 +149,70 @@ return numberOfArguments;
 #pragma mark - ========= InitialUI =========
 - (void)initUI
 {
+    CAEmitterLayer *snowEmitter = [CAEmitterLayer layer];
+    snowEmitter.backgroundColor = [UIColor blueColor].CGColor;
+    //例子发射位置
+    snowEmitter.emitterPosition = CGPointMake(120,200);
+    //发射源的尺寸大小
+    snowEmitter.emitterSize = CGSizeMake(self.view.bounds.size.width * 20, 20);
+    //发射模式
+    snowEmitter.emitterMode = kCAEmitterLayerSurface;
+    //发射源的形状
+    snowEmitter.emitterShape = kCAEmitterLayerLine;
+    
+    //创建雪花类型的粒子
+    CAEmitterCell *snowflake = [CAEmitterCell emitterCell];
+    //粒子的名字
+    snowflake.name = @"snow";
+    //粒子参数的速度乘数因子
+    snowflake.birthRate = 1.0;
+    snowflake.lifetime = 120.0;
+    //粒子速度
+    snowflake.velocity =10.0;
+    //粒子的速度范围
+    snowflake.velocityRange = 10;
+    //粒子y方向的加速度分量
+    snowflake.yAcceleration = 2;
+    //周围发射角度
+    snowflake.emissionRange = 0.5 * M_PI;
+    //子旋转角度范围
+    snowflake.spinRange = 0.25 * M_PI;
+    snowflake.contents = (id)[[UIImage imageNamed:@"DazFlake"] CGImage];
+    //设置雪花形状的粒子的颜色
+    snowflake.color = [[UIColor colorWithRed:0.200 green:0.258 blue:0.543 alpha:1.000] CGColor];
+    
+    //创建星星形状的粒子
+    CAEmitterCell *snowflake1 = [CAEmitterCell emitterCell];
+    //粒子的名字
+    snowflake1.name = @"snow";
+    //粒子参数的速度乘数因子
+    snowflake1.birthRate = 1.0;
+    snowflake1.lifetime = 120.0;
+    //粒子速度
+    snowflake1.velocity =10.0;
+    //粒子的速度范围
+    snowflake1.velocityRange = 10;
+    //粒子y方向的加速度分量
+    snowflake1.yAcceleration = 2;
+    //周围发射角度
+    snowflake1.emissionRange = 0.5 * M_PI;
+    //子旋转角度范围
+    snowflake1.spinRange = 0.25 * M_PI;
+    //粒子的内容和内容的颜色
+    snowflake1.contents = (id)[[UIImage imageNamed:@"DazStarOutline"] CGImage];
+    snowflake1.color = [[UIColor colorWithRed:0.600 green:0.658 blue:0.743 alpha:1.000] CGColor];
+    
+    snowEmitter.shadowOpacity = 1.0;
+    snowEmitter.shadowRadius = 0.0;
+    snowEmitter.shadowOffset = CGSizeMake(0.0, 1.0);
+    //粒子边缘的颜色
+    snowEmitter.shadowColor = [[UIColor redColor] CGColor];
+    
+    snowEmitter.emitterCells = [NSArray arrayWithObjects:snowflake,snowflake1,nil];
+    [self.view.layer addSublayer:snowEmitter];
+    // Do any additional setup after loading the view.
+    
+    
     
 //    [self.xibButton setNeedsLayout];
 //    [self.xibButton setNeedsUpdateConstraints];
@@ -178,9 +242,9 @@ return numberOfArguments;
     btn.backgroundColor = [UIColor greenColor];
     [self.view addSubview:btn];
     btn.frame = CGRectMake(0, 0, 200, 200);
-   
+    btn.ml_make.backgroundColor([UIColor redColor]);
   //  btn.ml_make.backgroundColor([UIColor redColor]).frame(self.view.width/2, self.view.height/2,200, 200).backgroundColor([UIColor redColor]);
-    btn.ml_make.center(200 ,200).frame(300, 300, 150, 200);
+   // btn.ml_make.center(200 ,200).frame(100, 100, 300, 300);
    
    // id point = ml_chain_MASBoxValue(CGPointMake(200, 200));
    // btn.ml_make.titleForState(@"sfsdf", UIControlStateNormal);
@@ -193,11 +257,22 @@ return numberOfArguments;
 
     
    
-//    CALayer *layer =[[CALayer alloc] init];
-//    layer.ml_make.frame(100, 100, 200, 200);
-//
-//    layer.ml_make.affineTransform(1.1, 2.2, 3.3, 4.4, 5.5, 6.6);
-   //layer.ml_make.frame(100 ,100 ,200, 100).backgroundColor([UIColor yellowColor]).shadowRadius(19).shadowColor([UIColor blueColor]).shadowOffset(-50, 50).borderWidth(10).shadowOpacity(1).borderColor([UIColor cyanColor]).shadowColor([UIColor greenColor]);
+    CALayer *layer =[[CALayer alloc] init];
+  //  layer.ml_make.frame(100, 100, 200, 200);
+    layer.ml_make.backgroundColor([UIColor redColor]);
+    
+  // layer.ml_make.frame(100 ,100 ,200, 100).backgroundColor([UIColor yellowColor]).borderWidth(10).borderColor([UIColor cyanColor]).superLayer(self.view.layer);
+//    layer.ml_make.shadowOffset(-50, 50).shadowRadius(10).shadowColor([UIColor blueColor]).shadowColor([UIColor redColor]).shadowOpacity(0.8);
+//    self.xibButton.clipsToBounds = NO;
+//    self.xibButton.layer.masksToBounds = NO;
+//    layer.masksToBounds = NO;
+//    layer.ml_make.affineTransform(CGAffineTransformMake(0, 1, 1, 0, 0, 0));
+    
+//    layer.shadowOffset = CGSizeMake(-50, 50);
+   // layer.shadowColor = [UIColor orangeColor].CGColor;
+   // layer.shadowOpacity = 0.8;  // 阴影透明度
+//    layer.shadowRadius = 20;    // 阴影的半径
+    
   //  layer.ml_make.transform(CATransform3DMakeAffineTransform(<#CGAffineTransform m#>));
 
    // layer.transform = CATransform3DMakeAffineTransform(CGAffineTransformMake(2, 0, 0, 1, 2, 2));

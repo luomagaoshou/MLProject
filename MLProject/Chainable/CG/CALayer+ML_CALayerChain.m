@@ -31,3 +31,12 @@
     return chain;
 }
 @end
+
+@implementation CALayer (ML_CALayerChainMothod)
+
+- (void)setSuperLayer:(CALayer *)superLayer
+{
+    [superLayer addSublayer:self];
+}
+
+@end

@@ -257,11 +257,15 @@
 }
 + (void)excuteSettingWithTarget:(id)target selectorName:(NSString *)selectorName configArguments:(NSArray *)configArguments
 {
+   
+    
     NSMethodSignature *methodSignature = [target methodSignatureForSelector:NSSelectorFromString(selectorName)];
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSignature];
     NSUInteger count = [methodSignature numberOfArguments];
     for (NSInteger i = 0; i < count; i++) {
-        
+        if ([selectorName containsString:@"hadowOpacity"] && i >= 2) {
+            
+        }
         char *type = (char *)[methodSignature getArgumentTypeAtIndex:i];
         while (*type == 'r' || // const
                *type == 'n' || // in
@@ -300,10 +304,11 @@
                 
             case 'f': // 4: float / CGFloat(32bit)
             { // 'float' will be promoted to 'double'.
-                double arg = [configArguments[i] doubleValue];
+                float arg = [configArguments[i] floatValue];
                 [invocation setArgument:&arg atIndex:i];
             }
-                
+                break;
+ 
             case 'd': // 8: double / CGFloat(64bit)
             {
             double arg = [configArguments[i] doubleValue];
@@ -416,6 +421,7 @@
     }
     
     
+//     ((void (*)(id, SEL, id))objc_msgSend)((id)configArguments[0], NSSelectorFromString(configArguments[1]), configArguments[0]);
     
     
     [invocation invoke];

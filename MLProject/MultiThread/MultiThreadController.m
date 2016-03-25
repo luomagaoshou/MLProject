@@ -47,6 +47,7 @@
                                            @"GCD串行异步",
                                            @"GCD并行同步",
                                            @"GCD并行异步",
+                                           @"block同步"
                                            ]];
 }
 //即将出现
@@ -132,7 +133,11 @@
             [self GCDTaskRunInParallelQueueByAynchronously];
         }
             break;
-            
+        case 4:
+        {
+        [self asynExcuteBlock];
+        }
+            break;
         default:
             break;
     }
@@ -247,6 +252,83 @@
             [NSThread sleepForTimeInterval:0.5f];
         }
     });
+}
+- (void)asynExcuteBlock
+{
+    
+   
+    
+    
+    
+    
+    
+    
+        typedef void (^MultiThreadTestBlock)(void);
+    
+      NSLog(@"=====groupStart======");
+    dispatch_group_t group = dispatch_group_create();
+     dispatch_group_enter(group);
+    MultiThreadTestBlock groupBlock  = ^{
+       
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_global_queue(0, 0), ^{
+             NSLog(@"%@", @"group");
+                 dispatch_group_leave(group);
+        });
+        
+        
+      
+    };
+    
+            groupBlock();
+     
+    
+  
+   
+    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+         NSLog(@"=====groupEnd======");
+
+  
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        NSLog(@"=====group2======");
+    });
+    
+    NSLog(@"=====groupEnd2======");
+    
+    
+    
+    
+//    
+//    dispatch_semaphore_t sema = dispatch_semaphore_create(0);
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        allocationBlock();
+//        dispatch_semaphore_signal(sema);
+//    });
+//    dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
+//    
+     NSLog(@"======semaphoreStart======");
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    
+    MultiThreadTestBlock blockOfSemapore = ^(void){
+   
+            NSLog(@"%@", @"sempa");
+           dispatch_semaphore_signal(semaphore);
+    
+     
+    };
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        blockOfSemapore();
+    });
+    
+
+        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    NSLog(@"======semaphoreEnd======");
+    
+    
+    
+    NSOperationQueue *operationQueue = [[NSOperationQueue alloc] init];
+    
+    
 }
 #pragma mark - ========= Setter & Getter =========
 - (NSMutableArray *)dataSource

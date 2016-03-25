@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface NSObject (Invocation)
-
+- (BOOL)debugWithTarget:(id)target selectorContainStr:(NSString *)string;
 //在va_start与va_end中使用 而且只能用一次
 id getObjectFromVarlistAtIndex(va_list list, id firstObject, NSInteger index);
 + (NSArray *)argumentsWithTarget:(id)target selectorName: (NSString *)selectorName arglist:(va_list)arglist firstObject:(id)firstObject;
