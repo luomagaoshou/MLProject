@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		18463CEC1CA247E300DD87BE /* UIBezierPath+ML_Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18463CEA1CA247E300DD87BE /* UIBezierPath+ML_Tools.m */; };
+		184BCA271CA69AB800EF5A14 /* NetworkCtl+Hud.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BCA241CA69AB800EF5A14 /* NetworkCtl+Hud.m */; };
+		184BCA281CA69AB800EF5A14 /* NetworkCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BCA261CA69AB800EF5A14 /* NetworkCtl.m */; };
 		187D54AE1C8400ED0066EC67 /* MLAttributeStringController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187D54AD1C8400ED0066EC67 /* MLAttributeStringController.m */; };
 		187D54B21C84011E0066EC67 /* MLAttributeString.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 187D54B11C84011E0066EC67 /* MLAttributeString.storyboard */; };
 		188D54131C9102C500841588 /* ML_NSOjbectChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 188D54121C9102C500841588 /* ML_NSOjbectChain.m */; };
@@ -175,6 +177,10 @@
 /* Begin PBXFileReference section */
 		18463CEA1CA247E300DD87BE /* UIBezierPath+ML_Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+ML_Tools.m"; sourceTree = "<group>"; };
 		18463CEB1CA247E300DD87BE /* UIBezierPath+ML_Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+ML_Tools.h"; sourceTree = "<group>"; };
+		184BCA231CA69AB800EF5A14 /* NetworkCtl+Hud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetworkCtl+Hud.h"; sourceTree = "<group>"; };
+		184BCA241CA69AB800EF5A14 /* NetworkCtl+Hud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetworkCtl+Hud.m"; sourceTree = "<group>"; };
+		184BCA251CA69AB800EF5A14 /* NetworkCtl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkCtl.h; sourceTree = "<group>"; };
+		184BCA261CA69AB800EF5A14 /* NetworkCtl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkCtl.m; sourceTree = "<group>"; };
 		187D54AC1C8400ED0066EC67 /* MLAttributeStringController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLAttributeStringController.h; sourceTree = "<group>"; };
 		187D54AD1C8400ED0066EC67 /* MLAttributeStringController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLAttributeStringController.m; sourceTree = "<group>"; };
 		187D54B11C84011E0066EC67 /* MLAttributeString.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLAttributeString.storyboard; sourceTree = "<group>"; };
@@ -508,6 +514,17 @@
 				F48D774E4C6660039E66AE38 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		184BCA221CA69AB800EF5A14 /* HttpRequest */ = {
+			isa = PBXGroup;
+			children = (
+				184BCA231CA69AB800EF5A14 /* NetworkCtl+Hud.h */,
+				184BCA241CA69AB800EF5A14 /* NetworkCtl+Hud.m */,
+				184BCA251CA69AB800EF5A14 /* NetworkCtl.h */,
+				184BCA261CA69AB800EF5A14 /* NetworkCtl.m */,
+			);
+			path = HttpRequest;
 			sourceTree = "<group>";
 		};
 		187D54AB1C8400CB0066EC67 /* AttributeString */ = {
@@ -958,6 +975,7 @@
 		FEC349671BEEFEF00076E88B /* Libaries */ = {
 			isa = PBXGroup;
 			children = (
+				184BCA221CA69AB800EF5A14 /* HttpRequest */,
 				FEFB49DB1C95205200634A97 /* vk_msgSend */,
 				18C275BD1C7D41020055C19D /* Category */,
 				18FCA2281C7D3B5C002C4E5C /* WHCLib */,
@@ -1322,6 +1340,7 @@
 				FE60DBCA1C5107D8009D836E /* MLTBHeader.m in Sources */,
 				FEB529D21BEF1EBA00EAA6C1 /* RootController.m in Sources */,
 				FEC349441BEEFB0D0076E88B /* main.m in Sources */,
+				184BCA281CA69AB800EF5A14 /* NetworkCtl.m in Sources */,
 				18DC19801C58C9C40049BD18 /* MLTableSeparationManager.m in Sources */,
 				FEDF1FF01C4A64A200DF9A8D /* FDTBCell.m in Sources */,
 				FEF7DDA81C7CC4EF00BF3630 /* MLCALayerView2.m in Sources */,
@@ -1349,6 +1368,7 @@
 				18C276751C7D41020055C19D /* UICollectionView+Multiselect.m in Sources */,
 				FEE6546C1C130A0D004C44D4 /* LoadNibController.m in Sources */,
 				FEE30BA51C03411900B79F8D /* LoadNibSubView.m in Sources */,
+				184BCA271CA69AB800EF5A14 /* NetworkCtl+Hud.m in Sources */,
 				18C2766B1C7D41020055C19D /* NSString+NumberFormat.m in Sources */,
 				18C276861C7D41020055C19D /* UIStoryboard+Load.m in Sources */,
 				FEE6A69A1C734C5C008760CA /* MLAnimationsController.m in Sources */,

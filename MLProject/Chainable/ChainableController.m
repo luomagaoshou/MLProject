@@ -243,6 +243,7 @@ return numberOfArguments;
     [self.view addSubview:btn];
     btn.frame = CGRectMake(0, 0, 200, 200);
     btn.ml_make.backgroundColor([UIColor redColor]);
+    
   //  btn.ml_make.backgroundColor([UIColor redColor]).frame(self.view.width/2, self.view.height/2,200, 200).backgroundColor([UIColor redColor]);
    // btn.ml_make.center(200 ,200).frame(100, 100, 300, 300);
    

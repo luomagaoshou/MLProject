@@ -7,7 +7,7 @@
 //
 
 #import "MultiThreadController.h"
-
+  typedef void (^MultiThreadTestBlock)(void);
 @interface MultiThreadController ()
 @property (nonatomic, strong) NSMutableArray *dataSource;
 @end
@@ -263,23 +263,26 @@
     
     
     
-        typedef void (^MultiThreadTestBlock)(void);
+    
     
       NSLog(@"=====groupStart======");
     dispatch_group_t group = dispatch_group_create();
      dispatch_group_enter(group);
-    MultiThreadTestBlock groupBlock  = ^{
-       
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_global_queue(0, 0), ^{
-             NSLog(@"%@", @"group");
-                 dispatch_group_leave(group);
-        });
-        
-        
-      
-    };
-    
-            groupBlock();
+//    MultiThreadTestBlock groupBlock  = ^{
+//       
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_global_queue(0, 0), ^{
+//             NSLog(@"%@", @"group");
+//           
+//                 dispatch_group_leave(group);
+//        });
+//        
+//        
+//      
+//    };
+     [self waitTwoSecondWithBlock:^{
+         dispatch_group_leave(group);
+     }];
+          //  groupBlock();
      
     
   
@@ -329,6 +332,11 @@
     NSOperationQueue *operationQueue = [[NSOperationQueue alloc] init];
     
     
+}
+- (void)waitTwoSecondWithBlock:(MultiThreadTestBlock)block
+{
+    block();
+    sleep(2);
 }
 #pragma mark - ========= Setter & Getter =========
 - (NSMutableArray *)dataSource
