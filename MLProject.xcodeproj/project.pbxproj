@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18008A4F1CA69E4600EFA08E /* UITabBarController+ML_Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 18008A4E1CA69E4600EFA08E /* UITabBarController+ML_Create.m */; };
 		18463CEC1CA247E300DD87BE /* UIBezierPath+ML_Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18463CEA1CA247E300DD87BE /* UIBezierPath+ML_Tools.m */; };
 		184BCA271CA69AB800EF5A14 /* NetworkCtl+Hud.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BCA241CA69AB800EF5A14 /* NetworkCtl+Hud.m */; };
 		184BCA281CA69AB800EF5A14 /* NetworkCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BCA261CA69AB800EF5A14 /* NetworkCtl.m */; };
@@ -175,6 +176,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18008A4D1CA69E4600EFA08E /* UITabBarController+ML_Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+ML_Create.h"; sourceTree = "<group>"; };
+		18008A4E1CA69E4600EFA08E /* UITabBarController+ML_Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+ML_Create.m"; sourceTree = "<group>"; };
 		18463CEA1CA247E300DD87BE /* UIBezierPath+ML_Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+ML_Tools.m"; sourceTree = "<group>"; };
 		18463CEB1CA247E300DD87BE /* UIBezierPath+ML_Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+ML_Tools.h"; sourceTree = "<group>"; };
 		184BCA231CA69AB800EF5A14 /* NetworkCtl+Hud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetworkCtl+Hud.h"; sourceTree = "<group>"; };
@@ -554,6 +557,8 @@
 			children = (
 				18C275BE1C7D41020055C19D /* ChainableKit */,
 				18C275C41C7D41020055C19D /* ML_Category.h */,
+				18008A4D1CA69E4600EFA08E /* UITabBarController+ML_Create.h */,
+				18008A4E1CA69E4600EFA08E /* UITabBarController+ML_Create.m */,
 				18C275C51C7D41020055C19D /* NSArray+ML_Component.h */,
 				18C275C61C7D41020055C19D /* NSArray+ML_Component.m */,
 				18C275C71C7D41020055C19D /* NSBundle+ML_Tools.h */,
@@ -1289,6 +1294,7 @@
 				18C276531C7D41020055C19D /* UIView+Chainable.m in Sources */,
 				18C276921C7D41020055C19D /* UIView+GestureBlock.m in Sources */,
 				18C2766E1C7D41020055C19D /* UIBarButtonItem+ML_Tools.m in Sources */,
+				18008A4F1CA69E4600EFA08E /* UITabBarController+ML_Create.m in Sources */,
 				18C276971C7D41020055C19D /* UIView+Xib.m in Sources */,
 				18CF9D741C8EDFB900E1EA53 /* NSObject+ChainInvocation.m in Sources */,
 				18C276631C7D41020055C19D /* NSObject+ML_CGRect.m in Sources */,
