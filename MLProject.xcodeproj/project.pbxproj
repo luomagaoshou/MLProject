@@ -103,8 +103,13 @@
 		18FCA2311C7D3B5C002C4E5C /* WHC_ModelCreate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FCA22C1C7D3B5C002C4E5C /* WHC_ModelCreate.m */; };
 		18FCA2321C7D3B5C002C4E5C /* WHC_XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FCA22E1C7D3B5C002C4E5C /* WHC_XMLParser.m */; };
 		32987B6A15498D3D3F19A0C2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD9EA58A0110754E9AABB517 /* libPods.a */; };
+		FE06A08C1CA7AE7500758B37 /* MLImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE06A08B1CA7AE7500758B37 /* MLImageController.m */; };
+		FE06A08E1CA7AE8600758B37 /* MLImage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE06A08D1CA7AE8600758B37 /* MLImage.storyboard */; };
+		FE06A0911CA7AEDF00758B37 /* MLImageNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE06A0901CA7AEDF00758B37 /* MLImageNavController.m */; };
+		FE06A0941CA7B01200758B37 /* MLImageNextController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE06A0931CA7B01200758B37 /* MLImageNextController.m */; };
 		FE0FC8641C90753D00241C1B /* UIButton+ML_UIButtonChain.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC8631C90753D00241C1B /* UIButton+ML_UIButtonChain.m */; };
 		FE0FC8671C90754800241C1B /* ML_UIButtonChain.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC8661C90754800241C1B /* ML_UIButtonChain.m */; };
+		FE1141D01CA6C6AD00302A03 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1141CF1CA6C6AD00302A03 /* MBProgressHUD.m */; };
 		FE2095E21C951C8A000CBE16 /* libdyci.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE2095E11C951C8A000CBE16 /* libdyci.a */; };
 		FE29A26F1C513365006FF01E /* 44C5FC76-E862-43F6-824E-0FBBAFADA5CA.png in Resources */ = {isa = PBXBuildFile; fileRef = FE29A26E1C513365006FF01E /* 44C5FC76-E862-43F6-824E-0FBBAFADA5CA.png */; };
 		FE29A27F1C54F7D0006FF01E /* UIViewController+Storyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = FE29A27E1C54F7D0006FF01E /* UIViewController+Storyboard.m */; };
@@ -370,10 +375,19 @@
 		607A53E0EBBA05FDA009F1B2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		AD9EA58A0110754E9AABB517 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F48D774E4C6660039E66AE38 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		FE06A08A1CA7AE7500758B37 /* MLImageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLImageController.h; sourceTree = "<group>"; };
+		FE06A08B1CA7AE7500758B37 /* MLImageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLImageController.m; sourceTree = "<group>"; };
+		FE06A08D1CA7AE8600758B37 /* MLImage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLImage.storyboard; sourceTree = "<group>"; };
+		FE06A08F1CA7AEDF00758B37 /* MLImageNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLImageNavController.h; sourceTree = "<group>"; };
+		FE06A0901CA7AEDF00758B37 /* MLImageNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLImageNavController.m; sourceTree = "<group>"; };
+		FE06A0921CA7B01200758B37 /* MLImageNextController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLImageNextController.h; sourceTree = "<group>"; };
+		FE06A0931CA7B01200758B37 /* MLImageNextController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLImageNextController.m; sourceTree = "<group>"; };
 		FE0FC8621C90753D00241C1B /* UIButton+ML_UIButtonChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+ML_UIButtonChain.h"; path = "MLProject/Chainable/UIButton+ML_UIButtonChain.h"; sourceTree = SOURCE_ROOT; };
 		FE0FC8631C90753D00241C1B /* UIButton+ML_UIButtonChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+ML_UIButtonChain.m"; path = "MLProject/Chainable/UIButton+ML_UIButtonChain.m"; sourceTree = SOURCE_ROOT; };
 		FE0FC8651C90754800241C1B /* ML_UIButtonChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ML_UIButtonChain.h; path = ../ML_UIButtonChain.h; sourceTree = "<group>"; };
 		FE0FC8661C90754800241C1B /* ML_UIButtonChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ML_UIButtonChain.m; path = ../ML_UIButtonChain.m; sourceTree = "<group>"; };
+		FE1141CE1CA6C6AD00302A03 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		FE1141CF1CA6C6AD00302A03 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		FE2095E11C951C8A000CBE16 /* libdyci.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libdyci.a; path = "Pods/../build/Debug-iphoneos/libdyci.a"; sourceTree = "<group>"; };
 		FE29A26E1C513365006FF01E /* 44C5FC76-E862-43F6-824E-0FBBAFADA5CA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "44C5FC76-E862-43F6-824E-0FBBAFADA5CA.png"; sourceTree = "<group>"; };
 		FE29A27D1C54F7D0006FF01E /* UIViewController+Storyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Storyboard.h"; sourceTree = "<group>"; };
@@ -775,6 +789,29 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FE06A0891CA7AE5D00758B37 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				FE06A08A1CA7AE7500758B37 /* MLImageController.h */,
+				FE06A08B1CA7AE7500758B37 /* MLImageController.m */,
+				FE06A0921CA7B01200758B37 /* MLImageNextController.h */,
+				FE06A0931CA7B01200758B37 /* MLImageNextController.m */,
+				FE06A08F1CA7AEDF00758B37 /* MLImageNavController.h */,
+				FE06A0901CA7AEDF00758B37 /* MLImageNavController.m */,
+				FE06A08D1CA7AE8600758B37 /* MLImage.storyboard */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		FE1141CD1CA6C69C00302A03 /* MBProgressHud */ = {
+			isa = PBXGroup;
+			children = (
+				FE1141CE1CA6C6AD00302A03 /* MBProgressHUD.h */,
+				FE1141CF1CA6C6AD00302A03 /* MBProgressHUD.m */,
+			);
+			path = MBProgressHud;
+			sourceTree = "<group>";
+		};
 		FE31D0E11BFE0A3300D63286 /* MultiThread */ = {
 			isa = PBXGroup;
 			children = (
@@ -917,13 +954,13 @@
 		FEC349401BEEFB0D0076E88B /* MLProject */ = {
 			isa = PBXGroup;
 			children = (
+				FEC349451BEEFB0D0076E88B /* AppDelegate.h */,
+				FEC349461BEEFB0D0076E88B /* AppDelegate.m */,
 				18B2D8711C5388BA0063AEB5 /* ProjectManager.h */,
 				18B2D8721C5388BA0063AEB5 /* ProjectManager.m */,
 				FEB529D01BEF1EBA00EAA6C1 /* RootController.h */,
 				FEB529D11BEF1EBA00EAA6C1 /* RootController.m */,
 				FEB529D31BEF208A00EAA6C1 /* RootController.xib */,
-				FEC349451BEEFB0D0076E88B /* AppDelegate.h */,
-				FEC349461BEEFB0D0076E88B /* AppDelegate.m */,
 				FE31D0E11BFE0A3300D63286 /* MultiThread */,
 				FEE55D191BF71CDB00C8F783 /* ScrollViewInXib */,
 				FEE55D081BF4D63900C8F783 /* NibToViewController */,
@@ -939,6 +976,7 @@
 				FEE6A6911C691177008760CA /* AlgorithmPlay */,
 				FE972D041C5FAB3D00C34DC0 /* CALayer */,
 				FEE6A6971C734C36008760CA /* Animations */,
+				FE06A0891CA7AE5D00758B37 /* Image */,
 				FEB529CE1BEF056B00EAA6C1 /* Unity */,
 				FEC349671BEEFEF00076E88B /* Libaries */,
 				FEC3494E1BEEFB0D0076E88B /* Images.xcassets */,
@@ -980,6 +1018,7 @@
 		FEC349671BEEFEF00076E88B /* Libaries */ = {
 			isa = PBXGroup;
 			children = (
+				FE1141CD1CA6C69C00302A03 /* MBProgressHud */,
 				184BCA221CA69AB800EF5A14 /* HttpRequest */,
 				FEFB49DB1C95205200634A97 /* vk_msgSend */,
 				18C275BD1C7D41020055C19D /* Category */,
@@ -1211,6 +1250,7 @@
 				FE71168E1C43EC8300C36951 /* NibTBCell2.xib in Resources */,
 				FEE55D211BF71E1D00C8F783 /* ScrollViewInXibController.xib in Resources */,
 				FEC349521BEEFB0D0076E88B /* LaunchScreen.xib in Resources */,
+				FE06A08E1CA7AE8600758B37 /* MLImage.storyboard in Resources */,
 				FE972D061C5FAB6800C34DC0 /* MLCALayer.storyboard in Resources */,
 				FEE55D181BF4DA2C00C8F783 /* NibToViewView.xib in Resources */,
 				FE514DB31C1BFCDB00E3AC0C /* RunTimeController.xib in Resources */,
@@ -1295,6 +1335,7 @@
 				18C276921C7D41020055C19D /* UIView+GestureBlock.m in Sources */,
 				18C2766E1C7D41020055C19D /* UIBarButtonItem+ML_Tools.m in Sources */,
 				18008A4F1CA69E4600EFA08E /* UITabBarController+ML_Create.m in Sources */,
+				FE1141D01CA6C6AD00302A03 /* MBProgressHUD.m in Sources */,
 				18C276971C7D41020055C19D /* UIView+Xib.m in Sources */,
 				18CF9D741C8EDFB900E1EA53 /* NSObject+ChainInvocation.m in Sources */,
 				18C276631C7D41020055C19D /* NSObject+ML_CGRect.m in Sources */,
@@ -1324,6 +1365,7 @@
 				18C276731C7D41020055C19D /* UIButton+ML_Tools.m in Sources */,
 				FEC349471BEEFB0D0076E88B /* AppDelegate.m in Sources */,
 				FECA0E7A1C9C39F500278BB0 /* ML_CALayerChain.m in Sources */,
+				FE06A0911CA7AEDF00758B37 /* MLImageNavController.m in Sources */,
 				18C276901C7D41020055C19D /* UIView+DrawRectBlock.m in Sources */,
 				18FCA2311C7D3B5C002C4E5C /* WHC_ModelCreate.m in Sources */,
 				18DC19841C58C9C40049BD18 /* UITableView+MLSeparationManager.m in Sources */,
@@ -1387,6 +1429,7 @@
 				18C2768E1C7D41020055C19D /* UIView+CellXib.m in Sources */,
 				FE31D0E51BFE15FF00D63286 /* MultiThreadController.m in Sources */,
 				18463CEC1CA247E300DD87BE /* UIBezierPath+ML_Tools.m in Sources */,
+				FE06A0941CA7B01200758B37 /* MLImageNextController.m in Sources */,
 				18C276891C7D41020055C19D /* UITableViewCell+Separator.m in Sources */,
 				18C276871C7D41020055C19D /* UITableView+ML_Tools.m in Sources */,
 				18FCA2321C7D3B5C002C4E5C /* WHC_XMLParser.m in Sources */,
@@ -1401,6 +1444,7 @@
 				18C276621C7D41020055C19D /* NSObject+CreateCode.m in Sources */,
 				18C2765F1C7D41020055C19D /* NSNotificationCenter+Block.m in Sources */,
 				18C276841C7D41020055C19D /* UILabel+NumberValue.m in Sources */,
+				FE06A08C1CA7AE7500758B37 /* MLImageController.m in Sources */,
 				18C2768B1C7D41020055C19D /* UITextField+ML_Tools.m in Sources */,
 				FE3684781C29827F00317135 /* NibCLCell.m in Sources */,
 				FE0FC8671C90754800241C1B /* ML_UIButtonChain.m in Sources */,

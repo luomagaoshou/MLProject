@@ -22,6 +22,7 @@
             [self setBackgroundImage:backImage forBarMetrics:UIBarMetricsDefault];
             
             [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -200) forBarMetrics:UIBarMetricsDefault];
+        
             [self setTintColor:[UIColor whiteColor]];
 
         

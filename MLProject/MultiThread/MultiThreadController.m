@@ -7,6 +7,7 @@
 //
 
 #import "MultiThreadController.h"
+#import "NetworkCtl.h"
   typedef void (^MultiThreadTestBlock)(void);
 @interface MultiThreadController ()
 @property (nonatomic, strong) NSMutableArray *dataSource;
@@ -35,9 +36,13 @@
 //加载
 - (void)loadView
 {
-    [super loadView];
     
-}
+    [super loadView];
+    NSLog(@"%@ %@", [NSThread currentThread], [NSOperationQueue currentQueue]);
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+           NSLog(@"%@ %@", [NSThread currentThread], [NSOperationQueue currentQueue]);
+    });
+        NSLog(@"%@ %@", [NSThread currentThread], [NSOperationQueue currentQueue]);}
 
 //加载完成
 - (void)viewDidLoad {
@@ -47,7 +52,11 @@
                                            @"GCD串行异步",
                                            @"GCD并行同步",
                                            @"GCD并行异步",
-                                           @"block同步"
+                                           @"GCDsema",
+                                           @"GCD_barrier",
+                                           @"gcdAfter",
+                                           @"NSCondition",
+                                           @"gcdGroup",
                                            ]];
 }
 //即将出现
@@ -135,7 +144,27 @@
             break;
         case 4:
         {
-        [self asynExcuteBlock];
+        [self gcdSema];
+        }
+            break;
+        case 5:
+        {
+        [self gcdBarrie];
+        }
+            break;
+        case 6:
+        {
+        [self gcdAfter];
+        }
+            break;
+        case 7:
+        {
+        [self condition];
+        }
+            break;
+        case 8:
+        {
+        [self gcdGroup];
         }
             break;
         default:
@@ -253,50 +282,85 @@
         }
     });
 }
-- (void)asynExcuteBlock
+
+- (void)gcdBarrie
 {
     
-   
+    dispatch_queue_t concurrentQueue = dispatch_queue_create("my.concurrent.queue", DISPATCH_QUEUE_CONCURRENT);
+//    dispatch_queue_t concurrentQueue = dispatch_get_global_queue(0, 0);
+    NSLog(@"%@", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_async(concurrentQueue, ^(){
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+        });
+        NSLog(@"dispatch-1");
+    });
+    dispatch_async(concurrentQueue, ^(){
+        sleep(3);
+        NSLog(@"dispatch-2");
+    });
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSLog(@"%@", concurrentQueue);
+    });
+    dispatch_barrier_async(concurrentQueue, ^(){
+        NSLog(@"dispatch-barrier");
+    });
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSLog(@"%@", concurrentQueue);
+    });
+    dispatch_async(concurrentQueue, ^(){
+        NSLog(@"dispatch-3");
+    });
+    dispatch_async(concurrentQueue, ^(){
+        NSLog(@"dispatch-4");
+    });
+    
+}
+- (void)gcdGroup
+{
     
     
     
     
-    
-    
-    
-    
-      NSLog(@"=====groupStart======");
+    NSLog(@"=====groupStart======");
     dispatch_group_t group = dispatch_group_create();
-     dispatch_group_enter(group);
-//    MultiThreadTestBlock groupBlock  = ^{
-//       
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_global_queue(0, 0), ^{
-//             NSLog(@"%@", @"group");
-//           
-//                 dispatch_group_leave(group);
-//        });
-//        
-//        
-//      
-//    };
-     [self waitTwoSecondWithBlock:^{
-         dispatch_group_leave(group);
-     }];
-          //  groupBlock();
-     
+    dispatch_group_enter(group);
+    MultiThreadTestBlock groupBlock  = ^{
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_global_queue(0, 0), ^{
+            NSLog(@"%@", @"group");
+            
+            dispatch_group_leave(group);
+        });
+        
+        
+        
+    };
     
-  
-   
-    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
-         NSLog(@"=====groupEnd======");
-
-  
+    
+    [self waitTwoSecondWithBlock:^{
+        dispatch_group_leave(group);
+    }];
+    //  groupBlock();
+    
+    
+    
+    
+//    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+//    NSLog(@"=====groupEnd======");
+    
+    
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
         NSLog(@"=====group2======");
     });
     
     NSLog(@"=====groupEnd2======");
     
+    
+    
+}
+- (void)gcdSema
+{
     
     
     
@@ -312,31 +376,65 @@
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     
-    MultiThreadTestBlock blockOfSemapore = ^(void){
-   
-            NSLog(@"%@", @"sempa");
-           dispatch_semaphore_signal(semaphore);
-    
-     
-    };
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        blockOfSemapore();
-    });
-    
 
+    [self waitTwoSecondWithBlock:^{
+        dispatch_semaphore_signal(semaphore);
+    }];
+    dispatch_sync(dispatch_get_global_queue(0, 0), ^{
+        NSLog(@"%@", @"mainqueue");
+    });
         dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
     NSLog(@"======semaphoreEnd======");
     
     
-    
-    NSOperationQueue *operationQueue = [[NSOperationQueue alloc] init];
-    
-    
+}
+
+- (void)gcdAfter
+{
+   
+    //创建串行队列
+    dispatch_queue_t queue = dispatch_queue_create("me.tutuge.test.gcd", DISPATCH_QUEUE_CONCURRENT);
+    NSLog(@"%@", queue);
+    //立即打印一条信息
+    NSLog(@"Begin add block...");
+    //提交一个block
+    dispatch_async(queue, ^{
+        //Sleep 10秒
+        [NSThread sleepForTimeInterval:10];
+        NSLog(@"First block done...");
+    });
+    //5 秒以后提交block
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), queue, ^{
+        NSLog(@"After...");
+    });
 }
 - (void)waitTwoSecondWithBlock:(MultiThreadTestBlock)block
 {
-    block();
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSLog(@"%@", [NSThread currentThread]);
+            });
+    dispatch_sync(dispatch_get_global_queue(0, 0), ^{
+        block();
+    });
+
     sleep(2);
+}
+- (void)condition
+{
+    NSCondition *condition = [[NSCondition alloc] init];
+    [condition lock];
+    if (condition <= 0) {
+        [condition wait];
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+         dispatch_async(dispatch_get_main_queue(), ^{
+            [condition lock];
+            [condition signal];
+            [condition unlock];
+        });
+    });
+  
+    [condition unlock];
 }
 #pragma mark - ========= Setter & Getter =========
 - (NSMutableArray *)dataSource

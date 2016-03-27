@@ -9,6 +9,9 @@
 #import "UITabBarController+ML_Create.h"
 #import "UIImage+ML_Tools.h"
 #import "UINavigationBar+Appearance.h"
+#import "UIStoryboard+Load.h"
+#import "NSBundle+ML_Tools.h"
+#import "UIImage+FileName.h"
 @implementation ML_TabBarControllerCeateHelperModel
 + (instancetype)modelWithTitleString:(NSString *)titleString normalImageString:(NSString *)normalImageString selectImageString:(NSString *)selectImageString classString:(NSString *)classString
 {

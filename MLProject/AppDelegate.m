@@ -39,9 +39,10 @@
    // [ProjectManager jumpToStoryboardControllerWithNibName:@"MLChainable" storyboardID:@"MLChainableController"];
 
     //[nav pushViewController:[UIStoryboard loadViewControllerWithNibName:@"MLCALayer" storyboardID:@"MLCALayerController"] animated:YES];
-    [ProjectManager jumpToControllerWithController:@"MultiThreadController"];
     
+ [ProjectManager jumpToControllerWithController:@"MultiThreadController"];
     
+//    [ProjectManager jumpToStoryboardControllerWithNibName:@"MLImage" storyboardID:@"MLImageController" title:@""];
    // [nav pushViewController:strCtl animated:YES];
   
    // [ProjectManager jumpToStoryboardControllerWithNibName:@"MLCALayer" storyboardID:@"MLCALayerController"];
