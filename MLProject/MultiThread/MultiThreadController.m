@@ -8,6 +8,7 @@
 
 #import "MultiThreadController.h"
 #import "NetworkCtl.h"
+#import <AFNetworking/AFNetworking.h>
   typedef void (^MultiThreadTestBlock)(void);
 @interface MultiThreadController ()
 @property (nonatomic, strong) NSMutableArray *dataSource;
@@ -57,6 +58,8 @@
                                            @"gcdAfter",
                                            @"NSCondition",
                                            @"gcdGroup",
+                                           @"operationQueue",
+                                           @"AFNGetRequest"
                                            ]];
 }
 //即将出现
@@ -165,6 +168,16 @@
         case 8:
         {
         [self gcdGroup];
+        }
+            break;
+        case 9:
+        {
+            [self operationQueue];
+        }
+            break;
+        case 10:
+        {
+            [self downloadAnImage];
         }
             break;
         default:
@@ -435,6 +448,83 @@
     });
   
     [condition unlock];
+}
+- (void)operationQueue
+{
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    queue.maxConcurrentOperationCount = 2;
+    NSBlockOperation *block1 = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"%@", @"block1 Statr");
+        for (NSInteger i = 0; i < 100000; i++) {
+            NSString *str = @"22";
+        }
+        NSLog(@"%@", @"block1 End");
+    }];
+  
+    NSBlockOperation *block2 = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"%@", @"block2 Statr");
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            for (NSInteger i = 0; i < 100000; i++) {
+                NSString *str = @"22";
+            }
+        });
+        
+        NSLog(@"%@", @"block2 End");
+    }];
+    
+    NSBlockOperation *block3 = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"%@", @"block3 Statr");
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            for (NSInteger i = 0; i < 100000; i++) {
+                NSString *str = @"22";
+            }
+        });
+        
+        NSLog(@"%@", @"block3 End");
+    }];
+    
+    [queue addOperation:block1];
+    [queue addOperation:block2];
+    [queue addOperation:block3];
+
+    [block1 waitUntilFinished];
+    [block2 waitUntilFinished];
+    [block3 waitUntilFinished];
+    
+    [block1 addDependency:block2];
+    [block2 addDependency:block3];
+    NSLog(@"%@", @"finish");
+    
+    
+}
+
+- (void)downloadAnImage
+{
+//NSBlockOperation *block1 = [NSBlockOperation blockOperationWithBlock:^{
+    
+
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager setCompletionGroup:dispatch_group_create()];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+
+    dispatch_semaphore_t sema = dispatch_semaphore_create(0);
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        
+  
+    [manager GET:@"https://www.baidu.com/img/bd_logo1.png" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        NSLog(@"%@", downloadProgress);
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@", responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@", error);
+    }];
+          });
+    
+//}];
+//    [block1 waitUntilFinished];
+    dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
+    NSLog(@"%@", @"finish");
 }
 #pragma mark - ========= Setter & Getter =========
 - (NSMutableArray *)dataSource
