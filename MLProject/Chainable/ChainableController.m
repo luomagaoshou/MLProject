@@ -145,10 +145,16 @@ return numberOfArguments;
     // Dispose of any resources that can be recreated.
   
 }
+- (void)fuck:(id)str
+{
+    NSLog(@"%@", str);
+}
 
 #pragma mark - ========= InitialUI =========
 - (void)initUI
 {
+    
+
     CAEmitterLayer *snowEmitter = [CAEmitterLayer layer];
     snowEmitter.backgroundColor = [UIColor blueColor].CGColor;
     //例子发射位置
@@ -222,28 +228,32 @@ return numberOfArguments;
 //    [self.xibButton.layer addSublayer:subLayer];
 //    self.xibButton.layer.frame = self.xibButton.bounds;
     //  self.xibButton.layer.masksToBounds = YES;
-  //  [subLayer makeLineWithPositionType:CALayerDrawLineTypePositionBottom lineWidthOrHeight:10 insets:UIEdgeInsetsMake(0, 0, 0, 0)  lineColor:[UIColor yellowColor]];
-    self.xibButton.drawRectBlock = ^(CGContextRef ref, CGRect rect){
-        [self.xibButton configDrawRectBlock:^(CGContextRef ref, CGRect rect) {
-            [UIBezierPath drawLineOnTopWithView:self.xibButton lineColor:[UIColor greenColor] lineWidth:10 ];
-            [UIBezierPath drawLineOnLeftWithView:self.xibButton lineColor:[UIColor redColor] lineWidth:20 ];
-            [UIBezierPath drawLineOnBottomWithView:self.xibButton lineColor:[UIColor cyanColor] lineWidth:10 ];
-            [UIBezierPath drawLineOnRightWithView:self.xibButton lineColor:[UIColor yellowColor] lineWidth:20 ];
-        }];
-     
+//  //  [subLayer makeLineWithPositionType:CALayerDrawLineTypePositionBottom lineWidthOrHeight:10 insets:UIEdgeInsetsMake(0, 0, 0, 0)  lineColor:[UIColor yellowColor]];
+//    self.xibButton.drawRectBlock = ^(CGContextRef ref, CGRect rect){
+//        [self.xibButton configDrawRectBlock:^(CGContextRef ref, CGRect rect) {
+//            [UIBezierPath drawLineOnTopWithView:self.xibButton lineColor:[UIColor greenColor] lineWidth:10 ];
+//            [UIBezierPath drawLineOnLeftWithView:self.xibButton lineColor:[UIColor redColor] lineWidth:20 ];
+//            [UIBezierPath drawLineOnBottomWithView:self.xibButton lineColor:[UIColor cyanColor] lineWidth:10 ];
+//            [UIBezierPath drawLineOnRightWithView:self.xibButton lineColor:[UIColor yellowColor] lineWidth:20 ];
+//        }];
+//     
 //        [UIBezierPath drawLineOnView:self.xibButton withSide:UIBezierPathDrawLineOptionSideBottom|UIBezierPathDrawLineOptionSideLeft|UIBezierPathDrawLineOptionSideRight|UIBezierPathDrawLineOptionSideTop lineColor:[UIColor greenColor] lineWidth:10 insets:UIEdgeInsetsMake(1, 20, 0, 20)];
-    };
+//    };
     
     
 //    [self.xibButton configDrawRectBlock:^(CGContextRef ref, CGRect rect) {
 //        
 //    }];
+    
+    
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
     btn.backgroundColor = [UIColor greenColor];
     [self.view addSubview:btn];
     btn.frame = CGRectMake(0, 0, 200, 200);
     btn.ml_make.backgroundColor([UIColor redColor]);
-    
+    btn.ml_make.size(150, 200);
+//    [btn performSelectorWithArgs:@selector(setSize:), CGSizeMake(200, 200)];
+//    btn.size = CGSizeMake(300, 300);
   //  btn.ml_make.backgroundColor([UIColor redColor]).frame(self.view.width/2, self.view.height/2,200, 200).backgroundColor([UIColor redColor]);
    // btn.ml_make.center(200 ,200).frame(100, 100, 300, 300);
    
