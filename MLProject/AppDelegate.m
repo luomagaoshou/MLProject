@@ -37,11 +37,11 @@
   // [nav pushViewController:[ProjectManager jumpToControllerWithController:@"ChainableController" title:@"chain"] animated:YES ];
 
 
-
+    [ProjectManager jumpToStoryboardControllerWithNibName:@"AlgorithmPlay" storyboardID:@"AlgorithmPlayController" title:@""];
    // [nav pushViewController:[UIStoryboard loadViewControllerWithNibName:@"MLCALayer" storyboardID:@"MLCALayerController"] animated:YES];
     
 //     [ProjectManager jumpToControllerWithController:@"ChainableController"];
- [ProjectManager jumpToControllerWithController:@"MultiThreadController"];
+ //[ProjectManager jumpToControllerWithController:@"MultiThreadController"];
     
 //    [ProjectManager jumpToStoryboardControllerWithNibName:@"MLImage" storyboardID:@"MLImageController" title:@""];
    // [nav pushViewController:strCtl animated:YES];

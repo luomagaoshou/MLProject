@@ -217,6 +217,10 @@
            // [self combineWithArray:numbers n:9 m:1 tempArray:nil tempM:1];
             
         }
+            
+           comb[0] = 10;
+            
+            combination(12, comb[0]);
             break;
         case 5:
         {
@@ -278,6 +282,51 @@
         }
     }
 }
+#define MAX_NUM 20
+
+int comb[MAX_NUM];
+
+
+void combination(int m, int n)
+
+{
+    
+    int i, j;
+    
+    
+    
+    for (i = m; i >= n; i--){
+        
+        comb[n] = i;        /* 选择当前的“头”元素 */
+        
+        if (n > 1){
+            
+            /* 进入下一次更小的组合问题 */
+            
+            combination(i - 1, n - 1);
+            
+        }else{
+            
+            /* 满了需要的组合数，输出 */
+            
+            for (j = comb[0]; j > 0; j--){
+                
+                printf("%c", comb[j] + 64);
+                
+            }
+            
+            printf(" ");
+            
+        }
+        
+    }
+    
+    
+    
+    return;
+    
+}
+
 #pragma mark - ========= Event Methods =========
 - (void)handleSenderEvent:(UIView *)sender
 {
