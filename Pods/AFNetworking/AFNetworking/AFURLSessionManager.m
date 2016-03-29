@@ -303,6 +303,11 @@ didCompleteWithError:(NSError *)error
                 userInfo[AFNetworkingTaskDidCompleteErrorKey] = serializationError;
             }
 
+            dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                
+                if (self.completionHandler) {
+                    self.completionHandler(task.response, responseObject, serializationError);
+                }
             dispatch_group_async(manager.completionGroup ?: url_session_manager_completion_group(), manager.completionQueue ?: dispatch_get_main_queue(), ^{
                 if (self.completionHandler) {
                     self.completionHandler(task.response, responseObject, serializationError);
@@ -312,6 +317,7 @@ didCompleteWithError:(NSError *)error
                     [[NSNotificationCenter defaultCenter] postNotificationName:AFNetworkingTaskDidCompleteNotification object:task userInfo:userInfo];
                 });
             });
+             });
         });
     }
 #pragma clang diagnostic pop

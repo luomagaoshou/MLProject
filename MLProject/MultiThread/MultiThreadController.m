@@ -508,9 +508,9 @@
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
 
     dispatch_semaphore_t sema = dispatch_semaphore_create(0);
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+ 
         
-  
+      
     [manager GET:@"https://www.baidu.com/img/bd_logo1.png" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         NSLog(@"%@", downloadProgress);
         
@@ -519,11 +519,12 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@", error);
     }];
-          });
-    
+        
+
+
 //}];
 //    [block1 waitUntilFinished];
-    dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
+   dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
     NSLog(@"%@", @"finish");
 }
 #pragma mark - ========= Setter & Getter =========
