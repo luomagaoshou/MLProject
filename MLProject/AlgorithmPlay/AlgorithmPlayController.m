@@ -96,7 +96,7 @@
                                            @"韩信点兵",
                                            @"倒三角形",
                                            @"子序列的和",
-                                           @"分数化小数",
+                                           @"排列组合",
                                            @"竖式乘法"]];
 }
 
@@ -210,17 +210,14 @@
             break;
         case 4:
         {
-            NSMutableArray *numbers = [[NSMutableArray alloc] init];
-            for (NSInteger i = 1; i <= 9; i++) {
-                [numbers addObject:@(i)];
-            }
-           // [self combineWithArray:numbers n:9 m:1 tempArray:nil tempM:1];
-            
+        
+     //      [self combineWithArray:numbers n:9 m:1 tempArray:nil tempM:1];
+       // [self permutationsAndCombinationsWithTotalCount:10 chosenCount:4];
+        
+        comb[0] = 2;
+        combination(3, comb[0]);
         }
-            
-           comb[0] = 10;
-            
-            combination(12, comb[0]);
+      
             break;
         case 5:
         {
@@ -282,6 +279,35 @@
         }
     }
 }
+
+- (void)permutationsAndCombinationsWithTotalCount:(NSInteger)totalCount chosenCount:(NSInteger)chosenCount
+{
+    
+    
+    
+    for (NSInteger i = 0;  i <= (totalCount - chosenCount); i++) {
+        
+        static NSMutableArray *subTotalCounts = nil;
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            subTotalCounts = [[NSMutableArray alloc] init];
+        });
+        [subTotalCounts addObject:@(i)];
+        if (i < totalCount - chosenCount)
+            {
+            [self permutationsAndCombinationsWithTotalCount:i+1 chosenCount:chosenCount-1];
+            }
+        else{
+            for (int j = 0; j < chosenCount; j++) {
+                printf("%c", [subTotalCounts[j] intValue] + 65);
+            }
+            printf("\n");
+            [subTotalCounts removeAllObjects];
+        }
+    }
+    
+    
+}
 #define MAX_NUM 20
 
 int comb[MAX_NUM];
@@ -315,7 +341,7 @@ void combination(int m, int n)
                 
             }
             
-            printf(" ");
+            printf(" \n");
             
         }
         
@@ -326,6 +352,8 @@ void combination(int m, int n)
     return;
     
 }
+
+
 
 #pragma mark - ========= Event Methods =========
 - (void)handleSenderEvent:(UIView *)sender
