@@ -47,7 +47,38 @@
    // [nav pushViewController:strCtl animated:YES];
   
    // [ProjectManager jumpToStoryboardControllerWithNibName:@"MLCALayer" storyboardID:@"MLCALayerController"];
+    char *p1 = "abcdefg";
+   char result1 = fun1(p1);
+    
+    int p2 = 2;
+    int result2 = fun2(p2);
+    int x = 1;
+    int y = 2;
+    fun(x, y);
     return YES;
+}
+char fun1(char *p)
+{
+    char c = p[3];//或者是char c = *(p+3);
+    return c;
+}
+
+int fun2(int p)
+{
+    int *n = &p;
+    return *n;
+}
+
+
+void fun(int p,int q)
+{
+    int temp;
+    
+    temp = p;
+    p = q;
+    q = temp;
+    
+    return ;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

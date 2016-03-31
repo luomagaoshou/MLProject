@@ -213,9 +213,9 @@
         
      //      [self combineWithArray:numbers n:9 m:1 tempArray:nil tempM:1];
        // [self permutationsAndCombinationsWithTotalCount:10 chosenCount:4];
-        
-        comb[0] = 2;
-        combination(3, comb[0]);
+        int list[10] = {1,2,3,4,5,6};
+       
+        perm(list, 0, 4 , nil);
         }
       
             break;
@@ -354,6 +354,45 @@ void combination(int m, int n)
 }
 
 
+
+
+void perm(int list[], int s, int e, void (*cbk)(int list[]))
+{
+    int i;
+    if(s > e)
+        {
+        (*cbk)(list);
+        }
+    else
+        {
+            for(i = s; i <= e; i++)
+                {
+                    swap(list, s, i);
+                    perm(list, s + 1, e, cbk);
+                    swap(list, s, i);
+                }
+        }
+}
+
+
+void swap(int * o, int i, int j)
+{
+    int tmp = o[i];
+    o[i] = o[j];
+    o[j] = tmp;
+}
+
+void cbk_print(int * subs)
+{
+    int length = sizeof(subs)/sizeof(subs[0]);
+    printf("{");
+    for(int i = 0; i < length; i++)
+        {
+        printf("%d", subs[i]);
+        (i == length - 1) ? printf("") : printf(", ");
+        }
+    printf("}\n");
+}
 
 #pragma mark - ========= Event Methods =========
 - (void)handleSenderEvent:(UIView *)sender
