@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--Football Lottery Controller-->
+        <scene sceneID="tNk-bj-ScL">
+            <objects>
+                <viewController storyboardIdentifier="ALFootballLotteryController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RPE-3q-00U" customClass="ALFootballLotteryController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EMV-Mk-LN4"/>
+                        <viewControllerLayoutGuide type="bottom" id="sRZ-tq-ksE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kMI-t3-KSf" customClass="ALFootballLotteryView">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AaD-ly-68w">
+                                <rect key="frame" x="0.0" y="551" width="600" height="49"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFb-Xd-Kn5">
+                                        <rect key="frame" x="21" y="0.0" width="36" height="49"/>
+                                        <state key="normal" title="删除">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R2D-Qw-b6S">
+                                        <rect key="frame" x="542" y="0.0" width="36" height="48"/>
+                                        <state key="normal" title="购买">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已选Ｘ场赛事" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gcx-4s-3QI">
+                                        <rect key="frame" x="249" y="0.0" width="102" height="49"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.13218988910000001" green="0.26551780489999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="R2D-Qw-b6S" firstAttribute="top" secondItem="AaD-ly-68w" secondAttribute="top" id="5gA-6v-wM8"/>
+                                    <constraint firstItem="vFb-Xd-Kn5" firstAttribute="leading" secondItem="AaD-ly-68w" secondAttribute="leading" constant="21" id="7Lr-iL-R5A"/>
+                                    <constraint firstAttribute="bottom" secondItem="vFb-Xd-Kn5" secondAttribute="bottom" id="Btd-eQ-VXb"/>
+                                    <constraint firstAttribute="trailing" secondItem="R2D-Qw-b6S" secondAttribute="trailing" constant="22" id="HVC-py-2cz"/>
+                                    <constraint firstItem="vFb-Xd-Kn5" firstAttribute="top" secondItem="AaD-ly-68w" secondAttribute="top" id="Qqz-im-apB"/>
+                                    <constraint firstAttribute="bottom" secondItem="R2D-Qw-b6S" secondAttribute="bottom" constant="1" id="UaK-8j-hVX"/>
+                                    <constraint firstAttribute="height" constant="49" id="Wgb-Yo-3jJ"/>
+                                    <constraint firstItem="Gcx-4s-3QI" firstAttribute="centerX" secondItem="AaD-ly-68w" secondAttribute="centerX" id="e8B-m8-0sm"/>
+                                    <constraint firstAttribute="bottom" secondItem="Gcx-4s-3QI" secondAttribute="bottom" id="pNN-rU-OrS"/>
+                                    <constraint firstItem="Gcx-4s-3QI" firstAttribute="top" secondItem="AaD-ly-68w" secondAttribute="top" id="vdv-r6-YEe"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TW1-tt-RSR">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HVp-PW-pbe">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1d5-ov-zZM">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TW1-tt-RSR" firstAttribute="top" secondItem="kMI-t3-KSf" secondAttribute="top" id="1It-ab-CfX"/>
+                            <constraint firstAttribute="trailing" secondItem="TW1-tt-RSR" secondAttribute="trailing" id="AZB-bJ-2AR"/>
+                            <constraint firstItem="sRZ-tq-ksE" firstAttribute="top" secondItem="AaD-ly-68w" secondAttribute="bottom" id="Jtg-QL-fDg"/>
+                            <constraint firstItem="TW1-tt-RSR" firstAttribute="leading" secondItem="kMI-t3-KSf" secondAttribute="leading" id="Lqm-eG-Kqw"/>
+                            <constraint firstItem="AaD-ly-68w" firstAttribute="leading" secondItem="kMI-t3-KSf" secondAttribute="leading" id="RvN-Nu-jMV"/>
+                            <constraint firstItem="AaD-ly-68w" firstAttribute="top" secondItem="TW1-tt-RSR" secondAttribute="bottom" id="bE9-YC-fhF"/>
+                            <constraint firstAttribute="trailing" secondItem="AaD-ly-68w" secondAttribute="trailing" id="sU6-AS-Ryb"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="bottomView" destination="AaD-ly-68w" id="GNh-NG-pgS"/>
+                            <outlet property="chosenCountLabel" destination="Gcx-4s-3QI" id="oCj-za-5Ch"/>
+                            <outlet property="collectionView" destination="TW1-tt-RSR" id="lUp-hO-1QW"/>
+                            <outlet property="deleteButton" destination="vFb-Xd-Kn5" id="QPO-do-GbG"/>
+                            <outlet property="purchaseButton" destination="R2D-Qw-b6S" id="zPu-ah-e4S"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="footballLotteryView" destination="kMI-t3-KSf" id="oTn-cB-ezM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GQc-Cv-0dc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="616" y="-224"/>
+        </scene>
+    </scenes>
+</document>

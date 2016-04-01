@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		18008A4F1CA69E4600EFA08E /* UITabBarController+ML_Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 18008A4E1CA69E4600EFA08E /* UITabBarController+ML_Create.m */; };
+		182228491CAE86DD00A7E43D /* ALFootballLotteryCLCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 182228401CAE86DD00A7E43D /* ALFootballLotteryCLCell.m */; };
+		1822284A1CAE86DD00A7E43D /* ALFootballLotteryCLCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182228411CAE86DD00A7E43D /* ALFootballLotteryCLCell.xib */; };
+		1822284B1CAE86DD00A7E43D /* ALFootballLotteryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182228431CAE86DD00A7E43D /* ALFootballLotteryController.m */; };
+		1822284C1CAE86DD00A7E43D /* ALFootballLotteryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182228451CAE86DD00A7E43D /* ALFootballLotteryView.m */; };
+		1822284D1CAE86DD00A7E43D /* AthleticsLottery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 182228461CAE86DD00A7E43D /* AthleticsLottery.storyboard */; };
+		1822284E1CAE86DD00A7E43D /* AthleticsLotteryMaster.m in Sources */ = {isa = PBXBuildFile; fileRef = 182228481CAE86DD00A7E43D /* AthleticsLotteryMaster.m */; };
 		18463CEC1CA247E300DD87BE /* UIBezierPath+ML_Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18463CEA1CA247E300DD87BE /* UIBezierPath+ML_Tools.m */; };
 		184BCA271CA69AB800EF5A14 /* NetworkCtl+Hud.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BCA241CA69AB800EF5A14 /* NetworkCtl+Hud.m */; };
 		184BCA281CA69AB800EF5A14 /* NetworkCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BCA261CA69AB800EF5A14 /* NetworkCtl.m */; };
@@ -183,6 +189,16 @@
 /* Begin PBXFileReference section */
 		18008A4D1CA69E4600EFA08E /* UITabBarController+ML_Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+ML_Create.h"; sourceTree = "<group>"; };
 		18008A4E1CA69E4600EFA08E /* UITabBarController+ML_Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+ML_Create.m"; sourceTree = "<group>"; };
+		1822283F1CAE86DD00A7E43D /* ALFootballLotteryCLCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALFootballLotteryCLCell.h; sourceTree = "<group>"; };
+		182228401CAE86DD00A7E43D /* ALFootballLotteryCLCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALFootballLotteryCLCell.m; sourceTree = "<group>"; };
+		182228411CAE86DD00A7E43D /* ALFootballLotteryCLCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALFootballLotteryCLCell.xib; sourceTree = "<group>"; };
+		182228421CAE86DD00A7E43D /* ALFootballLotteryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALFootballLotteryController.h; sourceTree = "<group>"; };
+		182228431CAE86DD00A7E43D /* ALFootballLotteryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALFootballLotteryController.m; sourceTree = "<group>"; };
+		182228441CAE86DD00A7E43D /* ALFootballLotteryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALFootballLotteryView.h; sourceTree = "<group>"; };
+		182228451CAE86DD00A7E43D /* ALFootballLotteryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALFootballLotteryView.m; sourceTree = "<group>"; };
+		182228461CAE86DD00A7E43D /* AthleticsLottery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AthleticsLottery.storyboard; sourceTree = "<group>"; };
+		182228471CAE86DD00A7E43D /* AthleticsLotteryMaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AthleticsLotteryMaster.h; sourceTree = "<group>"; };
+		182228481CAE86DD00A7E43D /* AthleticsLotteryMaster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AthleticsLotteryMaster.m; sourceTree = "<group>"; };
 		18463CEA1CA247E300DD87BE /* UIBezierPath+ML_Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+ML_Tools.m"; sourceTree = "<group>"; };
 		18463CEB1CA247E300DD87BE /* UIBezierPath+ML_Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+ML_Tools.h"; sourceTree = "<group>"; };
 		184BCA231CA69AB800EF5A14 /* NetworkCtl+Hud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetworkCtl+Hud.h"; sourceTree = "<group>"; };
@@ -531,6 +547,23 @@
 				F48D774E4C6660039E66AE38 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		1822283E1CAE86D100A7E43D /* NestListView */ = {
+			isa = PBXGroup;
+			children = (
+				1822283F1CAE86DD00A7E43D /* ALFootballLotteryCLCell.h */,
+				182228401CAE86DD00A7E43D /* ALFootballLotteryCLCell.m */,
+				182228411CAE86DD00A7E43D /* ALFootballLotteryCLCell.xib */,
+				182228421CAE86DD00A7E43D /* ALFootballLotteryController.h */,
+				182228431CAE86DD00A7E43D /* ALFootballLotteryController.m */,
+				182228441CAE86DD00A7E43D /* ALFootballLotteryView.h */,
+				182228451CAE86DD00A7E43D /* ALFootballLotteryView.m */,
+				182228461CAE86DD00A7E43D /* AthleticsLottery.storyboard */,
+				182228471CAE86DD00A7E43D /* AthleticsLotteryMaster.h */,
+				182228481CAE86DD00A7E43D /* AthleticsLotteryMaster.m */,
+			);
+			path = NestListView;
 			sourceTree = "<group>";
 		};
 		184BCA221CA69AB800EF5A14 /* HttpRequest */ = {
@@ -961,6 +994,7 @@
 				FEB529D01BEF1EBA00EAA6C1 /* RootController.h */,
 				FEB529D11BEF1EBA00EAA6C1 /* RootController.m */,
 				FEB529D31BEF208A00EAA6C1 /* RootController.xib */,
+				1822283E1CAE86D100A7E43D /* NestListView */,
 				FE31D0E11BFE0A3300D63286 /* MultiThread */,
 				FEE55D191BF71CDB00C8F783 /* ScrollViewInXib */,
 				FEE55D081BF4D63900C8F783 /* NibToViewController */,
@@ -1242,6 +1276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEE55D021BF244D100C8F783 /* FranchiseVerifyingStatusView.xib in Resources */,
+				1822284D1CAE86DD00A7E43D /* AthleticsLottery.storyboard in Resources */,
 				1895E1301C5B50840046411D /* IQKeyboardManager.storyboard in Resources */,
 				FEE30BA71C03412500B79F8D /* LoadNibSubView.xib in Resources */,
 				FE29A26F1C513365006FF01E /* 44C5FC76-E862-43F6-824E-0FBBAFADA5CA.png in Resources */,
@@ -1265,6 +1300,7 @@
 				FE76C9EE1C08BAA600192239 /* test.png in Resources */,
 				FE65B91C1C24619A001B24F1 /* NibTBCell.xib in Resources */,
 				FE3C4A731C2EBA66004CBA21 /* ChainableController.xib in Resources */,
+				1822284A1CAE86DD00A7E43D /* ALFootballLotteryCLCell.xib in Resources */,
 				FEC3494F1BEEFB0D0076E88B /* Images.xcassets in Resources */,
 				FE3684791C29827F00317135 /* NibCLCell.xib in Resources */,
 				FEDF1FEC1C4A641400DF9A8D /* FDTBCellAutoHeight.storyboard in Resources */,
@@ -1397,6 +1433,7 @@
 				18C2767B1C7D41020055C19D /* UIImage+FX.m in Sources */,
 				FECA0E711C9AF3BA00278BB0 /* ML_NSArrayChain.m in Sources */,
 				18C2765D1C7D41020055C19D /* NSMutableString+ML_Tools.m in Sources */,
+				1822284C1CAE86DD00A7E43D /* ALFootballLotteryView.m in Sources */,
 				18C276541C7D41020055C19D /* NSArray+ML_Component.m in Sources */,
 				FE945AB11C1D5746007A2421 /* SBHSplitOrderModel.m in Sources */,
 				FECA0E7D1C9C3A2300278BB0 /* CALayer+ML_CALayerChain.m in Sources */,
@@ -1431,6 +1468,7 @@
 				18463CEC1CA247E300DD87BE /* UIBezierPath+ML_Tools.m in Sources */,
 				FE06A0941CA7B01200758B37 /* MLImageNextController.m in Sources */,
 				18C276891C7D41020055C19D /* UITableViewCell+Separator.m in Sources */,
+				1822284B1CAE86DD00A7E43D /* ALFootballLotteryController.m in Sources */,
 				18C276871C7D41020055C19D /* UITableView+ML_Tools.m in Sources */,
 				18FCA2321C7D3B5C002C4E5C /* WHC_XMLParser.m in Sources */,
 				FE65B91B1C24619A001B24F1 /* NibTBCell.m in Sources */,
@@ -1440,6 +1478,7 @@
 				18C276641C7D41020055C19D /* NSObject+ML_ModelMethodHelper.m in Sources */,
 				18C2768A1C7D41020055C19D /* UITextField+CommonType.m in Sources */,
 				18C276941C7D41020055C19D /* UIView+ML_Tools.m in Sources */,
+				182228491CAE86DD00A7E43D /* ALFootballLotteryCLCell.m in Sources */,
 				FE41D5A71C89D4500098E7BA /* ML_UIViewChain.m in Sources */,
 				18C276621C7D41020055C19D /* NSObject+CreateCode.m in Sources */,
 				18C2765F1C7D41020055C19D /* NSNotificationCenter+Block.m in Sources */,
@@ -1456,6 +1495,7 @@
 				188D54191C91037600841588 /* NSObject+ML_NSOjbectChain.m in Sources */,
 				18C2767D1C7D41020055C19D /* UIImage+RoundedCorner.m in Sources */,
 				18C2765A1C7D41020055C19D /* NSFileManager+ML_Tools.m in Sources */,
+				1822284E1CAE86DD00A7E43D /* AthleticsLotteryMaster.m in Sources */,
 				18C2767A1C7D41020055C19D /* UIImage+FileName.m in Sources */,
 				18C276561C7D41020055C19D /* NSData+Base64.m in Sources */,
 				FE972D091C5FAB8B00C34DC0 /* MLCALayerController.m in Sources */,
