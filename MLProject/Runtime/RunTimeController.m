@@ -8,13 +8,13 @@
 
 #import "RunTimeController.h"
 #import "NSObject+Add.h"
+#import <objc/objc.h>
 #import <objc/runtime.h>
 #import <objc/message.h>
 #import "SomeClass.h"
 #import "SBHSplitOrderMaster.h"
 #import "SBHSplitOrderModel.h"
 #import "MJExtension.h"
-
 
 
 @interface RunTimeController ()
@@ -167,6 +167,11 @@
 - (void)handleSenderEvent:(UIView *)sender
 {
     
+}
+- (void)createClassWithSuperClass:(Class)superClass name:(char *)name
+{
+    Class rumTimeClass = objc_allocateClassPair(superClass, name, 0);
+
 }
 #pragma mark - ========= Setter & Getter =========
 - (NSMutableArray *)dataSource

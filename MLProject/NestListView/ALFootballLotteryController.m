@@ -8,10 +8,11 @@
 
 #import "ALFootballLotteryController.h"
 #include "ALFootballLotteryCLCell.h"
-#import "PublicHTTP+ASIHTTPRequest.h"
+#import "UICollectionView+ML_Tools.h"
 #import "AthleticsLotteryMaster.h"
 #import "MJExtension.h"
 #import "ALFootballLotteryView.h"
+#import "NetworkCtl.h"
 @interface ALFootballLotteryController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (strong, nonatomic) IBOutlet ALFootballLotteryView *footballLotteryView;
 @property (nonatomic, strong) AthleticsLotteryMaster *athleticsLotteryMaster;
@@ -134,15 +135,24 @@
 
 - (void)downloadAthleticsDataWithLotteryID:(NSString *)lotteryID
 {
-    [PublicHTTP getModelWithASIHTTPRequestType:PublicHttpASIRequestTypeFootballLotteryOfWinLoseList messageObject:lotteryID success:^(NSDictionary *success) {
-
-        self.athleticsLotteryMaster = [AthleticsLotteryMaster objectWithKeyValues:success];
-        [self.dataSource removeAllObjects];
-        [self.dataSource addObjectsFromArray:self.athleticsLotteryMaster.datas];
-        [self.footballLotteryView.collectionView reloadData];
-    } failure:^(NSDictionary *failure) {
+//    [PublicHTTP getModelWithASIHTTPRequestType:PublicHttpASIRequestTypeFootballLotteryOfWinLoseList messageObject:lotteryID success:^(NSDictionary *success) {
+//
+//        self.athleticsLotteryMaster = [AthleticsLotteryMaster objectWithKeyValues:success];
+//        [self.dataSource removeAllObjects];
+//        [self.dataSource addObjectsFromArray:self.athleticsLotteryMaster.datas];
+//        [self.footballLotteryView.collectionView reloadData];
+//    } failure:^(NSDictionary *failure) {
+//        
+//    }];
+    
+    [NetworkCtl postWithRequestID:@"" paramBlock:^(URLConfig *urlConfig, PostDataPackage *postDataPackage, RequestParam *requestParam, ResultModelClassManager *resultModelClassManager, NetworkMsgObjManager *msgObjManager) {
+        
+    } success:^(NSURLSessionDataTask *task, id responseObject, NSJSONSerialization *JSONObject, id modelMaster, NSInteger statusCode, URLConfig *urlConfig, RequestParam *requestParam, NSString *requestID, PostDataPackage *postDataPackage) {
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error, URLConfig *urlConfig, RequestParam *requestParam, NSString *requestID, PostDataPackage *postDataPackage) {
         
     }];
+    
 }
 #pragma mark - ========= CollectionView Cell =========
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -231,7 +241,7 @@
     }
   
     
-   if ([[self.subCollectionViewSelectedItems objectForKey:indexPath] count] > 0) {
+   if ([(NSArray *)[self.subCollectionViewSelectedItems objectForKey:indexPath] count] > 0) {
        
         }
 }

@@ -10,7 +10,7 @@
 
 @implementation UITableView (ML_Tools)
 //用数组注册
-- (void)ML_registerClassAndCellReuseIdentifierWithArray:(NSArray *)array
+- (void)ML_registerNibForCellWithArray:(NSArray *)array
 {
     for (NSInteger i = 0; i < array.count; i++) {
         id cellNameOrClass = array[i];

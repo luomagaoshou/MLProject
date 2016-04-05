@@ -10,8 +10,9 @@
 #define PublicColorDeclear_h
 #define kCOLOR_RANDOM_COLOR ([UIColor colorWithRed:arc4random()%256/255.0 green:arc4random()%256/255.0 blue:arc4random()%256/255.0 alpha:1.0f])
 #pragma mark - ========= 店主版 =========
-
+#define kUI_COLOR_WHITE [UIColor whiteColor]
 #define kUI_OBJECT_COLOR_BLUE [UIColor colorWithHex:(0x009ddf)]
+#define kUI_OBJECT_BACKGROUND_COLOR_BLUE [UIColor colorWithHex:(0x009ddf)]
 #define KUI_TEXT_COLOR_BLUE [UIColor colorWithHex:(0x1b66c7)]
 #define kUI_COLOR_YELLOW [UIColor colorWithHex:(0xfff55b)]
 #define kUI_OBJECT_COLOR_GREEN [UIColor colorWithHex:(0x00b746)]

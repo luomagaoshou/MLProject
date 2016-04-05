@@ -90,7 +90,7 @@
 {
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    [self.tableView ML_registerClassAndCellReuseIdentifierWithArray:@[@"UITableViewCell"]];
+    [self.tableView ML_registerNibForCellWithArray:@[@"UITableViewCell"]];
     
     [self.dataSource addObjectsFromArray:@[@"水仙花数",
                                            @"韩信点兵",
@@ -104,7 +104,8 @@
 #pragma mark - ========= DownloadData =========
 - (void)downloadData
 {
-    
+
+
 }
 #pragma mark - ========= TabelView Cell =========
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -215,13 +216,17 @@
        // [self permutationsAndCombinationsWithTotalCount:10 chosenCount:4];
         int list[10] = {1,2,3,4,5,6};
        
-        perm(list, 0, 4 , nil);
+       // perm(list, 0, 4 , nil);
+        
+        NSArray *letters = @[@"A", @"B", @"C", @"D", @"E", @"F", @"G"];
+        [self ml_permWithList:letters count:7 choose:1  chosen:0 currentIndex:0 currentList:nil];
         }
       
             break;
         case 5:
         {
             [self verticalCalculate];
+        
         }
             break;
         default:
@@ -355,7 +360,85 @@ void combination(int m, int n)
 
 
 
+- (void)ml_permWithList:(NSArray *)list count:(NSInteger)count choose:(NSInteger)choose chosen:(NSInteger)chosen currentIndex:(NSInteger)currentIndex currentList:(NSMutableArray *)currentList
+{
 
+    //创建新表 当前索引小于总数-选择数
+    if (currentIndex <= count - choose) {
+        for (NSInteger i = currentIndex; i < count - choose + 1; i++) {
+            if (currentList == nil) {
+                currentList = [[NSMutableArray alloc] init];
+            }
+            [currentList addObject:list[i]];
+            if (currentList.count == choose) {
+                            [self resultPermArrWithArr:currentList];
+            }
+            else
+                {
+                 [self ml_permWithList:list count:count choose:choose chosen:chosen currentIndex:++i currentList:currentList];
+                }
+            
+            
+        }
+    }
+    else
+        {
+        for (NSInteger i = currentIndex; i < count - choose + 1; i++) {
+            if (currentList == nil) {
+                currentList = [[NSMutableArray alloc] init];
+            }
+            [currentList addObject:list[i]];
+            if (currentList.count == choose) {
+                [self resultPermArrWithArr:currentList];
+            }
+            else
+                {
+                [self ml_permWithList:list count:count choose:choose chosen:chosen currentIndex:++i currentList:currentList];
+                }
+            
+            
+        }
+        
+        }
+    
+    
+#if 0
+    for (NSInteger i = currentIndex; i < count - choose + 1 - chosen; i++) {
+        if (currentList == nil) {
+            currentList = [[NSMutableArray alloc] init];
+        }
+        [currentList addObject:list[i]];
+        if (currentList.count == choose) {
+            [self resultPermArrWithArr:currentList];
+        }
+        else
+            {
+            if (currentIndex <= count - choose) {
+                [self ml_permWithList:list count:count choose:choose chosen:0 currentIndex:i currentList:nil];
+            
+                [self ml_permWithList:list count:count choose:choose chosen:++chosen currentIndex:i currentList:currentList];
+                }
+            
+            }
+    }
+#endif
+    NSLog(@"%@", [self resultPermArrWithArr:nil]);
+    
+}
+
+- (NSMutableArray *)resultPermArrWithArr:(NSArray *)array
+{
+    static NSMutableArray *result = nil;
+    if (array == nil) {
+         return result;
+    }
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        result = [[NSMutableArray alloc] init];
+    });
+    [result addObject:array];
+    return result;
+}
 void perm(int list[], int s, int e, void (*cbk)(int list[]))
 {
     int i;
@@ -393,6 +476,8 @@ void cbk_print(int * subs)
         }
     printf("}\n");
 }
+
+
 
 #pragma mark - ========= Event Methods =========
 - (void)handleSenderEvent:(UIView *)sender

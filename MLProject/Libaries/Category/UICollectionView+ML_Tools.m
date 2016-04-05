@@ -14,7 +14,7 @@
 
 @implementation UICollectionView (ML_Tools)
 
-- (void)ML_registerClassAndCellReuseIdentifierWithArray:(NSArray *)array
+- (void)ML_registerNibForCellWithArray:(NSArray *)array
 {
     for (NSInteger i = 0; i < array.count; i++) {
         id cellNameOrClass = array[i];

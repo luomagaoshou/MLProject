@@ -147,6 +147,10 @@
 		FE945AB11C1D5746007A2421 /* SBHSplitOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FE945AAF1C1D5746007A2421 /* SBHSplitOrderModel.m */; };
 		FE972D061C5FAB6800C34DC0 /* MLCALayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE972D051C5FAB6800C34DC0 /* MLCALayer.storyboard */; };
 		FE972D091C5FAB8B00C34DC0 /* MLCALayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE972D081C5FAB8B00C34DC0 /* MLCALayerController.m */; };
+		FEA1C86F1CAEDD2300B5A9D3 /* ReuseButtonCLCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA1C86D1CAEDD2300B5A9D3 /* ReuseButtonCLCell.m */; };
+		FEA1C8701CAEDD2300B5A9D3 /* ReuseButtonCLCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEA1C86E1CAEDD2300B5A9D3 /* ReuseButtonCLCell.xib */; };
+		FEA1C8761CB16F3300B5A9D3 /* MLStruct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEA1C8751CB16F3300B5A9D3 /* MLStruct.storyboard */; };
+		FEA1C8791CB16F4300B5A9D3 /* MLStructController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA1C8781CB16F4300B5A9D3 /* MLStructController.m */; };
 		FEB529D21BEF1EBA00EAA6C1 /* RootController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB529D11BEF1EBA00EAA6C1 /* RootController.m */; };
 		FEB529D41BEF208A00EAA6C1 /* RootController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB529D31BEF208A00EAA6C1 /* RootController.xib */; };
 		FEC349441BEEFB0D0076E88B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC349431BEEFB0D0076E88B /* main.m */; };
@@ -455,6 +459,12 @@
 		FE972D051C5FAB6800C34DC0 /* MLCALayer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLCALayer.storyboard; sourceTree = "<group>"; };
 		FE972D071C5FAB8B00C34DC0 /* MLCALayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLCALayerController.h; sourceTree = "<group>"; };
 		FE972D081C5FAB8B00C34DC0 /* MLCALayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLCALayerController.m; sourceTree = "<group>"; };
+		FEA1C86C1CAEDD2300B5A9D3 /* ReuseButtonCLCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReuseButtonCLCell.h; sourceTree = "<group>"; };
+		FEA1C86D1CAEDD2300B5A9D3 /* ReuseButtonCLCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReuseButtonCLCell.m; sourceTree = "<group>"; };
+		FEA1C86E1CAEDD2300B5A9D3 /* ReuseButtonCLCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReuseButtonCLCell.xib; sourceTree = "<group>"; };
+		FEA1C8751CB16F3300B5A9D3 /* MLStruct.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLStruct.storyboard; sourceTree = "<group>"; };
+		FEA1C8771CB16F4300B5A9D3 /* MLStructController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLStructController.h; sourceTree = "<group>"; };
+		FEA1C8781CB16F4300B5A9D3 /* MLStructController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLStructController.m; sourceTree = "<group>"; };
 		FEB529CF1BEF057700EAA6C1 /* Public.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Public.h; sourceTree = "<group>"; };
 		FEB529D01BEF1EBA00EAA6C1 /* RootController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootController.h; sourceTree = "<group>"; };
 		FEB529D11BEF1EBA00EAA6C1 /* RootController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootController.m; sourceTree = "<group>"; };
@@ -562,6 +572,9 @@
 				182228461CAE86DD00A7E43D /* AthleticsLottery.storyboard */,
 				182228471CAE86DD00A7E43D /* AthleticsLotteryMaster.h */,
 				182228481CAE86DD00A7E43D /* AthleticsLotteryMaster.m */,
+				FEA1C86C1CAEDD2300B5A9D3 /* ReuseButtonCLCell.h */,
+				FEA1C86D1CAEDD2300B5A9D3 /* ReuseButtonCLCell.m */,
+				FEA1C86E1CAEDD2300B5A9D3 /* ReuseButtonCLCell.xib */,
 			);
 			path = NestListView;
 			sourceTree = "<group>";
@@ -932,6 +945,16 @@
 			path = CALayer;
 			sourceTree = "<group>";
 		};
+		FEA1C8741CB16F1E00B5A9D3 /* Struct */ = {
+			isa = PBXGroup;
+			children = (
+				FEA1C8751CB16F3300B5A9D3 /* MLStruct.storyboard */,
+				FEA1C8771CB16F4300B5A9D3 /* MLStructController.h */,
+				FEA1C8781CB16F4300B5A9D3 /* MLStructController.m */,
+			);
+			path = Struct;
+			sourceTree = "<group>";
+		};
 		FEB529CE1BEF056B00EAA6C1 /* Unity */ = {
 			isa = PBXGroup;
 			children = (
@@ -994,6 +1017,7 @@
 				FEB529D01BEF1EBA00EAA6C1 /* RootController.h */,
 				FEB529D11BEF1EBA00EAA6C1 /* RootController.m */,
 				FEB529D31BEF208A00EAA6C1 /* RootController.xib */,
+				FEA1C8741CB16F1E00B5A9D3 /* Struct */,
 				1822283E1CAE86D100A7E43D /* NestListView */,
 				FE31D0E11BFE0A3300D63286 /* MultiThread */,
 				FEE55D191BF71CDB00C8F783 /* ScrollViewInXib */,
@@ -1296,6 +1320,7 @@
 				FEB529D41BEF208A00EAA6C1 /* RootController.xib in Resources */,
 				FE60DBC71C510748009D836E /* MLStoryboard.storyboard in Resources */,
 				FEE6546D1C130A0D004C44D4 /* LoadNibController.xib in Resources */,
+				FEA1C8701CAEDD2300B5A9D3 /* ReuseButtonCLCell.xib in Resources */,
 				187D54B21C84011E0066EC67 /* MLAttributeString.storyboard in Resources */,
 				FE76C9EE1C08BAA600192239 /* test.png in Resources */,
 				FE65B91C1C24619A001B24F1 /* NibTBCell.xib in Resources */,
@@ -1306,6 +1331,7 @@
 				FEDF1FEC1C4A641400DF9A8D /* FDTBCellAutoHeight.storyboard in Resources */,
 				FEE55CDE1BF0EBB000C8F783 /* NibController.xib in Resources */,
 				18FCA22F1C7D3B5C002C4E5C /* image1.jpg in Resources */,
+				FEA1C8761CB16F3300B5A9D3 /* MLStruct.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1372,6 +1398,7 @@
 				18C2766E1C7D41020055C19D /* UIBarButtonItem+ML_Tools.m in Sources */,
 				18008A4F1CA69E4600EFA08E /* UITabBarController+ML_Create.m in Sources */,
 				FE1141D01CA6C6AD00302A03 /* MBProgressHUD.m in Sources */,
+				FEA1C86F1CAEDD2300B5A9D3 /* ReuseButtonCLCell.m in Sources */,
 				18C276971C7D41020055C19D /* UIView+Xib.m in Sources */,
 				18CF9D741C8EDFB900E1EA53 /* NSObject+ChainInvocation.m in Sources */,
 				18C276631C7D41020055C19D /* NSObject+ML_CGRect.m in Sources */,
@@ -1396,6 +1423,7 @@
 				18D8E07D1C84576400706195 /* NSObject+ML_Tools.m in Sources */,
 				FEE30BBB1C03421C00B79F8D /* UIView+Ext.m in Sources */,
 				18C276881C7D41020055C19D /* UITableView+Separator.m in Sources */,
+				FEA1C8791CB16F4300B5A9D3 /* MLStructController.m in Sources */,
 				18C276721C7D41020055C19D /* UIButton+Init.m in Sources */,
 				18C276851C7D41020055C19D /* UINavigationBar+Appearance.m in Sources */,
 				18C276731C7D41020055C19D /* UIButton+ML_Tools.m in Sources */,

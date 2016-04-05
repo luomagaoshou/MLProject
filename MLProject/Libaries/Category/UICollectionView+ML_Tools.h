@@ -11,7 +11,7 @@
 @interface UICollectionView (ML_Tools)
 //用类名或类注册，ID与类名一致
 - (void)ML_registerClassAndHeaderFooterViewReuseIdentifierWithArray:(NSArray *)array supplementaryViewOfKind:(NSString *)supplementaryViewOfKind;
-- (void)ML_registerClassAndCellReuseIdentifierWithArray:(NSArray *)array;
+- (void)ML_registerNibForCellWithArray:(NSArray *)array;
 
 /**
  *  reuseID为key

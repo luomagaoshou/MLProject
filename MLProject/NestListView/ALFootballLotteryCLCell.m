@@ -9,7 +9,7 @@
 #import "ALFootballLotteryCLCell.h"
 #import "ReuseButtonCLCell.h"
 #import "AthleticsLotteryMaster.h"
-#import "UIColor+HexColor.h"
+#import "UICollectionView+ML_Tools.h"
 #import "UIImage+Color.h"
 @interface ALFootballLotteryCLCell()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) NSMutableArray *dataSource;
@@ -32,7 +32,7 @@
     
     self.dateLabel.text = [model.date substringFromIndex:[model.date rangeOfString:@"-"].location + 1];
     self.leagueNameLabel.text = model.leagueMatch;
-    self.leagueNameLabel.backgroundColor = [UIColor colorWithHexString:model.leagueColor];
+
     self.timeLabel.text = model.time;
 
     NSArray *homeAndVisitingTeam = [model.playAgainst componentsSeparatedByString:@"|"];

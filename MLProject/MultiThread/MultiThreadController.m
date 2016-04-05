@@ -9,9 +9,14 @@
 #import "MultiThreadController.h"
 #import "NetworkCtl.h"
 #import <AFNetworking/AFNetworking.h>
+#import "UIView+DrawRectBlock.h"
   typedef void (^MultiThreadTestBlock)(void);
 @interface MultiThreadController ()
 @property (nonatomic, strong) NSMutableArray *dataSource;
+@property (weak, nonatomic) IBOutlet UIButton *button;
+@property (weak, nonatomic) IBOutlet UIButton *leaveButton;
+
+@property (nonatomic, strong) dispatch_group_t group;
 @end
 
 @implementation MultiThreadController
@@ -48,6 +53,9 @@
 //加载完成
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.button addTarget:self action:@selector(gcdWorking:) forControlEvents:UIControlEventTouchUpInside];
+    [self.button addTarget:self action:@selector(test:) forControlEvents:UIControlEventTouchUpInside];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     [self.dataSource addObjectsFromArray:@[@"GCD串行同步",
                                            @"GCD串行异步",
@@ -177,8 +185,14 @@
             break;
         case 10:
         {
-            [self downloadAnImage];
+   
+             [self downloadAnImage];
+      
+        
+ 
+        
         }
+            
             break;
         default:
             break;
@@ -500,32 +514,122 @@
 
 - (void)downloadAnImage
 {
+    dispatch_queue_t queue2 = dispatch_queue_create("com.person.syncQueue", DISPATCH_QUEUE_SERIAL);
+    
+    dispatch_sync(queue2, ^{
+        NSLog(@"%@",  @"同步串行");
+    });
+    NSLog(@"sfdsf");
 //NSBlockOperation *block1 = [NSBlockOperation blockOperationWithBlock:^{
     
-
+//
+    dispatch_queue_t serielQueue = dispatch_queue_create("ffdd", DISPATCH_QUEUE_SERIAL);
+    dispatch_async(serielQueue, ^{
+       dispatch_async(dispatch_get_main_queue(), ^{
+           NSLog(@"sdfdsf");
+       });
+    });
+    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager setCompletionGroup:dispatch_group_create()];
+
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+   
 
-    dispatch_semaphore_t sema = dispatch_semaphore_create(0);
- 
-        
-      
-    [manager GET:@"https://www.baidu.com/img/bd_logo1.png" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-        NSLog(@"%@", downloadProgress);
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"%@", responseObject);
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@", error);
-    }];
-        
+    
+    
+    dispatch_group_t group = dispatch_group_create();
+//
+   // dispatch_group_enter(group);
+//    [manager GET:@"https://www.baidu.com/img/bd_logo1.png" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+//        NSLog(@"%@", downloadProgress);
+//        
+//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        NSLog(@"%@", responseObject);
+//  dispatch_group_leave(group);
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        NSLog(@"%@", error);
+//          dispatch_group_leave(group);
+//    }];
+//
 
+   // [manager setCompletionQueue:queue];
 
-//}];
-//    [block1 waitUntilFinished];
-   dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        NSLog(@"%@", @"main queue");
+//          dispatch_group_leave(group);
+//    });
+//  
+    dispatch_barrier_async(dispatch_get_main_queue(), ^(){
+        NSLog(@"dispatch-barrier");
+    });
+  
+    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
     NSLog(@"%@", @"finish");
+    
+
+}
+
+
+- (IBAction)gcdWorking:(id)sender {
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    
+    self.group = dispatch_group_create();
+#warning 下面下载一样的
+    // 计数+1
+    dispatch_group_enter(self.group);
+    [manager GET:@"https://www.baidu.com/img/bd_logo1.png" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        NSLog(@"等我下完你再BB");
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        // 计数-1
+        NSLog(@"下完");
+        dispatch_group_leave(self.group);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        // 计数-1
+        NSLog(@"下完");
+        dispatch_group_leave(self.group);
+    }];
+    
+    // 计数+1
+    dispatch_group_enter(self.group);
+    [manager GET:@"https://www.baidu.com/img/bd_logo1.png" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        NSLog(@"等我下完你再BB");
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        // 计数-1
+        NSLog(@"下完");
+        dispatch_group_leave(self.group);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        // 计数-1
+        NSLog(@"下完");
+        dispatch_group_leave(self.group);
+    }];
+    
+    // 计数+1
+    dispatch_group_enter(self.group);
+    [manager GET:@"https://www.baidu.com/img/bd_logo1.png" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        NSLog(@"等我下完你再BB");
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        // 计数-1
+        NSLog(@"下完");
+        dispatch_group_leave(self.group);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        // 计数-1
+        NSLog(@"下完");
+        dispatch_group_leave(self.group);
+    }];
+#warning 上面下载一样的
+    // 突然想着有事没做，先等着// 计数+1
+    dispatch_group_enter(self.group);
+    
+    dispatch_group_notify(self.group, dispatch_get_main_queue(), ^{
+        NSLog(@"%@", @"finish");
+    });
+    NSLog(@"%@", @"这里");
+    
+}
+- (IBAction)test:(id)sender {
+    // 没事了，都做完了
+    dispatch_group_leave(self.group);
 }
 #pragma mark - ========= Setter & Getter =========
 - (NSMutableArray *)dataSource

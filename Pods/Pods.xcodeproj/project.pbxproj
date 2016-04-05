@@ -837,7 +837,6 @@
 		FC280DB8257FF51A216788C65125C861 /* UITableView+FDTemplateLayoutCell-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 68CC2862494CA31B61BE4C7123990F25 /* UITableView+FDTemplateLayoutCell-dummy.m */; };
 		FC495E27469C4FD1DCA09BBBBE95A1D9 /* ASPINRemoteImageDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F00866E5883B35F7443909A8610B6AE /* ASPINRemoteImageDownloader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FCAF70E66A75EC679A1B4B9FB301149E /* ASBatchContext.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1BF43BD9B9B7E420444C612435C0E58F /* ASBatchContext.mm */; };
-		FCDDD3BC67EA205C87238A2A87D5C36C /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 47133162E417103EEE8FF472E4111CE5 /* AFURLSessionManager.m */; };
 		FD29F63228C042CCAB4F0772EFC65982 /* ASDimension.h in Headers */ = {isa = PBXBuildFile; fileRef = 658B834C6ECE6CBF3F5E9267443DF723 /* ASDimension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FD39EBE3398E1A99965AC003B273450D /* NSArray+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 632A2B5E3496291361417B98F050D86D /* NSArray+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FD53DB6F1ED2C2A4BE8794885AB146F4 /* YYWebImageOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 950BFD2FBF71308BCA73B95858389007 /* YYWebImageOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -848,6 +847,7 @@
 		FE3308CCD9CB6639AD0F22708FC9C7D3 /* UIBarButtonItem+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEE5A5570FCD22C9522FF02053132C5 /* UIBarButtonItem+YYAdd.m */; };
 		FE8EB8127B1F8DD46F14AF318EAEDF2F /* NSData+RACSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 189F4D0479FF5273E9FEE18382909215 /* NSData+RACSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FE983ADC2960099312AF536D2916BC7A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72268632AB124AB33ABC87F41FB14F02 /* Foundation.framework */; };
+		FEA1C8721CAF90E000B5A9D3 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 47133162E417103EEE8FF472E4111CE5 /* AFURLSessionManager.m */; };
 		FEFDCFE2AF01ADA14B8E7834F1DC0702 /* ASTextKitHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 882F4110673DA3BFDFF8985C19A05573 /* ASTextKitHelpers.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		FF09B82139BFB16D863CDD097ED72F78 /* RACSerialDisposable.m in Sources */ = {isa = PBXBuildFile; fileRef = F93646ADF04661A5A56A9F919AB3D9DF /* RACSerialDisposable.m */; };
 		FF364BAFF2F9F44302CEB77F2461E5AA /* RACReplaySubject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC8F534D3D4FB5C9A3ED4D48819F62E /* RACReplaySubject.m */; };
@@ -4581,7 +4581,7 @@
 				311E5200832E4AE174A193851A2C6317 /* AFSecurityPolicy.m in Sources */,
 				8E82178CC9BD8BE3DBF2C10E33807AEB /* AFURLRequestSerialization.m in Sources */,
 				C2201E34603B014192F0967473518496 /* AFURLResponseSerialization.m in Sources */,
-				FCDDD3BC67EA205C87238A2A87D5C36C /* AFURLSessionManager.m in Sources */,
+				FEA1C8721CAF90E000B5A9D3 /* AFURLSessionManager.m in Sources */,
 				15460ABD372C937E2A07A2FCDF98C473 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				78940A6980F359C4304C695EF6E67C5D /* UIButton+AFNetworking.m in Sources */,
 				B0BE398350F83A7B0102C3BBAFC51428 /* UIImageView+AFNetworking.m in Sources */,

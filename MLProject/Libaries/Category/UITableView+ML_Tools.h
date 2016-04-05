@@ -15,7 +15,7 @@
  *
  *  @param array 
  */
-- (void)ML_registerClassAndCellReuseIdentifierWithArray:(NSArray *)array;
+- (void)ML_registerNibForCellWithArray:(NSArray *)array;
 - (void)ML_registerNibAndCellReuseIdentifierWithArray:(NSArray *)array;
 - (void)ML_registerClassAndHeaderFooterViewReuseIdentifierWithArray:(NSArray *)array;
 - (void)ML_registerNibAndHeaderFooterViewReuseIdentifierWithArray:(NSArray *)array;

@@ -304,10 +304,6 @@ didCompleteWithError:(NSError *)error
             }
 
             dispatch_async(dispatch_get_global_queue(0, 0), ^{
-                
-                if (self.completionHandler) {
-                    self.completionHandler(task.response, responseObject, serializationError);
-                }
             dispatch_group_async(manager.completionGroup ?: url_session_manager_completion_group(), manager.completionQueue ?: dispatch_get_main_queue(), ^{
                 if (self.completionHandler) {
                     self.completionHandler(task.response, responseObject, serializationError);
@@ -771,6 +767,7 @@ static NSString * const AFNSURLSessionTaskDidSuspendNotification = @"com.alamofi
     url_session_manager_create_task_safely(^{
         dataTask = [self.session dataTaskWithRequest:request];
     });
+
 
     [self addDelegateForDataTask:dataTask uploadProgress:uploadProgressBlock downloadProgress:downloadProgressBlock completionHandler:completionHandler];
 
