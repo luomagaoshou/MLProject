@@ -151,6 +151,7 @@
 		FEA1C8701CAEDD2300B5A9D3 /* ReuseButtonCLCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEA1C86E1CAEDD2300B5A9D3 /* ReuseButtonCLCell.xib */; };
 		FEA1C8761CB16F3300B5A9D3 /* MLStruct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEA1C8751CB16F3300B5A9D3 /* MLStruct.storyboard */; };
 		FEA1C8791CB16F4300B5A9D3 /* MLStructController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA1C8781CB16F4300B5A9D3 /* MLStructController.m */; };
+		FEA1C87C1CB5394300B5A9D3 /* PaiLie.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA1C87A1CB5394300B5A9D3 /* PaiLie.m */; };
 		FEB529D21BEF1EBA00EAA6C1 /* RootController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB529D11BEF1EBA00EAA6C1 /* RootController.m */; };
 		FEB529D41BEF208A00EAA6C1 /* RootController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB529D31BEF208A00EAA6C1 /* RootController.xib */; };
 		FEC349441BEEFB0D0076E88B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC349431BEEFB0D0076E88B /* main.m */; };
@@ -465,6 +466,8 @@
 		FEA1C8751CB16F3300B5A9D3 /* MLStruct.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLStruct.storyboard; sourceTree = "<group>"; };
 		FEA1C8771CB16F4300B5A9D3 /* MLStructController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLStructController.h; sourceTree = "<group>"; };
 		FEA1C8781CB16F4300B5A9D3 /* MLStructController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLStructController.m; sourceTree = "<group>"; };
+		FEA1C87A1CB5394300B5A9D3 /* PaiLie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaiLie.m; sourceTree = "<group>"; };
+		FEA1C87B1CB5394300B5A9D3 /* PaiLie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaiLie.h; sourceTree = "<group>"; };
 		FEB529CF1BEF057700EAA6C1 /* Public.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Public.h; sourceTree = "<group>"; };
 		FEB529D01BEF1EBA00EAA6C1 /* RootController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootController.h; sourceTree = "<group>"; };
 		FEB529D11BEF1EBA00EAA6C1 /* RootController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootController.m; sourceTree = "<group>"; };
@@ -1215,6 +1218,8 @@
 				FEE6A6921C691188008760CA /* AlgorithmPlay.storyboard */,
 				FEE6A6941C691196008760CA /* AlgorithmPlayController.h */,
 				FEE6A6951C691196008760CA /* AlgorithmPlayController.m */,
+				FEA1C87A1CB5394300B5A9D3 /* PaiLie.m */,
+				FEA1C87B1CB5394300B5A9D3 /* PaiLie.h */,
 			);
 			path = AlgorithmPlay;
 			sourceTree = "<group>";
@@ -1528,6 +1533,7 @@
 				18C276561C7D41020055C19D /* NSData+Base64.m in Sources */,
 				FE972D091C5FAB8B00C34DC0 /* MLCALayerController.m in Sources */,
 				FE29A27F1C54F7D0006FF01E /* UIViewController+Storyboard.m in Sources */,
+				FEA1C87C1CB5394300B5A9D3 /* PaiLie.m in Sources */,
 				FE514DB21C1BFCDB00E3AC0C /* RunTimeController.m in Sources */,
 				18E727F81C9D35E500DA9438 /* CALayer+Line.m in Sources */,
 				18D8E07E1C84576400706195 /* UITableView+Refresh.m in Sources */,

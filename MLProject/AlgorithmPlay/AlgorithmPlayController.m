@@ -7,7 +7,7 @@
 //
 
 #import "AlgorithmPlayController.h"
-
+#import "PaiLie.h"
 @interface AlgorithmPlayController ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *dataSource;
@@ -97,7 +97,8 @@
                                            @"倒三角形",
                                            @"子序列的和",
                                            @"排列组合",
-                                           @"竖式乘法"]];
+                                           @"竖式乘法",
+                                           @"排列组合2",]];
 }
 
 
@@ -219,13 +220,21 @@
        // perm(list, 0, 4 , nil);
         
         NSArray *letters = @[@"A", @"B", @"C", @"D", @"E", @"F", @"G"];
-        [self ml_permWithList:letters count:7 choose:1  chosen:0 currentIndex:0 currentList:nil];
+        [self ml_permWithList:letters count:7 choose:2  chosen:0 currentIndex:0 currentList:nil];
         }
       
             break;
         case 5:
         {
             [self verticalCalculate];
+        
+        }
+            break;
+        case 6:
+        {
+        
+           NSArray *letters = @[@"A", @"B", @"C", @"D", @"E", @"F", @"G"];
+        [self zuHeSuanFa:[NSMutableArray arrayWithArray:letters] chooseCount:3];
         
         }
             break;
@@ -364,64 +373,33 @@ void combination(int m, int n)
 {
 
     //创建新表 当前索引小于总数-选择数
-    if (currentIndex <= count - choose) {
+    if (currentIndex <= count - choose && chosen < choose) {
         for (NSInteger i = currentIndex; i < count - choose + 1; i++) {
-            if (currentList == nil) {
+        
                 currentList = [[NSMutableArray alloc] init];
-            }
             [currentList addObject:list[i]];
-            if (currentList.count == choose) {
-                            [self resultPermArrWithArr:currentList];
+            if (currentList.count >= choose) {
+            [self resultPermArrWithArr:currentList];
+                return;
             }
             else
                 {
-                 [self ml_permWithList:list count:count choose:choose chosen:chosen currentIndex:++i currentList:currentList];
+                   [self ml_permWithList:list count:count choose:choose chosen:currentList.count currentIndex:++i currentList:currentList];
                 }
-            
-            
         }
     }
     else
         {
-        for (NSInteger i = currentIndex; i < count - choose + 1; i++) {
-            if (currentList == nil) {
-                currentList = [[NSMutableArray alloc] init];
-            }
-            [currentList addObject:list[i]];
-            if (currentList.count == choose) {
-                [self resultPermArrWithArr:currentList];
-            }
-            else
-                {
-                [self ml_permWithList:list count:count choose:choose chosen:chosen currentIndex:++i currentList:currentList];
-                }
-            
-            
-        }
-        
-        }
-    
-    
-#if 0
-    for (NSInteger i = currentIndex; i < count - choose + 1 - chosen; i++) {
-        if (currentList == nil) {
-            currentList = [[NSMutableArray alloc] init];
-        }
-        [currentList addObject:list[i]];
-        if (currentList.count == choose) {
+        [currentList addObject:list[currentIndex]];
+        if (currentList.count >= choose) {
             [self resultPermArrWithArr:currentList];
+            return;
         }
-        else
-            {
-            if (currentIndex <= count - choose) {
-                [self ml_permWithList:list count:count choose:choose chosen:0 currentIndex:i currentList:nil];
-            
-                [self ml_permWithList:list count:count choose:choose chosen:++chosen currentIndex:i currentList:currentList];
-                }
-            
-            }
-    }
-#endif
+     //   currentList = [currentList mutableCopy];
+        [self ml_permWithList:list count:count choose:choose chosen:currentList.count currentIndex:++currentIndex currentList:currentList];
+        }
+    
+
     NSLog(@"%@", [self resultPermArrWithArr:nil]);
     
 }
@@ -478,6 +456,98 @@ void cbk_print(int * subs)
 }
 
 
+- (NSMutableArray *)zuHeSuanFa:(NSMutableArray *)array chooseCount:(int)m
+{
+    int n = [array count];
+    
+    if (m > n)
+        {
+        return nil;
+        }
+    
+    NSLog(@"从1到%d中取%d个数的组合。。。",n,m);
+    
+    NSMutableArray *allChooseArray = [[NSMutableArray alloc] init];
+    NSMutableArray *retArray = [array copy];
+    
+    // (1,1,1,0,0)
+    for(int i=0;i < n;i++)
+        {
+        if (i < m)
+            {
+            [array replaceObjectAtIndex:i withObject:@"1"];
+            }
+        else
+            {
+            [array replaceObjectAtIndex:i withObject:@"0"];
+            }
+        }
+    
+    NSMutableArray *firstArray = [[NSMutableArray alloc] init];
+    
+    for(int i=0; i<n; i++)
+        {
+        if ([[array objectAtIndex:i] intValue] == 1)
+            {
+            //            [firstArray addObject:[NSString stringWithFormat:@"%d",i+1]];
+            [firstArray addObject:[retArray objectAtIndex:i]];
+            }
+        }
+    
+    [allChooseArray addObject:firstArray];
+    //    [firstArray release];
+    
+    int count = 0;
+    for(int i = 0; i < n-1; i++)
+        {
+        if ([[array objectAtIndex:i] intValue] == 1 && [[array objectAtIndex:(i + 1)] intValue] == 0)
+            {
+            [array replaceObjectAtIndex:i withObject:@"0"];
+            [array replaceObjectAtIndex:(i + 1) withObject:@"1"];
+            
+            for (int k = 0; k < i; k++)
+                {
+                if ([[array objectAtIndex:k] intValue] == 1)
+                    {
+                    count ++;
+                    }
+                }
+            if (count > 0)
+                {
+                for (int k = 0; k < i; k++)
+                    {
+                    if (k < count)
+                        {
+                        [array replaceObjectAtIndex:k withObject:@"1"];
+                        }
+                    else
+                        {
+                        [array replaceObjectAtIndex:k withObject:@"0"];
+                        }
+                    }
+                }
+            
+            NSMutableArray *middleArray = [[NSMutableArray alloc] init];
+            
+            for (int k = 0; k < n; k++)
+                {
+                if ([[array objectAtIndex:k] intValue] == 1)
+                    {
+                    //                    [middleArray addObject:[NSString stringWithFormat:@"%d",k + 1]];
+                    [middleArray addObject:[retArray objectAtIndex:k]];
+                    }
+                }
+            
+            [allChooseArray addObject:middleArray];
+            //            [middleArray release];
+            
+            i = -1;
+            count = 0;
+            }
+        }
+    
+    return allChooseArray;
+}
 
 #pragma mark - ========= Event Methods =========
 - (void)handleSenderEvent:(UIView *)sender

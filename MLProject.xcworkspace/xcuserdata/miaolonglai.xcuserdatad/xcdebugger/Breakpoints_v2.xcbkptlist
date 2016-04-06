@@ -212,16 +212,6 @@
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            scope = "0"
-            stopOnStyle = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "No"
@@ -478,11 +468,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MLProject/AlgorithmPlay/AlgorithmPlayController.m"
-            timestampString = "481553836.66587"
+            timestampString = "481643836.103754"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "279"
-            endingLineNumber = "279"
+            startingLineNumber = "288"
+            endingLineNumber = "288"
             landmarkName = "-verticalCalculate"
             landmarkType = "5">
             <Locations>
@@ -665,7 +655,7 @@
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miaolonglai/Desktop/MLProject/Pods/Masonry/Masonry/NSArray+MASAdditions.m"
-                  timestampString = "481564705.572566"
+                  timestampString = "481650285.535619"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "101"
@@ -680,7 +670,7 @@
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miaolonglai/Desktop/MLProject/Pods/Masonry/Masonry/NSArray+MASAdditions.m"
-                  timestampString = "481564705.572688"
+                  timestampString = "481650285.535752"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "101"
@@ -713,7 +703,7 @@
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miaolonglai/Desktop/MLProject/Pods/Masonry/Masonry/NSArray+MASAdditions.m"
-                  timestampString = "481564705.573341"
+                  timestampString = "481650285.538144"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "52"
@@ -728,7 +718,7 @@
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miaolonglai/Desktop/MLProject/Pods/Masonry/Masonry/NSArray+MASAdditions.m"
-                  timestampString = "481564705.57347"
+                  timestampString = "481650285.538373"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "52"
@@ -825,7 +815,7 @@
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miaolonglai/Desktop/MLProject/Pods/Masonry/Masonry/MASCompositeConstraint.m"
-                  timestampString = "481564705.576073"
+                  timestampString = "481650285.60081"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "83"
@@ -840,7 +830,7 @@
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miaolonglai/Desktop/MLProject/Pods/Masonry/Masonry/MASCompositeConstraint.m"
-                  timestampString = "481564705.576205"
+                  timestampString = "481650285.600926"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "83"
@@ -1177,7 +1167,7 @@
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miaolonglai/Desktop/MLProject/MLProject/MultiThread/MultiThreadController.m"
-                  timestampString = "481564705.582274"
+                  timestampString = "481650285.606409"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "428"
@@ -1192,7 +1182,7 @@
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miaolonglai/Desktop/MLProject/MLProject/MultiThread/MultiThreadController.m"
-                  timestampString = "481564705.582375"
+                  timestampString = "481650285.606505"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "430"
@@ -1352,7 +1342,7 @@
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miaolonglai/Desktop/MLProject/MLProject/MultiThread/MultiThreadController.m"
-                  timestampString = "481564705.58339"
+                  timestampString = "481650285.607557"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "320"
@@ -1367,7 +1357,7 @@
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miaolonglai/Desktop/MLProject/MLProject/MultiThread/MultiThreadController.m"
-                  timestampString = "481564705.583486"
+                  timestampString = "481650285.607645"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "322"
@@ -1400,7 +1390,7 @@
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miaolonglai/Desktop/MLProject/MLProject/MultiThread/MultiThreadController.m"
-                  timestampString = "481564705.584101"
+                  timestampString = "481650285.608241"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "329"
@@ -1415,7 +1405,7 @@
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miaolonglai/Desktop/MLProject/MLProject/MultiThread/MultiThreadController.m"
-                  timestampString = "481564705.584212"
+                  timestampString = "481650285.608338"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "330"
@@ -1464,11 +1454,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MLProject/AlgorithmPlay/AlgorithmPlayController.m"
-            timestampString = "481553836.66587"
+            timestampString = "481643836.103754"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "349"
-            endingLineNumber = "349"
+            startingLineNumber = "358"
+            endingLineNumber = "358"
             landmarkName = "combination()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1480,11 +1470,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MLProject/AlgorithmPlay/AlgorithmPlayController.m"
-            timestampString = "481564557.201785"
+            timestampString = "481643836.103754"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "472"
-            endingLineNumber = "472"
+            startingLineNumber = "450"
+            endingLineNumber = "450"
             landmarkName = "cbk_print()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1496,11 +1486,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MLProject/AlgorithmPlay/AlgorithmPlayController.m"
-            timestampString = "481564557.201785"
+            timestampString = "481643836.103754"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "470"
-            endingLineNumber = "470"
+            startingLineNumber = "448"
+            endingLineNumber = "448"
             landmarkName = "cbk_print()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1512,11 +1502,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MLProject/AlgorithmPlay/AlgorithmPlayController.m"
-            timestampString = "481564557.201785"
+            timestampString = "481643836.103754"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "447"
-            endingLineNumber = "447"
+            startingLineNumber = "425"
+            endingLineNumber = "425"
             landmarkName = "perm()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1544,7 +1534,7 @@
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miaolonglai/Desktop/MLProject/Pods/AFNetworking/AFNetworking/AFURLSessionManager.m"
-                  timestampString = "481564705.585888"
+                  timestampString = "481650285.610042"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "280"
@@ -1559,7 +1549,7 @@
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miaolonglai/Desktop/MLProject/Pods/AFNetworking/AFNetworking/AFURLSessionManager.m"
-                  timestampString = "481564705.585987"
+                  timestampString = "481650285.610154"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "280"
@@ -1752,7 +1742,7 @@
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miaolonglai/Desktop/MLProject/Pods/AFNetworking/AFNetworking/AFHTTPSessionManager.m"
-                  timestampString = "481564705.587762"
+                  timestampString = "481650285.611707"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "191"
@@ -1767,7 +1757,7 @@
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miaolonglai/Desktop/MLProject/Pods/AFNetworking/AFNetworking/AFHTTPSessionManager.m"
-                  timestampString = "481564705.587863"
+                  timestampString = "481650285.611868"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "191"
@@ -2280,7 +2270,7 @@
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miaolonglai/Desktop/MLProject/MLProject/MultiThread/MultiThreadController.m"
-                  timestampString = "481564705.590631"
+                  timestampString = "481650285.615044"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "562"
@@ -2295,7 +2285,7 @@
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miaolonglai/Desktop/MLProject/MLProject/MultiThread/MultiThreadController.m"
-                  timestampString = "481564705.590762"
+                  timestampString = "481650285.615147"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "563"
@@ -2408,12 +2398,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MLProject/AlgorithmPlay/AlgorithmPlayController.m"
-            timestampString = "481564557.201785"
+            timestampString = "481643836.103754"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "421"
-            endingLineNumber = "421"
-            landmarkName = "-ml_permWithList:count:choose:chosen:currentIndex:currentList:"
+            startingLineNumber = "236"
+            endingLineNumber = "236"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2424,12 +2414,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MLProject/AlgorithmPlay/AlgorithmPlayController.m"
-            timestampString = "481564557.201785"
+            timestampString = "481643836.103754"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "412"
-            endingLineNumber = "412"
-            landmarkName = "-ml_permWithList:count:choose:chosen:currentIndex:currentList:"
+            startingLineNumber = "417"
+            endingLineNumber = "417"
+            landmarkName = "-resultPermArrWithArr:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2440,11 +2430,52 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MLProject/AlgorithmPlay/AlgorithmPlayController.m"
-            timestampString = "481564557.201785"
+            timestampString = "481643836.103754"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "408"
-            endingLineNumber = "408"
+            startingLineNumber = "403"
+            endingLineNumber = "403"
+            landmarkName = "-ml_permWithList:count:choose:chosen:currentIndex:currentList:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.SymbolicBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            symbolName = ""
+            moduleName = "">
+            <Locations>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.SymbolicBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            condition = "currentIndex == 7"
+            continueAfterRunningActions = "No"
+            symbolName = ""
+            moduleName = "">
+            <Locations>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MLProject/AlgorithmPlay/AlgorithmPlayController.m"
+            timestampString = "481643836.103754"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "387"
+            endingLineNumber = "387"
             landmarkName = "-ml_permWithList:count:choose:chosen:currentIndex:currentList:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2456,12 +2487,60 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MLProject/AlgorithmPlay/AlgorithmPlayController.m"
-            timestampString = "481564635.801962"
+            timestampString = "481643836.103754"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "370"
-            endingLineNumber = "370"
+            startingLineNumber = "394"
+            endingLineNumber = "394"
             landmarkName = "-ml_permWithList:count:choose:chosen:currentIndex:currentList:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MLProject/AlgorithmPlay/AlgorithmPlayController.m"
+            timestampString = "481643836.103754"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "393"
+            endingLineNumber = "393"
+            landmarkName = "-ml_permWithList:count:choose:chosen:currentIndex:currentList:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MLProject/AlgorithmPlay/AlgorithmPlayController.m"
+            timestampString = "481643836.103754"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "392"
+            endingLineNumber = "392"
+            landmarkName = "-ml_permWithList:count:choose:chosen:currentIndex:currentList:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MLProject/AlgorithmPlay/AlgorithmPlayController.m"
+            timestampString = "481643838.889752"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "470"
+            endingLineNumber = "470"
+            landmarkName = "-zuHeSuanFa:chooseCount:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2472,12 +2551,60 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MLProject/AlgorithmPlay/AlgorithmPlayController.m"
-            timestampString = "481564637.644193"
+            timestampString = "481643883.591303"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "388"
-            endingLineNumber = "388"
-            landmarkName = "-ml_permWithList:count:choose:chosen:currentIndex:currentList:"
+            startingLineNumber = "549"
+            endingLineNumber = "549"
+            landmarkName = "-zuHeSuanFa:chooseCount:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MLProject/AlgorithmPlay/AlgorithmPlayController.m"
+            timestampString = "481648853.235662"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "486"
+            endingLineNumber = "486"
+            landmarkName = "-zuHeSuanFa:chooseCount:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MLProject/AlgorithmPlay/AlgorithmPlayController.m"
+            timestampString = "481650253.85081"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "488"
+            endingLineNumber = "488"
+            landmarkName = "-zuHeSuanFa:chooseCount:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MLProject/AlgorithmPlay/AlgorithmPlayController.m"
+            timestampString = "481650373.027307"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "497"
+            endingLineNumber = "497"
+            landmarkName = "-zuHeSuanFa:chooseCount:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
