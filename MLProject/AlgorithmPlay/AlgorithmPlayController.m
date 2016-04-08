@@ -8,6 +8,7 @@
 
 #import "AlgorithmPlayController.h"
 #import "PaiLie.h"
+#import "CABasicAnimation+ML_Make.h"
 @interface AlgorithmPlayController ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *dataSource;
@@ -99,6 +100,7 @@
                                            @"排列组合",
                                            @"竖式乘法",
                                            @"排列组合2",]];
+
 }
 
 

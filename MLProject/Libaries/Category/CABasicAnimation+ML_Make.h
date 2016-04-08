@@ -43,5 +43,5 @@
 
 typedef CABasicAnimation * (^CABasicAnimationMakeBlock)(CABasicAnimationMaker *maker);
 @interface CABasicAnimation (ML_Make)
-- (instancetype)animationWithBlock:(CABasicAnimationMakeBlock)makerBlock;
++ (instancetype)animationWithBlock:(CABasicAnimationMakeBlock)makerBlock;
 @end
