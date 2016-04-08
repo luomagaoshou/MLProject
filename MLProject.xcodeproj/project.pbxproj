@@ -152,6 +152,7 @@
 		FEA1C8761CB16F3300B5A9D3 /* MLStruct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEA1C8751CB16F3300B5A9D3 /* MLStruct.storyboard */; };
 		FEA1C8791CB16F4300B5A9D3 /* MLStructController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA1C8781CB16F4300B5A9D3 /* MLStructController.m */; };
 		FEA1C87C1CB5394300B5A9D3 /* PaiLie.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA1C87A1CB5394300B5A9D3 /* PaiLie.m */; };
+		FEA1C87E1CB6B60A00B5A9D3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA1C87D1CB6B60A00B5A9D3 /* UIKit.framework */; };
 		FEB529D21BEF1EBA00EAA6C1 /* RootController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB529D11BEF1EBA00EAA6C1 /* RootController.m */; };
 		FEB529D41BEF208A00EAA6C1 /* RootController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB529D31BEF208A00EAA6C1 /* RootController.xib */; };
 		FEC349441BEEFB0D0076E88B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC349431BEEFB0D0076E88B /* main.m */; };
@@ -162,6 +163,7 @@
 		FECA0E741C9AF40F00278BB0 /* NSArray+ML_NSArrayChain.m in Sources */ = {isa = PBXBuildFile; fileRef = FECA0E731C9AF40F00278BB0 /* NSArray+ML_NSArrayChain.m */; };
 		FECA0E7A1C9C39F500278BB0 /* ML_CALayerChain.m in Sources */ = {isa = PBXBuildFile; fileRef = FECA0E791C9C39F500278BB0 /* ML_CALayerChain.m */; };
 		FECA0E7D1C9C3A2300278BB0 /* CALayer+ML_CALayerChain.m in Sources */ = {isa = PBXBuildFile; fileRef = FECA0E7C1C9C3A2300278BB0 /* CALayer+ML_CALayerChain.m */; };
+		FEDF13B01CB7FF6D00156D85 /* CABasicAnimation+ML_Make.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDF13AF1CB7FF6D00156D85 /* CABasicAnimation+ML_Make.m */; };
 		FEDF1FEC1C4A641400DF9A8D /* FDTBCellAutoHeight.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEDF1FEB1C4A641400DF9A8D /* FDTBCellAutoHeight.storyboard */; };
 		FEDF1FF01C4A64A200DF9A8D /* FDTBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDF1FEF1C4A64A200DF9A8D /* FDTBCell.m */; };
 		FEDF1FF41C4A64BB00DF9A8D /* FDTBCellAutoHeightController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDF1FF31C4A64BB00DF9A8D /* FDTBCellAutoHeightController.m */; };
@@ -468,6 +470,7 @@
 		FEA1C8781CB16F4300B5A9D3 /* MLStructController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLStructController.m; sourceTree = "<group>"; };
 		FEA1C87A1CB5394300B5A9D3 /* PaiLie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaiLie.m; sourceTree = "<group>"; };
 		FEA1C87B1CB5394300B5A9D3 /* PaiLie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaiLie.h; sourceTree = "<group>"; };
+		FEA1C87D1CB6B60A00B5A9D3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FEB529CF1BEF057700EAA6C1 /* Public.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Public.h; sourceTree = "<group>"; };
 		FEB529D01BEF1EBA00EAA6C1 /* RootController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootController.h; sourceTree = "<group>"; };
 		FEB529D11BEF1EBA00EAA6C1 /* RootController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootController.m; sourceTree = "<group>"; };
@@ -490,6 +493,8 @@
 		FECA0E791C9C39F500278BB0 /* ML_CALayerChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ML_CALayerChain.m; sourceTree = "<group>"; };
 		FECA0E7B1C9C3A2300278BB0 /* CALayer+ML_CALayerChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+ML_CALayerChain.h"; sourceTree = "<group>"; };
 		FECA0E7C1C9C3A2300278BB0 /* CALayer+ML_CALayerChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+ML_CALayerChain.m"; sourceTree = "<group>"; };
+		FEDF13AE1CB7FF6D00156D85 /* CABasicAnimation+ML_Make.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CABasicAnimation+ML_Make.h"; sourceTree = "<group>"; };
+		FEDF13AF1CB7FF6D00156D85 /* CABasicAnimation+ML_Make.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CABasicAnimation+ML_Make.m"; sourceTree = "<group>"; };
 		FEDF1FEB1C4A641400DF9A8D /* FDTBCellAutoHeight.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FDTBCellAutoHeight.storyboard; sourceTree = "<group>"; };
 		FEDF1FEE1C4A64A200DF9A8D /* FDTBCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDTBCell.h; sourceTree = "<group>"; };
 		FEDF1FEF1C4A64A200DF9A8D /* FDTBCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDTBCell.m; sourceTree = "<group>"; };
@@ -545,6 +550,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEA1C87E1CB6B60A00B5A9D3 /* UIKit.framework in Frameworks */,
 				FE2095E21C951C8A000CBE16 /* libdyci.a in Frameworks */,
 				32987B6A15498D3D3F19A0C2 /* libPods.a in Frameworks */,
 			);
@@ -620,6 +626,8 @@
 			children = (
 				18C275BE1C7D41020055C19D /* ChainableKit */,
 				18C275C41C7D41020055C19D /* ML_Category.h */,
+				FEDF13AE1CB7FF6D00156D85 /* CABasicAnimation+ML_Make.h */,
+				FEDF13AF1CB7FF6D00156D85 /* CABasicAnimation+ML_Make.m */,
 				18008A4D1CA69E4600EFA08E /* UITabBarController+ML_Create.h */,
 				18008A4E1CA69E4600EFA08E /* UITabBarController+ML_Create.m */,
 				18C275C51C7D41020055C19D /* NSArray+ML_Component.h */,
@@ -832,6 +840,7 @@
 		60AFDD8D28D828F225B0C2CD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FEA1C87D1CB6B60A00B5A9D3 /* UIKit.framework */,
 				FE2095E11C951C8A000CBE16 /* libdyci.a */,
 				AD9EA58A0110754E9AABB517 /* libPods.a */,
 			);
@@ -1507,6 +1516,7 @@
 				FE65B91B1C24619A001B24F1 /* NibTBCell.m in Sources */,
 				18C2766D1C7D41020055C19D /* UIBarButtonItem+EventBlock.m in Sources */,
 				FEE55D201BF71E1D00C8F783 /* ScrollViewInXibController.m in Sources */,
+				FEDF13B01CB7FF6D00156D85 /* CABasicAnimation+ML_Make.m in Sources */,
 				18C2767F1C7D41020055C19D /* UIImage+ML_Tools.m in Sources */,
 				18C276641C7D41020055C19D /* NSObject+ML_ModelMethodHelper.m in Sources */,
 				18C2768A1C7D41020055C19D /* UITextField+CommonType.m in Sources */,
