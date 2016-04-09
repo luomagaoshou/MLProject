@@ -8,6 +8,16 @@
 //
 
 #import "CABasicAnimation+ML_Make.h"
+#import <objc/runtime.h>
+NSString * ml_AnimationProrertyNameFromClass(Class aClass)
+{
+    NSMutableString *prorerty = [NSMutableString stringWithString:NSStringFromClass(aClass)];
+    [prorerty replaceOccurrencesOfString:@"CABasicAnimation" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, prorerty.length)];
+      [prorerty replaceOccurrencesOfString:@"Maker" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, prorerty.length)];
+    [prorerty replaceCharactersInRange:NSMakeRange(0, 1) withString:[[prorerty substringToIndex:1] lowercaseString]];
+    
+    return prorerty;
+}
 
 @implementation CABasicAnimationTranslationMaker
 @end
@@ -17,6 +27,13 @@
 
 
 @implementation CABasicAnimationRotationMaker
+- (NSString *)x
+{
+    NSString *currentProperty = NSStringFromSelector(_cmd);
+    [self superclass];
+    
+    return nil;
+}
 @end
 
 @implementation CABasicAnimationTransformMaker
@@ -24,35 +41,28 @@
 
 
 @implementation CABasicAnimationMaker
-- (CABasicAnimation *)basicAnimation
+- (CABasicAnimation *)basicAnimationWithSelector:(SEL)selector
 {
-    
-    NSMutableArray *detailStrings = [self detailStringsWithObject:self];
+   static NSString *CABasicAnimationTransformMakerStr = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        CABasicAnimationTransformMakerStr = @"CABasicAnimationTransformMaker";
+    });
   
-    
-    
-    return nil;
-}
-- (NSMutableArray *)detailStringsWithObject:(id)object
-{
-    NSMutableArray *detailStrings = [[NSMutableArray alloc] init];
-    return [self detailStringsWithObject:object currentDetailString:nil storerArr:detailStrings];
-}
-- (NSMutableArray *)detailStringsWithObject:(id)object currentDetailString:(NSString *)currentDetailString storerArr:(NSMutableArray *)storerArr
-{
-    NSDictionary *properties = [object getPropertyKeyValueOnlyHaveValueDictionary];
-    NSArray *keys = [properties allKeys];
-    for (NSInteger i = 0; i < properties.count; i++) {
-     
-        id value = [object valueForKey:keys[i]];
-        if ([value getPropertyKeyValueOnlyHaveValueDictionary].count > 0) {
-            //[self detailStringsWithObject:object];
-        }
+    NSMutableArray *keyPaths= [[NSMutableArray alloc] init];
+   
+    for (Class currentClass = [self class]; currentClass == [ CABasicAnimationTransformMaker class]; currentClass = [currentClass superclass]) {
+        [keyPaths addObject:NSStringFromClass(currentClass)];
+        
     }
     
+    NSString *keyPathStr = [keyPaths componentsJoinedByString:@"."];
+    
+    
     
     return nil;
 }
+
 @end
 
 

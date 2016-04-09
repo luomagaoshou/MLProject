@@ -8,29 +8,30 @@
 
 #import <QuartzCore/QuartzCore.h>
 
-
-@interface CABasicAnimationTranslationMaker:NSObject
-@property (nonatomic, copy) NSString *x;
-@property (nonatomic, copy) NSString *y;
-@property (nonatomic, copy) NSString *z;
-@end
-
-@interface CABasicAnimationScaleMaker:NSObject
-@property (nonatomic, copy) NSString *x;
-@property (nonatomic, copy) NSString *y;
-@property (nonatomic, copy) NSString *z;
-@end
-
-@interface CABasicAnimationRotationMaker:NSObject
-@property (nonatomic, copy) NSString *x;
-@property (nonatomic, copy) NSString *y;
-@property (nonatomic, copy) NSString *z;
-@end
-
+@class CABasicAnimationRotationMaker;
+@class CABasicAnimationTranslationMaker;
+@class CABasicAnimationScaleMaker;
 @interface CABasicAnimationTransformMaker:NSObject
 @property (nonatomic, strong) CABasicAnimationRotationMaker *rotation;
 @property (nonatomic, strong) CABasicAnimationScaleMaker *scale;
 @property (nonatomic, strong) CABasicAnimationTranslationMaker *translation;
+@end
+
+@interface CABasicAnimationTranslationMaker:CABasicAnimationTransformMaker
+@property (nonatomic, copy, readonly) NSString *x;
+@property (nonatomic, copy, readonly) NSString *y;
+@property (nonatomic, copy, readonly) NSString *z;
+@end
+
+@interface CABasicAnimationRotationMaker:CABasicAnimationTransformMaker
+@property (nonatomic, copy, readonly) NSString *x;
+@property (nonatomic, copy, readonly) NSString *y;
+@property (nonatomic, copy, readonly) NSString *z;
+@end
+@interface CABasicAnimationScaleMaker:CABasicAnimationTransformMaker
+@property (nonatomic, copy, readonly) NSString *x;
+@property (nonatomic, copy, readonly) NSString *y;
+@property (nonatomic, copy, readonly) NSString *z;
 @end
 
 
