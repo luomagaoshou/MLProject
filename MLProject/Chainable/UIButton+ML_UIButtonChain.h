@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 #import "ML_UIButtonChain.h"
 @interface UIButton (ML_UIButtonChain)
-- (ML_UIButtonChain *)ml_make;
+ml_chain_category_method_declear(UIButton);
 @end

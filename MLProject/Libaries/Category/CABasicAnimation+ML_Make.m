@@ -1,78 +1,95 @@
-
 //
-//  CABasicAnimation+ML_Make.m
+//  CABasicAnimation+ML_make.m
 //  MLProject
 //
-//  Created by 妙龙赖 on 16/4/8.
+//  Created by 妙龙赖 on 16/4/9.
 //  Copyright © 2016年 妙龙赖. All rights reserved.
 //
 
-#import "CABasicAnimation+ML_Make.h"
-#import <objc/runtime.h>
-NSString * ml_AnimationProrertyNameFromClass(Class aClass)
-{
-    NSMutableString *prorerty = [NSMutableString stringWithString:NSStringFromClass(aClass)];
-    [prorerty replaceOccurrencesOfString:@"CABasicAnimation" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, prorerty.length)];
-      [prorerty replaceOccurrencesOfString:@"Maker" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, prorerty.length)];
-    [prorerty replaceCharactersInRange:NSMakeRange(0, 1) withString:[[prorerty substringToIndex:1] lowercaseString]];
-    
-    return prorerty;
+#import "CABasicAnimation+ML_make.h"
+
+@interface CAAnimationKeyPathMaker()
+@property (nonatomic, strong) NSMutableArray *multiLevelKeyPaths;
+@property (nonatomic, copy) NSString *casheKeyPathString;
+@end
+@implementation CAAnimationKeyPathMaker
+
+#define M_CAAnimationKeyPathMaker(PROPERTY) - (CAAnimationKeyPathMaker *)PROPERTY\
+{\
+    [self.multiLevelKeyPaths addObject:NSStringFromSelector(_cmd)];\
+    return self;\
 }
 
-@implementation CABasicAnimationTranslationMaker
-@end
+M_CAAnimationKeyPathMaker(transform)
+M_CAAnimationKeyPathMaker(rotation)
+M_CAAnimationKeyPathMaker(scale)
+M_CAAnimationKeyPathMaker(translation)
+M_CAAnimationKeyPathMaker(x)
+M_CAAnimationKeyPathMaker(y)
+M_CAAnimationKeyPathMaker(z)
+M_CAAnimationKeyPathMaker(path)
+M_CAAnimationKeyPathMaker(opacity)
+M_CAAnimationKeyPathMaker(margin)
+M_CAAnimationKeyPathMaker(position)
+M_CAAnimationKeyPathMaker(backgroundColor)
+M_CAAnimationKeyPathMaker(cornerRadius)
+M_CAAnimationKeyPathMaker(borderWidth)
+M_CAAnimationKeyPathMaker(bounds)
+M_CAAnimationKeyPathMaker(contents)
+M_CAAnimationKeyPathMaker(contentsRect)
+M_CAAnimationKeyPathMaker(frame)
+M_CAAnimationKeyPathMaker(hidden)
+M_CAAnimationKeyPathMaker(mask)
+M_CAAnimationKeyPathMaker(masksToBounds)
+M_CAAnimationKeyPathMaker(shadowColor)
+M_CAAnimationKeyPathMaker(shadowOffset)
+M_CAAnimationKeyPathMaker(shadowRadius)
 
-@implementation CABasicAnimationScaleMaker
-@end
 
 
-@implementation CABasicAnimationRotationMaker
-- (NSString *)x
+- (NSString *)keyPath
 {
-    NSString *currentProperty = NSStringFromSelector(_cmd);
-    [self superclass];
-    
-    return nil;
-}
-@end
-
-@implementation CABasicAnimationTransformMaker
-@end
-
-
-@implementation CABasicAnimationMaker
-- (CABasicAnimation *)basicAnimationWithSelector:(SEL)selector
-{
-   static NSString *CABasicAnimationTransformMakerStr = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        CABasicAnimationTransformMakerStr = @"CABasicAnimationTransformMaker";
-    });
-  
-    NSMutableArray *keyPaths= [[NSMutableArray alloc] init];
    
-    for (Class currentClass = [self class]; currentClass == [ CABasicAnimationTransformMaker class]; currentClass = [currentClass superclass]) {
-        [keyPaths addObject:NSStringFromClass(currentClass)];
-        
+    NSString *keyPathString;
+    if (self.multiLevelKeyPaths.count) {
+        keyPathString = [[self.multiLevelKeyPaths componentsJoinedByString:@"."] copy];
+       
+    }else if (self.casheKeyPathString){
+        keyPathString =  self.casheKeyPathString;
     }
     
-    NSString *keyPathStr = [keyPaths componentsJoinedByString:@"."];
     
-    
-    
-    return nil;
+    return keyPathString;
 }
-
+- (void)set
+{
+    self.casheKeyPathString = [self.multiLevelKeyPaths componentsJoinedByString:@"."];
+    [self.multiLevelKeyPaths removeAllObjects];
+   
+}
+#pragma mark - ========= Setter & Getter =========
+- (NSMutableArray *)multiLevelKeyPaths
+{
+    if (_multiLevelKeyPaths == nil) {
+        
+        _multiLevelKeyPaths = [[NSMutableArray alloc] init];
+    }
+    return _multiLevelKeyPaths;
+}
 @end
 
 
-@implementation CABasicAnimation (ML_Make)
-+ (instancetype)animationWithBlock:(CABasicAnimationMakeBlock)makerBlock
+@implementation CABasicAnimation (ML_make)
+
++ (instancetype)animationWithBlock:(void (^)(CABasicAnimation *, CAAnimationKeyPathMaker *))block
 {
-    CABasicAnimationMaker *maker = [[CABasicAnimationMaker alloc] init];
   
+    CAAnimationKeyPathMaker *keyPathMaker = [[CAAnimationKeyPathMaker alloc] init];
+    CABasicAnimation *animation = [[CABasicAnimation alloc] init];
+    block(animation, keyPathMaker);
+    animation.keyPath = [keyPathMaker keyPath];
     
-    return makerBlock(maker);
     
+    return animation;
 }
 @end

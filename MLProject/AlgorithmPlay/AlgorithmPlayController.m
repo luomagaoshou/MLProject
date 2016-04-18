@@ -8,7 +8,7 @@
 
 #import "AlgorithmPlayController.h"
 #import "PaiLie.h"
-#import "CABasicAnimation+ML_Make.h"
+
 @interface AlgorithmPlayController ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *dataSource;

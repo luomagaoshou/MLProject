@@ -1,5 +1,5 @@
 //
-//  ML_NSOjbectChain.h
+//  NSObject+ML_NSObjectChain.h
 //  MLProject
 //
 //  Created by apple on 16/3/10.
@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface ML_NSOjbectChain : NSObject
-@property (nonatomic, strong) id object;
+#import "ML_NSObjectChain.h"
+@interface NSObject (ML_NSObjectChain)
+- (ML_NSObjectChain *)ml_make;
 @end

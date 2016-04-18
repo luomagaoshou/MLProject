@@ -9,8 +9,8 @@
 #ifndef ML_Chain_Macro_h
 #define ML_Chain_Macro_h
 #import <ReactiveCocoa/ReactiveCocoa.h>
-#import "ML_NSOjbectChain.h"
-#import "NSObject+ML_NSOjbectChain.h"
+#import "ML_NSObjectChain.h"
+#import "NSObject+ML_NSObjectChain.h"
 #import "NSObject+ChainInvocation.h"
 #import <Masonry/Masonry.h>
 //从Mansonry得来
@@ -160,6 +160,9 @@ va_end(arglist);\
 return weakSelf;\
 };\
 }
+
+
+
 //在category声明方法
 #define ml_chain_category_method_declear(CLASS) + (ml_concat(ML_, CLASS, Chain) *) ml_make;\
 - (ml_concat(ML_, CLASS, Chain) *)ml_make;\

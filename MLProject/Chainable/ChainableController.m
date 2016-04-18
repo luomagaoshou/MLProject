@@ -251,8 +251,16 @@ return numberOfArguments;
     [self.view addSubview:btn];
     btn.frame = CGRectMake(0, 0, 200, 200);
     btn.ml_make.backgroundColor([UIColor redColor]);
-    btn.ml_make.size(150, 200);
-//    [btn performSelectorWithArgs:@selector(setSize:), CGSizeMake(200, 200)];
+ 
+    btn.ml_make.size_(150, 200);
+    btn.ml_make.titleForState(@"ff", UIControlStateNormal).size_(3, 5);
+
+    
+    
+   UIButton *button = UIButton.ml_make.size_(150, 200).get.makerOfUIButton.titleForState(@"kk", UIControlStateNormal).backgroundColor([UIColor greenColor]).makerOfUIButton.button;
+  
+    [self.view addSubview:button];
+   //    [btn performSelectorWithArgs:@selector(setSize:), CGSizeMake(200, 200)];
 //    btn.size = CGSizeMake(300, 300);
   //  btn.ml_make.backgroundColor([UIColor redColor]).frame(self.view.width/2, self.view.height/2,200, 200).backgroundColor([UIColor redColor]);
    // btn.ml_make.center(200 ,200).frame(100, 100, 300, 300);
@@ -268,9 +276,9 @@ return numberOfArguments;
 
  
    
-    CALayer *layer =[[CALayer alloc] init];
-  //  layer.ml_make.frame(100, 100, 200, 200);
-    layer.ml_make.backgroundColor([UIColor redColor]);
+//    CALayer *layer =[[CALayer alloc] init];
+//  //  layer.ml_make.frame(100, 100, 200, 200);
+//    layer.ml_make.backgroundColor([UIColor redColor]);
     
   // layer.ml_make.frame(100 ,100 ,200, 100).backgroundColor([UIColor yellowColor]).borderWidth(10).borderColor([UIColor cyanColor]).superLayer(self.view.layer);
 //    layer.ml_make.shadowOffset(-50, 50).shadowRadius(10).shadowColor([UIColor blueColor]).shadowColor([UIColor redColor]).shadowOpacity(0.8);

@@ -6,10 +6,10 @@
 //  Copyright © 2016年 妙龙赖. All rights reserved.
 //
 
-#import "ML_NSOjbectChain.h"
+#import "ML_NSObjectChain.h"
 #import "ML_Chain_Macro.h"
 ml_chain_block_maker(CALayer);
-@interface ML_CALayerChain : ML_NSOjbectChain
+@interface ML_CALayerChain : ML_NSObjectChain
 @property (nonatomic, strong) CALayer *layer;
 @property (nonatomic, copy, readonly) ML_CALayerParamBlock superLayer;
 @property (nonatomic, copy, readonly) ML_CALayerParamBlock bounds;

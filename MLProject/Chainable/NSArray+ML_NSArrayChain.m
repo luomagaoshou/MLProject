@@ -17,7 +17,7 @@
     chain.array = array;
     return chain;
 }
-- (ML_NSOjbectChain *)ml_make
+- (ML_NSObjectChain *)ml_make
 {
     ML_NSArrayChain *chain = [[ML_NSArrayChain alloc] init];
     chain.object = self;

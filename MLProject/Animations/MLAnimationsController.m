@@ -9,7 +9,7 @@
 #import "MLAnimationsController.h"
 #import "UIView+GestureBlock.h"
 #import <UIKit/UIKit.h>
-
+#import "CABasicAnimation+ML_make.h"
 @interface MLAnimationsController ()
 @property (weak, nonatomic) IBOutlet UIImageView *flipImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *tranferImageView;
@@ -95,11 +95,59 @@
 - (void)initUI
 {
     [self createCuteEffect];
+    [self animationMaker];
+}
+- (void)animationMaker
+{
+//    CABasicAnimation *animation = [CABasicAnimation animationWithBlock:^(CABasicAnimationMaker *maker, CAAnimationTransformMaker *transfrom) {
+//
+//    }];
+    
+   
+     CABasicAnimation * animation = [CABasicAnimation animationWithBlock:^(CABasicAnimation *animation, CAAnimationKeyPathMaker *keyPathMaker) {
+        [keyPathMaker.transform.scale set];
+         [keyPathMaker.transform.rotation set];
+         
+         [keyPathMaker.path set];
+         
+       
+         animation.toValue = (id)[UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, 300, 300)].CGPath;
+         animation.duration = 3;
+         animation.removedOnCompletion = NO;
+         animation.fillMode = kCAFillModeForwards;
+    
+    }];
+    CABasicAnimation *animation2 = [CABasicAnimation animationWithBlock:^(CABasicAnimation *animation, CAAnimationKeyPathMaker *keyPathMaker) {
+        [keyPathMaker.transform.translation.y set];
+        animation.toValue = @(2);
+    }];
+//    animation.keyPath =  @"transform.scale";
+//    animation.fromValue = @(0.2);
+//    animation.toValue = @(2);
+   
+    
+    CAShapeLayer *layer = [[CAShapeLayer alloc] init];
+    
+    layer.backgroundColor = [UIColor redColor].CGColor;
+    layer.fillColor = [UIColor yellowColor].CGColor;
+    layer.fillRule = kCAFillRuleEvenOdd;
+    layer.frame = CGRectMake(100, 100, 200, 200);
+    [[UIColor greenColor] set];
+     layer.path = (__bridge CGPathRef _Nullable)((id)[UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, 0, 0)].CGPath);
+    [layer masksToBounds];
+    [self.view.layer addSublayer:layer];
+    
+    [layer addAnimation:animation forKey:@"ff"];
+    [layer addAnimation:animation2 forKey:@"bb"];
+    
+}
+- (void)transitionFromViewController:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController duration:(NSTimeInterval)duration options:(UIViewAnimationOptions)options animations:(void (^)(void))animations completion:(void (^)(BOOL))completion
+{
     self.flipImageView.image = [UIImage imageNamed:@"44C5FC76-E862-43F6-824E-0FBBAFADA5CA"];
-  
-  self.tranferImageView.backgroundColor = [UIColor redColor];
-        [self.flipImageView tapWithConfig:nil event:^(id gesture) {
-            
+    
+    self.tranferImageView.backgroundColor = [UIColor redColor];
+    [self.flipImageView tapWithConfig:nil event:^(id gesture) {
+        
         [UIView transitionWithView:self.flipImageView duration:2 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
             self.flipImageView.image = [UIImage imageNamed:@"test"];
         } completion:^(BOOL finished) {
@@ -114,12 +162,12 @@
     
     
     [self.animationButton touchDown:^{
-       
+        
         for (NSInteger i = 0; i < 5; i++) {
             UIView *view = [[UIView alloc] initWithFrame:CGRectMake(20 + i * 60, 50, 50, 50)];
             view.backgroundColor = kCOLOR_RANDOM_COLOR;
             [self.view addSubview:view];
-          
+            
             [UIView animateWithDuration:2 delay:0.5 usingSpringWithDamping:0.6 initialSpringVelocity:0.8 options:UIViewAnimationOptionCurveEaseInOut + i animations:^{
                 view.y = 50 + 200;
             } completion:nil];
@@ -135,7 +183,7 @@
         [self.view addSubview:imageView];
         __block UIImageView *blockImageView = imageView;
         [self rotationEndlesslyWithView:blockImageView];
-       
+        
     }];
     
 
