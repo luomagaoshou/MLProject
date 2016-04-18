@@ -28,6 +28,6 @@ ml_chain_block_maker(UIView);
 #define hidden(...) hidden(ml_chain_MASBoxValue(__VA_ARGS__)
 @property (nonatomic, strong, readonly) ML_UIViewParamBlock hidden;
 
-
+- (ML_UIViewParamBlock)testMethod;
 @end
 

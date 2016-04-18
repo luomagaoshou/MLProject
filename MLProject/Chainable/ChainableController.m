@@ -154,7 +154,58 @@ return numberOfArguments;
 - (void)initUI
 {
     
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
+    btn.backgroundColor = [UIColor greenColor];
+    [self.view addSubview:btn];
+    btn.frame = CGRectMake(0, 0, 200, 200);
+    btn.ml_make.backgroundColor([UIColor redColor]);
+ 
+    btn.ml_make.size_(150, 200);
+    btn.ml_make.titleForState(@"ff", UIControlStateNormal).size_(3, 5);
+  //  btn.ml_make.testMethod([UIColor greenColor]);
+    
+    
+   UIButton *button = UIButton.ml_make.size_(150, 200)
+    .get.makerOfUIButton.titleForState(@"kk", UIControlStateNormal).backgroundColor([UIColor greenColor]).makerOfUIButton.button;
+  
+    [self.view addSubview:button];
 
+    UIView *view = [[UIView alloc] init];
+    [self.view addSubview:view];
+    view.backgroundColor = [UIColor blueColor];
+ 
+    NSLog(@"%@", [CALayer getIvarList]);
+
+
+}
+
+- (char *)getArgumentTypeWith:(SEL)selector target:(id)target index:(NSInteger)index
+{
+    
+    
+    return "";
+}
+
+
+- (void)getWithType:(char *)type number:(id)number
+{
+    
+}
+- (void)type:(char *)type arr:(NSArray *)arr
+{
+    if (strcmp(type, @encode(CGSize))) {
+        for (NSInteger i = 0; i < arr.count; i++) {
+        
+        }
+        
+    }
+}
+
+
+
+- (void)emitterLayer
+{
     CAEmitterLayer *snowEmitter = [CAEmitterLayer layer];
     snowEmitter.backgroundColor = [UIColor blueColor].CGColor;
     //例子发射位置
@@ -183,7 +234,7 @@ return numberOfArguments;
     snowflake.emissionRange = 0.5 * M_PI;
     //子旋转角度范围
     snowflake.spinRange = 0.25 * M_PI;
-    snowflake.contents = (id)[[UIImage imageNamed:@"DazFlake"] CGImage];
+    snowflake.contents = (id)[[UIImage imageNamed:@"44C5FC76-E862-43F6-824E-0FBBAFADA5CA"] CGImage];
     //设置雪花形状的粒子的颜色
     snowflake.color = [[UIColor colorWithRed:0.200 green:0.258 blue:0.543 alpha:1.000] CGColor];
     
@@ -205,7 +256,8 @@ return numberOfArguments;
     //子旋转角度范围
     snowflake1.spinRange = 0.25 * M_PI;
     //粒子的内容和内容的颜色
-    snowflake1.contents = (id)[[UIImage imageNamed:@"DazStarOutline"] CGImage];
+    
+    snowflake1.contents = (id)[[UIImage imageNamed:@"44C5FC76-E862-43F6-824E-0FBBAFADA5CA"] CGImage];
     snowflake1.color = [[UIColor colorWithRed:0.600 green:0.658 blue:0.743 alpha:1.000] CGColor];
     
     snowEmitter.shadowOpacity = 1.0;
@@ -216,147 +268,7 @@ return numberOfArguments;
     
     snowEmitter.emitterCells = [NSArray arrayWithObjects:snowflake,snowflake1,nil];
     [self.view.layer addSublayer:snowEmitter];
-    // Do any additional setup after loading the view.
-    
-    
-    
-//    [self.xibButton setNeedsLayout];
-//    [self.xibButton setNeedsUpdateConstraints];
-//    CALayer *subLayer = [[CALayer alloc] init];
-//    subLayer.backgroundColor = [UIColor redColor].CGColor;
-//    subLayer.frame = self.xibButton.bounds;
-//    [self.xibButton.layer addSublayer:subLayer];
-//    self.xibButton.layer.frame = self.xibButton.bounds;
-    //  self.xibButton.layer.masksToBounds = YES;
-//  //  [subLayer makeLineWithPositionType:CALayerDrawLineTypePositionBottom lineWidthOrHeight:10 insets:UIEdgeInsetsMake(0, 0, 0, 0)  lineColor:[UIColor yellowColor]];
-//    self.xibButton.drawRectBlock = ^(CGContextRef ref, CGRect rect){
-//        [self.xibButton configDrawRectBlock:^(CGContextRef ref, CGRect rect) {
-//            [UIBezierPath drawLineOnTopWithView:self.xibButton lineColor:[UIColor greenColor] lineWidth:10 ];
-//            [UIBezierPath drawLineOnLeftWithView:self.xibButton lineColor:[UIColor redColor] lineWidth:20 ];
-//            [UIBezierPath drawLineOnBottomWithView:self.xibButton lineColor:[UIColor cyanColor] lineWidth:10 ];
-//            [UIBezierPath drawLineOnRightWithView:self.xibButton lineColor:[UIColor yellowColor] lineWidth:20 ];
-//        }];
-//     
-//        [UIBezierPath drawLineOnView:self.xibButton withSide:UIBezierPathDrawLineOptionSideBottom|UIBezierPathDrawLineOptionSideLeft|UIBezierPathDrawLineOptionSideRight|UIBezierPathDrawLineOptionSideTop lineColor:[UIColor greenColor] lineWidth:10 insets:UIEdgeInsetsMake(1, 20, 0, 20)];
-//    };
-    
-    
-//    [self.xibButton configDrawRectBlock:^(CGContextRef ref, CGRect rect) {
-//        
-//    }];
-    
-    
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
-    btn.backgroundColor = [UIColor greenColor];
-    [self.view addSubview:btn];
-    btn.frame = CGRectMake(0, 0, 200, 200);
-    btn.ml_make.backgroundColor([UIColor redColor]);
- 
-    btn.ml_make.size_(150, 200);
-    btn.ml_make.titleForState(@"ff", UIControlStateNormal).size_(3, 5);
-
-    
-    
-   UIButton *button = UIButton.ml_make.size_(150, 200).get.makerOfUIButton.titleForState(@"kk", UIControlStateNormal).backgroundColor([UIColor greenColor]).makerOfUIButton.button;
-  
-    [self.view addSubview:button];
-   //    [btn performSelectorWithArgs:@selector(setSize:), CGSizeMake(200, 200)];
-//    btn.size = CGSizeMake(300, 300);
-  //  btn.ml_make.backgroundColor([UIColor redColor]).frame(self.view.width/2, self.view.height/2,200, 200).backgroundColor([UIColor redColor]);
-   // btn.ml_make.center(200 ,200).frame(100, 100, 300, 300);
-   
-   // id point = ml_chain_MASBoxValue(CGPointMake(200, 200));
-   // btn.ml_make.titleForState(@"sfsdf", UIControlStateNormal);
-
-    UIView *view = [[UIView alloc] init];
-    [self.view addSubview:view];
-    view.backgroundColor = [UIColor blueColor];
- 
-    NSLog(@"%@", [CALayer getIvarList]);
-
- 
-   
-//    CALayer *layer =[[CALayer alloc] init];
-//  //  layer.ml_make.frame(100, 100, 200, 200);
-//    layer.ml_make.backgroundColor([UIColor redColor]);
-    
-  // layer.ml_make.frame(100 ,100 ,200, 100).backgroundColor([UIColor yellowColor]).borderWidth(10).borderColor([UIColor cyanColor]).superLayer(self.view.layer);
-//    layer.ml_make.shadowOffset(-50, 50).shadowRadius(10).shadowColor([UIColor blueColor]).shadowColor([UIColor redColor]).shadowOpacity(0.8);
-//    self.xibButton.clipsToBounds = NO;
-//    self.xibButton.layer.masksToBounds = NO;
-//    layer.masksToBounds = NO;
-//    layer.ml_make.affineTransform(CGAffineTransformMake(0, 1, 1, 0, 0, 0));
-    
-//    layer.shadowOffset = CGSizeMake(-50, 50);
-   // layer.shadowColor = [UIColor orangeColor].CGColor;
-   // layer.shadowOpacity = 0.8;  // 阴影透明度
-//    layer.shadowRadius = 20;    // 阴影的半径
-    
-  //  layer.ml_make.transform(CATransform3DMakeAffineTransform(<#CGAffineTransform m#>));
-
-   // layer.transform = CATransform3DMakeAffineTransform(CGAffineTransformMake(2, 0, 0, 1, 2, 2));
-
-   // CATransform3D transform = CATransform3DMakeTranslation(2, 2, 2);
- //   layer.transform = transform;
- //   layer.ml_make.transform(transform);
-    
-    
-//    // 圆角
-//    layer.cornerRadius = 20;
-//    
-//    // 阴影
-//    //layer.shadowOffset = CGSizeMake(-50, 50);
-//   // layer.shadowColor = [UIColor orangeColor].CGColor;
-//    layer.shadowOpacity = 1.0;  // 阴影透明度
-//    layer.shadowRadius = 20;    // 阴影的半径
-    
-    //[self.view.layer addSublayer:layer];
-
-    
-//
-//    CGFloat originalMoney = 1.4;
-//    CGFloat interestRate = 0.12;
-//    CGFloat interestForThisYear = 0;
-//    CGFloat storeMoney = 0;
-//    CGFloat beginMoneyForEveryYear = 0;
-//    
-//    double amount;
-//    for (int i = 1; i <= 25; i++) {
-//        amount += originalMoney;
-//        beginMoneyForEveryYear = amount;
-//        interestForThisYear = beginMoneyForEveryYear * interestRate;
-//        amount += interestForThisYear;
-//        storeMoney += originalMoney;
-//        printf("第%d年，总投资:%.4lf万元，复利前总额:%.4lf   当年利息:%.4lf 复利后总额（本金加利息）:%.4lf万元\n", i, storeMoney, beginMoneyForEveryYear, interestForThisYear, amount);
-//    }
-//    NSLog(@"%lf", amount);
 }
-
-- (char *)getArgumentTypeWith:(SEL)selector target:(id)target index:(NSInteger)index
-{
-    
-    
-    return "";
-}
-
-
-- (void)getWithType:(char *)type number:(id)number
-{
-    
-}
-- (void)type:(char *)type arr:(NSArray *)arr
-{
-    if (strcmp(type, @encode(CGSize))) {
-        for (NSInteger i = 0; i < arr.count; i++) {
-        
-        }
-        
-    }
-}
-
-
-
-
 
 - (void)mutableArgumentsFunction:(NSString *)arg1, ... NS_REQUIRES_NIL_TERMINATION
 {
