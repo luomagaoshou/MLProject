@@ -34,7 +34,7 @@
 
 @implementation CALayer (ML_CALayerChainMothod)
 
-- (void)setSuperLayer:(CALayer *)superLayer
+- (void)superLayer:(CALayer *)superLayer
 {
     [superLayer addSublayer:self];
 }

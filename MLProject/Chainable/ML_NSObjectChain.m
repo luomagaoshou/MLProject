@@ -23,30 +23,30 @@
     return self;
 }
 
-- (ML_UIViewChain *)makerOfUIView
+- (ML_UIViewChain *(^)(void))makerOfUIView
 {
-    if (![self isKindOfClass:NSClassFromString(@"ML_UIViewChain")]) {
-        NSAssert(0, @"该对象不属于该类");
-    }
-    return (ML_UIViewChain *)self;
+    return [self makerOfWithObjectClass:[UIView class]];
 }
-
-- (ML_UIButtonChain *)makerOfUIButton
+- (ML_UIButtonChain *(^)(void))makerOfUIButton
 {
-    if (![self isKindOfClass:NSClassFromString(@"ML_UIButtonChain")]) {
-        NSAssert(0, @"该对象不属于该类");
-    }
-    return (ML_UIButtonChain *)self;
+   return [self makerOfWithObjectClass:[UIButton class]];
 }
 - (ML_CALayerChain *)makerOfCALayer
 {
-    if (![self isKindOfClass:NSClassFromString(@"ML_CALayerChain")]) {
+    return [self makerOfWithObjectClass:[CALayer class]];
+}
+- (id)makerOfWithObjectClass:(Class)aClass
+{
+    NSString *makerClassString = [NSString stringWithFormat:@"ML_%@Chain", NSStringFromClass(aClass)];
+    if (![self isKindOfClass:NSClassFromString(makerClassString)]) {
         NSAssert(0, @"该对象不属于该类");
     }
-    return (ML_CALayerChain *)self;
+    __weak typeof(self) weakSelf = self;
+    return ^ id (void){
+        return weakSelf;
+    };
 }
-
-
+#pragma mark - ========= SEL Helper =========
 // 第一步：我们不动态添加方法，返回NO，进入第二步；
 + (BOOL)resolveInstanceMethod:(SEL)sel
 {
@@ -63,15 +63,16 @@
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
 {
     
-    return [super methodSignatureForSelector:@selector(setBackgroundColor:)];
+    
+    return [self tryToFindMethodSignatureWith:aSelector];
 }
 
 // 第四部：这步我们修改调用方法
 - (void)forwardInvocation:(NSInvocation *)anInvocation
 {
-    [anInvocation setSelector:@selector(dance)];
-    // 这还要指定是哪个对象的方法
-    [anInvocation invokeWithTarget:self];
+//    [anInvocation setSelector:@selector(dance)];
+//    // 这还要指定是哪个对象的方法
+//    [anInvocation invokeWithTarget:self];
 }
 
 // 若forwardInvocation没有实现，则会调用此方法
@@ -79,6 +80,24 @@
 {
     NSLog(@"消息无法处理：%@", NSStringFromSelector(aSelector));
 }
+
+- (NSMethodSignature *)tryToFindMethodSignatureWith:(SEL)originalSelector
+{
+    NSString *originalSelectorString = NSStringFromSelector(originalSelector);
+    id object = ((ML_NSObjectChain *)self).object;
+    SEL sel1 = NSSelectorFromString([NSString stringWithFormat:@"%@:",originalSelectorString]);
+    NSString *setterSELName = [NSString stringWithFormat:@"set%@%@:", [[originalSelectorString capitalizedString] substringToIndex:1], [originalSelectorString substringWithRange:NSMakeRange(1, originalSelectorString.length - 1)]];
+     SEL sel2 = NSSelectorFromString(setterSELName);
+    if ([object respondsToSelector:sel1]) {
+        return [object methodSignatureForSelector:sel1];
+    }else if ([object respondsToSelector:sel2]){
+        return [object methodSignatureForSelector:sel2];
+    }
+    
+    return nil;
+    
+}
+
 
 - (id)chainGetterWith:(NSString *)selName{
 __weak typeof(self) weakSelf = self;

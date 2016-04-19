@@ -13,5 +13,5 @@
 ml_chain_category_method_declear(CALayer);
 @end
 @interface CALayer (ML_CALayerChainMothod)
-
+- (void)superLayer:(CALayer *)superLayer;
 @end

@@ -7,9 +7,9 @@
 //
 
 #import "ML_CALayerChain.h"
-
+#import "CALayer+ML_CALayerChain.h"
 @implementation ML_CALayerChain
-ml_chain_block_implementation(CALayer, superLayer, @selector(setSuperLayer:));
+ml_chain_block_implementation(CALayer, superLayer, @selector(superLayer:));
 
 ml_chain_block_implementation_default(CALayer, frame);
 ml_chain_block_implementation_default(CALayer, bounds);

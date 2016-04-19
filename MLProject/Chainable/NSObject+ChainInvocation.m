@@ -7,11 +7,6 @@
 //
 
 #import "NSObject+ChainInvocation.h"
-#define kObjectBlockType @"ObjectBlock"
-#define kSizeBlockType @"SizeBlock"
-#define kPointBlockType @"PointBlock"
-#define kRectBlockType @"RectBlock"
-#define kSetObjectForStateType @"SetObjectForStateBlock"
 #import <YYKit/NSObject+YYAdd.h>
 #import <YYKit/NSObject+YYModel.h>
 #import <Masonry/Masonry.h>

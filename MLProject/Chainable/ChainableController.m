@@ -165,10 +165,11 @@ return numberOfArguments;
     btn.ml_make.titleForState(@"ff", UIControlStateNormal).size_(3, 5);
   //  btn.ml_make.testMethod([UIColor greenColor]);
     
-    
-   UIButton *button = UIButton.ml_make.size_(150, 200)
-    .get.makerOfUIButton.titleForState(@"kk", UIControlStateNormal).backgroundColor([UIColor greenColor]).makerOfUIButton.button;
-  
+//    
+  UIButton *button = UIButton.ml_make.size_(150, 200)
+    .makerOfUIButton().titleForState(@"kk", UIControlStateNormal).backgroundColor([UIColor greenColor]).makerOfUIButton().button;
+    button.layer.ml_make.position(33, 33);
+    button.ml_make.tintColor([UIColor redColor]);
     [self.view addSubview:button];
 
     UIView *view = [[UIView alloc] init];
