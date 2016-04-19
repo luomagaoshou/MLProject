@@ -163,22 +163,25 @@ return numberOfArguments;
  
     btn.ml_make.size_(150, 200);
     btn.ml_make.titleForState(@"ff", UIControlStateNormal).size_(3, 5);
+    btn = btn.ml_make.button;
   //  btn.ml_make.testMethod([UIColor greenColor]);
     
 //    
   UIButton *button = UIButton.ml_make.size_(150, 200)
-    .makerOfUIButton().titleForState(@"kk", UIControlStateNormal).backgroundColor([UIColor greenColor]).makerOfUIButton().button;
-    button.layer.ml_make.position(33, 33);
-    button.ml_make.tintColor([UIColor redColor]);
-    [self.view addSubview:button];
+    .restorationMakerOfUIButton.titleForState(@"kk", UIControlStateNormal).backgroundColor([UIColor greenColor]).restorationMakerOfUIButton.button;
 
+   // button.ml_make.tintColor([UIColor redColor]);
+    [self.view addSubview:button];
+    
+    
+    CALayer *layer = CALayer.ml_make.backgroundColor([UIColor blueColor]).frame_(200, 200, 300, 300).superLayer(self.view.layer).layer;
+    
     UIView *view = [[UIView alloc] init];
     [self.view addSubview:view];
     view.backgroundColor = [UIColor blueColor];
  
     NSLog(@"%@", [CALayer getIvarList]);
-
-
+  
 }
 
 - (char *)getArgumentTypeWith:(SEL)selector target:(id)target index:(NSInteger)index

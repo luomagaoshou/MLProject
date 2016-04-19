@@ -23,17 +23,17 @@
     return self;
 }
 
-- (ML_UIViewChain *(^)(void))makerOfUIView
+- (ML_UIViewChain *)restorationMakerOfUIView
 {
-    return [self makerOfWithObjectClass:[UIView class]];
+    return (ML_UIViewChain *)self;
 }
-- (ML_UIButtonChain *(^)(void))makerOfUIButton
+- (ML_UIButtonChain *)restorationMakerOfUIButton
 {
-   return [self makerOfWithObjectClass:[UIButton class]];
+    return (ML_UIButtonChain *)self;
 }
-- (ML_CALayerChain *)makerOfCALayer
+- (ML_CALayerChain *)restorationMakerOfCALayer
 {
-    return [self makerOfWithObjectClass:[CALayer class]];
+    return (ML_CALayerChain *)self;
 }
 - (id)makerOfWithObjectClass:(Class)aClass
 {
@@ -47,40 +47,75 @@
     };
 }
 #pragma mark - ========= SEL Helper =========
-// 第一步：我们不动态添加方法，返回NO，进入第二步；
+//// 第一步：我们不动态添加方法，返回NO，进入第二步；
 + (BOOL)resolveInstanceMethod:(SEL)sel
 {
-    return NO;
-}
+    NSLog(@"%@", NSStringFromSelector(sel));
+//    return NO;
+    SEL fixSel = [self tryToFindSELWithSelector:sel];
+    if (fixSel) {
+        IMP chainGetter = class_getMethodImplementation([self class], @selector(chainGetterWith:));
+        class_addMethod(self, sel, chainGetter, "@@:@");
+        return YES;
+    }
 
-// 第二部：我们不指定备选对象响应aSelector，进入第三步；
-- (id)forwardingTargetForSelector:(SEL)aSelector
-{
-    return nil;
-}
 
-// 第三步：返回方法选择器，然后进入第四部；
-- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
-{
-    
-    
-    return [self tryToFindMethodSignatureWith:aSelector];
+    return [super resolveInstanceMethod:sel];
 }
-
-// 第四部：这步我们修改调用方法
-- (void)forwardInvocation:(NSInvocation *)anInvocation
-{
-//    [anInvocation setSelector:@selector(dance)];
-//    // 这还要指定是哪个对象的方法
-//    [anInvocation invokeWithTarget:self];
-}
+//
+//// 第二部：我们不指定备选对象响应aSelector，进入第三步；
+//- (id)forwardingTargetForSelector:(SEL)aSelector
+//{
+//    return nil;
+//}
+//
+//// 第三步：返回方法选择器，然后进入第四部；
+//- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
+//{
+//    
+//    
+//    return nil;
+//}
+//
+//// 第四部：这步我们修改调用方法
+//- (void)forwardInvocation:(NSInvocation *)anInvocation
+//{
+////    [anInvocation setSelector:@selector(dance)];
+////    // 这还要指定是哪个对象的方法
+////    [anInvocation invokeWithTarget:self];
+//}
 
 // 若forwardInvocation没有实现，则会调用此方法
 - (void)doesNotRecognizeSelector:(SEL)aSelector
 {
-    NSLog(@"消息无法处理：%@", NSStringFromSelector(aSelector));
+//    
+//    if (![self tryToFindSELWith:aSelector]) {
+//         NSLog(@"消息无法处理：%@", NSStringFromSelector(aSelector));
+//        NSAssert(0, @"消息无法处理");
+//    }
+//    SEL fixedSel = [self tryToFindSELWith:aSelector];
+//    [self chainGetterWith:NSStringFromSelector(fixedSel)];
+    
+   
 }
-
++ (SEL)tryToFindSELWithSelector:(SEL)originalSelector
+{
+    if ([self instancesRespondToSelector:originalSelector]) {
+        return originalSelector;
+    }
+    NSString *originalSelectorString = NSStringFromSelector(originalSelector);
+    SEL sel1 = NSSelectorFromString([NSString stringWithFormat:@"%@:",originalSelectorString]);
+    NSString *setterSELName = [NSString stringWithFormat:@"set%@%@:", [[originalSelectorString capitalizedString] substringToIndex:1], [originalSelectorString substringWithRange:NSMakeRange(1, originalSelectorString.length - 1)]];
+    SEL sel2 = NSSelectorFromString(setterSELName);
+    if ([self instancesRespondToSelector:sel1]) {
+        return sel1;
+    }else if ([self instancesRespondToSelector:sel2]){
+        return sel2;
+    }
+    
+    return nil;
+    
+}
 - (NSMethodSignature *)tryToFindMethodSignatureWith:(SEL)originalSelector
 {
     NSString *originalSelectorString = NSStringFromSelector(originalSelector);
@@ -88,10 +123,10 @@
     SEL sel1 = NSSelectorFromString([NSString stringWithFormat:@"%@:",originalSelectorString]);
     NSString *setterSELName = [NSString stringWithFormat:@"set%@%@:", [[originalSelectorString capitalizedString] substringToIndex:1], [originalSelectorString substringWithRange:NSMakeRange(1, originalSelectorString.length - 1)]];
      SEL sel2 = NSSelectorFromString(setterSELName);
-    if ([object respondsToSelector:sel1]) {
-        return [object methodSignatureForSelector:sel1];
-    }else if ([object respondsToSelector:sel2]){
+    if ([object respondsToSelector:sel2]){
         return [object methodSignatureForSelector:sel2];
+    } else  if ([object respondsToSelector:sel1]) {
+        return [object methodSignatureForSelector:sel1];
     }
     
     return nil;
