@@ -28,11 +28,15 @@ typedef void (^NSObjectBlockCallbackOfNoneValue)(void);
  */
 - (NSArray *)getIvarList;
 + (NSArray *)getIvarList;
+
 //获取成员变量列表
 - (NSArray *)getPropertyList;
 + (NSArray *)getPropertyList;
 - (NSDictionary *)getPropertyKeyValueOnlyHaveValueDictionary;
 + (NSArray *)getPropertyAttributeList;
+
+- (NSArray *)getInstanceMethodList;
++ (NSArray *)getClassMethodList;
 /**
  *  清对象所有成员变量值
  */

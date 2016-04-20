@@ -63,6 +63,46 @@ static const char *externAssociationObjectKey;
     return propertyNameArray;
     
 }
+- (NSArray *)getInstanceMethodList
+{
+    unsigned int count = 0;
+    Method *methodList = class_copyMethodList([self class], &count);
+    NSMutableArray *methods = [[NSMutableArray alloc] init];
+    
+    for (NSInteger i = 0; i < count; i++) {
+        SEL selector = method_getName(methodList[i]);
+        Method classMethod = class_getInstanceMethod([self class], selector);
+        if (!classMethod) {
+            continue;
+        }
+        
+        NSString *methodString = NSStringFromSelector(selector);
+        [methods addObject:methodString];
+    }
+    
+    free(methodList);
+    return methods;
+}
++ (NSArray *)getClassMethodList
+{
+    unsigned int count = 0;
+    Method *methodList = class_copyMethodList(self, &count);
+    NSMutableArray *methods = [[NSMutableArray alloc] init];
+   
+    for (NSInteger i = 0; i < count; i++) {
+        SEL selector = method_getName(methodList[i]);
+        Method classMethod = class_getClassMethod(self, selector);
+        if (!classMethod) {
+            continue;
+        }
+        
+        NSString *methodString = NSStringFromSelector(selector);
+        [methods addObject:methodString];
+    }
+  
+    free(methodList);
+    return methods;
+}
 + (NSArray *)getPropertyAttributeList
 {
     {

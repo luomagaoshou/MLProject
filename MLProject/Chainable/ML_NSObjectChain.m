@@ -14,24 +14,20 @@
 {
     return self;
 }
-- (instancetype)get
-{
-    return self;
-}
 - (instancetype)with
 {
     return self;
 }
 
-- (ML_UIViewChain *)restorationMakerOfUIView
+- (ML_UIViewChain *)popMakerOfUIView
 {
     return (ML_UIViewChain *)self;
 }
-- (ML_UIButtonChain *)restorationMakerOfUIButton
+- (ML_UIButtonChain *)popMakerOfUIButton
 {
     return (ML_UIButtonChain *)self;
 }
-- (ML_CALayerChain *)restorationMakerOfCALayer
+- (ML_CALayerChain *)popMakerOfCALayer
 {
     return (ML_CALayerChain *)self;
 }
@@ -50,8 +46,12 @@
 //// 第一步：我们不动态添加方法，返回NO，进入第二步；
 + (BOOL)resolveInstanceMethod:(SEL)sel
 {
-    NSLog(@"%@", NSStringFromSelector(sel));
-//    return NO;
+    NSArray *cmethods = [self getClassMethodList];
+    NSArray *imethods = [self getInstanceMethodList];
+    
+    
+    int a;
+    return NO;
     SEL fixSel = [self tryToFindSELWithSelector:sel];
     if (fixSel) {
         IMP chainGetter = class_getMethodImplementation([self class], @selector(chainGetterWith:));

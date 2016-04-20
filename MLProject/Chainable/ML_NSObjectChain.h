@@ -17,10 +17,10 @@
 @interface ML_NSObjectChain : NSObject
 @property (nonatomic, strong) id object;
 - (instancetype)and;
-- (instancetype)get;
 - (instancetype)with;
+
 ///找回指针
-- (ML_UIViewChain *)restorationMakerOfUIView;
-- (ML_UIButtonChain *)restorationMakerOfUIButton;
-- (ML_CALayerChain *)restorationMakerOfCALayer;
+- (ML_UIViewChain *)popMakerOfUIView;
+- (ML_UIButtonChain *)popMakerOfUIButton;
+- (ML_CALayerChain *)popMakerOfCALayer;
 @end

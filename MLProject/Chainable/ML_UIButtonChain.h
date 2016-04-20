@@ -20,5 +20,6 @@ ml_chain_block_maker(UIButton);
 @property (nonatomic, strong) ML_UIButtonParamBlock titleForState;
 
 - (ML_UIButtonParamBlock)tintColor;
-
++ (NSString *)fuck;
++ (NSArray *)ll;
 @end
