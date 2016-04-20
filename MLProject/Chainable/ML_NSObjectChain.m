@@ -87,13 +87,14 @@
     
    
 }
+
 + (BOOL)canFindSELWithSelector:(SEL)sel
 {
-
+    
     NSArray *instanceMethod = [ChainObjectClassOfChainMaker(self) getInstanceMethodList];
-  __block  NSString *selString = NSStringFromSelector(sel);
+    __block  NSString *selString = NSStringFromSelector(sel);
     __block NSString *setterString = [NSString stringWithFormat:@"set%@%@:", [selString substringToIndex:1].uppercaseString, [selString substringFromIndex:1]];
-   __block BOOL isFindMethod = NO;
+    __block BOOL isFindMethod = NO;
     [instanceMethod enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSString *methodString = obj;
         if ([methodString isEqualToString:setterString]) {
@@ -107,27 +108,27 @@
     if (!isFindMethod && [self class] != [self superclass] && self != [ML_NSObjectChain class]) {
         [[self superclass] canFindSELWithSelector:sel];
     }
-   
+    
     return isFindMethod;
 }
 
 
 - (id(^)(id, ...))chainGetter{
-__weak typeof(self) weakSelf = self;
-return ^id (id firstObject, ...){
-__strong typeof(weakSelf) strongSelf = weakSelf;
-    NSString *selectorString = [NSString stringWithFormat:@"set%@%@:", [NSStringFromSelector(_cmd) substringToIndex:1].uppercaseString, [NSStringFromSelector(_cmd) substringFromIndex:1]];
-    SEL selector = NSSelectorFromString(selectorString);
-    
-NSString *selectorName = NSStringFromSelector(selector);
-id chainObject = ChainObjectOfChainMaker(strongSelf, ChainObjectClassOfChainMaker(self));
-va_list arglist;
-va_start(arglist, firstObject);
-    NSArray *arguments = [NSObject argumentsWithTarget:chainObject selectorName:selectorName arglist:arglist firstObject:firstObject];
-va_end(arglist);
-    [NSObject excuteSettingWithTarget:chainObject selectorName:selectorName configArguments:arguments];
-return weakSelf;
-};
+    __weak typeof(self) weakSelf = self;
+    return ^id (id firstObject, ...){
+        
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        NSString *selectorName= [NSString stringWithFormat:@"set%@%@:", [NSStringFromSelector(_cmd) substringToIndex:1].uppercaseString, [NSStringFromSelector(_cmd) substringFromIndex:1]];
+        
+        
+        id chainObject = ChainObjectOfChainMaker(strongSelf, ChainObjectClassOfChainMaker(self));
+        va_list arglist;
+        va_start(arglist, firstObject);
+        NSArray *arguments = [NSObject argumentsWithTarget:chainObject selectorName:selectorName arglist:arglist firstObject:firstObject];
+        va_end(arglist);
+        [NSObject excuteSettingWithTarget:chainObject selectorName:selectorName configArguments:arguments];
+        return weakSelf;
+    };
 }
 
 

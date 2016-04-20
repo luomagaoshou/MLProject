@@ -26,9 +26,11 @@ ml_chain_block_maker(CALayer);
 - (ML_CALayerParamBlock)borderColor;
 
 - (ML_CALayerParamBlock)backgroundColor;
-#define position(...) position(ml_chain_MASBoxValue(CGPointMake(__VA_ARGS__)))
+#define position_(...) position(ml_chain_MASBoxValue(CGPointMake(__VA_ARGS__)))
+#define position(...) position(ml_chain_MASBoxValue(__VA_ARGS__))
 - (ML_CALayerParamBlock)position;
-#define anchorPoint(...) anchorPoint(ml_chain_MASBoxValue(CGPointMake(__VA_ARGS__)))
+#define anchorPoint_(...) anchorPoint(ml_chain_MASBoxValue(CGPointMake(__VA_ARGS__)))
+#define anchorPoint(...) anchorPoint(ml_chain_MASBoxValue(__VA_ARGS__))
 - (ML_CALayerParamBlock)anchorPoint;
 
 - (ML_CALayerParamBlock)shadowColor;
@@ -39,8 +41,10 @@ ml_chain_block_maker(CALayer);
 #define shadowOpacity(...) shadowOpacity(ml_chain_MASBoxValue(__VA_ARGS__))
 - (ML_CALayerParamBlock)shadowOpacity;
 - (ML_CALayerParamBlock)shadowPath;
+#define affineTransform_(...) affineTransform(ml_chain_MASBoxValue(__VA_ARGS__))
 #define affineTransform(...) affineTransform(ml_chain_MASBoxValue(__VA_ARGS__))
 - (ML_CALayerParamBlock)affineTransform;
+
 #define transform(...) transform(ml_chain_MASBoxValue(__VA_ARGS__))
 - (ML_CALayerParamBlock)transform;
 

@@ -170,19 +170,21 @@ return numberOfArguments;
   UIButton *button = UIButton.ml_make.size_(150, 200)
     .popMakerOfUIButton.titleForState(@"kk", UIControlStateNormal).backgroundColor([UIColor greenColor]).popMakerOfUIButton.popMakerOfUIButton.button;
 
-   // button.ml_make.tintColor([UIColor redColor]);
+    button.ml_make.tintColor([UIColor redColor]);
+
     [self.view addSubview:button];
     
     
     CALayer *layer = CALayer.ml_make.backgroundColor([UIColor blueColor]).frame_(200, 200, 300, 300).superLayer(self.view.layer).layer;
-    
+    layer.ml_make.frame(CGRectMake(50, 50, 200, 100));
     
         CALayer *layer2 = CALayer.ml_make.backgroundColor([UIColor yellowColor]).frame_(100, 300, 300, 300).superLayer(self.view.layer).layer;
-    
+    layer2.ml_make.transform(CATransform3DMakeScale(1, 2, 1));
+
     UIView *view = [[UIView alloc] init];
     [self.view addSubview:view];
     view.backgroundColor = [UIColor blueColor];
- 
+
     NSLog(@"%@", [CALayer getIvarList]);
   
 }
