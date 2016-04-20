@@ -16,10 +16,9 @@ ml_chain_block_maker(UIButton);
 
 @property (nonatomic, strong) UIButton *button;
 #define titleForState(...) ml_chain_arg(titleForState, __VA_ARGS__)
-
+//不是简单的setXX不适用自动添加方法
 @property (nonatomic, strong) ML_UIButtonParamBlock titleForState;
 
 - (ML_UIButtonParamBlock)tintColor;
-+ (NSString *)fuck;
-+ (NSArray *)ll;
+
 @end

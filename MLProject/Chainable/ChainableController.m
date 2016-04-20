@@ -164,9 +164,9 @@ return numberOfArguments;
     btn.ml_make.size_(150, 200);
     btn.ml_make.titleForState(@"ff", UIControlStateNormal).size_(3, 5);
     btn = btn.ml_make.button;
-  //  btn.ml_make.testMethod([UIColor greenColor]);
+    btn.ml_make.tintColor([UIColor greenColor]);
     
-//    
+    
   UIButton *button = UIButton.ml_make.size_(150, 200)
     .popMakerOfUIButton.titleForState(@"kk", UIControlStateNormal).backgroundColor([UIColor greenColor]).popMakerOfUIButton.popMakerOfUIButton.button;
 
@@ -175,6 +175,9 @@ return numberOfArguments;
     
     
     CALayer *layer = CALayer.ml_make.backgroundColor([UIColor blueColor]).frame_(200, 200, 300, 300).superLayer(self.view.layer).layer;
+    
+    
+        CALayer *layer2 = CALayer.ml_make.backgroundColor([UIColor yellowColor]).frame_(100, 300, 300, 300).superLayer(self.view.layer).layer;
     
     UIView *view = [[UIView alloc] init];
     [self.view addSubview:view];

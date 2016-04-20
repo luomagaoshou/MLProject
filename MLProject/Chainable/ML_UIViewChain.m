@@ -31,13 +31,13 @@
 //}
 
 
-ml_chain_block_implementation_default(UIView, backgroundColor);
-ml_chain_block_implementation_default(UIView, hidden);
-ml_chain_block_implementation_default(UIView, size);
-ml_chain_block_implementation_default(UIView, origin);
-ml_chain_block_implementation_default(UIView, center);
-ml_chain_block_implementation_default(UIView, bounds);
-ml_chain_block_implementation_default(UIView, frame);
+//ml_chain_block_implementation_default(UIView, backgroundColor);
+//ml_chain_block_implementation_default(UIView, hidden);
+//ml_chain_block_implementation_default(UIView, size);
+//ml_chain_block_implementation_default(UIView, origin);
+//ml_chain_block_implementation_default(UIView, center);
+//ml_chain_block_implementation_default(UIView, bounds);
+//ml_chain_block_implementation_default(UIView, frame);
 
 
 @end

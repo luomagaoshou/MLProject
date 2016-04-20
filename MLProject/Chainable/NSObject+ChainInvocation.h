@@ -21,4 +21,5 @@ id getObjectFromVarlistAtIndex(va_list list, id firstObject, NSInteger index);
 
 NSString * ChainObjectNameOfClass(Class class);
 id ChainObjectOfChainMaker(id maker, Class class);
+Class ChainObjectClassOfChainMaker(id maker);
 @end

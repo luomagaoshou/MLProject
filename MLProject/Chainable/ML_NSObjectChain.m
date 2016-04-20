@@ -46,21 +46,10 @@
 //// 第一步：我们不动态添加方法，返回NO，进入第二步；
 + (BOOL)resolveInstanceMethod:(SEL)sel
 {
-    NSArray *cmethods = [self getClassMethodList];
-    NSArray *imethods = [self getInstanceMethodList];
     
-    
-    int a;
-    return NO;
-    SEL fixSel = [self tryToFindSELWithSelector:sel];
-    if (fixSel) {
-        IMP chainGetter = class_getMethodImplementation([self class], @selector(chainGetterWith:));
-        class_addMethod(self, sel, chainGetter, "@@:@");
-        return YES;
-    }
+    return [self canFindSELWithSelector:sel];
 
 
-    return [super resolveInstanceMethod:sel];
 }
 //
 //// 第二部：我们不指定备选对象响应aSelector，进入第三步；
@@ -98,49 +87,40 @@
     
    
 }
-+ (SEL)tryToFindSELWithSelector:(SEL)originalSelector
++ (BOOL)canFindSELWithSelector:(SEL)sel
 {
-    if ([self instancesRespondToSelector:originalSelector]) {
-        return originalSelector;
+
+    NSArray *instanceMethod = [ChainObjectClassOfChainMaker(self) getInstanceMethodList];
+  __block  NSString *selString = NSStringFromSelector(sel);
+    __block NSString *setterString = [NSString stringWithFormat:@"set%@%@:", [selString substringToIndex:1].uppercaseString, [selString substringFromIndex:1]];
+   __block BOOL isFindMethod = NO;
+    [instanceMethod enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSString *methodString = obj;
+        if ([methodString isEqualToString:setterString]) {
+            isFindMethod = YES;
+            IMP chainGetter = class_getMethodImplementation([self class], @selector(chainGetter));
+            class_addMethod([self class], sel, chainGetter, "@@:");
+            *stop = YES;
+        }
+        
+    }];
+    if (!isFindMethod && [self class] != [self superclass] && self != [ML_NSObjectChain class]) {
+        [[self superclass] canFindSELWithSelector:sel];
     }
-    NSString *originalSelectorString = NSStringFromSelector(originalSelector);
-    SEL sel1 = NSSelectorFromString([NSString stringWithFormat:@"%@:",originalSelectorString]);
-    NSString *setterSELName = [NSString stringWithFormat:@"set%@%@:", [[originalSelectorString capitalizedString] substringToIndex:1], [originalSelectorString substringWithRange:NSMakeRange(1, originalSelectorString.length - 1)]];
-    SEL sel2 = NSSelectorFromString(setterSELName);
-    if ([self instancesRespondToSelector:sel1]) {
-        return sel1;
-    }else if ([self instancesRespondToSelector:sel2]){
-        return sel2;
-    }
-    
-    return nil;
-    
-}
-- (NSMethodSignature *)tryToFindMethodSignatureWith:(SEL)originalSelector
-{
-    NSString *originalSelectorString = NSStringFromSelector(originalSelector);
-    id object = ((ML_NSObjectChain *)self).object;
-    SEL sel1 = NSSelectorFromString([NSString stringWithFormat:@"%@:",originalSelectorString]);
-    NSString *setterSELName = [NSString stringWithFormat:@"set%@%@:", [[originalSelectorString capitalizedString] substringToIndex:1], [originalSelectorString substringWithRange:NSMakeRange(1, originalSelectorString.length - 1)]];
-     SEL sel2 = NSSelectorFromString(setterSELName);
-    if ([object respondsToSelector:sel2]){
-        return [object methodSignatureForSelector:sel2];
-    } else  if ([object respondsToSelector:sel1]) {
-        return [object methodSignatureForSelector:sel1];
-    }
-    
-    return nil;
-    
+   
+    return isFindMethod;
 }
 
 
-- (id)chainGetterWith:(NSString *)selName{
+- (id(^)(id, ...))chainGetter{
 __weak typeof(self) weakSelf = self;
 return ^id (id firstObject, ...){
 __strong typeof(weakSelf) strongSelf = weakSelf;
-    SEL selector = ml_chain_default_setter_with_getter(center);
+    NSString *selectorString = [NSString stringWithFormat:@"set%@%@:", [NSStringFromSelector(_cmd) substringToIndex:1].uppercaseString, [NSStringFromSelector(_cmd) substringFromIndex:1]];
+    SEL selector = NSSelectorFromString(selectorString);
+    
 NSString *selectorName = NSStringFromSelector(selector);
-id chainObject = ChainObjectOfChainMaker(strongSelf, [UIView class]);
+id chainObject = ChainObjectOfChainMaker(strongSelf, ChainObjectClassOfChainMaker(self));
 va_list arglist;
 va_start(arglist, firstObject);
     NSArray *arguments = [NSObject argumentsWithTarget:chainObject selectorName:selectorName arglist:arglist firstObject:firstObject];

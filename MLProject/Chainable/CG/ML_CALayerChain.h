@@ -13,37 +13,35 @@ ml_chain_block_maker(CALayer);
 @property (nonatomic, strong) CALayer *layer;
 
 
-@property (nonatomic, copy, readonly) ML_CALayerParamBlock superLayer;
-@property (nonatomic, copy, readonly) ML_CALayerParamBlock bounds;
+@property (nonatomic, strong, readonly) ML_CALayerParamBlock superLayer;
+- (ML_CALayerParamBlock)bounds;
 
-@property (nonatomic, copy, readonly) ML_CALayerParamBlock frame;
+- (ML_CALayerParamBlock)frame;
 #define cornerRadius(...) cornerRadius(ml_chain_MASBoxValue(__VA_ARGS__))
-@property (nonatomic, copy, readonly) ML_CALayerParamBlock cornerRadius;
+- (ML_CALayerParamBlock)cornerRadius;
 
 #define borderWidth(...) borderWidth(ml_chain_MASBoxValue(__VA_ARGS__))
-@property (nonatomic, copy, readonly) ML_CALayerParamBlock borderWidth;
+- (ML_CALayerParamBlock)borderWidth;
 
-@property (nonatomic, copy, readonly) ML_CALayerParamBlock borderColor;
+- (ML_CALayerParamBlock)borderColor;
 
-@property (nonatomic, copy, readonly) ML_CALayerParamBlock backgroundColor;
+- (ML_CALayerParamBlock)backgroundColor;
 #define position(...) position(ml_chain_MASBoxValue(CGPointMake(__VA_ARGS__)))
-@property (nonatomic, copy, readonly) ML_CALayerParamBlock position;
+- (ML_CALayerParamBlock)position;
 #define anchorPoint(...) anchorPoint(ml_chain_MASBoxValue(CGPointMake(__VA_ARGS__)))
-@property (nonatomic, copy, readonly) ML_CALayerParamBlock anchorPoint;
+- (ML_CALayerParamBlock)anchorPoint;
 
-
-
-@property (nonatomic, copy, readonly) ML_CALayerParamBlock shadowColor;
+- (ML_CALayerParamBlock)shadowColor;
 #define shadowOffset(...) shadowOffset(ml_chain_MASBoxValue(CGSizeMake(__VA_ARGS__)))
-@property (nonatomic, copy, readonly) ML_CALayerParamBlock shadowOffset;
+- (ML_CALayerParamBlock)shadowOffset;
 #define shadowRadius(...) shadowRadius(ml_chain_MASBoxValue(__VA_ARGS__))
-@property (nonatomic, copy, readonly) ML_CALayerParamBlock shadowRadius;
+- (ML_CALayerParamBlock)shadowRadius;
 #define shadowOpacity(...) shadowOpacity(ml_chain_MASBoxValue(__VA_ARGS__))
-@property (nonatomic, copy, readonly) ML_CALayerParamBlock shadowOpacity;
-@property (nonatomic, copy, readonly) ML_CALayerParamBlock shadowPath;
+- (ML_CALayerParamBlock)shadowOpacity;
+- (ML_CALayerParamBlock)shadowPath;
 #define affineTransform(...) affineTransform(ml_chain_MASBoxValue(__VA_ARGS__))
-@property (nonatomic, copy, readonly) ML_CALayerParamBlock affineTransform;
+- (ML_CALayerParamBlock)affineTransform;
 #define transform(...) transform(ml_chain_MASBoxValue(__VA_ARGS__))
-@property (nonatomic, copy, readonly) ML_CALayerParamBlock transform;
+- (ML_CALayerParamBlock)transform;
 
 @end

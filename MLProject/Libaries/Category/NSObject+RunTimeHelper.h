@@ -36,7 +36,8 @@ typedef void (^NSObjectBlockCallbackOfNoneValue)(void);
 + (NSArray *)getPropertyAttributeList;
 
 - (NSArray *)getInstanceMethodList;
-+ (NSArray *)getClassMethodList;
++ (NSArray *)getInstanceMethodList;
+- (NSArray *)getClassMethodList;
 /**
  *  清对象所有成员变量值
  */

@@ -65,6 +65,10 @@ static const char *externAssociationObjectKey;
 }
 - (NSArray *)getInstanceMethodList
 {
+    return [[self class] getInstanceMethodList];
+}
++ (NSArray *)getInstanceMethodList
+{
     unsigned int count = 0;
     Method *methodList = class_copyMethodList([self class], &count);
     NSMutableArray *methods = [[NSMutableArray alloc] init];
@@ -83,15 +87,17 @@ static const char *externAssociationObjectKey;
     free(methodList);
     return methods;
 }
-+ (NSArray *)getClassMethodList
+- (NSArray *)getClassMethodList
 {
+
     unsigned int count = 0;
-    Method *methodList = class_copyMethodList(self, &count);
+    Method *methodList = class_copyMethodList(object_getClass(self), &count);
     NSMutableArray *methods = [[NSMutableArray alloc] init];
    
     for (NSInteger i = 0; i < count; i++) {
         SEL selector = method_getName(methodList[i]);
-        Method classMethod = class_getClassMethod(self, selector);
+             const char * type = method_getTypeEncoding(methodList[i]);
+        Method classMethod = class_getClassMethod([self class], selector);
         if (!classMethod) {
             continue;
         }

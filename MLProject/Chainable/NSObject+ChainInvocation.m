@@ -458,7 +458,13 @@ id ChainObjectOfChainMaker(id maker, Class class)
     return chainObject;
     
 }
-
+Class ChainObjectClassOfChainMaker(id maker)
+{
+    NSMutableString *makerClassString = [NSStringFromClass([maker class]) mutableCopy];
+    [makerClassString replaceOccurrencesOfString:@"ML_" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, makerClassString.length)];
+       [makerClassString replaceOccurrencesOfString:@"Chain" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, makerClassString.length)];
+    return NSClassFromString(makerClassString);
+}
 
     NSString * ChainObjectNameOfClass(Class class)
 {
