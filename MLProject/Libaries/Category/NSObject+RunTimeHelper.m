@@ -109,6 +109,28 @@ static const char *externAssociationObjectKey;
     free(methodList);
     return methods;
 }
+
+- (NSArray *)getProtocolList
+{
+    return [self getProtocolList];
+}
++ (NSArray *)getProtocolList
+{
+    unsigned int count = 0;
+    Protocol * __unsafe_unretained *protocols = class_copyProtocolList(self, &count);
+    struct objc_category *categories;
+
+    //Protocol * protocols = objc_getProtocol("YYAdd");
+    NSMutableArray *protocolArray = [[NSMutableArray alloc] init];
+    for (int i = 0; i < count; i++) {
+        [protocolArray addObject:[NSString stringWithUTF8String:protocol_getName(protocols[i])]];
+    
+    }
+    
+    
+    free(protocols);
+    return protocolArray;
+}
 + (NSArray *)getPropertyAttributeList
 {
     {

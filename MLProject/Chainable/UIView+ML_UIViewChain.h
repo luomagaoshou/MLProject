@@ -10,7 +10,10 @@
 #import "ML_Chain_Macro.h"
 
 @interface UIView (ML_UIViewChain)
-
-
 ml_chain_category_method_declear(UIView);
+
+
+@end
+@interface UIView (ChainMethod)
+- (void)setSuperview:(UIView * _Nullable)superview;
 @end

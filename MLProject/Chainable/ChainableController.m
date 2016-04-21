@@ -10,9 +10,7 @@
 #import "UIView+GestureBlock.h"
 
 
-#define kObject @"kObject"
-#define kInt @"kInt"
-#define kDouble @"kDouble"
+
 #import <AFNetworking/AFNetworking.h>
 #import <Masonry/Masonry.h>
 
@@ -32,6 +30,8 @@
 #import "CALayer+Line.h"
 #import "UIView+DrawRectBlock.h"
 #import "UIBezierPath+ML_Tools.h"
+#import <YYKit/CALayer+YYAdd.h>
+#import "NSObject+ChainProperty.h"
  #define MAS_SHORTHAND_GLOBALS
     typedef NSString *(^testBlcok)(NSString *);
 
@@ -99,7 +99,7 @@ return numberOfArguments;
 }(self.view ,@selector(setSize:)));
     
     
-    NSLog(@"%ld", number);
+    NSLog(@"%ld", (long)number);
 //    id obj = [self performSelectorWithArgs:@selector(getArgs::), @"sdfsdf", 11, 33, "ff", @"908"];
 //    NSLog(@"%@", obj);
     
@@ -176,17 +176,23 @@ return numberOfArguments;
     
     
     CALayer *layer = CALayer.ml_make.backgroundColor([UIColor blueColor]).frame_(200, 200, 300, 300).superLayer(self.view.layer).layer;
-    layer.ml_make.frame(CGRectMake(50, 50, 200, 100));
-    
-        CALayer *layer2 = CALayer.ml_make.backgroundColor([UIColor yellowColor]).frame_(100, 300, 300, 300).superLayer(self.view.layer).layer;
-    layer2.ml_make.transform(CATransform3DMakeScale(1, 2, 1));
 
+    
+  
+        CALayer *layer2 = CALayer.ml_make.backgroundColor([UIColor yellowColor]).frame_(100, 300, 50, 50).superLayer(self.view.layer).layer;
+    layer2.ml_make.affineTransform(CGAffineTransformMakeRotation(1)).affineTransform(CGAffineTransformScale(layer2.affineTransform, 5, 5));
+    layer2.ml_make.hidden(YES);
     UIView *view = [[UIView alloc] init];
     [self.view addSubview:view];
     view.backgroundColor = [UIColor blueColor];
+    
+   // NSLog(@"%@", [CALayer getIvarList]);
+    
+   NSString *chainPropertyString = [UIView chainPropertyString];
+   //NSArray *protocols = [UIView getProtocolList];
+ //   NSLog(@"%@", protocols);
+   
 
-    NSLog(@"%@", [CALayer getIvarList]);
-  
 }
 
 - (char *)getArgumentTypeWith:(SEL)selector target:(id)target index:(NSInteger)index

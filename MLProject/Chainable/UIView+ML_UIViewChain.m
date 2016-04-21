@@ -35,6 +35,14 @@
     return chain;
 }
 
+@end
 
+@implementation UIView (ChainMethod)
+
+- (void)setSuperview:(UIView *)superview
+{
+ 
+    [superview addSubview:self];
+}
 
 @end

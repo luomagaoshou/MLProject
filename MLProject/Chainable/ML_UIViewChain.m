@@ -8,10 +8,10 @@
 
 #import "ML_UIViewChain.h"
 #import "NSObject+ChainInvocation.h"
-
+#import "UIView+ML_UIViewChain.h"
 
 @implementation ML_UIViewChain
-
+ml_chain_block_implementation(UIView, superView, @selector(setSuperview:));
 
 //block实现 在链式类的m文件声明
 //- (ML_UIViewParamBlock)center{

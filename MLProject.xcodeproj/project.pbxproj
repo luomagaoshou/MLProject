@@ -17,6 +17,7 @@
 		18463CEC1CA247E300DD87BE /* UIBezierPath+ML_Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18463CEA1CA247E300DD87BE /* UIBezierPath+ML_Tools.m */; };
 		184BCA271CA69AB800EF5A14 /* NetworkCtl+Hud.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BCA241CA69AB800EF5A14 /* NetworkCtl+Hud.m */; };
 		184BCA281CA69AB800EF5A14 /* NetworkCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BCA261CA69AB800EF5A14 /* NetworkCtl.m */; };
+		18513AC61CC8C0340059F544 /* NSObject+ChainProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 18513AC51CC8C0340059F544 /* NSObject+ChainProperty.m */; };
 		187D54AE1C8400ED0066EC67 /* MLAttributeStringController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187D54AD1C8400ED0066EC67 /* MLAttributeStringController.m */; };
 		187D54B21C84011E0066EC67 /* MLAttributeString.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 187D54B11C84011E0066EC67 /* MLAttributeString.storyboard */; };
 		188D54191C91037600841588 /* NSObject+ML_NSObjectChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 188D54181C91037600841588 /* NSObject+ML_NSObjectChain.m */; };
@@ -214,6 +215,8 @@
 		184BCA241CA69AB800EF5A14 /* NetworkCtl+Hud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetworkCtl+Hud.m"; sourceTree = "<group>"; };
 		184BCA251CA69AB800EF5A14 /* NetworkCtl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkCtl.h; sourceTree = "<group>"; };
 		184BCA261CA69AB800EF5A14 /* NetworkCtl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkCtl.m; sourceTree = "<group>"; };
+		18513AC41CC8C0340059F544 /* NSObject+ChainProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ChainProperty.h"; sourceTree = "<group>"; };
+		18513AC51CC8C0340059F544 /* NSObject+ChainProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ChainProperty.m"; sourceTree = "<group>"; };
 		187D54AC1C8400ED0066EC67 /* MLAttributeStringController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLAttributeStringController.h; sourceTree = "<group>"; };
 		187D54AD1C8400ED0066EC67 /* MLAttributeStringController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLAttributeStringController.m; sourceTree = "<group>"; };
 		187D54B11C84011E0066EC67 /* MLAttributeString.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLAttributeString.storyboard; sourceTree = "<group>"; };
@@ -898,6 +901,8 @@
 				FE3C4A711C2EBA66004CBA21 /* ChainableController.xib */,
 				18CF9D721C8EDFB900E1EA53 /* NSObject+ChainInvocation.h */,
 				18CF9D731C8EDFB900E1EA53 /* NSObject+ChainInvocation.m */,
+				18513AC41CC8C0340059F544 /* NSObject+ChainProperty.h */,
+				18513AC51CC8C0340059F544 /* NSObject+ChainProperty.m */,
 				FECA0E771C9C399F00278BB0 /* UI */,
 				FECA0E761C9C399A00278BB0 /* NS */,
 				FECA0E751C9C398400278BB0 /* CG */,
@@ -1559,6 +1564,7 @@
 				18C2B4DA1CC62F6900FAE98B /* CAShapeLayer+ML_CAShapeLayerChain.m in Sources */,
 				FEA1C87C1CB5394300B5A9D3 /* PaiLie.m in Sources */,
 				FE514DB21C1BFCDB00E3AC0C /* RunTimeController.m in Sources */,
+				18513AC61CC8C0340059F544 /* NSObject+ChainProperty.m in Sources */,
 				18E727F81C9D35E500DA9438 /* CALayer+Line.m in Sources */,
 				18D8E07E1C84576400706195 /* UITableView+Refresh.m in Sources */,
 				18C276671C7D41020055C19D /* NSPredicate+Tools.m in Sources */,
