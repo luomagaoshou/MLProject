@@ -113,6 +113,7 @@
 
 
 - (id(^)(id, ...))chainGetter{
+
 __weak typeof(self) weakSelf = self;
 return ^id (id firstObject, ...){
 __strong typeof(weakSelf) strongSelf = weakSelf;
@@ -126,8 +127,10 @@ va_start(arglist, firstObject);
     NSArray *arguments = [NSObject argumentsWithTarget:chainObject selectorName:selectorName arglist:arglist firstObject:firstObject];
 va_end(arglist);
     [NSObject excuteSettingWithTarget:chainObject selectorName:selectorName configArguments:arguments];
+ 
 return weakSelf;
 };
+  
 }
 
 
