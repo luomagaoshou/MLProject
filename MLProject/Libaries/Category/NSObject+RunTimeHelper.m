@@ -72,11 +72,13 @@ static const char *externAssociationObjectKey;
     unsigned int count = 0;
     Method *methodList = class_copyMethodList([self class], &count);
     NSMutableArray *methods = [[NSMutableArray alloc] init];
-    
+
     for (NSInteger i = 0; i < count; i++) {
         SEL selector = method_getName(methodList[i]);
-        Method classMethod = class_getInstanceMethod([self class], selector);
-        if (!classMethod) {
+        Method method = class_getInstanceMethod([self class], selector);
+        
+        const char *des = method_getDescription(method);
+        if (!method) {
             continue;
         }
         
@@ -97,7 +99,7 @@ static const char *externAssociationObjectKey;
     for (NSInteger i = 0; i < count; i++) {
         SEL selector = method_getName(methodList[i]);
              const char * type = method_getTypeEncoding(methodList[i]);
-        Method classMethod = class_getClassMethod([self class], selector);
+        Method classMethod = class_getClassMethod(object_getClass(self), selector);
         if (!classMethod) {
             continue;
         }
@@ -116,11 +118,13 @@ static const char *externAssociationObjectKey;
 }
 + (NSArray *)getProtocolList
 {
+    
+     Protocol * protocols1 = objc_getProtocol("NSCoding");
     unsigned int count = 0;
     Protocol * __unsafe_unretained *protocols = class_copyProtocolList(self, &count);
     struct objc_category *categories;
 
-    //Protocol * protocols = objc_getProtocol("YYAdd");
+   
     NSMutableArray *protocolArray = [[NSMutableArray alloc] init];
     for (int i = 0; i < count; i++) {
         [protocolArray addObject:[NSString stringWithUTF8String:protocol_getName(protocols[i])]];

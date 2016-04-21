@@ -468,7 +468,7 @@ Class ChainObjectClassOfChainMaker(id maker)
 
     NSString * ChainObjectNameOfClass(Class class)
 {
-    NSString *chainObjectName =  (NSString *)^(Class class){
+
         NSArray *suppurtClassPrefix = @[@"NS", @"UI", @"CA"];
         NSString *resultStr;
         NSString *classNameStr = NSStringFromClass(class);
@@ -479,11 +479,13 @@ Class ChainObjectClassOfChainMaker(id maker)
             }
         }
         if (!resultStr) {
-        
+   
+         NSException *exception = [NSException exceptionWithName:@"NilClass" reason:@"不支持该类，目前只支持系统类" userInfo:nil];
+            @throw exception;
+            
         }
         NSLog(@"%@", resultStr);
         return resultStr;
-    }(class);
-    return chainObjectName;
+
 }
 @end

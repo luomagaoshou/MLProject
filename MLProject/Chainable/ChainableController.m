@@ -179,17 +179,17 @@ return numberOfArguments;
 
     
   
-        CALayer *layer2 = CALayer.ml_make.backgroundColor([UIColor yellowColor]).frame_(100, 300, 50, 50).superLayer(self.view.layer).layer;
+        CALayer *layer2 = CALayer.ml_make.backgroundColor([UIColor yellowColor]).frame(CGRectMake(200, 200, 50, 50)).superLayer(self.view.layer).layer;
     layer2.ml_make.affineTransform(CGAffineTransformMakeRotation(1)).affineTransform(CGAffineTransformScale(layer2.affineTransform, 5, 5));
-    layer2.ml_make.hidden(YES);
+ 
     UIView *view = [[UIView alloc] init];
     [self.view addSubview:view];
     view.backgroundColor = [UIColor blueColor];
     
    // NSLog(@"%@", [CALayer getIvarList]);
     
-   NSString *chainPropertyString = [UIView chainPropertyString];
-   //NSArray *protocols = [UIView getProtocolList];
+ //  NSString *chainPropertyString = [UIView chainPropertyString];
+   NSArray *protocols = [UIView getProtocolList];
  //   NSLog(@"%@", protocols);
    
 
