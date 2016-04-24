@@ -8,17 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^UIViewBlockSender)(UIView *sender);
 
-typedef void (^NSObjectBlockCallback)(id msgObj);
-typedef void (^NSObjectBlockCallbackOfNoneValue)(void);
 @interface NSObject (RunTimeHelper)
-@property (nonatomic, copy) NSObjectBlockCallback blockCallback;
-@property (nonatomic, copy) UIViewBlockSender blockSender;
-@property (nonatomic, copy) NSObjectBlockCallbackOfNoneValue blockCallbackOfNoneValue;
-@property (nonatomic, strong) NSString *featureIdentifier;
-@property (nonatomic, strong) NSString *operationIdentifier;
-@property (nonatomic, strong) id associationObject;
+
 
 
 /**
@@ -63,31 +55,14 @@ typedef void (^NSObjectBlockCallbackOfNoneValue)(void);
  *  @return 字典
  */
 + (NSDictionary *)getPropertyDictionaryJoinedWithIvarList:(NSArray *)ivarList model:(id)model;
-/**
- *  设置关联
- *
- *  @param value
- *  @param key
- */
-- (void)setAssociationValue:(id)value withKey:(const void *)key;
 
-/**
- *  读取关联
- *
- *  @param key
- *
- *  @return
- */
-- (id)getAssociationValueWithKey:(const void *)key;
-/**
- *  移除关联
- */
-- (void)removeAllAssociationValue;
 
-+ (void)setAssociationValue:(id)value;
 
-+ (id)getAssociationValue;
-+ (void)removeAllAssociationValue;
+@end
+
+@interface NSObject ()
+@property (nonatomic, strong) NSString *featureIdentifier;
+@property (nonatomic, strong) NSString *operationIdentifier;
 
 @end
 

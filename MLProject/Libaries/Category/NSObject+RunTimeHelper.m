@@ -8,15 +8,9 @@
 
 #import "NSObject+RunTimeHelper.h"
 #import <objc/runtime.h>
-static const char *externBlockSenderKey;
-static const char *externBlockCallbackKey;
-static const char *externBlockCallbackKeyOfNoneValue;
-static const char *externFeatureIdentifierKey;
-static const char *externOperationIdentifierKey;
-static const char *externAssociationObjectKey;
+
 @implementation NSObject (RunTimeHelper)
-@dynamic blockSender;
-@dynamic featureIdentifier;
+
 - (NSArray *)getIvarList
 {
   return [[self class] getIvarList];
@@ -235,118 +229,6 @@ static const char *externAssociationObjectKey;
         
     }
     return postParameter;
-}
-- (void)setAssociationValue:(id)value withKey:(const void *)key
-{
-    objc_setAssociatedObject(self, key, value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    
-}
-- (id)getAssociationValueWithKey:(const void *)key
-{
-    return objc_getAssociatedObject(self, key);
-}
-- (void)removeAllAssociationValue
-{
-    objc_removeAssociatedObjects(self);
-}
-+ (void)setAssociationValue:(id)value
-{
-    if ([value isMemberOfClass:[NSArray class]]||
-        [value isMemberOfClass:[NSDictionary class]]||
-        [value isMemberOfClass:[NSString class]]) {
-        objc_setAssociatedObject(self, &externAssociationObjectKey, value, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    }
-    else
-    {
-        objc_setAssociatedObject(self, &externAssociationObjectKey, value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }
-}
-+ (id)getAssociationValue
-{
-    return objc_getAssociatedObject(self, &externAssociationObjectKey);
-}
-+ (void)removeAllAssociationValue
-{
-    objc_removeAssociatedObjects(self);
-}
-#pragma mark - ========= Setter & Getter =========
-- (void)setBlockCallback:(NSObjectBlockCallback)blockCallback
-{
-    [self setAssociationValue:blockCallback withKey:&externBlockCallbackKey];
-}
-- (NSObjectBlockCallback)blockCallback
-{
-    
-    return [self getAssociationValueWithKey:&externBlockCallbackKey];
-}
-- (void)setBlockCallbackOfNoneValue:(NSObjectBlockCallbackOfNoneValue)blockCallbackOfNoneValue
-{
-     [self setAssociationValue:blockCallbackOfNoneValue withKey:&externBlockCallbackKeyOfNoneValue];
-}
-- (NSObjectBlockCallbackOfNoneValue)blockCallbackOfNoneValue
-{
-    return [self getAssociationValueWithKey:&externBlockCallbackKeyOfNoneValue];
-}
-
-- (void)setBlockSender:(UIViewBlockSender)blockSender
-{
-    [self setAssociationValue:blockSender withKey:&externBlockSenderKey];
-}
-- (UIViewBlockSender)blockSender
-{
-  
-    return [self getAssociationValueWithKey:&externBlockSenderKey];
-}
-
-- (void)setFeatureIdentifier:(NSString *)featureIdentifier
-{
-
-    [self setAssociationValue:featureIdentifier withKey:&externFeatureIdentifierKey];
-
-}
-- (NSString *)featureIdentifier
-{
-    if ([self getAssociationValueWithKey:&externFeatureIdentifierKey] == nil) {
-        if ([self isMemberOfClass:[UIButton class]]) {
-          
-            self.featureIdentifier = [NSString stringWithFormat:@"%@按钮",((UIButton *)self).titleLabel.text];
-            NSLog(@"%@为自动添加，如需改变自行设置 superview:%@",self.featureIdentifier, ((UIButton *)self).superview );
-        }
-    }
-    if ([self isKindOfClass:[UIView class]]) {
-          //  NSLog(@"当前对象:%@\nsuperview:%@",self, ((UIView *)self).superview);
-    }
-    else
-    {
-       //  NSLog(@"当前对象:%@",self);
-    }
-     return [self getAssociationValueWithKey:&externFeatureIdentifierKey];
-}
-
-- (void)setOperationIdentifier:(NSString *)operationIdentifier
-{
-    
-    objc_setAssociatedObject(self, @selector(operationIdentifier), operationIdentifier, OBJC_ASSOCIATION_COPY_NONATOMIC);
-}
-- (NSString *)operationIdentifier
-{
-    return [self getAssociationValueWithKey:@selector(operationIdentifier)];
-}
-- (void)setAssociationObject:(id)associationObject
-{
-    if ([associationObject isMemberOfClass:[NSArray class]]||
-        [associationObject isMemberOfClass:[NSDictionary class]]||
-        [associationObject isMemberOfClass:[NSString class]]) {
-           objc_setAssociatedObject(self, &externAssociationObjectKey, associationObject, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    }
-    else
-    {
-    objc_setAssociatedObject(self, &externAssociationObjectKey, associationObject, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }
-}
-- (id)associationObject
-{
-    return objc_getAssociatedObject(self, &externAssociationObjectKey);
 }
 
 @end

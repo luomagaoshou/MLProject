@@ -15,18 +15,18 @@
 #import <Masonry/Masonry.h>
 
 
-#import "ML_UIViewChain.h"
-#import "UIView+ML_UIViewChain.h"
+#import "MLChain4UIView.h"
+#import "UIView+MLChain4UIView.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "NSObject+ChainInvocation.h"
-#import "UIButton+ML_UIButtonChain.h"
+#import "UIButton+MLChain4UIButton.h"
 #import <NSObject+YYAdd.h>
 #import <dyci/NSSet+ClassesList.h>
 #import <objc/runtime.h>
 #import "vk_msgSend.h"
 #import "NSObject+vk_msgSend.h"
 #import <ReactiveCocoa/NSInvocation+RACTypeParsing.h>
-#import "CALayer+ML_CALayerChain.h"
+#import "CALayer+MLChain4CALayer.h"
 #import "CALayer+Line.h"
 #import "UIView+DrawRectBlock.h"
 #import "UIBezierPath+ML_Tools.h"
@@ -168,29 +168,29 @@ return numberOfArguments;
     
     
   UIButton *button = UIButton.ml_make.size_(150, 200)
-    .popMakerOfUIButton.titleForState(@"kk", UIControlStateNormal).backgroundColor([UIColor greenColor]).popMakerOfUIButton.popMakerOfUIButton.button;
-
+    .popMakerOfUIButton.titleForState(@"kk", UIControlStateNormal).backgroundColor([UIColor greenColor]).popMakerOfUIButton.popMakerOfUIButton.backgroundColor([UIColor redColor]).popMakerOfUIButton.button;
+    
     button.ml_make.tintColor([UIColor redColor]);
-
+    
     [self.view addSubview:button];
     
     
     CALayer *layer = CALayer.ml_make.backgroundColor([UIColor blueColor]).frame_(200, 200, 300, 300).superLayer(self.view.layer).layer;
 
     
-  
+    UIView.ml_make.frame_(333, 333,111, 111).superView(self.view).backgroundColor([UIColor greenColor]);
         CALayer *layer2 = CALayer.ml_make.backgroundColor([UIColor yellowColor]).frame(CGRectMake(200, 200, 50, 50)).superLayer(self.view.layer).layer;
     layer2.ml_make.affineTransform(CGAffineTransformMakeRotation(1)).affineTransform(CGAffineTransformScale(layer2.affineTransform, 5, 5));
- 
-    UIView *view = [[UIView alloc] init];
+        UIView *view = [[UIView alloc] init];
     [self.view addSubview:view];
     view.backgroundColor = [UIColor blueColor];
     
    // NSLog(@"%@", [CALayer getIvarList]);
     
- //  NSString *chainPropertyString = [UIView chainPropertyString];
-   NSArray *protocols = [UIView getProtocolList];
+   NSString *allChainPropertyString = [CALayer allChainPropertyString];
+ //  NSArray *protocols = [UIView getProtocolList];
  //   NSLog(@"%@", protocols);
+   
    
 
 }

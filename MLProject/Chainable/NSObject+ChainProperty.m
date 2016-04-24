@@ -8,32 +8,40 @@
 
 #import "NSObject+ChainProperty.h"
 #import "NSObject+RunTimeHelper.h"
-#import <CALayer+YYAdd.h>
 #import <objc/runtime.h>
-@interface ML_ChainStructModel:NSObject
+@interface MLChainStructModel:NSObject
 @property (nonatomic, copy) NSString *structName;
 @property (nonatomic, copy) NSString *encodeTypeString;
 @property (nonatomic, copy) NSString *makePrefixString;
 + (instancetype)modelWithStructName:(NSString *)structName encodeTypeString:(NSString *)encodeTypeString makePrefixString:(NSString *)makePrefixString;
 @end
-@implementation ML_ChainStructModel
+@implementation MLChainStructModel
 + (instancetype)modelWithStructName:(NSString *)structName encodeTypeString:(NSString *)encodeTypeString makePrefixString:(NSString *)makePrefixString
 {
-    ML_ChainStructModel *model = [[ML_ChainStructModel alloc] init];
+    MLChainStructModel *model = [[MLChainStructModel alloc] init];
     model.structName = structName;
     model.encodeTypeString = encodeTypeString;
     model.makePrefixString = makePrefixString;
     return model;
 }
 @end
+
+
 @implementation NSObject (ChainProperty)
-- (NSString *)chainPropertyString
+- (NSString *)allChainPropertyString
 {
-   return [[self class] chainPropertyString];
+   return [[self class] allChainPropertyString];
 }
-+ (NSString *)chainPropertyString
++ (NSString *)allChainPropertyString
 {
-    NSArray *setterMethods = [self setterMethods];
+    NSMutableArray *setterMethods = [[NSMutableArray alloc] init];
+    NSArray *originalSetterMethods = [self setterMethods];
+    for (NSInteger i = 0; i < originalSetterMethods.count; i ++) {
+        if (![setterMethods containsObject:originalSetterMethods[i]]) {
+            [setterMethods addObject:originalSetterMethods[i]];
+        }
+    }
+    
     
     
     NSMutableArray *chainPropertyGetterStings = [[NSMutableArray alloc] init];
@@ -54,19 +62,20 @@
         NSString *macroDefineString;
         if (strcmp(type, @encode(id)) != 0) {
             //非结构体
-            macroDefineString = [NSString stringWithFormat:@"#define %@(...) %@(ml_chain_MASBoxValue(__VA_ARGS__)))", property, property];
-            [chainPropertyGetterSting appendFormat:@"%@\n", macroDefineString];
+            macroDefineString = [NSString stringWithFormat:@"#ifndef %@\n#define %@(...) %@(ml_chain_MASBoxValue(__VA_ARGS__))\n#endif\n", property, property, property];
+            [chainPropertyGetterSting appendFormat:@"%@", macroDefineString];
             //   NSLog(@"%@\n", macroDefineString);
-            
-            //结构体 生成make方法 宏定义可能会重复  有重复的话要删掉
+
+
+            //结构体 生成make方法
             if (*type == '{') {
                 NSString *encodeTypeString = [NSString stringWithUTF8String:type];
                 NSArray *structModeld = [self structModels];
-                for (ML_ChainStructModel *model in structModeld) {
+                for (MLChainStructModel *model in structModeld) {
                     if ([model.encodeTypeString isEqualToString:encodeTypeString]) {
-                        macroDefineString = [NSString stringWithFormat:@"#define %@_(...) %@(ml_chain_MASBoxValue(%@(__VA_ARGS__))", property, property, model.makePrefixString];
-                        [chainPropertyGetterSting appendFormat:@"%@\n", macroDefineString];
-                        //  NSLog(@"%@", macroDefineString);
+                       NSString *structMacroDefineString = [NSString stringWithFormat:@"#ifndef %@_\n #define %@_(...) %@(ml_chain_MASBoxValue(%@(__VA_ARGS__)))\n#endif\n", property, property, property, model.makePrefixString];
+                        [chainPropertyGetterSting appendString:structMacroDefineString];
+    
                         
                     }
                 }
@@ -74,10 +83,10 @@
         }
         
         
-        NSString *chainPropertyString = [NSString stringWithFormat:@"- (ML_%@ParamBlock)%@;", NSStringFromClass([self class]), property];
+        NSString *chainPropertyString = [NSString stringWithFormat:@"- (MLChain4%@ParamBlock)%@;", NSStringFromClass([self class]), property];
         [chainPropertyGetterSting appendFormat:@"%@\n",chainPropertyString];
         [chainPropertyGetterStings addObject:chainPropertyGetterSting];
-        // NSLog(@"%@\n", chainPropertyString);
+        // NSLog(@"%@\n", allChainPropertyString);
         
     }
     
@@ -110,26 +119,28 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         structModels = [[NSMutableArray alloc] init];
-        ML_ChainStructModel *model1 = [ML_ChainStructModel modelWithStructName:@"CGPoint" encodeTypeString:[NSString stringWithUTF8String:@encode(CGPoint)]  makePrefixString:@"CGPointMake"];
+        MLChainStructModel *model1 = [MLChainStructModel modelWithStructName:@"CGPoint" encodeTypeString:[NSString stringWithUTF8String:@encode(CGPoint)]  makePrefixString:@"CGPointMake"];
         
-        ML_ChainStructModel *model2 = [ML_ChainStructModel modelWithStructName:@"CGSize" encodeTypeString:[NSString stringWithUTF8String:@encode(CGSize)]  makePrefixString:@"CGSizeMake"];
+        MLChainStructModel *model2 = [MLChainStructModel modelWithStructName:@"CGSize" encodeTypeString:[NSString stringWithUTF8String:@encode(CGSize)]  makePrefixString:@"CGSizeMake"];
         
-        ML_ChainStructModel *model3 = [ML_ChainStructModel modelWithStructName:@"CGRect" encodeTypeString:[NSString stringWithUTF8String:@encode(CGRect)]  makePrefixString:@"CGRectMake"];
+        MLChainStructModel *model3 = [MLChainStructModel modelWithStructName:@"CGRect" encodeTypeString:[NSString stringWithUTF8String:@encode(CGRect)]  makePrefixString:@"CGRectMake"];
         
-        ML_ChainStructModel *model4 = [ML_ChainStructModel modelWithStructName:@"CGAffineTransform" encodeTypeString:[NSString stringWithUTF8String:@encode(CGAffineTransform)]  makePrefixString:@"CGAffineTransformMake"];
+        MLChainStructModel *model4 = [MLChainStructModel modelWithStructName:@"CGAffineTransform" encodeTypeString:[NSString stringWithUTF8String:@encode(CGAffineTransform)]  makePrefixString:@"CGAffineTransformMake"];
         
-        ML_ChainStructModel *model5 = [ML_ChainStructModel modelWithStructName:@"CATransform3D" encodeTypeString:[NSString stringWithUTF8String:@encode(CATransform3D)]  makePrefixString:nil];
+        MLChainStructModel *model5 = [MLChainStructModel modelWithStructName:@"CATransform3D" encodeTypeString:[NSString stringWithUTF8String:@encode(CATransform3D)]  makePrefixString:nil];
         
-        ML_ChainStructModel *model6 = [ML_ChainStructModel modelWithStructName:@"NSRange" encodeTypeString:[NSString stringWithUTF8String:@encode(NSRange)]  makePrefixString:@"NSMakeRange"];
+        MLChainStructModel *model6 = [MLChainStructModel modelWithStructName:@"NSRange" encodeTypeString:[NSString stringWithUTF8String:@encode(NSRange)]  makePrefixString:@"NSMakeRange"];
         
-        ML_ChainStructModel *model7 = [ML_ChainStructModel modelWithStructName:@"UIOffset" encodeTypeString:[NSString stringWithUTF8String:@encode(UIOffset)]  makePrefixString:@"UIOffsetMake"];
-        ML_ChainStructModel *model8 = [ML_ChainStructModel modelWithStructName:@"UIEdgeInsets" encodeTypeString:[NSString stringWithUTF8String:@encode(UIEdgeInsets)]  makePrefixString:@"UIEdgeInsetsMake"];
+        MLChainStructModel *model7 = [MLChainStructModel modelWithStructName:@"UIOffset" encodeTypeString:[NSString stringWithUTF8String:@encode(UIOffset)]  makePrefixString:@"UIOffsetMake"];
+        MLChainStructModel *model8 = [MLChainStructModel modelWithStructName:@"UIEdgeInsets" encodeTypeString:[NSString stringWithUTF8String:@encode(UIEdgeInsets)]  makePrefixString:@"UIEdgeInsetsMake"];
         
         [structModels addObjectsFromArray:@[model1, model2, model3, model4, model5, model6 ,model7 ,model8]];
     });
     
     return structModels;
 }
+
+
 
 
 @end

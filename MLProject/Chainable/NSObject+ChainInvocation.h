@@ -9,16 +9,21 @@
 #import <Foundation/Foundation.h>
 
 @interface NSObject (Invocation)
-- (BOOL)debugWithTarget:(id)target selectorContainStr:(NSString *)string;
-//在va_start与va_end中使用 而且只能用一次
-id getObjectFromVarlistAtIndex(va_list list, id firstObject, NSInteger index);
+
+//在va_start与va_end中使用
+
 + (NSArray *)argumentsWithTarget:(id)target selectorName: (NSString *)selectorName arglist:(va_list)arglist firstObject:(id)firstObject;
 + (void)excuteSettingWithTarget:(id)target selectorName: (NSString *)selectorName configArguments:(NSArray *)configArguments;
 
 + (SEL)setterSelectorWithGetterNameChar:(char *)getterNameChar;
 + (NSString *)tryToFixSelNameWithTarget:(id)target selectorName:(NSString *)selectorName;
 
-NSString * ChainObjectNameOfClass(Class class);
-id ChainObjectOfChainMaker(id maker, Class class);
-Class ChainObjectClassOfChainMaker(id maker);
+
++ (NSString *)objectPropertyNameInChainMaker;
+
+- (id)objectOfChainMaker;
+
++ (Class)objectClassOfChainMaker:(id)maker;
++ (NSString *)chainMakerName;
++ (id)createChainMaker;
 @end

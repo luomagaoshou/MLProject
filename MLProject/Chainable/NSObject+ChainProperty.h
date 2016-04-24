@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface NSObject (ChainProperty)
-- (NSString *)chainPropertyString;
-+ (NSString *)chainPropertyString;
+//- (NSString *)allChainPropertyString;
++ (NSString *)allChainPropertyString;
+
+
 
 @end

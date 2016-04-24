@@ -7,8 +7,7 @@
 //
 
 #import "UIView+DrawRectBlock.h"
-static const char *externDrawRectBlockKey;
-static const char *externDrawRectViewArrayKey;
+
 @implementation UIView (DrawBlock)
 @dynamic drawRectViewArray;
 @dynamic drawRectBlock;
@@ -71,27 +70,27 @@ static const char *externDrawRectViewArrayKey;
 #pragma mark - ========= Setter & Getter =========
 - (void)setDrawRectBlock:(UIViewDrawRectBlock)drawRectBlock
 {
-    [self setAssociationValue:drawRectBlock withKey:&externDrawRectBlockKey];
-    
+       objc_setAssociatedObject(self, @selector(drawRectBlock), drawRectBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
     [self startDrawInsideWithBlock:drawRectBlock];
    
 }
 - (UIViewDrawRectBlock)drawRectBlock
 {
-    return [self getAssociationValueWithKey:&externDrawRectBlockKey];
+    return objc_getAssociatedObject(self, @selector(drawRectBlock));
 }
 
 - (void)setDrawRectViewArray:(NSMutableArray *)drawRectViewArray
 {
-    [self setAssociationValue:drawRectViewArray withKey:&externDrawRectViewArrayKey];
+
+    objc_setAssociatedObject(self, @selector(drawRectViewArray), drawRectViewArray, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 - (NSMutableArray *)drawRectViewArray
 {
-    if ([self getAssociationValueWithKey:&externDrawRectViewArrayKey] == nil) {
+    if (objc_getAssociatedObject(self, @selector(drawRectViewArray)) == nil) {
         NSMutableArray *viewArray = [[NSMutableArray alloc] init];
-         [self setAssociationValue:viewArray withKey:&externDrawRectViewArrayKey];
+        self.drawRectViewArray = viewArray;
     }
-    return [self getAssociationValueWithKey:&externDrawRectViewArrayKey];
+    return objc_getAssociatedObject(self, @selector(drawRectViewArray)) ;
 }
 
 @end

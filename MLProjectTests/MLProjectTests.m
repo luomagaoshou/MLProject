@@ -2,13 +2,12 @@
 //  MLProjectTests.m
 //  MLProjectTests
 //
-//  Created by 妙龙赖 on 15/11/8.
-//  Copyright (c) 2015年 妙龙赖. All rights reserved.
+//  Created by 妙龙赖 on 16/4/23.
+//  Copyright © 2016年 妙龙赖. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
-
+#import "NSObject+ChainProperty.h"
 @interface MLProjectTests : XCTestCase
 
 @end
@@ -27,7 +26,7 @@
 
 - (void)testExample {
     // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
+    // Use XCTAssert and related functions to verify your tests produce the correct results.
 }
 
 - (void)testPerformanceExample {
@@ -35,6 +34,12 @@
     [self measureBlock:^{
         // Put the code you want to measure the time of here.
     }];
+}
+
+- (void)testChainPropertyString
+{
+    NSString *string = [NSObject allChainPropertyString];
+    XCTAssertNotNil(string, @"fuck");
 }
 
 @end
