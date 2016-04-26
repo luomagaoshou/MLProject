@@ -11,10 +11,7 @@
 
 @implementation NSObject (RunTimeHelper)
 
-- (NSArray *)getIvarList
-{
-  return [[self class] getIvarList];
-}
+
 + (NSArray *)getIvarList
 {
     unsigned int count = 0;
@@ -34,10 +31,7 @@
     
 }
 
-- (NSArray *)getPropertyList
-{
-    return [[self class] getPropertyList];
-}
+
 + (NSArray *)getPropertyList
 {
     unsigned int count = 0;
@@ -57,10 +51,7 @@
     return propertyNameArray;
     
 }
-- (NSArray *)getInstanceMethodList
-{
-    return [[self class] getInstanceMethodList];
-}
+
 + (NSArray *)getInstanceMethodList
 {
     unsigned int count = 0;
@@ -71,19 +62,20 @@
         SEL selector = method_getName(methodList[i]);
         Method method = class_getInstanceMethod([self class], selector);
         
-        const char *des = method_getDescription(method);
+     
         if (!method) {
             continue;
         }
         
-        NSString *methodString = NSStringFromSelector(selector);
-        [methods addObject:methodString];
+        NSString *selString = NSStringFromSelector(selector);
+        [methods addObject:selString];
     }
     
     free(methodList);
     return methods;
 }
-- (NSArray *)getClassMethodList
+
++ (NSArray *)getClassMethodList
 {
 
     unsigned int count = 0;
@@ -106,10 +98,7 @@
     return methods;
 }
 
-- (NSArray *)getProtocolList
-{
-    return [self getProtocolList];
-}
+
 + (NSArray *)getProtocolList
 {
     
@@ -129,6 +118,48 @@
     free(protocols);
     return protocolArray;
 }
++ (NSArray *)getClassListWithPrefixs:(NSSet *)prefixs
+{
+    
+    NSMutableArray * classList = [NSMutableArray array];
+    
+     unsigned int classesCount = 0;
+   Class * classes = objc_copyClassList(&classesCount);
+  
+   
+    for ( int i = 0; i < classesCount; ++i) {
+        NSString *className = NSStringFromClass(classes[i]);
+        Class class = classes[i];
+       
+        if (!prefixs.count) {
+            
+            [classList addObject:className];
+            
+        }else
+        {
+            for (NSString *classPrefixStr in prefixs) {
+                if ([className hasPrefix:classPrefixStr]) {
+                    //过滤协议
+                    if ([class isSubclassOfClass:[NSProxy class]]) {
+                        continue;
+                    }
+                    
+                    [classList addObject:className];
+                    
+                   
+                }
+            }
+            
+           
+        }
+    }
+     free(classes);
+    return classList;
+}
++ (NSArray *)getClassList {
+    return [self getClassListWithPrefixs:nil];
+}
+
 + (NSArray *)getPropertyAttributeList
 {
     {
@@ -174,7 +205,7 @@
 {
 
     id object =  [[[self class] alloc] init];
-    NSArray *urlConfigProperties = [self getPropertyList];
+    NSArray *urlConfigProperties = [[self class] getPropertyList];
     for (NSInteger i = 0; i< urlConfigProperties.count; i++) {
         if ([self valueForKey:urlConfigProperties[i]]) {
             [object setValue:[self valueForKey:urlConfigProperties[i]] forKey:urlConfigProperties[i]];
@@ -184,7 +215,7 @@
 }
 - (void)setObjectPropertyAllKeyValueNil
 {
-    NSArray *properties = [self getPropertyList];
+    NSArray *properties = [[self class] getPropertyList];
    
     for (NSInteger i = 0; i < properties.count; i++) {
         if ([self valueForKey:properties[i]]) {
@@ -204,7 +235,7 @@
 
 - (NSDictionary *)getPropertyKeyValueOnlyHaveValueDictionary
 {
-    NSArray *properties = [self getPropertyList];
+    NSArray *properties = [[self class] getPropertyList];
     NSMutableDictionary *keyValueDictionary = [[NSMutableDictionary alloc] init];
     for (NSInteger i = 0; i < properties.count; i++) {
         if ([self valueForKey:properties[i]]) {

@@ -32,8 +32,10 @@
 #import "UIBezierPath+ML_Tools.h"
 #import <YYKit/CALayer+YYAdd.h>
 #import "NSObject+ChainProperty.h"
+#import <Foundation/NSProxy.h>
  #define MAS_SHORTHAND_GLOBALS
     typedef NSString *(^testBlcok)(NSString *);
+
 
 @interface ChainableController ()
 
@@ -187,10 +189,15 @@ return numberOfArguments;
     
    // NSLog(@"%@", [CALayer getIvarList]);
     
-   NSString *allChainPropertyString = [CALayer allChainPropertyString];
- //  NSArray *protocols = [UIView getProtocolList];
- //   NSLog(@"%@", protocols);
-   
+  // NSString *allChainPropertyString = [CALayer getClassMethodList];
+   NSArray *classList = [NSObject getClassListWithPrefixs:@[@"CA", @"UI", @"NS"]];
+    for (NSString *classStr in classList) {
+        
+           [NSClassFromString(classStr) allChainPropertyString];
+       
+       
+    }
+
    
 
 }

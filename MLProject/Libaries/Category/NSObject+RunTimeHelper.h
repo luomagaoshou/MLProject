@@ -18,21 +18,28 @@
  *
  *  @return
  */
-- (NSArray *)getIvarList;
+
 + (NSArray *)getIvarList;
 
 //获取成员变量列表
-- (NSArray *)getPropertyList;
+
 + (NSArray *)getPropertyList;
+
+
+
+
++ (NSArray *)getInstanceMethodList;
++ (NSArray *)getClassMethodList;
+
+
++ (NSArray *)getProtocolList;
+
++ (NSArray *)getClassListWithPrefixs:(NSArray *)prefixs;
++ (NSArray *)getClassList;
+
 - (NSDictionary *)getPropertyKeyValueOnlyHaveValueDictionary;
 + (NSArray *)getPropertyAttributeList;
 
-- (NSArray *)getInstanceMethodList;
-+ (NSArray *)getInstanceMethodList;
-- (NSArray *)getClassMethodList;
-
-- (NSArray *)getProtocolList;
-+ (NSArray *)getProtocolList;
 /**
  *  清对象所有成员变量值
  */
