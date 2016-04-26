@@ -62,6 +62,11 @@
     NSString *  locationString=[dateformatter stringFromDate:senddate];
     return locationString;
 }
++ (NSString *)getCurrentTimeWithtimeFormatter:(NSString *)timeFormatter
+{
+    NSTimeInterval  currentTimeInterval = [NSDate date].timeIntervalSince1970;
+    return [self getTimeStringWithTimestamp:@(currentTimeInterval) timeFormatter:timeFormatter];
+}
 + (NSString *)getTimeStringWithTimestamp:(id)timestampValue timeFormatter:(NSString *)timeFormatter
 {
     

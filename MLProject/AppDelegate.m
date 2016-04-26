@@ -13,6 +13,7 @@
 #import "ProjectManager.h"
 #import "NSBundle+ML_Tools.h"
 #import <UIKit/UIKit.h>
+#import "NSObject+CreateCode.h"
 @interface AppDelegate ()
 
 @end
@@ -23,6 +24,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     RootController *rootCtl = [[RootController alloc] initWithNibName:@"RootController" bundle:nil];
@@ -30,7 +32,7 @@
    
       self.window.rootViewController = nav;
     
-
+    
     
     #pragma mark - ========= SB =========
   //  [ProjectManager jumpToStoryboardControllerWithNibName:@"MLAnimations" storyboardID:@"MLAnimationsController" title:@""];

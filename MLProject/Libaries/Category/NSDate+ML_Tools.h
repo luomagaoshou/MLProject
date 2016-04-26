@@ -40,6 +40,7 @@
  *
  *  @return 时间字符串
  */
++ (NSString *)getCurrentTimeWithtimeFormatter:(NSString *)timeFormatter;
 + (NSString *)getTimeStringWithTimestamp:(id)timestampValue timeFormatter:(NSString *)timeFormatter;
 
 + (NSString *)getYearMonthDayFormatTimeWith:(NSString *)timestamp;

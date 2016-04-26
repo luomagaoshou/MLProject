@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 typedef void (^CreateViewClassBlock)(Class aClass);
 typedef void (^CreateModelClassBlock)(NSObject *object);
+extern NSString *const kML_CreateCodeFileType_h;
+extern NSString *const kML_CreateCodeFileType_m;
 
 @interface NSObject (CreateCode)
 @property (nonatomic, copy) CreateViewClassBlock createViewClassBolck;
@@ -20,6 +22,8 @@ NSString * ML_create_GetterMethodStringWithClass(Class aClass);
 NSString * ML_create_LayoutStringWithClass(Class aClass);
 NSString * ML_create_EventMothodString();
 NSString * ML_create_InitStringWithClass(Class aClass);
+
+NSString *  ML_create_HeaderFileOrCodeSourceFileWithClassAndFileType(NSString * className, NSString *fileType);
 
 NSString * ML_create_ViewStringWithClassByFinishIsOutPutToDeskTop(Class aClass, BOOL isOutPutToDeskTop);
 ///生成h m文件

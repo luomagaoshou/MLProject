@@ -7,12 +7,14 @@
 //
 
 #import "NSObject+CreateCode.h"
-#import <objc/runtime.h>
 #import "NSObject+RunTimeHelper.h"
 #import "NSString+ML_Tools.h"
 #import "NSFileManager+ML_Tools.h"
 #import <MJExtension/MJExtension.h>
 #import "WHC_ModelCreate.h"
+#import "NSDate+ML_Tools.h"
+NSString *const kML_CreateCodeFileType_h = @"h";
+NSString *const kML_CreateCodeFileType_m = @"m";
 #define DESK_TOP_DIR @"XcodeCreateCode"
 static const char *externViewClassBolckKey;
 static const char *externModelClassBolckKey;
@@ -50,15 +52,16 @@ NSString * ML_create_ModelFileToDeskTopWithJSON_className(id JSON, NSString *cla
     
 
       [[NSFileManager defaultManager] writefileString:codeSourcetotalStr ToFileWithDiretory:XcodeCreateCodeDirectory fileName:className fileType:@"m" moveToTrashWhenFileExists:YES];
-    
+
     return nil;
     
     
 }
+
 NSString * ML_create_HeaderFileAndCodeSourceFileOfViewWithClassByFinishIsOutPutToDeskTop(Class aClass, BOOL isOutPutToDeskTop, NSString *fileType)
 {
     
-   NSString *preStr = ML_create_HeaderFileOrCodeSourceFileWithClassAndFileType(aClass, fileType);
+   NSString *preStr = ML_create_HeaderFileOrCodeSourceFileWithClassAndFileType(NSStringFromClass(aClass), fileType);
    
     
     NSString *totalStr = [NSString stringWithFormat:@"%@@implementation %@\n\n%@@end\n",preStr, NSStringFromClass(aClass), ML_create_ViewStringWithClass(aClass)];
@@ -209,7 +212,45 @@ NSString * ML_create_GetterMethodStringWithClass(Class aClass)
     }
     return getterMethodString;
 }
+- (NSString *)ml_headerFileOrCodeSourceFileWithClassName:(NSString *)className fileType:(NSString *)fileType content:(NSString *)content
+{
+    
+    NSString *fileName = [NSString stringWithFormat:@"%@.%@", className, fileType];
+    
+    NSDictionary *info = [[NSBundle mainBundle] infoDictionary];
+    NSString *appName = [info valueForKey:@"CFBundleName"];
+    
+    NSString *dateStr = [NSDate getCurrentTimeWithtimeFormatter:@"yyyy/MM/dd"];
+    NSString *createrName = @"赖妙龙";
+    NSString *createDetailStr = [NSString stringWithFormat:@"Created by %@ on %@.",createrName, dateStr];
+    
+    NSString *yearStr = [NSDate getCurrentTimeWithtimeFormatter:@"yyyy"];
+    NSString *companyName = @"myCompany";
+    NSString *copyRightStr = [NSString stringWithFormat:@"Copyright © %@年 %@. All rights reserved.",yearStr, companyName];
+    
+    
+    
+    NSArray *fileDetails = @[@"",
+                             fileName,
+                             appName,
+                             @"",
+                             createDetailStr,
+                             copyRightStr,
+                             @""];
+    NSMutableString *resultString = [[NSMutableString alloc] init];
+    for (NSString *subStr in fileDetails) {
+        [resultString appendFormat:@"//  %@\n", subStr];
+        
+        
+    }
+    [resultString appendString:@"\n"];
+    NSString *importStr = [NSString stringWithFormat:@"#import \"%@.h\"\n", className];
+    [resultString appendString:importStr];
 
+    [resultString appendString:content];
+    
+    return resultString;
+}
 NSString *  ML_create_HeaderFileOrCodeSourceFileWithClassAndFileType(NSString * className, NSString *fileType)
 {
     NSString *fileName = [NSString stringWithFormat:@"%@.%@", className, fileType];

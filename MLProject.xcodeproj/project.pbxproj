@@ -113,6 +113,7 @@
 		FE06A0941CA7B01200758B37 /* MLImageNextController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE06A0931CA7B01200758B37 /* MLImageNextController.m */; };
 		FE0FC8641C90753D00241C1B /* UIButton+MLChain4UIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC8631C90753D00241C1B /* UIButton+MLChain4UIButton.m */; };
 		FE1141D01CA6C6AD00302A03 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1141CF1CA6C6AD00302A03 /* MBProgressHUD.m */; };
+		FE1F45411CCFABB500B52F9E /* NSObject+ChainProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1F45401CCFABB500B52F9E /* NSObject+ChainProperty.m */; };
 		FE2095E21C951C8A000CBE16 /* libdyci.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE2095E11C951C8A000CBE16 /* libdyci.a */; };
 		FE29A26F1C513365006FF01E /* 44C5FC76-E862-43F6-824E-0FBBAFADA5CA.png in Resources */ = {isa = PBXBuildFile; fileRef = FE29A26E1C513365006FF01E /* 44C5FC76-E862-43F6-824E-0FBBAFADA5CA.png */; };
 		FE29A27F1C54F7D0006FF01E /* UIViewController+Storyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = FE29A27E1C54F7D0006FF01E /* UIViewController+Storyboard.m */; };
@@ -408,6 +409,8 @@
 		FE0FC8631C90753D00241C1B /* UIButton+MLChain4UIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+MLChain4UIButton.m"; path = "MLProject/Chainable/UIButton+MLChain4UIButton.m"; sourceTree = SOURCE_ROOT; };
 		FE1141CE1CA6C6AD00302A03 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		FE1141CF1CA6C6AD00302A03 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		FE1F453F1CCFABB500B52F9E /* NSObject+ChainProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ChainProperty.h"; sourceTree = "<group>"; };
+		FE1F45401CCFABB500B52F9E /* NSObject+ChainProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ChainProperty.m"; sourceTree = "<group>"; };
 		FE2095E11C951C8A000CBE16 /* libdyci.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libdyci.a; path = "Pods/../build/Debug-iphoneos/libdyci.a"; sourceTree = "<group>"; };
 		FE285B811CCB40830054B2EE /* libReveal.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libReveal.dylib; sourceTree = "<group>"; };
 		FE285B821CCB40830054B2EE /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
@@ -917,6 +920,8 @@
 				FE3C4A6F1C2EBA66004CBA21 /* ChainableController.h */,
 				FE3C4A701C2EBA66004CBA21 /* ChainableController.m */,
 				FE3C4A711C2EBA66004CBA21 /* ChainableController.xib */,
+				FE1F453F1CCFABB500B52F9E /* NSObject+ChainProperty.h */,
+				FE1F45401CCFABB500B52F9E /* NSObject+ChainProperty.m */,
 				18CF9D721C8EDFB900E1EA53 /* NSObject+ChainInvocation.h */,
 				18CF9D731C8EDFB900E1EA53 /* NSObject+ChainInvocation.m */,
 				FECA0E771C9C399F00278BB0 /* UI */,
@@ -1569,6 +1574,7 @@
 				FEE6A69A1C734C5C008760CA /* MLAnimationsController.m in Sources */,
 				18C276831C7D41020055C19D /* UILabel+ML_Tools.m in Sources */,
 				18C276701C7D41020055C19D /* UIButton+CommonType.m in Sources */,
+				FE1F45411CCFABB500B52F9E /* NSObject+ChainProperty.m in Sources */,
 				18C276931C7D41020055C19D /* UIView+ML_ModelMethod.m in Sources */,
 				FE514DBF1C1C272700E3AC0C /* MyRunTimeClass.m in Sources */,
 				18C276911C7D41020055C19D /* UIView+Frame.m in Sources */,
