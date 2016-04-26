@@ -17,7 +17,6 @@
 		18463CEC1CA247E300DD87BE /* UIBezierPath+ML_Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18463CEA1CA247E300DD87BE /* UIBezierPath+ML_Tools.m */; };
 		184BCA271CA69AB800EF5A14 /* NetworkCtl+Hud.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BCA241CA69AB800EF5A14 /* NetworkCtl+Hud.m */; };
 		184BCA281CA69AB800EF5A14 /* NetworkCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BCA261CA69AB800EF5A14 /* NetworkCtl.m */; };
-		18513AC61CC8C0340059F544 /* NSObject+ChainProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 18513AC51CC8C0340059F544 /* NSObject+ChainProperty.m */; };
 		187D54AE1C8400ED0066EC67 /* MLAttributeStringController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187D54AD1C8400ED0066EC67 /* MLAttributeStringController.m */; };
 		187D54B21C84011E0066EC67 /* MLAttributeString.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 187D54B11C84011E0066EC67 /* MLAttributeString.storyboard */; };
 		188D54191C91037600841588 /* NSObject+MLChain4NSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 188D54181C91037600841588 /* NSObject+MLChain4NSObject.m */; };
@@ -115,9 +114,6 @@
 		FE0FC8641C90753D00241C1B /* UIButton+MLChain4UIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC8631C90753D00241C1B /* UIButton+MLChain4UIButton.m */; };
 		FE1141D01CA6C6AD00302A03 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1141CF1CA6C6AD00302A03 /* MBProgressHUD.m */; };
 		FE2095E21C951C8A000CBE16 /* libdyci.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE2095E11C951C8A000CBE16 /* libdyci.a */; };
-		FE285B841CCB40830054B2EE /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE285B821CCB40830054B2EE /* Reveal.framework */; };
-		FE285B851CCB46380054B2EE /* libReveal.dylib in Resources */ = {isa = PBXBuildFile; fileRef = FE285B811CCB40830054B2EE /* libReveal.dylib */; };
-		FE285B8D1CCB55880054B2EE /* MLProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FE285B8C1CCB55880054B2EE /* MLProjectTests.m */; };
 		FE29A26F1C513365006FF01E /* 44C5FC76-E862-43F6-824E-0FBBAFADA5CA.png in Resources */ = {isa = PBXBuildFile; fileRef = FE29A26E1C513365006FF01E /* 44C5FC76-E862-43F6-824E-0FBBAFADA5CA.png */; };
 		FE29A27F1C54F7D0006FF01E /* UIViewController+Storyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = FE29A27E1C54F7D0006FF01E /* UIViewController+Storyboard.m */; };
 		FE31D0E51BFE15FF00D63286 /* MultiThreadController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE31D0E31BFE15FF00D63286 /* MultiThreadController.m */; };
@@ -200,16 +196,6 @@
 		FEFB49DF1C95205200634A97 /* NSObject+vk_msgSend.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFB49DD1C95205200634A97 /* NSObject+vk_msgSend.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		FE285B8F1CCB55880054B2EE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FEC349361BEEFB0D0076E88B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FEC3493D1BEEFB0D0076E88B;
-			remoteInfo = MLProject;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		18008A4D1CA69E4600EFA08E /* UITabBarController+ML_Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+ML_Create.h"; sourceTree = "<group>"; };
 		18008A4E1CA69E4600EFA08E /* UITabBarController+ML_Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+ML_Create.m"; sourceTree = "<group>"; };
@@ -229,8 +215,6 @@
 		184BCA241CA69AB800EF5A14 /* NetworkCtl+Hud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetworkCtl+Hud.m"; sourceTree = "<group>"; };
 		184BCA251CA69AB800EF5A14 /* NetworkCtl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkCtl.h; sourceTree = "<group>"; };
 		184BCA261CA69AB800EF5A14 /* NetworkCtl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkCtl.m; sourceTree = "<group>"; };
-		18513AC41CC8C0340059F544 /* NSObject+ChainProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ChainProperty.h"; sourceTree = "<group>"; };
-		18513AC51CC8C0340059F544 /* NSObject+ChainProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ChainProperty.m"; sourceTree = "<group>"; };
 		187D54AC1C8400ED0066EC67 /* MLAttributeStringController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLAttributeStringController.h; sourceTree = "<group>"; };
 		187D54AD1C8400ED0066EC67 /* MLAttributeStringController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLAttributeStringController.m; sourceTree = "<group>"; };
 		187D54B11C84011E0066EC67 /* MLAttributeString.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLAttributeString.storyboard; sourceTree = "<group>"; };
@@ -427,7 +411,6 @@
 		FE2095E11C951C8A000CBE16 /* libdyci.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libdyci.a; path = "Pods/../build/Debug-iphoneos/libdyci.a"; sourceTree = "<group>"; };
 		FE285B811CCB40830054B2EE /* libReveal.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libReveal.dylib; sourceTree = "<group>"; };
 		FE285B821CCB40830054B2EE /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
-		FE285B8A1CCB55880054B2EE /* MLProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MLProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE285B8C1CCB55880054B2EE /* MLProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLProjectTests.m; sourceTree = "<group>"; };
 		FE285B8E1CCB55880054B2EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE29A26E1C513365006FF01E /* 44C5FC76-E862-43F6-824E-0FBBAFADA5CA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "44C5FC76-E862-43F6-824E-0FBBAFADA5CA.png"; sourceTree = "<group>"; };
@@ -576,20 +559,12 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		FE285B871CCB55880054B2EE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		FEC3493B1BEEFB0D0076E88B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FEA1C87E1CB6B60A00B5A9D3 /* UIKit.framework in Frameworks */,
 				FE2095E21C951C8A000CBE16 /* libdyci.a in Frameworks */,
-				FE285B841CCB40830054B2EE /* Reveal.framework in Frameworks */,
 				32987B6A15498D3D3F19A0C2 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -944,8 +919,6 @@
 				FE3C4A711C2EBA66004CBA21 /* ChainableController.xib */,
 				18CF9D721C8EDFB900E1EA53 /* NSObject+ChainInvocation.h */,
 				18CF9D731C8EDFB900E1EA53 /* NSObject+ChainInvocation.m */,
-				18513AC41CC8C0340059F544 /* NSObject+ChainProperty.h */,
-				18513AC51CC8C0340059F544 /* NSObject+ChainProperty.m */,
 				FECA0E771C9C399F00278BB0 /* UI */,
 				FECA0E761C9C399A00278BB0 /* NS */,
 				FECA0E751C9C398400278BB0 /* CG */,
@@ -1098,7 +1071,6 @@
 			isa = PBXGroup;
 			children = (
 				FEC3493E1BEEFB0D0076E88B /* MLProject.app */,
-				FE285B8A1CCB55880054B2EE /* MLProjectTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1347,24 +1319,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FE285B891CCB55880054B2EE /* MLProjectTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FE285B911CCB55890054B2EE /* Build configuration list for PBXNativeTarget "MLProjectTests" */;
-			buildPhases = (
-				FE285B861CCB55880054B2EE /* Sources */,
-				FE285B871CCB55880054B2EE /* Frameworks */,
-				FE285B881CCB55880054B2EE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FE285B901CCB55880054B2EE /* PBXTargetDependency */,
-			);
-			name = MLProjectTests;
-			productName = MLProjectTests;
-			productReference = FE285B8A1CCB55880054B2EE /* MLProjectTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		FEC3493D1BEEFB0D0076E88B /* MLProject */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FEC349611BEEFB0D0076E88B /* Build configuration list for PBXNativeTarget "MLProject" */;
@@ -1394,10 +1348,6 @@
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "妙龙赖";
 				TargetAttributes = {
-					FE285B891CCB55880054B2EE = {
-						CreatedOnToolsVersion = 7.3;
-						TestTargetID = FEC3493D1BEEFB0D0076E88B;
-					};
 					FEC3493D1BEEFB0D0076E88B = {
 						CreatedOnToolsVersion = 6.4;
 					};
@@ -1417,24 +1367,15 @@
 			projectRoot = "";
 			targets = (
 				FEC3493D1BEEFB0D0076E88B /* MLProject */,
-				FE285B891CCB55880054B2EE /* MLProjectTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		FE285B881CCB55880054B2EE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		FEC3493C1BEEFB0D0076E88B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE285B851CCB46380054B2EE /* libReveal.dylib in Resources */,
 				FEE55D021BF244D100C8F783 /* FranchiseVerifyingStatusView.xib in Resources */,
 				1822284D1CAE86DD00A7E43D /* AthleticsLottery.storyboard in Resources */,
 				1895E1301C5B50840046411D /* IQKeyboardManager.storyboard in Resources */,
@@ -1522,14 +1463,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		FE285B861CCB55880054B2EE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FE285B8D1CCB55880054B2EE /* MLProjectTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		FEC3493A1BEEFB0D0076E88B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1678,7 +1611,6 @@
 				FE4F30D61CCA8D5200C99B68 /* CAAnimation+MLChain4CAAnimation.m in Sources */,
 				FEA1C87C1CB5394300B5A9D3 /* PaiLie.m in Sources */,
 				FE514DB21C1BFCDB00E3AC0C /* RunTimeController.m in Sources */,
-				18513AC61CC8C0340059F544 /* NSObject+ChainProperty.m in Sources */,
 				18E727F81C9D35E500DA9438 /* CALayer+Line.m in Sources */,
 				18D8E07E1C84576400706195 /* UITableView+Refresh.m in Sources */,
 				18C276671C7D41020055C19D /* NSPredicate+Tools.m in Sources */,
@@ -1690,14 +1622,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		FE285B901CCB55880054B2EE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FEC3493D1BEEFB0D0076E88B /* MLProject */;
-			targetProxy = FE285B8F1CCB55880054B2EE /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FEC349501BEEFB0D0076E88B /* LaunchScreen.xib */ = {
@@ -1711,36 +1635,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		FE285B921CCB55890054B2EE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ANALYZER_NONNULL = YES;
-				ENABLE_TESTABILITY = YES;
-				INFOPLIST_FILE = MLProjectTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ml.MLProjectTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MLProject.app/MLProject";
-			};
-			name = Debug;
-		};
-		FE285B931CCB55890054B2EE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ANALYZER_NONNULL = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				INFOPLIST_FILE = MLProjectTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ml.MLProjectTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MLProject.app/MLProject";
-			};
-			name = Release;
-		};
 		FEC3495F1BEEFB0D0076E88B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1830,23 +1724,12 @@
 			baseConfigurationReference = 607A53E0EBBA05FDA009F1B2 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/MLProject/Libaries/Reveal/iOS-Libraries",
-					"$(PROJECT_DIR)/MLProject/Libaries/Reveal/SharedSupport/iOS-Libraries",
-					"$(PROJECT_DIR)/MLProject/Libaries/Reveal/SharedSupport/tvOS-Libraries",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MLProject/PrefixHeader.pch";
 				INFOPLIST_FILE = MLProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
-					"$(PROJECT_DIR)/MLProject/Libaries/Reveal/iOS-Libraries",
-					"$(PROJECT_DIR)/MLProject/Libaries/Reveal/SharedSupport/iOS-Libraries",
-					"$(PROJECT_DIR)/MLProject/Libaries/Reveal/SharedSupport/tvOS-Libraries",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1901,8 +1784,6 @@
 					"-weak_framework",
 					"\"UIKit\"",
 					"-ObjC",
-					"-framework",
-					Reveal,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1913,23 +1794,12 @@
 			baseConfigurationReference = F48D774E4C6660039E66AE38 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/MLProject/Libaries/Reveal/iOS-Libraries",
-					"$(PROJECT_DIR)/MLProject/Libaries/Reveal/SharedSupport/iOS-Libraries",
-					"$(PROJECT_DIR)/MLProject/Libaries/Reveal/SharedSupport/tvOS-Libraries",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MLProject/PrefixHeader.pch";
 				INFOPLIST_FILE = MLProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
-					"$(PROJECT_DIR)/MLProject/Libaries/Reveal/iOS-Libraries",
-					"$(PROJECT_DIR)/MLProject/Libaries/Reveal/SharedSupport/iOS-Libraries",
-					"$(PROJECT_DIR)/MLProject/Libaries/Reveal/SharedSupport/tvOS-Libraries",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1984,8 +1854,6 @@
 					"-weak_framework",
 					"\"UIKit\"",
 					"-ObjC",
-					"-framework",
-					Reveal,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1994,14 +1862,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FE285B911CCB55890054B2EE /* Build configuration list for PBXNativeTarget "MLProjectTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FE285B921CCB55890054B2EE /* Debug */,
-				FE285B931CCB55890054B2EE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
 		FEC349391BEEFB0D0076E88B /* Build configuration list for PBXProject "MLProject" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
