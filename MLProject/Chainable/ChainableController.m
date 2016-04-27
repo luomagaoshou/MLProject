@@ -33,7 +33,9 @@
 #import <YYKit/CALayer+YYAdd.h>
 #import "NSObject+ChainProperty.h"
 #import <Foundation/NSProxy.h>
+#import "NSObject+CreateCode.h"
  #define MAS_SHORTHAND_GLOBALS
+#import "NSFileManager+ML_Tools.h"
     typedef NSString *(^testBlcok)(NSString *);
 
 
@@ -190,13 +192,27 @@ return numberOfArguments;
    // NSLog(@"%@", [CALayer getIvarList]);
     
   // NSString *allChainPropertyString = [CALayer getClassMethodList];
-   NSArray *classList = [NSObject getClassListWithPrefixs:@[@"CA", @"UI", @"NS"]];
+   NSArray *classList = [NSObject getClassListWithPrefixs:@[/*@"CA", @"UI",*/ @"NSMutableAttributedString"]];
     for (NSString *classStr in classList) {
         
-           [NSClassFromString(classStr) allChainPropertyString];
-       
-       
+        NSString *chainProperty = [NSClassFromString(classStr) allChainPropertyString];
+        NSString *XcodeCreateCodeDirectory = [[NSFileManager macDeskTopDiretory] stringByAppendingPathComponent:@"MLChain"];
+
+//        NSString *hFileContent = [NSString stringWithFormat:@"\n@interface%@\n", chainProperty];
+//        NSString *hfileString = [NSObject ml_hFileOrMFileTopIntroduceWithClassName:classStr fileType:kML_CreateCodeFileType_h];
+//        [[NSFileManager defaultManager] writefileString:hfileString ToFileWithDiretory:XcodeCreateCodeDirectory fileName:classStr fileType:kML_CreateCodeFileType_h moveToTrashWhenFileExists:YES];
+        ML_CreateCodeModel *model =
+        [ML_CreateCodeModel modelWithClassName:classStr
+                                superclassName:nss([NSClassFromString(classStr) superclass])
+                          hFileImportFileNames:nil
+                            hFileContentString:chainProperty
+                          mFileImportFileNames:nil
+                            mFileContentString:nil];
+        [[NSFileManager defaultManager] writefileString:model.hFileResultString ToFileWithDiretory:XcodeCreateCodeDirectory fileName:classStr fileType:kML_CreateCodeFileType_h moveToTrashWhenFileExists:YES];
+        [[NSFileManager defaultManager] writefileString:model.mFileResultString ToFileWithDiretory:XcodeCreateCodeDirectory fileName:classStr fileType:kML_CreateCodeFileType_m moveToTrashWhenFileExists:YES];
     }
+    
+  
 
    
 

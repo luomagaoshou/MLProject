@@ -7,32 +7,79 @@
 //
 
 #import <Foundation/Foundation.h>
-typedef void (^CreateViewClassBlock)(Class aClass);
-typedef void (^CreateModelClassBlock)(NSObject *object);
+@interface ML_CreateCodeModel:NSObject
+@property (nonatomic, copy) NSString *className;//
+@property (nonatomic, copy) NSString *superclassName;//
+@property (nonatomic, copy, readonly) NSString *endString;
+//h文件
+@property (nonatomic, copy, readonly) NSString *hFileTopString;
+@property (nonatomic, copy) NSArray *hFileImportFileNames;//
+@property (nonatomic, copy, readonly) NSString *hFileImportString;
+@property (nonatomic, copy, readonly) NSString *hFileInterfaceString;
+@property (nonatomic, copy) NSString *hFileContentString;//
+
+//m文件
+@property (nonatomic, copy, readonly) NSString *mFileTopString;
+@property (nonatomic, copy) NSArray *mFileImportFileNames;//
+@property (nonatomic, copy, readonly) NSString *mFileImportString;
+@property (nonatomic, copy, readonly) NSString *mFileImplementationString;
+@property (nonatomic, copy) NSString *mFileContentString;//
+
+//结果
+@property (nonatomic, copy, readonly) NSString *hFileResultString;
+@property (nonatomic, copy, readonly) NSString *mFileResultString;
+
++ (instancetype)modelWithClassName:(NSString *)className
+                    superclassName:(NSString *)superclassName
+              hFileImportFileNames:(NSArray *)hFileImportFileNames
+                hFileContentString:(NSString *)hFileContentString
+              mFileImportFileNames:(NSArray *)mFileImportFileNames
+                mFileContentString:(NSString *)mFileContentString;
+@end
+
+
 extern NSString *const kML_CreateCodeFileType_h;
 extern NSString *const kML_CreateCodeFileType_m;
 
 @interface NSObject (CreateCode)
-@property (nonatomic, copy) CreateViewClassBlock createViewClassBolck;
-@property (nonatomic, copy) CreateModelClassBlock createModelClassBlock;
-NSString * ML_create_ViewStringWithClass(Class aClass);
 
-NSString * ML_create_PropertyStringWithClass(Class aClass);
-NSString * ML_create_GetterMethodStringWithClass(Class aClass);
-NSString * ML_create_LayoutStringWithClass(Class aClass);
-NSString * ML_create_EventMothodString();
-NSString * ML_create_InitStringWithClass(Class aClass);
 
-NSString *  ML_create_HeaderFileOrCodeSourceFileWithClassAndFileType(NSString * className, NSString *fileType);
+//未完成
++ (NSString *)ML_createPropertyStringWithClass:(Class)aClass;
 
-NSString * ML_create_ViewStringWithClassByFinishIsOutPutToDeskTop(Class aClass, BOOL isOutPutToDeskTop);
-///生成h m文件
-NSString * ML_create_HeaderFileAndCodeSourceFileOfViewWithClassByFinishIsOutPutToDeskTop(Class aClass, BOOL isOutPutToDeskTop, NSString *fileType);
+#pragma mark - ========= View =========
++ (NSString *)ML_createViewCodeWithClass:(Class)aClass;
++ (NSString *)ML_createViewCodeWithClass:(Class)aClass isOutPutToDeskTop:(BOOL)isOutPutToDeskTop;
 
-NSString * ML_create_ModelFileToDeskTopWithJSON_className(id JSON, NSString *className);
++ (NSString *)ML_createInitStringWithClass:(Class)aClass;
++ (NSString *)ML_createLayoutStringWithClass:(Class)aClass;
++ (NSString *)ML_createEventMothodString;
++ (NSString *)ML_createGetterMethodStringWithClass:(Class)aClass;
 
-///xib
-NSString * ML_create_XibViewHelperWithClass(Class aClass);
-NSString * ML_create_XibViewInitHelperByFinishIsOutPutToDeskTop(Class aClass , BOOL isOutputToDeskTop);
+
+#pragma mark - ========= Xib =========
++ (NSString *)ML_createXibViewInitHelperWithClass:(Class)aClass;
++ (NSString *)ML_createXibViewInitHelperWithClass:(Class)aClass isOutPutToDeskTop:(BOOL)isOutPutToDeskTop;
+
+#pragma mark - ========= Method =========
+/**
+ *  根据JSON和类名生成h m文件
+ *
+ *  @param JSON      <#JSON description#>
+ *  @param className <#className description#>
+ */
++ (NSString *)ML_createModelFileToDeskTopWithJSON:(id)JSON className:(NSString *)className;
+
+/**
+ *  生成h或m文件的介绍
+ *
+ *  @param className 类名
+ *  @param fileType  文件类型h或m
+ *  @param content   内容
+ *
+ *  @return <#return value description#>
+ */
++ (NSString *)ml_hFileOrMFileTopIntroduceWithClassName:(NSString *)className fileType:(NSString *)fileType;
+
 
 @end

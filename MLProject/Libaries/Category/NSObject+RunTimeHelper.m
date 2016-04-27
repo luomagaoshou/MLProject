@@ -162,8 +162,7 @@
 
 + (NSArray *)getPropertyAttributeList
 {
-    {
-        
+    
         unsigned int count = 0;
         //获取类中所有成员变量
         objc_property_t *properties = class_copyPropertyList(self, &count);
@@ -184,8 +183,6 @@
         
         free(properties);
         return propertyAttriArray;
-    }
-    
 
 }
 - (void)printValueForKeyListWith:(NSArray *)array

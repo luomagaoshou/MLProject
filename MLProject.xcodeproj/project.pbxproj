@@ -412,8 +412,6 @@
 		FE1F453F1CCFABB500B52F9E /* NSObject+ChainProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ChainProperty.h"; sourceTree = "<group>"; };
 		FE1F45401CCFABB500B52F9E /* NSObject+ChainProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ChainProperty.m"; sourceTree = "<group>"; };
 		FE2095E11C951C8A000CBE16 /* libdyci.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libdyci.a; path = "Pods/../build/Debug-iphoneos/libdyci.a"; sourceTree = "<group>"; };
-		FE285B811CCB40830054B2EE /* libReveal.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libReveal.dylib; sourceTree = "<group>"; };
-		FE285B821CCB40830054B2EE /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		FE285B8C1CCB55880054B2EE /* MLProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLProjectTests.m; sourceTree = "<group>"; };
 		FE285B8E1CCB55880054B2EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE29A26E1C513365006FF01E /* 44C5FC76-E862-43F6-824E-0FBBAFADA5CA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "44C5FC76-E862-43F6-824E-0FBBAFADA5CA.png"; sourceTree = "<group>"; };
@@ -884,15 +882,6 @@
 			path = MBProgressHud;
 			sourceTree = "<group>";
 		};
-		FE285B801CCB40830054B2EE /* iOS-Libraries */ = {
-			isa = PBXGroup;
-			children = (
-				FE285B811CCB40830054B2EE /* libReveal.dylib */,
-				FE285B821CCB40830054B2EE /* Reveal.framework */,
-			);
-			path = "iOS-Libraries";
-			sourceTree = "<group>";
-		};
 		FE285B8B1CCB55880054B2EE /* MLProjectTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -1149,7 +1138,6 @@
 		FEC349671BEEFEF00076E88B /* Libaries */ = {
 			isa = PBXGroup;
 			children = (
-				FED7BA751CCB3BA6002E0A3D /* Reveal */,
 				FE1141CD1CA6C69C00302A03 /* MBProgressHud */,
 				184BCA221CA69AB800EF5A14 /* HttpRequest */,
 				FEFB49DB1C95205200634A97 /* vk_msgSend */,
@@ -1198,14 +1186,6 @@
 				FE0FC8631C90753D00241C1B /* UIButton+MLChain4UIButton.m */,
 			);
 			path = UI;
-			sourceTree = "<group>";
-		};
-		FED7BA751CCB3BA6002E0A3D /* Reveal */ = {
-			isa = PBXGroup;
-			children = (
-				FE285B801CCB40830054B2EE /* iOS-Libraries */,
-			);
-			path = Reveal;
 			sourceTree = "<group>";
 		};
 		FEDF1FEA1C4A63FD00DF9A8D /* FDTBCellAutoHeight */ = {

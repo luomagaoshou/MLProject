@@ -13,91 +13,170 @@
 #import <MJExtension/MJExtension.h>
 #import "WHC_ModelCreate.h"
 #import "NSDate+ML_Tools.h"
+
+@implementation ML_CreateCodeModel
+
+
+#pragma mark - ========= Setter & Getter =========
++ (instancetype)modelWithClassName:(NSString *)className
+                    superclassName:(NSString *)superclassName
+              hFileImportFileNames:(NSArray *)hFileImportFileNames
+                hFileContentString:(NSString *)hFileContentString
+              mFileImportFileNames:(NSArray *)mFileImportFileNames
+                mFileContentString:(NSString *)mFileContentString
+{
+    ML_CreateCodeModel *model = [[super alloc] init];
+    model.className = className;
+    model.superclassName = superclassName;
+    model.hFileImportFileNames = hFileImportFileNames;
+    model.hFileContentString = hFileContentString;
+    model.mFileImportFileNames = mFileImportFileNames;
+    model.mFileContentString = mFileContentString;
+    return model;
+}
+#pragma mark - hFile
+- (NSString *)hFileTopString
+{
+    return [NSObject ml_hFileOrMFileTopIntroduceWithClassName:self.className fileType:kML_CreateCodeFileType_h];
+}
+- (NSString *)hFileInterfaceString
+{
+    return [NSString stringWithFormat:@"@interface %@:%@", self.className, self.superclassName];
+}
+- (NSString *)hFileImportString
+{
+    NSMutableArray *importFileNames = [[NSMutableArray alloc] init];
+   
+    for (NSString *hFileName in self.hFileImportFileNames) {
+        [importFileNames addObject:[NSString stringWithFormat:@"#import\"%@\"", hFileName]];
+    }
+    return [importFileNames componentsJoinedByString:@"\n"];
+}
+#pragma mark - mFile
+- (NSString *)mFileTopString
+{
+    return [NSObject ml_hFileOrMFileTopIntroduceWithClassName:self.className fileType:kML_CreateCodeFileType_m];
+}
+- (NSString *)mFileImplementationString
+{
+    return [NSString stringWithFormat:@"@implementation %@", self.className];
+}
+- (NSString *)mFileImportString
+{
+    
+    NSMutableArray *importFileNames = [[NSMutableArray alloc] init];
+    if (![self.mFileImportFileNames containsObject:self.className]) {
+        [importFileNames addObject:self.className];
+    }
+    
+    for (NSString *hFileName in self.mFileImportFileNames) {
+        [importFileNames addObject:[NSString stringWithFormat:@"#import\"%@\"", hFileName]];
+    }
+    
+    return [importFileNames componentsJoinedByString:@"\n"];
+}
+
+- (NSString *)endString
+{
+    return @"@end";
+}
+- (NSString *)hFileResultString
+{
+    NSString *resultString = [NSString stringWithFormat:@"%@\n%@\n%@\n%@\n%@\n", self.hFileTopString,
+                              self.hFileImportString,
+                              self.hFileInterfaceString,
+                              self.hFileContentString,
+                              self.endString];
+    return resultString;
+}
+- (NSString *)m_ResultString
+{
+    NSString *resultString = [NSString stringWithFormat:@"%@\n%@\n%@\n%@\n%@\n", self.mFileTopString,
+                              self.mFileImportString,
+                              self.mFileImplementationString,
+                              self.mFileContentString,
+                              self.endString];
+    return resultString;
+}
+@end
+
 NSString *const kML_CreateCodeFileType_h = @"h";
 NSString *const kML_CreateCodeFileType_m = @"m";
 #define DESK_TOP_DIR @"XcodeCreateCode"
-static const char *externViewClassBolckKey;
-static const char *externModelClassBolckKey;
+
 @implementation NSObject (CreateCode)
-@dynamic createViewClassBolck;
-@dynamic createModelClassBlock;
 
-NSString * ML_create_ViewStringWithClass(Class aClass)
++ (NSString *)ML_createViewCodeWithClass:(Class)aClass
 {
-   return ML_create_ViewStringWithClassByFinishIsOutPutToDeskTop(aClass, NO);
+    return [self ML_createViewCodeWithClass:aClass isOutPutToDeskTop:NO];
 }
-
-NSString * ML_create_ModelFileToDeskTopWithJSON_className(id JSON, NSString *className)
-{
-    
-    WHC_ModelCreate *creater = [[WHC_ModelCreate alloc] init];
-    if ([JSON isKindOfClass:[NSDictionary class]]) {
-      JSON =  [NSJSONSerialization dataWithJSONObject:JSON options:kNilOptions error:nil];
-      
-        JSON = [[NSString alloc] initWithData:JSON encoding:NSUTF8StringEncoding];
-    }
-    [creater createClassStringWithJSONString:JSON className:className];
-    
-    NSString *headerPreStr = ML_create_HeaderFileOrCodeSourceFileWithClassAndFileType(className, @"h");
-  
-     NSString *headerTotalStr = [NSString stringWithFormat:@"%@\n%@\n",headerPreStr, creater.classString];
-
-    
-     NSString *XcodeCreateCodeDirectory = [[NSFileManager macDeskTopDiretory]  stringByAppendingPathComponent:DESK_TOP_DIR];
-      [[NSFileManager defaultManager] writefileString:headerTotalStr ToFileWithDiretory:XcodeCreateCodeDirectory fileName:className fileType:@"h" moveToTrashWhenFileExists:YES];
-    
-     NSString *codeSourcePreStr = ML_create_HeaderFileOrCodeSourceFileWithClassAndFileType(className, @"m");
-    
-    NSString *codeSourcetotalStr = [NSString stringWithFormat:@"%@\n%@\n",codeSourcePreStr,  creater.classMString];
-    
-
-      [[NSFileManager defaultManager] writefileString:codeSourcetotalStr ToFileWithDiretory:XcodeCreateCodeDirectory fileName:className fileType:@"m" moveToTrashWhenFileExists:YES];
-
-    return nil;
-    
-    
-}
-
-NSString * ML_create_HeaderFileAndCodeSourceFileOfViewWithClassByFinishIsOutPutToDeskTop(Class aClass, BOOL isOutPutToDeskTop, NSString *fileType)
-{
-    
-   NSString *preStr = ML_create_HeaderFileOrCodeSourceFileWithClassAndFileType(NSStringFromClass(aClass), fileType);
-   
-    
-    NSString *totalStr = [NSString stringWithFormat:@"%@@implementation %@\n\n%@@end\n",preStr, NSStringFromClass(aClass), ML_create_ViewStringWithClass(aClass)];
-    
-   
-    
-    NSString *XcodeCreateCodeDirectory = [[NSFileManager macDeskTopDiretory]  stringByAppendingPathComponent:DESK_TOP_DIR];
-      [[NSFileManager defaultManager] writefileString:totalStr ToFileWithDiretory:XcodeCreateCodeDirectory fileName:NSStringFromClass(aClass) fileType:fileType moveToTrashWhenFileExists:YES];
-    return totalStr;
-}
-
-NSString * ML_create_ViewStringWithClassByFinishIsOutPutToDeskTop(Class aClass, BOOL isOutPutToDeskTop)
++ (NSString *)ML_createViewCodeWithClass:(Class)aClass isOutPutToDeskTop:(BOOL)isOutPutToDeskTop
 {
     NSMutableString *viewString = [[NSMutableString alloc] init];
-   // [viewString appendString:@"==========Begining=========\n\n\n\n\n"];
-    [viewString appendString:ML_create_InitStringWithClass(aClass)];
-    [viewString appendString:ML_create_LayoutStringWithClass(aClass)];
-    [viewString appendString:ML_create_EventMothodString()];
-    [viewString appendString:ML_create_GetterMethodStringWithClass(aClass)];
+    // [viewString appendString:@"==========Begining=========\n\n\n\n\n"];
+    [viewString appendString:[NSObject ML_createInitStringWithClass:aClass]];
+    [viewString appendString:[NSObject ML_createLayoutStringWithClass:aClass]];
+    [viewString appendString:[NSObject ML_createEventMothodString]];
+    [viewString appendString:[NSObject ML_createGetterMethodStringWithClass:aClass]];
     //[viewString appendString:@"\n\n\n\n\n==========Ending========"];
     NSLog(@"%@", viewString);
-   
-        
+    
+    
     if (isOutPutToDeskTop) {
-          NSString *XcodeCreateCodeDirectory = [[NSFileManager macDeskTopDiretory]  stringByAppendingPathComponent:DESK_TOP_DIR];
+        NSString *XcodeCreateCodeDirectory = [[NSFileManager macDeskTopDiretory]  stringByAppendingPathComponent:DESK_TOP_DIR];
         [[NSFileManager defaultManager] writefileString:viewString ToFileWithDiretory:XcodeCreateCodeDirectory fileName:NSStringFromClass(aClass) fileType:@"txt" moveToTrashWhenFileExists:YES];
     }
-    
-    
     
     
     return viewString;
 }
 
++ (NSString *)ML_createModelFileToDeskTopWithJSON:(id)JSON className:(NSString *)className
+{
+    
+    WHC_ModelCreate *creater = [[WHC_ModelCreate alloc] init];
+    if ([JSON isKindOfClass:[NSDictionary class]]) {
+        JSON =  [NSJSONSerialization dataWithJSONObject:JSON options:kNilOptions error:nil];
+        
+        JSON = [[NSString alloc] initWithData:JSON encoding:NSUTF8StringEncoding];
+    }
+    [creater createClassStringWithJSONString:JSON className:className];
+    
+    
+    
+    NSString *headerPreStr = [NSObject ml_hFileOrMFileTopIntroduceWithClassName:className fileType:kML_CreateCodeFileType_h];
+    
+    NSString *headerTotalStr = [NSString stringWithFormat:@"%@\n%@\n",headerPreStr, creater.classString];
+    
+    
+    NSString *XcodeCreateCodeDirectory = [[NSFileManager macDeskTopDiretory]  stringByAppendingPathComponent:DESK_TOP_DIR];
+    [[NSFileManager defaultManager] writefileString:headerTotalStr ToFileWithDiretory:XcodeCreateCodeDirectory fileName:className fileType:kML_CreateCodeFileType_h moveToTrashWhenFileExists:YES];
+    
+    NSString *codeSourcePreStr = [NSObject ml_hFileOrMFileTopIntroduceWithClassName:className fileType:kML_CreateCodeFileType_m];
+    
+    NSString *resultStr = [NSString stringWithFormat:@"%@\n%@\n",codeSourcePreStr,  creater.classMString];
+    
+    
+    [[NSFileManager defaultManager] writefileString:resultStr ToFileWithDiretory:XcodeCreateCodeDirectory fileName:className fileType:kML_CreateCodeFileType_m moveToTrashWhenFileExists:YES];
+    return resultStr;
+}
++ (NSString *)ML_createHeaderFileAndCodeSourceFileOfViewWithClass:(Class)aClass fileType:(NSString *)fileType
+{
+    
+    NSString *preStr = [NSObject ml_hFileOrMFileTopIntroduceWithClassName:NSStringFromClass(aClass) fileType:fileType];
+   
+    
+    NSString *resultString = [NSString stringWithFormat:@"%@@implementation %@\n\n%@@end\n",preStr, NSStringFromClass(aClass), [NSObject ML_createViewCodeWithClass:aClass]];
+    
+   
+    
+    NSString *XcodeCreateCodeDirectory = [[NSFileManager macDeskTopDiretory]  stringByAppendingPathComponent:DESK_TOP_DIR];
+      [[NSFileManager defaultManager] writefileString:resultString ToFileWithDiretory:XcodeCreateCodeDirectory fileName:NSStringFromClass(aClass) fileType:fileType moveToTrashWhenFileExists:YES];
+    return resultString;
+}
 
-NSString * ML_create_PropertyStringWithClass(Class aClass)
+
++ (NSString *)ML_createPropertyStringWithClass:(Class)aClass
 {
  
     NSArray *attrs = [aClass getPropertyAttributeList];
@@ -143,7 +222,7 @@ NSString * ML_create_PropertyStringWithClass(Class aClass)
 }
 
 
-NSString * ML_create_InitStringWithClass(Class aClass)
++ (NSString *)ML_createInitStringWithClass:(Class)aClass
 {
     NSMutableString *mutStr = [[NSMutableString alloc] init];
     if ([aClass isSubclassOfClass:[UITableViewCell class]]) {
@@ -167,7 +246,7 @@ NSString * ML_create_InitStringWithClass(Class aClass)
     return mutStr;
 }
 
-NSString * ML_create_LayoutStringWithClass(Class aClass)
++ (NSString *)ML_createLayoutStringWithClass:(Class)aClass
 {
    
     NSMutableString *mutStr = [[NSMutableString alloc] init];
@@ -182,7 +261,7 @@ NSString * ML_create_LayoutStringWithClass(Class aClass)
     [mutStr appendString:@"\n}\n\n"];
     return mutStr;
 }
-NSString * ML_create_EventMothodString()
++ (NSString *)ML_createEventMothodString
 {
     NSMutableString *mutStr = [[NSMutableString alloc] init];
     [mutStr appendString:@"#pragma mark - ========= Event Methods =========\n"];
@@ -193,7 +272,7 @@ NSString * ML_create_EventMothodString()
     return mutStr;
 }
 
-NSString * ML_create_GetterMethodStringWithClass(Class aClass)
++ (NSString *)ML_createGetterMethodStringWithClass:(Class)aClass
 {
     NSArray *attrs = [aClass getPropertyAttributeList];
     NSMutableString *getterMethodString = [[NSMutableString alloc] init];
@@ -212,7 +291,9 @@ NSString * ML_create_GetterMethodStringWithClass(Class aClass)
     }
     return getterMethodString;
 }
-- (NSString *)ml_headerFileOrCodeSourceFileWithClassName:(NSString *)className fileType:(NSString *)fileType content:(NSString *)content
+
+
++ (NSString *)ml_hFileOrMFileTopIntroduceWithClassName:(NSString *)className fileType:(NSString *)fileType
 {
     
     NSString *fileName = [NSString stringWithFormat:@"%@.%@", className, fileType];
@@ -246,65 +327,22 @@ NSString * ML_create_GetterMethodStringWithClass(Class aClass)
     [resultString appendString:@"\n"];
     NSString *importStr = [NSString stringWithFormat:@"#import \"%@.h\"\n", className];
     [resultString appendString:importStr];
-
-    [resultString appendString:content];
     
     return resultString;
 }
-NSString *  ML_create_HeaderFileOrCodeSourceFileWithClassAndFileType(NSString * className, NSString *fileType)
-{
-    NSString *fileName = [NSString stringWithFormat:@"%@.%@", className, fileType];
-    
-    NSDictionary *info = [[NSBundle mainBundle] infoDictionary];
-    NSString *appName = [info valueForKey:@"CFBundleName"];
-    
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:8];
-    formatter.dateStyle = NSDateFormatterMediumStyle;
-    formatter.timeStyle = NSDateFormatterShortStyle;
-    [formatter setDateFormat:@"yyyy/MM/DD"];
-    NSString *dateStr = [formatter stringFromDate:[NSDate date]];
-    NSString *createrName = @"apple";
-    NSString *createDetailStr = [NSString stringWithFormat:@"Created by %@ on %@.",createrName, dateStr];
-    
-    [formatter setDateFormat:@"yyyy"];
-    NSString *yearStr = [formatter stringFromDate:[NSDate date]];
-    NSString *companyName = @"myCompany";
-    NSString *copyRightStr = [NSString stringWithFormat:@"Copyright © %@年 %@. All rights reserved.",yearStr, companyName];
-    
-  
-    
-    NSArray *fileDetails = @[@"",
-                             fileName,
-                             appName,
-                             @"",
-                             createDetailStr,
-                             copyRightStr,
-                             @""];
-    NSMutableString *preStr = [[NSMutableString alloc] init];
-    for (NSString *subStr in fileDetails) {
-        [preStr appendFormat:@"//  %@\n", subStr];
-        
-        
-    }
-    [preStr appendString:@"\n"];
-      NSString *importStr = [NSString stringWithFormat:@"#import \"%@.h\"\n", className];
-    [preStr appendString:importStr];
-    
-    return preStr;
-}
-#pragma mark - ========= Xib =========
 
-NSString * ML_create_XibViewInitHelperWithClass(Class aClass)
+
+#pragma mark - ========= Xib =========
++ (NSString *)ML_createXibViewInitHelperWithClass:(Class)aClass
 {
-   return ML_create_XibViewInitHelperByFinishIsOutPutToDeskTop(aClass, NO);
+    return [self ML_createXibViewInitHelperWithClass:aClass isOutPutToDeskTop:NO];
 }
-NSString * ML_create_XibViewInitHelperByFinishIsOutPutToDeskTop(Class aClass , BOOL isOutputToDeskTop)
++ (NSString *)ML_createXibViewInitHelperWithClass:(Class)aClass isOutPutToDeskTop:(BOOL)isOutPutToDeskTop
 {
     NSArray *properties= [aClass getPropertyList];
     NSMutableString *initHelperString = [[NSMutableString alloc] init];
     
-    NSString *layoutStr = ML_create_LayoutStringWithClass(aClass);
+    NSString *layoutStr = [NSObject ML_createLayoutStringWithClass:aClass];
     [initHelperString appendString:layoutStr];
     
 
@@ -338,7 +376,7 @@ NSString * ML_create_XibViewInitHelperByFinishIsOutPutToDeskTop(Class aClass , B
         
     }
     
-    if (isOutputToDeskTop) {
+    if (isOutPutToDeskTop) {
         
         NSString *XcodeCreateCodeDirectory = [[NSFileManager macDeskTopDiretory] stringByAppendingPathComponent:DESK_TOP_DIR];
         [[NSFileManager defaultManager] writefileString:initHelperString ToFileWithDiretory:XcodeCreateCodeDirectory fileName:NSStringFromClass(aClass) fileType:@"txt" moveToTrashWhenFileExists:YES];
@@ -357,21 +395,5 @@ NSString * ML_create_XibViewInitHelperByFinishIsOutPutToDeskTop(Class aClass , B
 }
 
 #pragma mark - ========= Setter & Getter =========
-- (void)setCreateViewClassBolck:(CreateViewClassBlock)createViewClassBolck
-{
-    objc_setAssociatedObject(self, &externViewClassBolckKey, createViewClassBolck, OBJC_ASSOCIATION_COPY_NONATOMIC);
-}
-- (CreateViewClassBlock)createViewClassBolck
-{
 
-    return objc_getAssociatedObject(self, &externViewClassBolckKey);
-}
-- (void)setCreateModelClassBlock:(CreateModelClassBlock)createModelClassBlock
-{
-    objc_setAssociatedObject(self, &externModelClassBolckKey, createModelClassBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
-}
-- (CreateModelClassBlock)createModelClassBlock
-{
-    return objc_getAssociatedObject(self, &externModelClassBolckKey);
-}
 @end

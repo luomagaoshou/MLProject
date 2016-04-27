@@ -57,15 +57,14 @@
 @end
 
 
+
+
 @implementation NSObject (ChainProperty)
-- (NSString *)allChainPropertyString
-{
-   return [[self class] allChainPropertyString];
-}
 + (NSString *)allChainPropertyString
 {
     NSMutableArray *configSelNames = [[NSMutableArray alloc] init];
     NSArray *originalConfigSelNames = [self configSelNames];
+    //去重复selName
     for (NSInteger i = 0; i < originalConfigSelNames.count; i ++) {
         if (![configSelNames containsObject:originalConfigSelNames[i]]) {
             [configSelNames addObject:originalConfigSelNames[i]];
@@ -83,8 +82,6 @@
             [chainPropertyGetterStings addObject:chainPropertyString];
         }
     }
-    
-    
     
     NSString *resultChainPropertiesString = [chainPropertyGetterStings componentsJoinedByString:@"\n"];
     NSLog(@"================\n\n\n\n\n%@\n\n\n\n\n================", resultChainPropertiesString);
@@ -105,7 +102,7 @@
         }
        
         SEL sel = NSSelectorFromString(selName);
-        NSLog(@"%@", self);
+       
         NSMethodSignature *methodSignature = nil;
         @try {
           methodSignature  = [self instanceMethodSignatureForSelector:sel];
@@ -123,13 +120,19 @@
         }
      
     }
-    NSLog(@"%@", resultSelNames);
+//    NSLog(@"%@", resultSelNames);
     
     
     return resultSelNames;
 }
 
-
+/**
+ *  获取链式方法名称
+ *
+ *  @param configMethodsString 原设置方法
+ *
+ *  @return
+ */
 + (NSString *)chainPropertyStringWith:(NSString *)configMethodsString
 {
     SEL sel = NSSelectorFromString(configMethodsString);
@@ -147,6 +150,8 @@
         chainSelName = configMethodsString;
     }
     
+    
+    
     NSString *macroDefineString = [self macroDefineStringWith:methodSignature chainSelName:chainSelName];
     if (macroDefineString) {
         [chainPropertyString appendString:macroDefineString];
@@ -159,6 +164,14 @@
     
     return chainPropertyString;
 }
+/**
+ *  生成链式方法和宏定义
+ *
+ *  @param methodSignature <#methodSignature description#>
+ *  @param chainSelName    <#chainSelName description#>
+ *
+ *  @return <#return value description#>
+ */
 + (NSString *)macroDefineStringWith:(NSMethodSignature *)methodSignature chainSelName:(NSString *)chainSelName
 {
  
@@ -189,8 +202,9 @@
             hasStructParam = YES;
         }
                 [boxValueString appendFormat:@"ml_chain_MASBoxValue(metamacro_at(%ld, __VA_ARGS__))", i - 2];
+        [boxValueString appendString:@", "];
         }
-    
+    [boxValueString deleteCharactersInRange:NSMakeRange(boxValueString.length - 2, 2)];
     
     NSString *structboxValueString = nil;
     if (hasStructParam && numberOfArguments == 3) {
@@ -211,24 +225,37 @@
     
     
     NSString *chainMothodProperty = [self chainMothodPropertyWith:chainSelName numberOfArguments:numberOfArguments];
+    
+    
+    
        NSMutableString *resultString = [[NSMutableString alloc] init];
-    [resultString appendFormat:@"#ifndef %@\n#define %@(...) %@%@\n#endif\n", chainMothodProperty, chainMothodProperty, chainMothodProperty, boxValueString];
+    [resultString appendFormat:@"#ifndef %@\n#define %@(...) %@(%@)\n#endif\n", chainMothodProperty, chainMothodProperty, chainMothodProperty, boxValueString];
     if (structboxValueString) {
        
-          [resultString appendFormat:@"#ifndef %@_\n#define %@_(...)  %@%@\n#endif\n", chainMothodProperty, chainMothodProperty, chainMothodProperty, structboxValueString];
+          [resultString appendFormat:@"#ifndef %@_\n#define %@(...)  %@(%@)\n#endif\n", chainMothodProperty, chainMothodProperty, chainMothodProperty, structboxValueString];
     }
 
     return resultString;
 
 }
+/**
+ *  根据原sel生成链式方法名称,多参数用_(下划线)连接,并去除最后一个:(冒号)
+ *
+ *  @param chainSelName      <#chainSelName description#>
+ *  @param numberOfArguments <#numberOfArguments description#>
+ *
+ *  @return <#return value description#>
+ */
 
 + (NSString *)chainMothodPropertyWith:(NSString *)chainSelName numberOfArguments:(NSUInteger)numberOfArguments
 {
-    
+    if ([chainSelName containsString:@"forgetExternalDataForObjectID:"]) {
+        
+    }
     //去掉最后一个冒号
     if (numberOfArguments >= 3) {
         chainSelName = [chainSelName substringToIndex:chainSelName.length - 1];
-        chainSelName = [chainSelName stringByReplacingOccurrencesOfString:@"_" withString:@":"];
+        chainSelName = [chainSelName stringByReplacingOccurrencesOfString:@":" withString:@"_"];
     }
     
     if ([chainSelName hasPrefix:@"set"]) {
