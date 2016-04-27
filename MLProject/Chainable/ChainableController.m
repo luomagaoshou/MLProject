@@ -203,7 +203,7 @@ return numberOfArguments;
 //        [[NSFileManager defaultManager] writefileString:hfileString ToFileWithDiretory:XcodeCreateCodeDirectory fileName:classStr fileType:kML_CreateCodeFileType_h moveToTrashWhenFileExists:YES];
         ML_CreateCodeModel *model =
         [ML_CreateCodeModel modelWithClassName:classStr
-                                superclassName:nss([NSClassFromString(classStr) superclass])
+                                superclassName:NSStringFromClass([NSClassFromString(classStr) superclass])
                           hFileImportFileNames:nil
                             hFileContentString:chainProperty
                           mFileImportFileNames:nil
