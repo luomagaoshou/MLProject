@@ -38,7 +38,10 @@
 #import "NSFileManager+ML_Tools.h"
     typedef NSString *(^testBlcok)(NSString *);
 
-
+#define size1(...) ml_chain_MASBoxValue(__VA_ARGS__)
+#define size2(...) ml_chain_MASBoxValue(metamacro_at(0, __VA_ARGS__), metamacro_at(1, __VA_ARGS__))
+#define size3(...)  ml_chain_MASBoxValue(CGSizeMake(__VA_ARGS__)))
+#define size4(...) ml_chain_MASBoxValue(metamacro_at(0, __VA_ARGS__))
 @interface ChainableController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *xibButton;
@@ -53,7 +56,7 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-   
+
     }
     return self;
 }
@@ -78,6 +81,10 @@
     [super viewDidLoad];
     [self initUI];
     [self downloadData];
+    CGSize size1 = CGSizeMake(33, 44);
+    //        id size2 = size2(55, 66);
+    //        id size3 = size3(33, 44);
+    id size4 = size4(CGSizeMake(33, 44), 99);
 }
 //即将出现
 - (void)viewWillAppear:(BOOL)animated
@@ -192,24 +199,26 @@ return numberOfArguments;
    // NSLog(@"%@", [CALayer getIvarList]);
     
   // NSString *allChainPropertyString = [CALayer getClassMethodList];
-   NSArray *classList = [NSObject getClassListWithPrefixs:@[/*@"CA", @"UI",*/ @"NSMutableAttributedString"]];
+   NSArray *classList = [NSObject getClassListWithPrefixs:@[/*@"CA", @"UI",*/ @"NSString"]];
+    
     for (NSString *classStr in classList) {
         
-        NSString *chainProperty = [NSClassFromString(classStr) allChainPropertyString];
+        NSString *chainProperty = [NSClassFromString(classStr) allChainPropertyStringsForNoReturnSelName];
         NSString *XcodeCreateCodeDirectory = [[NSFileManager macDeskTopDiretory] stringByAppendingPathComponent:@"MLChain"];
 
-//        NSString *hFileContent = [NSString stringWithFormat:@"\n@interface%@\n", chainProperty];
-//        NSString *hfileString = [NSObject ml_hFileOrMFileTopIntroduceWithClassName:classStr fileType:kML_CreateCodeFileType_h];
-//        [[NSFileManager defaultManager] writefileString:hfileString ToFileWithDiretory:XcodeCreateCodeDirectory fileName:classStr fileType:kML_CreateCodeFileType_h moveToTrashWhenFileExists:YES];
+        NSString *chainClassName = [NSString stringWithFormat:@"MLChain4%@", classStr];
+        NSString *chainSuperClassName = [NSString stringWithFormat:@"MLChain4%@", NSStringFromClass([NSClassFromString(classStr) superclass])];
         ML_CreateCodeModel *model =
-        [ML_CreateCodeModel modelWithClassName:classStr
-                                superclassName:NSStringFromClass([NSClassFromString(classStr) superclass])
+        [ML_CreateCodeModel modelWithClassName:chainClassName
+                                superclassName:chainSuperClassName
                           hFileImportFileNames:nil
                             hFileContentString:chainProperty
                           mFileImportFileNames:nil
                             mFileContentString:nil];
-        [[NSFileManager defaultManager] writefileString:model.hFileResultString ToFileWithDiretory:XcodeCreateCodeDirectory fileName:classStr fileType:kML_CreateCodeFileType_h moveToTrashWhenFileExists:YES];
-        [[NSFileManager defaultManager] writefileString:model.mFileResultString ToFileWithDiretory:XcodeCreateCodeDirectory fileName:classStr fileType:kML_CreateCodeFileType_m moveToTrashWhenFileExists:YES];
+        
+        [[NSFileManager defaultManager] writefileString:model.hFileResultString ToFileWithDiretory:XcodeCreateCodeDirectory fileName:chainClassName fileType:kML_CreateCodeFileType_h moveToTrashWhenFileExists:YES];
+        
+        [[NSFileManager defaultManager] writefileString:model.mFileResultString ToFileWithDiretory:XcodeCreateCodeDirectory fileName:chainClassName fileType:kML_CreateCodeFileType_m moveToTrashWhenFileExists:YES];
     }
     
   

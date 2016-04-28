@@ -13,6 +13,7 @@
 @property (nonatomic, copy, readonly) NSString *endString;
 //h文件
 @property (nonatomic, copy, readonly) NSString *hFileTopString;
+//添加除自身类及父类的头文件名
 @property (nonatomic, copy) NSArray *hFileImportFileNames;//
 @property (nonatomic, copy, readonly) NSString *hFileImportString;
 @property (nonatomic, copy, readonly) NSString *hFileInterfaceString;
@@ -20,6 +21,7 @@
 
 //m文件
 @property (nonatomic, copy, readonly) NSString *mFileTopString;
+//添加除自身类及父类的头文件名
 @property (nonatomic, copy) NSArray *mFileImportFileNames;//
 @property (nonatomic, copy, readonly) NSString *mFileImportString;
 @property (nonatomic, copy, readonly) NSString *mFileImplementationString;

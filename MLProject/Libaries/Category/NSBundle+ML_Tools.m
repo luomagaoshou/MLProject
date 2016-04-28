@@ -23,4 +23,12 @@
                                                 owner:nil options:nil] firstObject];
     return nibView;
 }
++ (BOOL)isSystemClass:(Class)aClass
+{
+    NSBundle *bundle = [self bundleForClass:aClass];
+    if (bundle == [NSBundle mainBundle]) {
+        return YES;
+    }
+    return NO;
+}
 @end

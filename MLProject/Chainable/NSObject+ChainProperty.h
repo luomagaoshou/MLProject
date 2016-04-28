@@ -10,7 +10,7 @@
 
 @interface NSObject (ChainProperty)
 
-+ (NSString *)allChainPropertyString;
++ (NSString *)allChainPropertyStringsForNoReturnSelName;
 
 
 

@@ -29,7 +29,7 @@
 + (NSArray *)structModels
 {
     
-    static  NSMutableArray *structModels = nil;
+    static  NSArray *structModels = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         structModels = [[NSMutableArray alloc] init];
@@ -48,7 +48,7 @@
         MLChainStructModel *model7 = [MLChainStructModel modelWithStructName:@"UIOffset" encodeTypeString:[NSString stringWithUTF8String:@encode(UIOffset)]  makePrefixString:@"UIOffsetMake"];
         MLChainStructModel *model8 = [MLChainStructModel modelWithStructName:@"UIEdgeInsets" encodeTypeString:[NSString stringWithUTF8String:@encode(UIEdgeInsets)]  makePrefixString:@"UIEdgeInsetsMake"];
         
-        [structModels addObjectsFromArray:@[model1, model2, model3, model4, model5, model6 ,model7 ,model8]];
+        structModels = @[model1, model2, model3, model4, model5, model6 ,model7 ,model8];
     });
     
     return structModels;
@@ -60,23 +60,23 @@
 
 
 @implementation NSObject (ChainProperty)
-+ (NSString *)allChainPropertyString
++ (NSString *)allChainPropertyStringsForNoReturnSelName
 {
-    NSMutableArray *configSelNames = [[NSMutableArray alloc] init];
-    NSArray *originalConfigSelNames = [self configSelNames];
-    //去重复selName
-    for (NSInteger i = 0; i < originalConfigSelNames.count; i ++) {
-        if (![configSelNames containsObject:originalConfigSelNames[i]]) {
-            [configSelNames addObject:originalConfigSelNames[i]];
-        }
-    }
     
+    NSArray *noReturnSelNames = [self noReturnValueSelNames];
+   return [self allChainPropertyStringsWithNoReturnSelNames:noReturnSelNames];
+  
+}
+
++ (NSString *)allChainPropertyStringsWithNoReturnSelNames:(NSArray *)noReturnSelNames
+{
+   
     
     
     NSMutableArray *chainPropertyGetterStings = [[NSMutableArray alloc] init];
-    for (NSString *configSelName in configSelNames) {
+    for (NSString *selName in noReturnSelNames) {
         
-        NSString *chainPropertyString = [self chainPropertyStringWith:configSelName];
+        NSString *chainPropertyString = [self chainSelNameAndMacroDefineWithSelName:selName];
         
         if (chainPropertyString) {
             [chainPropertyGetterStings addObject:chainPropertyString];
@@ -88,12 +88,19 @@
     return resultChainPropertiesString;
 }
 //所有返回值为空函数视为设置函数
-+ (NSArray *)configSelNames
++ (NSArray *)noReturnValueSelNames
 {
+    //防止重复selName
    
+    
     NSArray *selNames = [self getInstanceMethodList];
     NSMutableArray *resultSelNames = [[NSMutableArray alloc] init];
+    
     for (NSString *selName in selNames) {
+        if ([selName containsString:@"substring"]) {
+            
+        }
+        //过滤私有sel
         if ([selName hasPrefix:@"_"] || [selName hasPrefix:@"."] || [NSStringFromClass(self) containsString:@"Candidate"]) {
             continue;
         }
@@ -102,7 +109,8 @@
         }
        
         SEL sel = NSSelectorFromString(selName);
-       
+        
+       //过滤无返回methodSignature的sel
         NSMethodSignature *methodSignature = nil;
         @try {
           methodSignature  = [self instanceMethodSignatureForSelector:sel];
@@ -113,68 +121,94 @@
                 continue;
             }
         }
-        
+        [[NSString alloc] getCString:@"ff"];
+        //添加返回值为空的sel
+        if ([selName containsString:@"getCString"]) {
+            
+        }
+        DEPRECATED_MSG_ATTRIBUTE(<#s#>)
         const char *returnType = [methodSignature methodReturnType];
         if (strcmp(&returnType[0], "v") == 0) {
-            [resultSelNames addObject:selName];
+            //重名只添加一次
+            if (![resultSelNames containsObject:selName]) {
+                 [resultSelNames addObject:selName];
+            }
+           
         }
      
     }
-//    NSLog(@"%@", resultSelNames);
-    
-    
+
     return resultSelNames;
 }
 
 /**
- *  获取链式方法名称
+ *  链式方法与宏定义
  *
- *  @param configMethodsString 原设置方法
- *
- *  @return
- */
-+ (NSString *)chainPropertyStringWith:(NSString *)configMethodsString
-{
-    SEL sel = NSSelectorFromString(configMethodsString);
-    NSMethodSignature *methodSignature = [self instanceMethodSignatureForSelector:sel];
-  
-    
-    NSMutableString *chainPropertyString = [[NSMutableString alloc] init];
-    
-    NSString *chainSelName;
-    if ([configMethodsString hasPrefix:@"set"] && ![configMethodsString isEqualToString:@"set"]) {
-      chainSelName  = [configMethodsString stringByReplacingOccurrencesOfString:@"set" withString:@""];
-        chainSelName = [NSString stringWithFormat:@"%@%@", [chainSelName substringToIndex:1].lowercaseString, [chainSelName substringFromIndex:1]];
-    }else
-    {
-        chainSelName = configMethodsString;
-    }
-    
-    
-    
-    NSString *macroDefineString = [self macroDefineStringWith:methodSignature chainSelName:chainSelName];
-    if (macroDefineString) {
-        [chainPropertyString appendString:macroDefineString];
-    }
-    
-    NSString *getterString = [NSString stringWithFormat:@"- (MLChain4%@ParamBlock)%@;", NSStringFromClass([self class]), chainSelName];
-    [chainPropertyString appendFormat:@"%@\n",getterString];
-    
-    
-    
-    return chainPropertyString;
-}
-/**
- *  生成链式方法和宏定义
- *
- *  @param methodSignature <#methodSignature description#>
- *  @param chainSelName    <#chainSelName description#>
+ *  @param selName <#selName description#>
  *
  *  @return <#return value description#>
  */
-+ (NSString *)macroDefineStringWith:(NSMethodSignature *)methodSignature chainSelName:(NSString *)chainSelName
++ (NSString *)chainSelNameAndMacroDefineWithSelName:(NSString *)selName
+{
+
+    NSString *chainSelName = [self chainSelNameWith:selName];
+    NSString *macroDefineString = [self macroDefineStringWithSelName:selName chainSelName:chainSelName];
+    
+     NSMutableString *resultString = [[NSMutableString alloc] init];
+    if (macroDefineString) {
+        [resultString appendString:macroDefineString];
+    }
+    
+    NSString *getterString = [NSString stringWithFormat:@"- (MLChainParamBlock4%@)%@;", NSStringFromClass([self class]), chainSelName];
+    [resultString appendFormat:@"%@\n",getterString];
+    
+    
+    
+    return resultString;
+}
+/**
+ *  链式方法名
+ *
+ *  @param selName <#selName description#>
+ *
+ *  @return <#return value description#>
+ */
+
++ (NSString *)chainSelNameWith:(NSString *)selName
+{
+    
+    NSString *chainSelName = nil;
+    //去除开头set
+    if ([selName hasPrefix:@"set"] &&
+        ![selName hasPrefix:@"setup"] &&
+        ![selName isEqualToString:@"set"]) {
+        chainSelName  = [selName stringByReplacingOccurrencesOfString:@"set" withString:@""];
+        chainSelName = [NSString stringWithFormat:@"%@%@", [chainSelName substringToIndex:1].lowercaseString, [chainSelName substringFromIndex:1]];
+    }else
+    {
+        chainSelName = selName;
+    }
+    
+    if ([chainSelName hasSuffix:@":"]) {
+        chainSelName = [chainSelName substringToIndex:chainSelName.length - 1];
+    }
+    chainSelName = [chainSelName stringByReplacingOccurrencesOfString:@":" withString:@"_"];
+    
+    return chainSelName;
+}
+
+/**
+ *  生成链式宏定义(参数非对象时需要)
+ *
+ *  @param selName      <#selName description#>
+ *  @param chainSelName <#chainSelName description#>
+ *
+ *  @return <#return value description#>
+ */
++ (NSString *)macroDefineStringWithSelName:(NSString *)selName chainSelName:(NSString *)chainSelName
 {
  
+    NSMethodSignature *methodSignature = [self instanceMethodSignatureForSelector:NSSelectorFromString(selName)];
     NSUInteger numberOfArguments = [methodSignature numberOfArguments];
     //无参数情况
     if (numberOfArguments == 2) {
@@ -182,6 +216,7 @@
     }
     
     BOOL isNeedMacroDefine = NO;
+   
     for (NSInteger i = 2; i < numberOfArguments; i++) {
         const char *type = [methodSignature getArgumentTypeAtIndex:i];
         if (strcmp(type, @encode(id)) != 0) {
@@ -224,48 +259,15 @@
     }
     
     
-    NSString *chainMothodProperty = [self chainMothodPropertyWith:chainSelName numberOfArguments:numberOfArguments];
-    
-    
-    
        NSMutableString *resultString = [[NSMutableString alloc] init];
-    [resultString appendFormat:@"#ifndef %@\n#define %@(...) %@(%@)\n#endif\n", chainMothodProperty, chainMothodProperty, chainMothodProperty, boxValueString];
+    [resultString appendFormat:@"#ifndef %@\n#define %@(...) %@(%@)\n#endif\n", chainSelName, chainSelName, chainSelName, boxValueString];
     if (structboxValueString) {
        
-          [resultString appendFormat:@"#ifndef %@_\n#define %@(...)  %@(%@)\n#endif\n", chainMothodProperty, chainMothodProperty, chainMothodProperty, structboxValueString];
+          [resultString appendFormat:@"#ifndef %@_\n#define %@_(...)  %@(%@)\n#endif\n", chainSelName, chainSelName, chainSelName, structboxValueString];
     }
 
     return resultString;
 
-}
-/**
- *  根据原sel生成链式方法名称,多参数用_(下划线)连接,并去除最后一个:(冒号)
- *
- *  @param chainSelName      <#chainSelName description#>
- *  @param numberOfArguments <#numberOfArguments description#>
- *
- *  @return <#return value description#>
- */
-
-+ (NSString *)chainMothodPropertyWith:(NSString *)chainSelName numberOfArguments:(NSUInteger)numberOfArguments
-{
-    if ([chainSelName containsString:@"forgetExternalDataForObjectID:"]) {
-        
-    }
-    //去掉最后一个冒号
-    if (numberOfArguments >= 3) {
-        chainSelName = [chainSelName substringToIndex:chainSelName.length - 1];
-        chainSelName = [chainSelName stringByReplacingOccurrencesOfString:@":" withString:@"_"];
-    }
-    
-    if ([chainSelName hasPrefix:@"set"]) {
-        chainSelName = [chainSelName stringByReplacingOccurrencesOfString:@"set" withString:@""];
-        chainSelName = [NSString stringWithFormat:@"%@%@", [chainSelName substringToIndex:1].lowercaseString, [chainSelName substringFromIndex:1]];
-        
-    }
-   
-    
-    return chainSelName;
 }
 
 @end

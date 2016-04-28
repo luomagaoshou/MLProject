@@ -13,11 +13,9 @@
 #import <MJExtension/MJExtension.h>
 #import "WHC_ModelCreate.h"
 #import "NSDate+ML_Tools.h"
+#import "NSBundle+ML_Tools.h"
 
 @implementation ML_CreateCodeModel
-
-
-#pragma mark - ========= Setter & Getter =========
 + (instancetype)modelWithClassName:(NSString *)className
                     superclassName:(NSString *)superclassName
               hFileImportFileNames:(NSArray *)hFileImportFileNames
@@ -29,9 +27,12 @@
     model.className = className;
     model.superclassName = superclassName;
     model.hFileImportFileNames = hFileImportFileNames;
-    model.hFileContentString = hFileContentString;
+    model.hFileContentString = hFileContentString ? hFileContentString : @"" ;
     model.mFileImportFileNames = mFileImportFileNames;
-    model.mFileContentString = mFileContentString;
+    model.mFileContentString = mFileContentString ? mFileContentString : @"";
+    
+   
+    
     return model;
 }
 #pragma mark - hFile
@@ -47,9 +48,17 @@
 {
     NSMutableArray *importFileNames = [[NSMutableArray alloc] init];
    
+    if (![self.hFileImportFileNames containsObject:self.superclassName]) {
+        if ([NSBundle isSystemClass:NSClassFromString(self.superclassName)]) {
+            [importFileNames addObject:[NSString stringWithFormat:@"#import \"%@.h\"", self.superclassName]];
+        }
+    }
+    
     for (NSString *hFileName in self.hFileImportFileNames) {
         [importFileNames addObject:[NSString stringWithFormat:@"#import\"%@\"", hFileName]];
     }
+    
+    
     return [importFileNames componentsJoinedByString:@"\n"];
 }
 #pragma mark - mFile
@@ -66,11 +75,19 @@
     
     NSMutableArray *importFileNames = [[NSMutableArray alloc] init];
     if (![self.mFileImportFileNames containsObject:self.className]) {
-        [importFileNames addObject:self.className];
+        if ([NSBundle isSystemClass:NSClassFromString(self.className)]) {
+            [importFileNames addObject:[NSString stringWithFormat:@"#import \"%@.h\"", self.className]];
+        }
+        
+    }
+    if (![self.mFileImportFileNames containsObject:self.superclassName]) {
+        if ([NSBundle isSystemClass:NSClassFromString(self.superclassName)]) {
+            [importFileNames addObject:[NSString stringWithFormat:@"#import \"%@.h\"", self.superclassName]];
+        }
     }
     
     for (NSString *hFileName in self.mFileImportFileNames) {
-        [importFileNames addObject:[NSString stringWithFormat:@"#import\"%@\"", hFileName]];
+        [importFileNames addObject:[NSString stringWithFormat:@"#import \"%@.h\"", hFileName]];
     }
     
     return [importFileNames componentsJoinedByString:@"\n"];
@@ -80,18 +97,21 @@
 {
     return @"@end";
 }
+#pragma mark - resultString
 - (NSString *)hFileResultString
 {
-    NSString *resultString = [NSString stringWithFormat:@"%@\n%@\n%@\n%@\n%@\n", self.hFileTopString,
+    NSString *resultString = [NSString stringWithFormat:@"%@\n%@\n%@\n%@\n%@\n",
+                              self.hFileTopString,
                               self.hFileImportString,
                               self.hFileInterfaceString,
                               self.hFileContentString,
                               self.endString];
     return resultString;
 }
-- (NSString *)m_ResultString
+- (NSString *)mFileResultString
 {
-    NSString *resultString = [NSString stringWithFormat:@"%@\n%@\n%@\n%@\n%@\n", self.mFileTopString,
+    NSString *resultString = [NSString stringWithFormat:@"%@\n%@\n%@\n%@\n%@\n",
+                              self.mFileTopString,
                               self.mFileImportString,
                               self.mFileImplementationString,
                               self.mFileContentString,
@@ -325,8 +345,9 @@ NSString *const kML_CreateCodeFileType_m = @"m";
         
     }
     [resultString appendString:@"\n"];
-    NSString *importStr = [NSString stringWithFormat:@"#import \"%@.h\"\n", className];
-    [resultString appendString:importStr];
+    
+//    NSString *importStr = [NSString stringWithFormat:@"#import \"%@.h\"\n", className];
+//    [resultString appendString:importStr];
     
     return resultString;
 }

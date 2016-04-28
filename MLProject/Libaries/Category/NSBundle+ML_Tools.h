@@ -10,4 +10,5 @@
 
 @interface NSBundle (ML_Tools)
 + (id)loadNibWithNameOrClass:(id)NameOrClass;
++ (BOOL)isSystemClass:(Class)aClass;
 @end

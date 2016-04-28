@@ -13,7 +13,28 @@
 @property (weak, nonatomic) IBOutlet UIButton *button;
 
 @end
+struct fuck {
+    
+    char a;
+    short b;
+    char c;
+    int d;
+    short e;
+};
 
+struct suck {
+    
+    
+    char a;
+    
+    struct fuck fuckThat;
+};
+union buck {
+    char a;
+    short b;
+    int c;
+    double d;
+};
 @implementation MLStructController
 
 #pragma mark - ========= View LifeCycle =========
