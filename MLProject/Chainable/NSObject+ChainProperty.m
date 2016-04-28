@@ -121,12 +121,12 @@
                 continue;
             }
         }
-        [[NSString alloc] getCString:@"ff"];
+
         //添加返回值为空的sel
         if ([selName containsString:@"getCString"]) {
             
         }
-        DEPRECATED_MSG_ATTRIBUTE(<#s#>)
+    
         const char *returnType = [methodSignature methodReturnType];
         if (strcmp(&returnType[0], "v") == 0) {
             //重名只添加一次

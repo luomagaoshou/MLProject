@@ -189,13 +189,16 @@ return numberOfArguments;
     CALayer *layer = CALayer.ml_make.backgroundColor([UIColor blueColor]).frame_(200, 200, 300, 300).superLayer(self.view.layer).layer;
 
     
-    UIView.ml_make.frame_(333, 333,111, 111).superView(self.view).backgroundColor([UIColor greenColor]);
+    UIView.ml_make.frame_(333, 333,111, 211).superView(self.view).backgroundColor([UIColor greenColor]);
         CALayer *layer2 = CALayer.ml_make.backgroundColor([UIColor yellowColor]).frame(CGRectMake(200, 200, 50, 50)).superLayer(self.view.layer).layer;
     layer2.ml_make.affineTransform(CGAffineTransformMakeRotation(1)).affineTransform(CGAffineTransformScale(layer2.affineTransform, 5, 5));
+    
+    
         UIView *view = [[UIView alloc] init];
+    view.frame = CGRectMake(200, 200, 200, 200);
     [self.view addSubview:view];
     view.backgroundColor = [UIColor blueColor];
-    
+    view.hidden = YES;
    // NSLog(@"%@", [CALayer getIvarList]);
     
   // NSString *allChainPropertyString = [CALayer getClassMethodList];
