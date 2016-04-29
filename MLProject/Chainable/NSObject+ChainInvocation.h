@@ -16,7 +16,7 @@
 + (void)excuteSettingWithTarget:(id)target selectorName: (NSString *)selectorName configArguments:(NSArray *)configArguments;
 
 + (SEL)setterSelectorWithGetterNameChar:(char *)getterNameChar;
-+ (NSString *)tryToFixSelNameWithTarget:(id)target selectorName:(NSString *)selectorName;
+
 
 
 + (NSString *)objectPropertyNameInChainMaker;

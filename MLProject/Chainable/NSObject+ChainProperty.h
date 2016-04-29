@@ -10,8 +10,10 @@
 
 @interface NSObject (ChainProperty)
 
-+ (NSString *)allChainPropertyStringsForNoReturnSelName;
++ (NSString *)allChainMethodStringsForNoReturnSelName;
++ (NSString *)allChainImplementationStringsForNoReturnSelName;
 
 
-
++ (NSString *)ml_chainCategoryMethodString;
++ (NSString *)ml_chainCategoryImplementationString;
 @end

@@ -45,7 +45,7 @@
 
 - (id)makerOfWithObjectClass:(Class)aClass
 {
-    NSString *makerClassString = [NSString stringWithFormat:@"ML_%@Chain", NSStringFromClass(aClass)];
+    NSString *makerClassString = [NSString stringWithFormat:@"MLChain4%@", NSStringFromClass(aClass)];
     if (![self isKindOfClass:NSClassFromString(makerClassString)]) {
         NSAssert(0, @"该对象不属于该类");
     }

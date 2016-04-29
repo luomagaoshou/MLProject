@@ -31,12 +31,17 @@
 @property (nonatomic, copy, readonly) NSString *hFileResultString;
 @property (nonatomic, copy, readonly) NSString *mFileResultString;
 
+@property (nonatomic, copy, readonly) NSString *fileName;
+//更多设置
+@property (nonatomic, copy) NSString *categoryName;
 + (instancetype)modelWithClassName:(NSString *)className
                     superclassName:(NSString *)superclassName
               hFileImportFileNames:(NSArray *)hFileImportFileNames
                 hFileContentString:(NSString *)hFileContentString
               mFileImportFileNames:(NSArray *)mFileImportFileNames
-                mFileContentString:(NSString *)mFileContentString;
+                mFileContentString:(NSString *)mFileContentString
+                        moreConfig:(void(^)(ML_CreateCodeModel *modelOfSelf))moreConfigBlock;
+
 @end
 
 

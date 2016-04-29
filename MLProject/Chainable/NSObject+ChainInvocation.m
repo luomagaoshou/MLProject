@@ -38,9 +38,6 @@
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSignature];
     NSUInteger count = [methodSignature numberOfArguments];
     for (NSInteger i = 0; i < count; i++) {
-        if ([selectorName containsString:@"hadowOpacity"] && i >= 2) {
-            
-        }
         char *type = (char *)[methodSignature getArgumentTypeAtIndex:i];
         while (*type == 'r' || // const
                *type == 'n' || // in

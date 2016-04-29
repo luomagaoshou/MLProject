@@ -35,6 +35,7 @@
 + (NSArray *)getProtocolList;
 
 + (NSArray *)getClassListWithPrefixs:(NSArray *)prefixs;
++ (NSArray *)getClassListWithClassName:(NSString *)className;
 + (NSArray *)getClassList;
 
 - (NSDictionary *)getPropertyKeyValueOnlyHaveValueDictionary;

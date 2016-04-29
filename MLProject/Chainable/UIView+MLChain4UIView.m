@@ -32,7 +32,7 @@
     
     return (id)[super ml_make];
 }
-- (MLChain4UIView *)ml_makeConfigs:(void (^)(MLChain4UIView *))block
+- (MLChain4UIView *)ml_makeConfigs:(void (^)(MLChain4UIView * maker))block
 {
     MLChain4UIView *chain = self.ml_make;
     block(chain);

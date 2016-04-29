@@ -22,6 +22,7 @@
                 hFileContentString:(NSString *)hFileContentString
               mFileImportFileNames:(NSArray *)mFileImportFileNames
                 mFileContentString:(NSString *)mFileContentString
+                        moreConfig:(void (^)(ML_CreateCodeModel *))moreConfigBlock
 {
     ML_CreateCodeModel *model = [[super alloc] init];
     model.className = className;
@@ -31,18 +32,29 @@
     model.mFileImportFileNames = mFileImportFileNames;
     model.mFileContentString = mFileContentString ? mFileContentString : @"";
     
-   
+    if (moreConfigBlock) {
+        moreConfigBlock(model);
+    }
     
     return model;
 }
 #pragma mark - hFile
 - (NSString *)hFileTopString
 {
-    return [NSObject ml_hFileOrMFileTopIntroduceWithClassName:self.className fileType:kML_CreateCodeFileType_h];
+    NSString *fileName = self.className;
+    if (self.categoryName) {
+       fileName = [NSString stringWithFormat:@"%@+%@",self.className, self.categoryName];
+    }
+    
+    return [NSObject ml_hFileOrMFileTopIntroduceWithClassName:fileName fileType:kML_CreateCodeFileType_h];
 }
 - (NSString *)hFileInterfaceString
 {
-    return [NSString stringWithFormat:@"@interface %@:%@", self.className, self.superclassName];
+    NSString *fileName = self.className;
+    if (self.categoryName) {
+        fileName = [NSString stringWithFormat:@"%@+%@",self.className, self.categoryName];
+    }
+    return [NSString stringWithFormat:@"@interface %@:%@", fileName, self.superclassName];
 }
 - (NSString *)hFileImportString
 {
@@ -117,6 +129,15 @@
                               self.mFileContentString,
                               self.endString];
     return resultString;
+}
+
+- (NSString *)fileName
+{
+    NSString *fileName = self.className;
+    if (self.categoryName) {
+        fileName = [NSString stringWithFormat:@"%@+%@", self.className, self.categoryName];
+    }
+    return fileName;
 }
 @end
 
