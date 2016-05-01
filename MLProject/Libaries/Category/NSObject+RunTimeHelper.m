@@ -118,47 +118,55 @@
     free(protocols);
     return protocolArray;
 }
-
-+ (NSArray *)getClassListWithPrefixs:(NSSet *)prefixs
++ (NSArray *)getSubClassList
+{
+     NSMutableArray * classList = [NSMutableArray array];
+    NSArray *allClassList = [self getClassListWithPrefixs:@[@"NS", @"UI", @"CA"]];
+    
+    
+    for (NSString *className in allClassList) {
+        Class class = NSClassFromString(className);
+        if ([class isSubclassOfClass:self]) {
+            [classList addObject:className];
+        }
+    }
+    return classList;
+}
++ (NSArray *)getClassListWithPrefixs:(NSArray *)prefixs
 {
     
     NSMutableArray * classList = [NSMutableArray array];
-    
-     unsigned int classesCount = 0;
-   Class * classes = objc_copyClassList(&classesCount);
-  
-   
-    for ( int i = 0; i < classesCount; ++i) {
-        NSString *className = NSStringFromClass(classes[i]);
-        Class class = classes[i];
+    NSArray *allClassList = [self getAllClassList];
+    for (NSString *className in allClassList) {
        
-        if (!prefixs.count) {
-            
-            [classList addObject:className];
-            
-        }else
-        {
-            for (NSString *classPrefixStr in prefixs) {
-                if ([className hasPrefix:classPrefixStr]) {
-                    //过滤协议
-                    if ([class isSubclassOfClass:[NSProxy class]]) {
-                        continue;
-                    }
-                    
-                    [classList addObject:className];
-                    
-                   
+        for (NSString *prefix in prefixs) {
+            if ([className hasPrefix:prefix]) {
+                if ([NSClassFromString(className) isSubclassOfClass:[NSProxy class]]) {
+                    break;
                 }
+                [classList addObject:className];
+                break;
             }
-            
-           
         }
+        
     }
-     free(classes);
     return classList;
 }
-+ (NSArray *)getClassList {
-    return [self getClassListWithPrefixs:nil];
++ (NSArray *)getAllClassList {
+    NSMutableArray * classList = [NSMutableArray array];
+    
+    unsigned int classesCount = 0;
+    Class * classes = objc_copyClassList(&classesCount);
+    
+    
+    for ( int i = 0; i < classesCount; ++i) {
+        NSString *className = NSStringFromClass(classes[i]);
+   
+        [classList addObject:className];
+    }
+    
+    free(classes);
+    return classList;
 }
 
 + (NSArray *)getPropertyAttributeList
@@ -186,19 +194,7 @@
         return propertyAttriArray;
 
 }
-- (void)printValueForKeyListWith:(NSArray *)array
-{
-    for (NSString *key in array) {
-        id obj = [self valueForKey:key];
-        if (obj) {
-            NSLog(@"key:%@     value:%@",key, obj);
-        }
-        else
-        {
-            NSLog(@"key:%@     value:%@",key, @"该值为空");
-        }
-    }
-}
+
 - (id)createSameObject
 {
 

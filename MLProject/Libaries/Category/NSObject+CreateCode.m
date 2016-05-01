@@ -32,6 +32,8 @@
     model.mFileImportFileNames = mFileImportFileNames;
     model.mFileContentString = mFileContentString ? mFileContentString : @"";
     
+    model.typedefString = @"";
+    model.classDeclearString = @"";
     if (moreConfigBlock) {
         moreConfigBlock(model);
     }
@@ -50,24 +52,31 @@
 }
 - (NSString *)hFileInterfaceString
 {
-    NSString *fileName = self.className;
+    NSString *hFileInterfaceString = nil;
     if (self.categoryName) {
-        fileName = [NSString stringWithFormat:@"%@+%@",self.className, self.categoryName];
-    }
-    return [NSString stringWithFormat:@"@interface %@:%@", fileName, self.superclassName];
+        hFileInterfaceString = [NSString stringWithFormat:@"@interface %@(%@)",self.className, self.categoryName];
+    }else
+        {
+        if (!self.className) {
+            return nil;
+        }
+        hFileInterfaceString = [NSString stringWithFormat:@"@interface %@:%@", self.className, self.superclassName];
+        }
+
+    return hFileInterfaceString;
 }
 - (NSString *)hFileImportString
 {
     NSMutableArray *importFileNames = [[NSMutableArray alloc] init];
    
-    if (![self.hFileImportFileNames containsObject:self.superclassName]) {
+    if (![self.hFileImportFileNames containsObject:self.superclassName] && self.superclassName) {
         if ([NSBundle isSystemClass:NSClassFromString(self.superclassName)]) {
             [importFileNames addObject:[NSString stringWithFormat:@"#import \"%@.h\"", self.superclassName]];
         }
     }
     
     for (NSString *hFileName in self.hFileImportFileNames) {
-        [importFileNames addObject:[NSString stringWithFormat:@"#import\"%@\"", hFileName]];
+        [importFileNames addObject:[NSString stringWithFormat:@"#import \"%@.h\"", hFileName]];
     }
     
     
@@ -76,10 +85,17 @@
 #pragma mark - mFile
 - (NSString *)mFileTopString
 {
+    NSString *fileName = self.className;
+    if (self.categoryName) {
+        fileName = [NSString stringWithFormat:@"%@+%@",self.className, self.categoryName];
+    }
     return [NSObject ml_hFileOrMFileTopIntroduceWithClassName:self.className fileType:kML_CreateCodeFileType_m];
 }
 - (NSString *)mFileImplementationString
 {
+    if (self.categoryName) {
+       return [NSString stringWithFormat:@"@implementation %@(%@)",self.className, self.categoryName];
+    }
     return [NSString stringWithFormat:@"@implementation %@", self.className];
 }
 - (NSString *)mFileImportString
@@ -92,13 +108,14 @@
         }
         
     }
-    if (![self.mFileImportFileNames containsObject:self.superclassName]) {
+    if (![self.mFileImportFileNames containsObject:self.superclassName] && self.superclassName) {
         if ([NSBundle isSystemClass:NSClassFromString(self.superclassName)]) {
             [importFileNames addObject:[NSString stringWithFormat:@"#import \"%@.h\"", self.superclassName]];
         }
     }
     
     for (NSString *hFileName in self.mFileImportFileNames) {
+        
         [importFileNames addObject:[NSString stringWithFormat:@"#import \"%@.h\"", hFileName]];
     }
     
@@ -112,12 +129,14 @@
 #pragma mark - resultString
 - (NSString *)hFileResultString
 {
-    NSString *resultString = [NSString stringWithFormat:@"%@\n%@\n%@\n%@\n%@\n",
+    NSString *resultString = [NSString stringWithFormat:@"%@\n%@\n%@\n%@\n%@\n%@\n%@\n",
                               self.hFileTopString,
                               self.hFileImportString,
-                              self.hFileInterfaceString,
+                              self.classDeclearString,
+                              self.typedefString,
+                              self.hFileInterfaceString?:@"",
                               self.hFileContentString,
-                              self.endString];
+                              self.hFileInterfaceString?self.endString:@""];
     return resultString;
 }
 - (NSString *)mFileResultString
@@ -225,9 +244,7 @@ NSString *const kML_CreateCodeFileType_m = @"m";
     [createString appendString:@"#pragma mark - ========= Setter & Getter =========\n"];
     for (NSInteger i = 0; i < attrs.count; i++) {
         
-        [createString appendString:@"@property"];
-        [createString appendString:@" "];
-        [createString appendString:@"("];
+        [createString appendString:@"@property ("];
         
         if ([attrs[i][3] isEqualToString:@"N"]) {
             [createString appendString:@"nonatomic"];
@@ -367,8 +384,6 @@ NSString *const kML_CreateCodeFileType_m = @"m";
     }
     [resultString appendString:@"\n"];
     
-//    NSString *importStr = [NSString stringWithFormat:@"#import \"%@.h\"\n", className];
-//    [resultString appendString:importStr];
     
     return resultString;
 }

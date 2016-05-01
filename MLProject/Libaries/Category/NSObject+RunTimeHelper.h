@@ -36,7 +36,9 @@
 
 + (NSArray *)getClassListWithPrefixs:(NSArray *)prefixs;
 + (NSArray *)getClassListWithClassName:(NSString *)className;
-+ (NSArray *)getClassList;
++ (NSArray *)getAllClassList;
++ (NSArray *)getSubClassList;
+
 
 - (NSDictionary *)getPropertyKeyValueOnlyHaveValueDictionary;
 + (NSArray *)getPropertyAttributeList;
@@ -44,7 +46,7 @@
 /**
  *  清对象所有成员变量值
  */
-- (void)printValueForKeyListWith:(NSArray *)array;
+
 - (void)setObjectPropertyAllKeyValueNil;
 /**
  *  复制一个对象

@@ -10,10 +10,17 @@
 
 @interface NSObject (ChainProperty)
 
-+ (NSString *)allChainMethodStringsForNoReturnSelName;
-+ (NSString *)allChainImplementationStringsForNoReturnSelName;
++ (NSString *)ml_allChainMethodStringsForNoReturnSelName;
++ (NSString *)ml_allChainImplementationStringsOfSelectorTypeForNoReturnSelName;
++ (NSString *)ml_allChainImplementationStringsOfInvocatioTypeForNoReturnSelName;
 
 
-+ (NSString *)ml_chainCategoryMethodString;
-+ (NSString *)ml_chainCategoryImplementationString;
++ (NSString *)ml_chainMethodStringInCategory;
++ (NSString *)ml_chainImplementationStringInCategory;
+
++ (NSString *)ml_chainLookUpMakerMethodStringOfNSObjectWithClassNames:(NSArray *)classNames;
++ (NSString *)ml_chainLookUpMakerImplementationStringOfNSObjectWithClassNames:(NSArray *)classNames;
+
++ (NSString *)ml_chainClassDeclearStringOfNSObjectWithClassNames:(NSArray *)classNames;
++ (NSString *)ml_chainTotalHFileWithClassNames:(NSArray *)classNames;
 @end

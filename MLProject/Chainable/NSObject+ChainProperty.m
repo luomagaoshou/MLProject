@@ -10,6 +10,7 @@
 #import "NSObject+RunTimeHelper.h"
 #import "MLChainMacro.h"
 #import "NSObject+CreateCode.h"
+#import <objc/runtime.h>
 @interface MLChainStructModel:NSObject
 @property (nonatomic, copy) NSString *structName;
 @property (nonatomic, copy) NSString *encodeTypeString;
@@ -149,8 +150,8 @@
 #pragma mark - ========= 取valueName =========
 + (NSString *)structGetValueMethodNameWith:(NSString *)encodeTypeString
 {
-    if ([[self strctEncodeTypeDictionaryOfSpecail].allKeys containsObject:encodeTypeString]) {
-        return [[self strctEncodeTypeDictionaryOfSpecail] valueForKey:encodeTypeString];
+    if ([[self structEncodeTypeDictionaryOfSpecail].allKeys containsObject:encodeTypeString]) {
+        return [[self structEncodeTypeDictionaryOfSpecail] valueForKey:encodeTypeString];
     }
         NSUInteger startIndex = [encodeTypeString rangeOfString:@"{"].location + 1;
         NSUInteger endIndex = [encodeTypeString rangeOfString:@"="].location;
@@ -196,7 +197,7 @@
                                     @"D":@"longLongValue",};
     return encodeTypeDic;
 }
-+ (NSDictionary *)strctEncodeTypeDictionaryOfSpecail
++ (NSDictionary *)structEncodeTypeDictionaryOfSpecail
 {
     NSString *rangeEncodeString = [NSString stringWithUTF8String:@encode(NSRange)];
     NSDictionary *encodeTypeDic = @{rangeEncodeString:@"rangeValue"};
@@ -221,41 +222,99 @@
 
 
 @implementation NSObject (ChainProperty)
-+ (NSString *)ml_chainCategoryMethodString
++ (NSString *)ml_chainMethodStringInCategory
 {
-    NSMutableArray *resultStrings = [[NSMutableArray alloc] init];
-    NSString *methodString1 = [NSString stringWithFormat:@"+ (MLChain4%@ *)ml_make;", NSStringFromClass(self)];
-     NSString *methodString2 = [NSString stringWithFormat:@"- (MLChain4%@ *)ml_make;", NSStringFromClass(self)];
-    NSString *methodString3 = [NSString stringWithFormat:@"- (MLChain4%@ *)ml_makeConfigs:(void(^)(MLChain4%@ *maker))block;", NSStringFromClass(self), NSStringFromClass(self)];
-    [resultStrings addObject:@[methodString1, methodString2, methodString3]];
-    return [resultStrings componentsJoinedByString:@"\n"];
+    NSMutableString *resultString = [[NSMutableString alloc] init];
+    NSString *methodString1 = [NSString stringWithFormat:@"+ (MLChain4%@ *)ml_make;\n\n", NSStringFromClass(self)];
+     NSString *methodString2 = [NSString stringWithFormat:@"- (MLChain4%@ *)ml_make;\n\n", NSStringFromClass(self)];
+    NSString *methodString3 = [NSString stringWithFormat:@"- (MLChain4%@ *)ml_makeConfigs:(void(^)(MLChain4%@ *maker))block;\n\n", NSStringFromClass(self), NSStringFromClass(self)];
+
+    [resultString appendString:methodString1];
+    [resultString appendString:methodString2];
+    [resultString appendString:methodString3];
+   
+    return resultString;
     
 }
 
-+ (NSString *)ml_chainCategoryImplementationString
++ (NSString *)ml_chainImplementationStringInCategory
 {
-    NSMutableArray *resultStrings = [[NSMutableArray alloc] init];
-    NSString *implementationString1 = [NSString stringWithFormat:@"+ (MLChain4%@ *)ml_make\n{\n\nreturn (id)[super ml_make];\n\n}", NSStringFromClass(self)];
-    NSString *implementationString2 = [NSString stringWithFormat:@"+ (MLChain4%@ *)ml_make\n{\n\nreturn (id)[super ml_make];\n\n}", NSStringFromClass(self)];
-    NSString *implementationString3 = [NSString stringWithFormat:@"- (MLChain4%@ *)ml_makeConfigs:(void(^)(MLChain4%@ *maker))block\n{\n\n" @"MLChain4%@ *chain = self.ml_make;\nblock(chain);\nreturn chain;\n" @"\n}", NSStringFromClass(self), NSStringFromClass(self), NSStringFromClass(self)];
-    [resultStrings addObject:@[implementationString1, implementationString2, implementationString3]];
-    return [resultStrings componentsJoinedByString:@"\n"];
+   
+    NSMutableString *resultString = [[NSMutableString alloc] init];
+    
+    if (self == [NSObject class]) {
+        NSString *implementationString1 = [NSString stringWithFormat:@"+ (MLChain4%@ *)ml_make\n{\n\nid chainObject = [[[self class] alloc] init];\nid chainMaker = [chainObject makerWithConnetAllProperty];\nreturn chainMaker;\n\n}\n\n", NSStringFromClass(self)];
+       NSString *implementationString2 = [NSString stringWithFormat:@"- (MLChain4%@ *)ml_make\n{\n\nid chainMaker = [self makerWithConnetAllProperty];\nreturn chainMaker;\n\n}\n\n", NSStringFromClass(self)];
+         NSString *implementationString3 = [NSString stringWithFormat:@"- (MLChain4%@ *)ml_makeConfigs:(void(^)(MLChain4%@ *maker))block\n{\n\n" @"id chainMaker = [[self class] makerWithConnetAllProperty];\nblock(chainMaker);\nreturn chainMaker;\n" @"\n}\n\n", NSStringFromClass(self), NSStringFromClass(self)];
+        NSString *implementationString4 = @"#pragma mark - ========= Connet Property =========\n- (id)makerWithConnetAllProperty\n{\n\nid chainMaker = [[self class] createChainMaker];\nfor (Class currentClass = [chainMaker class]; [currentClass class] != [MLChain4NSObject class]; currentClass = [[currentClass class] superclass]) {\n[chainMaker setValue:self forKey: [[self class] objectPropertyNameInChainMaker]];\n}\nreturn  chainMaker;\n}\n";
+        [resultString appendString:implementationString1];
+        [resultString appendString:implementationString2];
+        [resultString appendString:implementationString3];
+        [resultString appendString:implementationString4];
+        
+    }else{
+        NSString *implementationString1 = [NSString stringWithFormat:@"+ (MLChain4%@ *)ml_make\n{\n\nreturn (id)[super ml_make];\n\n}\n\n", NSStringFromClass(self)];
+        NSString *implementationString2 = [NSString stringWithFormat:@"- (MLChain4%@ *)ml_make\n{\n\nreturn (id)[super ml_make];\n\n}\n\n", NSStringFromClass(self)];
+        NSString *implementationString3 = [NSString stringWithFormat:@"- (MLChain4%@ *)ml_makeConfigs:(void(^)(MLChain4%@ *maker))block\n{\n\n" @"MLChain4%@ *chainMaker = self.ml_make;\nblock(chainMaker);\nreturn chainMaker;\n" @"\n}\n\n", NSStringFromClass(self), NSStringFromClass(self), NSStringFromClass(self)];
+        [resultString appendString:implementationString1];
+        [resultString appendString:implementationString2];
+        [resultString appendString:implementationString3];
+    }
+   
+    
+    
+    return resultString;
 }
-+ (NSString *)allChainMethodStringsForNoReturnSelName
+
++ (NSString *)ml_chainLookUpMakerMethodStringOfNSObjectWithClassNames:(NSArray *)classNames
+{
+    NSMutableString *lookUpMakerString = [[NSMutableString alloc] init];
+    [lookUpMakerString appendString:@"- (instancetype)and;\n"];
+    [lookUpMakerString appendString:@"- (instancetype)with;\n"];
+    for (NSString *classStr in classNames) {
+        [lookUpMakerString appendFormat:@"- (MLChain4%@ *)lookUpMakerOf%@;\n", classStr, classStr];
+    }
+    return lookUpMakerString;
+}
+
++ (NSString *)ml_chainLookUpMakerImplementationStringOfNSObjectWithClassNames:(NSArray *)classNames
+{
+    NSMutableString *resultString = [[NSMutableString alloc] init];
+    [resultString appendString:@"- (instancetype)and\n{\nreturn self;\n}\n"];
+     [resultString appendString:@"- (instancetype)with\n{\nreturn self;\n}\n"];
+    for (NSString *classStr in classNames) {
+        [resultString appendFormat:@"- (MLChain4%@ *)lookUpMakerOf%@\n{\nreturn [self lookUpMakerWithSelector:_cmd];\n}\n", classStr, classStr];
+    }
+    
+    NSString *selectorString = @"- (id)lookUpMakerWithSelector:(SEL)selector\n{\nNSString *selName = NSStringFromSelector(selector);\nNSString *className = [selName stringByReplacingOccurrencesOfString:@\"lookUpMakerOf\" withString:@\"\"];\nNSString *makerName = [NSClassFromString(className) chainMakerName];\nif (![self isKindOfClass:NSClassFromString(makerName)]) {\nNSAssert(0, @\"lookUp maker pointer error, 该指针类型不属于该类\");\n}\nreturn self;\n\n}\n";
+    [resultString appendString:selectorString];
+    return resultString;
+}
+
++  (NSString *)ml_chainClassDeclearStringOfNSObjectWithClassNames:(NSArray *)classNames
+{
+    NSMutableString *classDeclearString = [[NSMutableString alloc] init];
+    for (NSString *className  in classNames) {
+        [classDeclearString appendFormat:@"@class MLChain4%@;\n", className];
+    }
+    return classDeclearString;
+}
+
++ (NSString *)ml_allChainMethodStringsForNoReturnSelName
 {
     
-    NSArray *noReturnSelNames = [self noReturnValueSelNames];
-   return [self allChainMethodStringsForNoReturnSelNameWithNoReturnSelNames:noReturnSelNames];
+    NSArray *noReturnSelNames = [self ml_noReturnValueSelNames];
+   return [self ml_allChainMethodStringsForNoReturnSelName:noReturnSelNames];
   
 }
 
-+ (NSString *)allChainMethodStringsForNoReturnSelNameWithNoReturnSelNames:(NSArray *)noReturnSelNames
++ (NSString *)ml_allChainMethodStringsForNoReturnSelName:(NSArray *)noReturnSelNames
 {
    
     NSMutableArray *chainPropertyGetterStings = [[NSMutableArray alloc] init];
     for (NSString *selName in noReturnSelNames) {
         
-        NSString *chainPropertyString = [self chainSelNameAndMacroDefineWithSelName:selName];
+        NSString *chainPropertyString = [self ml_chainSelNameAndMacroDefineWithSelName:selName];
         
         if (chainPropertyString) {
             [chainPropertyGetterStings addObject:chainPropertyString];
@@ -267,21 +326,22 @@
     NSLog(@"================\n\n\n\n\n%@\n\n\n\n\n================", resultString);
     return resultString;
 }
-+ (NSString *)allChainImplementationStringsForNoReturnSelName
++ (NSString *)ml_allChainImplementationStringsOfSelectorTypeForNoReturnSelName
 {
-    return [self allChainImplementationStringsForNoReturnSelNameWithSelNams:[self noReturnValueSelNames]];
+    return [self ml_allChainImplementationStringsOfSelectorTypeForNoReturnSelNameWithSelNams:[self ml_noReturnValueSelNames]];
 }
-+ (NSString *)allChainImplementationStringsForNoReturnSelNameWithSelNams:(NSArray *)selNames
++ (NSString *)ml_allChainImplementationStringsOfSelectorTypeForNoReturnSelNameWithSelNams:(NSArray *)selNames
 {
     NSMutableArray *methodImplementationStrings = [[NSMutableArray alloc] init];
     
     for (NSString *selName in selNames) {
         NSMutableString *implementationString = [[NSMutableString alloc] init];
-        NSString *chainSelName = [self chainSelNameWith:selName];
+        NSString *chainSelName = [self ml_chainSelNameWith:selName];
         NSString *chainGetterString = [NSString stringWithFormat:@"- (MLChainParamBlock4%@)%@", NSStringFromClass([self class]), chainSelName];
         [implementationString appendFormat:@"%@{\n", chainGetterString];
         [implementationString appendString:@"__weak typeof(self) weakSelf = self;\n"];
-        [implementationString appendFormat:@"return ^ MLChain4%@ *(id irstObject, ...){\n", NSStringFromClass(self)];
+        [implementationString appendFormat:@"return ^ MLChain4%@ *(id firstObject, ...){\n", NSStringFromClass(self)];
+        [implementationString appendFormat:@"NSString *selName = @\"%@\";\n", selName];
         [implementationString appendString:@"__strong typeof(weakSelf) strongSelf = weakSelf;\n"];
         [implementationString appendString:@"id chainObject = [strongSelf objectOfChainMaker];\n"];
         [implementationString appendString:@"va_list arglist;\n"];
@@ -289,16 +349,49 @@
         [implementationString appendString:@"NSArray *arguments = [NSObject argumentsWithTarget:chainObject selectorName:selName arglist:arglist firstObject:firstObject];\n"];
         [implementationString appendString:@"va_end(arglist);\n"];
         
-        [implementationString appendString:[self chainObjectImplementationStringWithSelName:selName]];
+        [implementationString appendString:[self ml_chainObjectImplementationStringWithSelName:selName]];
         [implementationString appendString:@"\n"];
-        [implementationString appendString:@"return weakSelf;\n}\n}"];
+        [implementationString appendString:@"return weakSelf;\n};\n}"];
         
         [methodImplementationStrings addObject:implementationString];
     }
     
     return [methodImplementationStrings componentsJoinedByString:@"\n\n"];
 }
-+ (NSString *)chainObjectImplementationStringWithSelName:(NSString *)selName
++ (NSString *)ml_allChainImplementationStringsOfInvocatioTypeForNoReturnSelName
+{
+    return [self ml_allChainImplementationStringsOfInvocatioTypeForNoReturnSelNameWithSelNames:[self ml_noReturnValueSelNames]];
+}
++ (NSString *)ml_allChainImplementationStringsOfInvocatioTypeForNoReturnSelNameWithSelNames:(NSArray *)selNames
+{
+    NSMutableArray *methodImplementationStrings = [[NSMutableArray alloc] init];
+    
+    for (NSString *selName in selNames) {
+        NSMutableString *implementationString = [[NSMutableString alloc] init];
+        NSString *chainSelName = [self ml_chainSelNameWith:selName];
+        NSString *chainGetterString = [NSString stringWithFormat:@"- (MLChainParamBlock4%@)%@", NSStringFromClass([self class]), chainSelName];
+        [implementationString appendFormat:@"%@{\n", chainGetterString];
+        [implementationString appendString:@"__weak typeof(self) weakSelf = self;\n"];
+        [implementationString appendFormat:@"return ^ MLChain4%@ *(id firstObject, ...){\n", NSStringFromClass(self)];
+        [implementationString appendFormat:@"NSString *selName = @\"%@\";\n", selName];
+        [implementationString appendString:@"__strong typeof(weakSelf) strongSelf = weakSelf;\n"];
+        [implementationString appendString:@"id chainObject = [strongSelf objectOfChainMaker];\n"];
+        [implementationString appendString:@"va_list arglist;\n"];
+        [implementationString appendString:@"va_start(arglist, firstObject);\n"];
+        [implementationString appendString:@"NSArray *arguments = [NSObject argumentsWithTarget:chainObject selectorName:selName arglist:arglist firstObject:firstObject];\n"];
+        [implementationString appendString:@"va_end(arglist);\n"];
+        
+        [implementationString appendString:@"[NSObject excuteSettingWithTarget:chainObject selectorName:selName configArguments:arguments];\n" ];
+        [implementationString appendString:@"\n"];
+        [implementationString appendString:@"return weakSelf;\n};\n}"];
+        
+        [methodImplementationStrings addObject:implementationString];
+    }
+    
+    return [methodImplementationStrings componentsJoinedByString:@"\n\n"];
+  
+}
++ (NSString *)ml_chainObjectImplementationStringWithSelName:(NSString *)selName
 {
     NSMethodSignature *methodSignature = [self instanceMethodSignatureForSelector:NSSelectorFromString(selName)];
     NSMutableString *mutSelName = [selName mutableCopy];
@@ -326,30 +419,42 @@
     if ([mutSelName hasSuffix:@" "]) {
         [mutSelName deleteCharactersInRange:NSMakeRange(mutSelName.length - 1, 1)];
     }
-    NSString *implementationString = [NSString stringWithFormat:@"[(%@ *)chainObject %@]", NSStringFromClass(self), mutSelName];
+
+    NSString *implementationString = [NSString stringWithFormat:@"[(%@ *)chainObject %@];", NSStringFromClass(self), mutSelName];
     
     return implementationString;
 }
 //所有返回值为空函数视为设置函数
-+ (NSArray *)noReturnValueSelNames
++ (NSArray *)ml_noReturnValueSelNames
 {
     NSArray *selNames = [self getInstanceMethodList];
     NSMutableArray *resultSelNames = [[NSMutableArray alloc] init];
     
     for (NSString *selName in selNames) {
-        if ([selName containsString:@"substring"]) {
-            
-        }
+   
+        
         //过滤私有sel
         if ([selName hasPrefix:@"_"] ||
             [selName hasPrefix:@"."]) {
             continue;
         }
+        
         //过滤链式类
         if ([NSStringFromClass(self) hasPrefix:@"MLChain4"]) {
             continue;
         }
-       
+        if ([selName hasPrefix:@"ml_"]) {
+            continue;
+        }
+       static NSArray *disallowMethods;
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            disallowMethods = @[@"dealloc", @"retain", @"release", @"autorelease", @"finalize", @"forwardInvocation:"];
+
+        });
+        if ([disallowMethods containsObject:selName]) {
+            continue;
+        }
         SEL sel = NSSelectorFromString(selName);
         
        //过滤无返回methodSignature的sel
@@ -363,8 +468,10 @@
                 continue;
             }
         }
-
-  
+#if 0
+      Method method = class_getInstanceMethod(self, sel);
+        IMP imp = method_getImplementation(method);
+#endif
         const char *returnType = [methodSignature methodReturnType];
         if (strcmp(&returnType[0], "v") == 0) {
             //重名只添加一次
@@ -373,7 +480,7 @@
             }
            
         }
-     
+    
     }
 
     return resultSelNames;
@@ -386,11 +493,11 @@
  *
  *  @return <#return value description#>
  */
-+ (NSString *)chainSelNameAndMacroDefineWithSelName:(NSString *)selName
++ (NSString *)ml_chainSelNameAndMacroDefineWithSelName:(NSString *)selName
 {
 
-    NSString *chainSelName = [self chainSelNameWith:selName];
-    NSString *macroDefineString = [self macroDefineStringWithSelName:selName chainSelName:chainSelName];
+    NSString *chainSelName = [self ml_chainSelNameWith:selName];
+    NSString *macroDefineString = [self ml_macroDefineStringWithSelName:selName chainSelName:chainSelName];
     
      NSMutableString *resultString = [[NSMutableString alloc] init];
     if (macroDefineString) {
@@ -412,7 +519,7 @@
  *  @return <#return value description#>
  */
 
-+ (NSString *)chainSelNameWith:(NSString *)selName
++ (NSString *)ml_chainSelNameWith:(NSString *)selName
 {
     
     NSString *chainSelName = nil;
@@ -430,6 +537,8 @@
     if ([chainSelName hasSuffix:@":"]) {
         chainSelName = [chainSelName substringToIndex:chainSelName.length - 1];
     }
+    
+    
     chainSelName = [chainSelName stringByReplacingOccurrencesOfString:@":" withString:@"_"];
     
     return chainSelName;
@@ -443,7 +552,7 @@
  *
  *  @return <#return value description#>
  */
-+ (NSString *)macroDefineStringWithSelName:(NSString *)selName chainSelName:(NSString *)chainSelName
++ (NSString *)ml_macroDefineStringWithSelName:(NSString *)selName chainSelName:(NSString *)chainSelName
 {
  
     NSMethodSignature *methodSignature = [self instanceMethodSignatureForSelector:NSSelectorFromString(selName)];
@@ -489,7 +598,7 @@
             
             for (MLChainStructModel *model in structModels) {
                 if ([model.encodeTypeString isEqualToString:encodeTypeString]) {
-                    structboxValueString = [NSString stringWithFormat:@"ml_chain_MASBoxValue(%@(__VA_ARGS__)))", model.makePrefixString];
+                    structboxValueString = [NSString stringWithFormat:@"ml_chain_MASBoxValue(%@(__VA_ARGS__))", model.makePrefixString];
                 }
             }
             

@@ -32,6 +32,8 @@
 @property (nonatomic, copy, readonly) NSString *mFileResultString;
 
 @property (nonatomic, copy, readonly) NSString *fileName;
+@property (nonatomic, copy) NSString *typedefString;
+@property (nonatomic, copy) NSString *classDeclearString;
 //更多设置
 @property (nonatomic, copy) NSString *categoryName;
 + (instancetype)modelWithClassName:(NSString *)className

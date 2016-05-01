@@ -10,23 +10,19 @@
 #import "UIView+GestureBlock.h"
 
 
-
+#import "MLChain.h"
 #import <AFNetworking/AFNetworking.h>
 #import <Masonry/Masonry.h>
 
-
-#import "MLChain4UIView.h"
-#import "UIView+MLChain4UIView.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "NSObject+ChainInvocation.h"
-#import "UIButton+MLChain4UIButton.h"
 #import <NSObject+YYAdd.h>
 #import <dyci/NSSet+ClassesList.h>
 #import <objc/runtime.h>
 #import "vk_msgSend.h"
 #import "NSObject+vk_msgSend.h"
 #import <ReactiveCocoa/NSInvocation+RACTypeParsing.h>
-#import "CALayer+MLChain4CALayer.h"
+
 #import "CALayer+Line.h"
 #import "UIView+DrawRectBlock.h"
 #import "UIBezierPath+ML_Tools.h"
@@ -36,12 +32,11 @@
 #import "NSObject+CreateCode.h"
  #define MAS_SHORTHAND_GLOBALS
 #import "NSFileManager+ML_Tools.h"
+#import "NSString+Class.h"
+#import "NSObject+ChainInvocation.h"
+#import "NSObject+ChainFileCreater.h"
     typedef NSString *(^testBlcok)(NSString *);
 
-#define size1(...) ml_chain_MASBoxValue(__VA_ARGS__)
-#define size2(...) ml_chain_MASBoxValue(metamacro_at(0, __VA_ARGS__), metamacro_at(1, __VA_ARGS__))
-#define size3(...)  ml_chain_MASBoxValue(CGSizeMake(__VA_ARGS__)))
-#define size4(...) ml_chain_MASBoxValue(metamacro_at(0, __VA_ARGS__))
 
 @interface ChainableController ()
 
@@ -82,10 +77,7 @@
     [super viewDidLoad];
     [self initUI];
     [self downloadData];
-    CGSize size1 = CGSizeMake(33, 44);
-    //        id size2 = size2(55, 66);
-    //        id size3 = size3(33, 44);
-    id size4 = size4(CGSizeMake(33, 44), 99);
+
 }
 //即将出现
 - (void)viewWillAppear:(BOOL)animated
@@ -166,32 +158,33 @@ return numberOfArguments;
 - (void)initUI
 {
     
-    
+#if 1
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
+    
     btn.backgroundColor = [UIColor greenColor];
     [self.view addSubview:btn];
     btn.frame = CGRectMake(0, 0, 200, 200);
     btn.ml_make.backgroundColor([UIColor redColor]);
  
     btn.ml_make.size_(150, 200);
-    btn.ml_make.titleForState(@"ff", UIControlStateNormal).size_(3, 5);
+    btn.ml_make.title_forState(@"ff", UIControlStateNormal).size_(3, 5);
     btn = btn.ml_make.button;
     btn.ml_make.tintColor([UIColor greenColor]);
     
     
   UIButton *button = UIButton.ml_make.size_(150, 200)
-    .popMakerOfUIButton.titleForState(@"kk", UIControlStateNormal).backgroundColor([UIColor greenColor]).popMakerOfUIButton.popMakerOfUIButton.backgroundColor([UIColor redColor]).popMakerOfUIButton.button;
+    .lookUpMakerOfUIButton.title_forState(@"kk", UIControlStateNormal).backgroundColor([UIColor greenColor]).lookUpMakerOfUIButton.lookUpMakerOfUIButton.backgroundColor([UIColor redColor]).lookUpMakerOfUIButton.button;
     
     button.ml_make.tintColor([UIColor redColor]);
     
     [self.view addSubview:button];
     
     
-    CALayer *layer = CALayer.ml_make.backgroundColor([UIColor blueColor]).frame_(200, 200, 300, 300).superLayer(self.view.layer).layer;
-
+    CALayer *layer = CALayer.ml_make.backgroundColor([UIColor blueColor]).frame_(200, 200, 300, 300).layer;
+    [self.view.layer addSublayer:layer];
     
-    UIView.ml_make.frame_(333, 333,111, 211).superView(self.view).backgroundColor([UIColor greenColor]);
-        CALayer *layer2 = CALayer.ml_make.backgroundColor([UIColor yellowColor]).frame(CGRectMake(200, 200, 50, 50)).superLayer(self.view.layer).layer;
+    UIView.ml_make.frame_(333, 333,111, 211).backgroundColor([UIColor greenColor]);
+        CALayer *layer2 = CALayer.ml_make.backgroundColor([UIColor yellowColor]).frame(CGRectMake(200, 200, 50, 50)).layer;
     layer2.ml_make.affineTransform(CGAffineTransformMakeRotation(1)).affineTransform(CGAffineTransformScale(layer2.affineTransform, 5, 5));
     
     
@@ -203,57 +196,29 @@ return numberOfArguments;
    // NSLog(@"%@", [CALayer getIvarList]);
     
    //NSString *allChainPropertyString = [CALayer getClassMethodList];
-   
+#endif
     
-    //类
-   NSArray *classList = [NSObject getClassListWithPrefixs:@[/*@"CA", @"UI",*/ @"UIView"]];
-    
-    for (NSString *classStr in classList) {
-        
-        NSString *chainMethodString = [NSClassFromString(classStr) allChainMethodStringsForNoReturnSelName];
-        NSString *XcodeCreateCodeDirectory = [[NSFileManager macDeskTopDiretory] stringByAppendingPathComponent:@"MLChain"];
-        NSString *chaingImplementationString = [NSClassFromString(classStr) allChainImplementationStringsForNoReturnSelName];
-        NSString *chainClassName = [NSString stringWithFormat:@"MLChain4%@", classStr];
-        NSString *chainSuperClassName = [NSString stringWithFormat:@"MLChain4%@", NSStringFromClass([NSClassFromString(classStr) superclass])];
-        ML_CreateCodeModel *model =
-        [ML_CreateCodeModel modelWithClassName:chainClassName
-                                superclassName:chainSuperClassName
-                          hFileImportFileNames:nil
-                            hFileContentString:chainMethodString
-                          mFileImportFileNames:nil
-                            mFileContentString:chaingImplementationString
-                                    moreConfig:nil];
-        
-        [[NSFileManager defaultManager] writefileString:model.hFileResultString ToFileWithDiretory:XcodeCreateCodeDirectory fileName:chainClassName fileType:kML_CreateCodeFileType_h moveToTrashWhenFileExists:YES];
-        
-        [[NSFileManager defaultManager] writefileString:model.mFileResultString ToFileWithDiretory:XcodeCreateCodeDirectory fileName:chainClassName fileType:kML_CreateCodeFileType_m moveToTrashWhenFileExists:YES];
-    }
-    
-    //category
-    for (NSString *classStr in classList) {
-        
-        NSString *chainMethodString = [NSClassFromString(classStr) ml_chainCategoryMethodString];
-        
-        
-        NSString *XcodeCreateCodeDirectory = [[NSFileManager macDeskTopDiretory] stringByAppendingPathComponent:@"MLChain"];
-        NSString *chaingImplementationString = [NSClassFromString(classStr) ml_chainCategoryImplementationString];
-        NSString *chainSuperClassName = NSStringFromClass([NSClassFromString(classStr) superclass]);
-        NSArray *hfileImportFileNames = @[[NSString stringWithFormat:@"MLChain4%@", classStr]];
-        ML_CreateCodeModel *model =
-        [ML_CreateCodeModel modelWithClassName:classStr
-                                superclassName:chainSuperClassName
-                          hFileImportFileNames:hfileImportFileNames
-                            hFileContentString:chainMethodString
-                          mFileImportFileNames:nil
-                            mFileContentString:chaingImplementationString
-                                    moreConfig:^(ML_CreateCodeModel *modelOfSelf) {
-                                modelOfSelf.categoryName = @"MLChain";
-                            }];
-        
-        [[NSFileManager defaultManager] writefileString:model.hFileResultString ToFileWithDiretory:XcodeCreateCodeDirectory fileName:classStr fileType:kML_CreateCodeFileType_h moveToTrashWhenFileExists:YES];
-        
-        [[NSFileManager defaultManager] writefileString:model.mFileResultString ToFileWithDiretory:XcodeCreateCodeDirectory fileName:classStr fileType:kML_CreateCodeFileType_m moveToTrashWhenFileExists:YES];
-    }
+#if 0
+    NSArray *classeNames= @[[NSObject class],
+                            [UIResponder class],
+                            [UIControl class],
+                            [UIView class],
+                            [UIButton class],
+                            [UITextField class],
+                            [UIScrollView class],
+                            [UITextView class],
+                            [UILabel class],
+                            [CALayer class],
+                            [CAShapeLayer class],
+                            [CAEmitterLayer class],
+                            [CAEmitterCell class],
+                            [CAAnimation class],
+                            [CAPropertyAnimation class],
+                            [CABasicAnimation class],
+                            
+                            ];
+    [NSObject ml_chainCreateChainFileWithClassNames:classeNames];
+#endif
     
     
 }

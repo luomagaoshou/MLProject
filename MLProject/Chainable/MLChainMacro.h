@@ -10,7 +10,7 @@
 #define MLChainMacro_h
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "NSObject+ChainInvocation.h"
-#import <Masonry/Masonry.h>
+
 //从Mansonry得来
 static inline id _ml_chain_MASBoxValue(const char *type, ...) {
     va_list v;
@@ -113,7 +113,7 @@ static inline id _ml_chain_MASBoxValue(const char *type, ...) {
 
 //block声明 在链对类的h文件声明
 #define ml_chain_block_maker(CLASS) @class ml_concat(MLChain4, CLASS);\
-typedef ml_concat(MLChain4, CLASS)* (^ml_concat(MLChain4, CLASS,ParamBlock))(id object, ...)
+typedef ml_concat(MLChain4, CLASS)* (^ml_concat(MLChainParamBlock4, CLASS))(id object, ...)
 
 //block实现 自动setter方法 在链式类的m文件声明
 #define ml_chain_block_implementation_default(CLASS, PROPERTY) - (ml_concat(MLChain4, CLASS, ParamBlock))PROPERTY{\
@@ -133,7 +133,7 @@ return weakSelf;\
 }
 
 //block实现 在链式类的m文件声明 自己配置selector
-#define ml_chain_block_implementation(CLASS, PROPERTY, SELECTOR) - (ml_concat(MLChain4, CLASS, ParamBlock))PROPERTY{\
+#define ml_chain_block_implementation(CLASS, PROPERTY, SELECTOR) - (ml_concat(MLChainParamBlock4, CLASS))PROPERTY{\
 __weak typeof(self) weakSelf = self;\
 return ^ml_concat(MLChain4, CLASS) *(id firstObject, ...){\
 __strong typeof(weakSelf) strongSelf = weakSelf;\
