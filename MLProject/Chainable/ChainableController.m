@@ -30,7 +30,6 @@
 #import "NSObject+ChainProperty.h"
 #import <Foundation/NSProxy.h>
 #import "NSObject+CreateCode.h"
- #define MAS_SHORTHAND_GLOBALS
 #import "NSFileManager+ML_Tools.h"
 #import "NSString+Class.h"
 #import "NSObject+ChainInvocation.h"
@@ -197,6 +196,10 @@ return numberOfArguments;
     
    //NSString *allChainPropertyString = [CALayer getClassMethodList];
 #endif
+    
+    CABasicAnimation *animation =  [CABasicAnimation animationWithKeyPath:@"backgroundColor"];
+    animation.ml_make.toValue((id)[UIColor greenColor].CGColor).duration(3);
+    button.layer.ml_make.addAnimation_forKey(animation, @"backgroundColor");
     
 #if 0
     NSArray *classeNames= @[[NSObject class],

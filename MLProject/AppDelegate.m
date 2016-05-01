@@ -40,14 +40,13 @@
     #pragma mark - ========= SB =========
   //  [ProjectManager jumpToStoryboardControllerWithNibName:@"MLAnimations" storyboardID:@"MLAnimationsController" title:@""];
     
-//    UIViewController *ctl = [[NSClassFromString(@"ChainableController") alloc] initWithNibName:@"ChainableController" bundle:nil];
+
 //    
 //    
 //    UIStoryboard *storyborad = [UIStoryboard storyboardWithName:@"MLStoryboard" bundle:nil];
     
 //    UIViewController *strCtl = [UIStoryboard loadViewControllerWithNibName:<#(NSString *)#> storyboardID:<#(NSString *)#>]
   
-  // [nav pushViewController:[ProjectManager jumpToControllerWithController:@"ChainableController" title:@"chain"] animated:YES ];
 
 
   //  [ProjectManager jumpToStoryboardControllerWithNibName:@"AlgorithmPlay" storyboardID:@"AlgorithmPlayController" title:@""];
