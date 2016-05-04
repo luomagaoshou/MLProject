@@ -157,7 +157,7 @@ return numberOfArguments;
 - (void)initUI
 {
     
-#if 1
+#if 0
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
     
     btn.backgroundColor = [UIColor greenColor];
@@ -183,24 +183,27 @@ return numberOfArguments;
     [self.view.layer addSublayer:layer];
     
     UIView.ml_make.frame_(333, 333,111, 211).backgroundColor([UIColor greenColor]);
-        CALayer *layer2 = CALayer.ml_make.backgroundColor([UIColor yellowColor]).frame(CGRectMake(200, 200, 50, 50)).layer;
+    CALayer *layer2 = CALayer.ml_make.backgroundColor([UIColor yellowColor]).frame(CGRectMake(200, 200, 50, 50)).lookUpMakerOf(CALayer).layer;
     layer2.ml_make.affineTransform(CGAffineTransformMakeRotation(1)).affineTransform(CGAffineTransformScale(layer2.affineTransform, 5, 5));
+
     
     
-        UIView *view = [[UIView alloc] init];
-    view.frame = CGRectMake(200, 200, 200, 200);
-    [self.view addSubview:view];
-    view.backgroundColor = [UIColor blueColor];
-    view.hidden = YES;
    // NSLog(@"%@", [CALayer getIvarList]);
     
    //NSString *allChainPropertyString = [CALayer getClassMethodList];
 #endif
     
-    CABasicAnimation *animation =  [CABasicAnimation animationWithKeyPath:@"backgroundColor"];
-    animation.ml_make.toValue((id)[UIColor greenColor].CGColor).duration(3);
-    button.layer.ml_make.addAnimation_forKey(animation, @"backgroundColor");
+    UIView *view = [[UIView alloc] init];
+    view.frame = CGRectMake(200, 200, 200, 200);
+    [self.view addSubview:view];
+    view.backgroundColor = [UIColor blueColor];
+
+    CABasicAnimation *animation =  [CABasicAnimation animation].ml_make.keyPath(@"backgroundColor").lookUpMakerOfCABasicAnimation.toValue((id)[UIColor greenColor].CGColor).duration(3).lookUpMakerOfCABasicAnimation.animation;
+    NSLog(@"%@", animation);
+    CALayer *layer2 = [[UILabel alloc] init].layer;
+view.layer.ml_make.addAnimation_forKey(animation, @"backgroundColor");
     
+
 #if 0
     NSArray *classeNames= @[[NSObject class],
                             [UIResponder class],
@@ -218,11 +221,12 @@ return numberOfArguments;
                             [CAAnimation class],
                             [CAPropertyAnimation class],
                             [CABasicAnimation class],
+                             NSClassFromString(@"_UILabelLayer"),
                             
                             ];
     [NSObject ml_chainCreateChainFileWithClassNames:classeNames];
 #endif
-    
+   
     
 }
 

@@ -158,14 +158,30 @@
 
 + (NSArray *)ml_classNamesToStringWithClassNames:(NSArray *)classNames
 {
-    NSMutableArray *result = [[NSMutableArray alloc] init];
+    NSMutableArray *resultArr = [[NSMutableArray alloc] init];
     for (id obj in classNames) {
+        NSString *className;
         if ([obj isKindOfClass:[NSString class]]) {
-            [result addObject:obj];
+            className = obj;
         }else{
-            [result addObject:NSStringFromClass(obj)];
+            className = NSStringFromClass(obj);
         }
+        [resultArr addObject:className];
+        
+        
+            Class superClass = [NSClassFromString(className) superclass];
+        if (superClass) {
+            NSString *superClassName = NSStringFromClass(superClass);
+            if (![classNames containsObject:superClass] && ![classNames containsObject:superClassName]) {
+                [resultArr addObject:superClassName];
+            }
+            
+        }
+        
+        
+      
+        
     }
-    return result;
+    return resultArr;
 }
 @end

@@ -30,6 +30,9 @@ ml_chain_block_maker(NSObject);
 @property (nonatomic, strong)NSObject *object;
 - (instancetype)and;
 - (instancetype)with;
+
+#define lookUpMakerOf(...) ml_concat(lookUpMakerOf, __VA_ARGS__)
+- (void)lookUpMakerOf;
 - (MLChain4NSObject *)lookUpMakerOfNSObject;
 - (MLChain4UIResponder *)lookUpMakerOfUIResponder;
 - (MLChain4UIControl *)lookUpMakerOfUIControl;

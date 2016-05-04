@@ -39,12 +39,14 @@ return chainMaker;
 #pragma mark - ========= Connet Property =========
 - (id)makerWithConnetAllProperty
 {
-
-id chainMaker = [[self class] createChainMaker];
-for (Class currentClass = [chainMaker class]; [currentClass class] != [MLChain4NSObject class]; currentClass = [[currentClass class] superclass]) {
-[chainMaker setValue:self forKey: [[self class] objectPropertyNameInChainMaker]];
-}
-return  chainMaker;
+    
+    id chainMaker = [[self class] createChainMaker];
+    for (Class currentClass = [chainMaker class]; [currentClass class] != [NSObject class]; currentClass = [currentClass  superclass]) {
+        Class objectClass = [NSObject objectClassOfChainMaker:currentClass];
+        NSString *chainProperty = [objectClass objectPropertyNameInChainMaker];
+        [chainMaker setValue:self forKeyPath:chainProperty];
+    }
+    return  chainMaker;
 }
 
 @end

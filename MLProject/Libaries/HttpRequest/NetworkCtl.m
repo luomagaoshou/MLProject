@@ -8,8 +8,6 @@
 #import "NetworkCtl.h"
 #import <AFNetworking/AFNetworking.h>
 #import "NSDictionary+ML_Tools.h"
-#import "UIView+Shade.h"
-#import "UIView+ClearColorShade.h"
 #import "UIImage+FX.h"
 #import <MJExtension/MJExtension.h>
 #import "NetworkCtl+Hud.h"
