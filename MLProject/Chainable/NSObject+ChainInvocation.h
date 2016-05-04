@@ -15,15 +15,5 @@
 + (NSArray *)argumentsWithTarget:(id)target selectorName: (NSString *)selectorName arglist:(va_list)arglist firstObject:(id)firstObject;
 + (void)excuteSettingWithTarget:(id)target selectorName: (NSString *)selectorName configArguments:(NSArray *)configArguments;
 
-+ (SEL)setterSelectorWithGetterNameChar:(char *)getterNameChar;
 
-
-
-+ (NSString *)objectPropertyNameInChainMaker;
-
-- (id)objectOfChainMaker;
-
-+ (Class)objectClassOfChainMaker:(id)maker;
-+ (NSString *)chainMakerName;
-+ (id)createChainMaker;
 @end

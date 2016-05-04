@@ -7,11 +7,12 @@
 //
 
 #import "NSObject+ChainFileCreater.h"
-#import "NSObject+ChainProperty.h"
+#import "NSObject+ChainMethod.h"
 #import "NSObject+ChainInvocation.m"
 #import "NSObject+CreateCode.h"
 #import "NSString+Class.h"
 #import "NSFileManager+ML_Tools.h"
+#import "NSString+Class.h"
 @implementation NSObject (ChainFileCreater)
 
 + (void)ml_chainCreateChainFileWithClassNames:(NSArray *)classNames
@@ -31,16 +32,16 @@
     for (NSString *className in classNames) {
         NSString *property = [NSClassFromString(className) objectPropertyNameInChainMaker];
         
-        NSString *chainMethodString = [NSClassFromString(className) ml_allChainMethodStringsForNoReturnSelName];
+        NSString *chainMethodString = [NSClassFromString(className) mlChain_allMethodStringsForNoReturnSelName];
         NSString *classDeclearString = @"";
         if ([className isEqualToString:@"NSObject"]) {
-            classDeclearString = [NSObject ml_chainClassDeclearStringOfNSObjectWithClassNames:classNames];
+            classDeclearString = [NSObject mlChain_classDeclearStringOfNSObjectWithClassNames:classNames];
         }
         
         NSString *hfileContentString;
         if ([className isEqualToString:@"NSObject"]) {
             
-            NSString *lookUpMakerString = [NSObject ml_chainLookUpMakerMethodStringOfNSObjectWithClassNames:classNames];
+            NSString *lookUpMakerString = [NSObject mlChain_lookUpMakerMethodStringOfNSObjectWithClassNames:classNames];
             hfileContentString  = [NSString stringWithFormat:@"@property (nonatomic, strong)%@ *%@;\n%@\n%@", className, property, lookUpMakerString, chainMethodString];
         }else{
             hfileContentString  = [NSString stringWithFormat:@"@property (nonatomic, strong)%@ *%@;\n%@", className, property, chainMethodString];
@@ -49,10 +50,10 @@
         
         
         NSString *XcodeCreateCodeDirectory = [[NSFileManager macDeskTopDiretory] stringByAppendingPathComponent:@"MLChain"];
-        NSString *chainImplementationString = [NSClassFromString(className) ml_allChainImplementationStringsOfInvocatioTypeForNoReturnSelName];
+        NSString *chainImplementationString = [NSClassFromString(className) mlChain_allImplementationStringsOfInvocatioTypeForNoReturnSelName];
         NSString *mfileContentString;
         if ([className isEqualToString:@"NSObject"]) {
-            NSString *lookUpMakerImplementationString = [NSObject ml_chainLookUpMakerImplementationStringOfNSObjectWithClassNames:classNames];
+            NSString *lookUpMakerImplementationString = [NSObject mlChain_lookUpMakerImplementationStringOfNSObjectWithClassNames:classNames];
             
             mfileContentString = [NSString stringWithFormat:@"%@\n%@\n", lookUpMakerImplementationString, chainImplementationString];
         }else{
@@ -93,10 +94,10 @@
     //category
     for (NSString *className in classNames) {
         
-        NSString *chainMethodString = [NSClassFromString(className) ml_chainMethodStringInCategory];
+        NSString *chainMethodString = [NSClassFromString(className) mlChain_methodStringInCategory];
         
         NSString *XcodeCreateCodeDirectory = [[NSFileManager macDeskTopDiretory] stringByAppendingPathComponent:@"MLChain"];
-        NSString *chaingImplementationString = [NSClassFromString(className) ml_chainImplementationStringInCategory];
+        NSString *chaingImplementationString = [NSClassFromString(className) mlChain_ImplementationStringInCategory];
         
         
         
@@ -169,17 +170,12 @@
         [resultArr addObject:className];
         
         
-            Class superClass = [NSClassFromString(className) superclass];
-        if (superClass) {
-            NSString *superClassName = NSStringFromClass(superClass);
-            if (![classNames containsObject:superClass] && ![classNames containsObject:superClassName]) {
+        NSString *superClassName = [className ml_superClassNameFromSelf];
+        if (superClassName) {
+            if (![resultArr containsObject:superClassName]) {
                 [resultArr addObject:superClassName];
             }
-            
         }
-        
-        
-      
         
     }
     return resultArr;

@@ -27,13 +27,14 @@
 #import "UIView+DrawRectBlock.h"
 #import "UIBezierPath+ML_Tools.h"
 #import <YYKit/CALayer+YYAdd.h>
-#import "NSObject+ChainProperty.h"
+#import "NSObject+ChainMethod.h"
 #import <Foundation/NSProxy.h>
 #import "NSObject+CreateCode.h"
 #import "NSFileManager+ML_Tools.h"
 #import "NSString+Class.h"
 #import "NSObject+ChainInvocation.h"
 #import "NSObject+ChainFileCreater.h"
+#import "CABasicAnimation+ML_make.h"
     typedef NSString *(^testBlcok)(NSString *);
 
 
@@ -156,7 +157,7 @@ return numberOfArguments;
 #pragma mark - ========= InitialUI =========
 - (void)initUI
 {
-    
+
 #if 0
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
     
@@ -198,10 +199,12 @@ return numberOfArguments;
     [self.view addSubview:view];
     view.backgroundColor = [UIColor blueColor];
 
-    CABasicAnimation *animation =  [CABasicAnimation animation].ml_make.keyPath(@"backgroundColor").lookUpMakerOfCABasicAnimation.toValue((id)[UIColor greenColor].CGColor).duration(3).lookUpMakerOfCABasicAnimation.animation;
-    NSLog(@"%@", animation);
-    CALayer *layer2 = [[UILabel alloc] init].layer;
-view.layer.ml_make.addAnimation_forKey(animation, @"backgroundColor");
+    CABasicAnimation *animation =  [CABasicAnimation animation].ml_make.keyPath(@"backgroundColor").lookUpMakerOfCABasicAnimation.toValue((id)[UIColor greenColor].CGColor).duration(3).lookUpMakerOfCABasicAnimation.basicAnimation;
+    CABasicAnimation *animation2 = [CABasicAnimation animation].ml_make.keyPath(M_AniKeyPath(transform.scale)).lookUpMakerOfCABasicAnimation.toValue(@3).duration(2).lookUpMakerOfCABasicAnimation.basicAnimation;
+  
+    view.layer.ml_make.addAnimation_forKey(animation, @"").addAnimation_forKey(animation2, @"");
+
+ 
     
 
 #if 0
@@ -211,7 +214,7 @@ view.layer.ml_make.addAnimation_forKey(animation, @"backgroundColor");
                             [UIView class],
                             [UIButton class],
                             [UITextField class],
-                            [UIScrollView class],
+                            [UITableView class],
                             [UITextView class],
                             [UILabel class],
                             [CALayer class],
@@ -221,7 +224,7 @@ view.layer.ml_make.addAnimation_forKey(animation, @"backgroundColor");
                             [CAAnimation class],
                             [CAPropertyAnimation class],
                             [CABasicAnimation class],
-                             NSClassFromString(@"_UILabelLayer"),
+                            
                             
                             ];
     [NSObject ml_chainCreateChainFileWithClassNames:classeNames];
@@ -297,30 +300,7 @@ view.layer.ml_make.addAnimation_forKey(animation, @"backgroundColor");
     [self.view.layer addSublayer:snowEmitter];
 }
 
-- (void)mutableArgumentsFunction:(NSString *)arg1, ... NS_REQUIRES_NIL_TERMINATION
-{
-    // 定义一个指向可选参数列表的指针
-    va_list args;
-    
-    // 获取第一个可选参数的地址，此时参数列表指针指向函数参数列表中的第一个可选参数
-    va_start(args, arg1);
-    if(arg1)
-    {
-        // 遍历参数列表中的参数，并使参数列表指针指向参数列表中的下一个参数
-        NSString *nextArg;
-        while((nextArg = va_arg(args, NSString *)))
-        {
-            NSLog(@"ARG :%@", nextArg);
-        }
-    }
-    // 结束可变参数的获取(清空参数列表)
-    va_end(args);
-}
-#pragma mark - ========= GetArgs =========
-- (void)getArgs:(id)obj :(id)obj2
-{
-    NSLog(@"%@", obj);
-}
+
 #pragma mark - ========= DownloadData =========
 - (void)downloadData
 {

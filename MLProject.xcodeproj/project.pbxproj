@@ -19,6 +19,7 @@
 		18463CEC1CA247E300DD87BE /* UIBezierPath+ML_Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18463CEA1CA247E300DD87BE /* UIBezierPath+ML_Tools.m */; };
 		184BCA271CA69AB800EF5A14 /* NetworkCtl+Hud.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BCA241CA69AB800EF5A14 /* NetworkCtl+Hud.m */; };
 		184BCA281CA69AB800EF5A14 /* NetworkCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BCA261CA69AB800EF5A14 /* NetworkCtl.m */; };
+		1879DDAA1CD9D0AD000ECD8F /* NSObject+ChainProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 1879DDA91CD9D0AD000ECD8F /* NSObject+ChainProperty.m */; };
 		187D54AE1C8400ED0066EC67 /* MLAttributeStringController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187D54AD1C8400ED0066EC67 /* MLAttributeStringController.m */; };
 		187D54B21C84011E0066EC67 /* MLAttributeString.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 187D54B11C84011E0066EC67 /* MLAttributeString.storyboard */; };
 		1895E12D1C5B506E0046411D /* IQKeyboardManagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895E12B1C5B506E0046411D /* IQKeyboardManagerController.m */; };
@@ -171,7 +172,7 @@
 		FE71168E1C43EC8300C36951 /* NibTBCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE71168B1C43EC8300C36951 /* NibTBCell2.xib */; };
 		FE76C9EE1C08BAA600192239 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = FE76C9ED1C08BAA600192239 /* test.png */; };
 		FE82FA871CD50FB100824A1A /* NSObject+RunTimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FE82FA861CD50FB100824A1A /* NSObject+RunTimeHelper.m */; };
-		FE82FA8A1CD51A0B00824A1A /* NSObject+ChainProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = FE82FA891CD51A0B00824A1A /* NSObject+ChainProperty.m */; };
+		FE82FA8A1CD51A0B00824A1A /* NSObject+ChainMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = FE82FA891CD51A0B00824A1A /* NSObject+ChainMethod.m */; };
 		FE945AB01C1D5746007A2421 /* SBHSplitOrderMaster.m in Sources */ = {isa = PBXBuildFile; fileRef = FE945AAD1C1D5746007A2421 /* SBHSplitOrderMaster.m */; };
 		FE945AB11C1D5746007A2421 /* SBHSplitOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FE945AAF1C1D5746007A2421 /* SBHSplitOrderModel.m */; };
 		FE972D061C5FAB6800C34DC0 /* MLCALayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE972D051C5FAB6800C34DC0 /* MLCALayer.storyboard */; };
@@ -241,6 +242,8 @@
 		184BCA241CA69AB800EF5A14 /* NetworkCtl+Hud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetworkCtl+Hud.m"; sourceTree = "<group>"; };
 		184BCA251CA69AB800EF5A14 /* NetworkCtl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkCtl.h; sourceTree = "<group>"; };
 		184BCA261CA69AB800EF5A14 /* NetworkCtl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkCtl.m; sourceTree = "<group>"; };
+		1879DDA81CD9D0AD000ECD8F /* NSObject+ChainProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ChainProperty.h"; sourceTree = "<group>"; };
+		1879DDA91CD9D0AD000ECD8F /* NSObject+ChainProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ChainProperty.m"; sourceTree = "<group>"; };
 		187D54AC1C8400ED0066EC67 /* MLAttributeStringController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLAttributeStringController.h; sourceTree = "<group>"; };
 		187D54AD1C8400ED0066EC67 /* MLAttributeStringController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLAttributeStringController.m; sourceTree = "<group>"; };
 		187D54B11C84011E0066EC67 /* MLAttributeString.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLAttributeString.storyboard; sourceTree = "<group>"; };
@@ -539,8 +542,8 @@
 		FE76C9ED1C08BAA600192239 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
 		FE82FA851CD50FB100824A1A /* NSObject+RunTimeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+RunTimeHelper.h"; sourceTree = "<group>"; };
 		FE82FA861CD50FB100824A1A /* NSObject+RunTimeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RunTimeHelper.m"; sourceTree = "<group>"; };
-		FE82FA881CD51A0B00824A1A /* NSObject+ChainProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ChainProperty.h"; sourceTree = "<group>"; };
-		FE82FA891CD51A0B00824A1A /* NSObject+ChainProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ChainProperty.m"; sourceTree = "<group>"; };
+		FE82FA881CD51A0B00824A1A /* NSObject+ChainMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ChainMethod.h"; sourceTree = "<group>"; };
+		FE82FA891CD51A0B00824A1A /* NSObject+ChainMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ChainMethod.m"; sourceTree = "<group>"; };
 		FE945AAC1C1D5746007A2421 /* SBHSplitOrderMaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBHSplitOrderMaster.h; sourceTree = "<group>"; };
 		FE945AAD1C1D5746007A2421 /* SBHSplitOrderMaster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBHSplitOrderMaster.m; sourceTree = "<group>"; };
 		FE945AAE1C1D5746007A2421 /* SBHSplitOrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBHSplitOrderModel.h; sourceTree = "<group>"; };
@@ -985,8 +988,10 @@
 				FE3C4A6F1C2EBA66004CBA21 /* ChainableController.h */,
 				FE3C4A701C2EBA66004CBA21 /* ChainableController.m */,
 				FE3C4A711C2EBA66004CBA21 /* ChainableController.xib */,
-				FE82FA881CD51A0B00824A1A /* NSObject+ChainProperty.h */,
-				FE82FA891CD51A0B00824A1A /* NSObject+ChainProperty.m */,
+				FE82FA881CD51A0B00824A1A /* NSObject+ChainMethod.h */,
+				FE82FA891CD51A0B00824A1A /* NSObject+ChainMethod.m */,
+				1879DDA81CD9D0AD000ECD8F /* NSObject+ChainProperty.h */,
+				1879DDA91CD9D0AD000ECD8F /* NSObject+ChainProperty.m */,
 				18CF9D721C8EDFB900E1EA53 /* NSObject+ChainInvocation.h */,
 				18CF9D731C8EDFB900E1EA53 /* NSObject+ChainInvocation.m */,
 				FED38B5B1CD6394C0007B0D0 /* NSObject+ChainFileCreater.h */,
@@ -1697,8 +1702,9 @@
 				FE6B22741CD65178007733FD /* MLChain4UIView.m in Sources */,
 				18C2767A1C7D41020055C19D /* UIImage+FileName.m in Sources */,
 				18C276561C7D41020055C19D /* NSData+Base64.m in Sources */,
+				1879DDAA1CD9D0AD000ECD8F /* NSObject+ChainProperty.m in Sources */,
 				FE972D091C5FAB8B00C34DC0 /* MLCALayerController.m in Sources */,
-				FE82FA8A1CD51A0B00824A1A /* NSObject+ChainProperty.m in Sources */,
+				FE82FA8A1CD51A0B00824A1A /* NSObject+ChainMethod.m in Sources */,
 				FE29A27F1C54F7D0006FF01E /* UIViewController+Storyboard.m in Sources */,
 				FEA1C87C1CB5394300B5A9D3 /* PaiLie.m in Sources */,
 				18230C3B1CD1ACCC0056C5FB /* MLKVC_KVOController.m in Sources */,

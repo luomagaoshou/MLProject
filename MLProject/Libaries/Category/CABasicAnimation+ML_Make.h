@@ -7,38 +7,39 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
+#define M_AniKeyPath(_keyPath) [[[CAPropertyAnimationKeyPathMaker alloc] init]._keyPath debugDescription]
 
-@interface CAAnimationKeyPathMaker:NSObject
-@property (nonatomic, strong) CAAnimationKeyPathMaker *transform;
-@property (nonatomic, strong) CAAnimationKeyPathMaker *rotation;
-@property (nonatomic, strong) CAAnimationKeyPathMaker *scale;
-@property (nonatomic, strong) CAAnimationKeyPathMaker *translation;
-@property (nonatomic, strong) CAAnimationKeyPathMaker *x;
-@property (nonatomic, strong) CAAnimationKeyPathMaker *y;
-@property (nonatomic, strong) CAAnimationKeyPathMaker *z;
-@property (nonatomic, strong) CAAnimationKeyPathMaker *path;
-@property (nonatomic, strong) CAAnimationKeyPathMaker *opacity;
-@property (nonatomic, strong) CAAnimationKeyPathMaker *margin;
-@property (nonatomic, strong) CAAnimationKeyPathMaker *position;
-@property (nonatomic, strong) CAAnimationKeyPathMaker *backgroundColor;
-@property (nonatomic, strong) CAAnimationKeyPathMaker *cornerRadius;
-@property (nonatomic, strong) CAAnimationKeyPathMaker *borderWidth;
-@property (nonatomic, strong) CAAnimationKeyPathMaker *bounds;
-@property (nonatomic, strong) CAAnimationKeyPathMaker *contents;
-@property (nonatomic, strong) CAAnimationKeyPathMaker *contentsRect;
-@property (nonatomic, strong) CAAnimationKeyPathMaker *frame;
-@property (nonatomic, strong) CAAnimationKeyPathMaker *hidden;
-@property (nonatomic, strong) CAAnimationKeyPathMaker *mask;
-@property (nonatomic, strong) CAAnimationKeyPathMaker *masksToBounds;
-@property (nonatomic, strong) CAAnimationKeyPathMaker *shadowColor;
-@property (nonatomic, strong) CAAnimationKeyPathMaker *shadowOffset;
-@property (nonatomic, strong) CAAnimationKeyPathMaker *shadowOpacity;
-@property (nonatomic, strong) CAAnimationKeyPathMaker *shadowRadius;
+@interface CAPropertyAnimationKeyPathMaker:NSString
+- (CAPropertyAnimationKeyPathMaker *)transform;
+- (CAPropertyAnimationKeyPathMaker *)rotation;
+- (CAPropertyAnimationKeyPathMaker *)scale;
+- (CAPropertyAnimationKeyPathMaker *)translation;
+- (CAPropertyAnimationKeyPathMaker *)x;
+- (CAPropertyAnimationKeyPathMaker *)y;
+- (CAPropertyAnimationKeyPathMaker *)z;
+- (CAPropertyAnimationKeyPathMaker *)path;
+- (CAPropertyAnimationKeyPathMaker *)opacity;
+- (CAPropertyAnimationKeyPathMaker *)margin;
+- (CAPropertyAnimationKeyPathMaker *)position;
+- (CAPropertyAnimationKeyPathMaker *)backgroundColor;
+- (CAPropertyAnimationKeyPathMaker *)cornerRadius;
+- (CAPropertyAnimationKeyPathMaker *)borderWidth;
+- (CAPropertyAnimationKeyPathMaker *)bounds;
+- (CAPropertyAnimationKeyPathMaker *)contents;
+- (CAPropertyAnimationKeyPathMaker *)contentsRect;
+- (CAPropertyAnimationKeyPathMaker *)frame;
+- (CAPropertyAnimationKeyPathMaker *)hidden;
+- (CAPropertyAnimationKeyPathMaker *)mask;
+- (CAPropertyAnimationKeyPathMaker *)masksToBounds;
+- (CAPropertyAnimationKeyPathMaker *)shadowColor;
+- (CAPropertyAnimationKeyPathMaker *)shadowOffset;
+- (CAPropertyAnimationKeyPathMaker *)shadowOpacity;
+- (CAPropertyAnimationKeyPathMaker *)shadowRadius;
 
-- (NSString *)keyPath;
-- (void)set;
+
+
 @end
 
 @interface CABasicAnimation (ML_make)
-+ (instancetype)animationWithBlock:(void (^)(CABasicAnimation *animation, CAAnimationKeyPathMaker *keyPathMaker))block;
++ (instancetype)animationWithBlock:(void (^)(CABasicAnimation *animation, CAPropertyAnimationKeyPathMaker *keyPathMaker))block;
 @end

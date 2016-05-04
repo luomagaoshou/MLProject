@@ -2,25 +2,20 @@
 //  NSObject+ChainProperty.h
 //  MLProject
 //
-//  Created by apple on 16/4/21.
+//  Created by apple on 16/5/4.
 //  Copyright © 2016年 妙龙赖. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
 @interface NSObject (ChainProperty)
++ (SEL)setterSelectorWithGetterNameChar:(char *)getterNameChar;
 
-+ (NSString *)ml_allChainMethodStringsForNoReturnSelName;
-+ (NSString *)ml_allChainImplementationStringsOfSelectorTypeForNoReturnSelName;
-+ (NSString *)ml_allChainImplementationStringsOfInvocatioTypeForNoReturnSelName;
++ (NSString *)objectPropertyNameInChainMaker;
 
+- (id)objectOfChainMaker;
 
-+ (NSString *)ml_chainMethodStringInCategory;
-+ (NSString *)ml_chainImplementationStringInCategory;
-
-+ (NSString *)ml_chainLookUpMakerMethodStringOfNSObjectWithClassNames:(NSArray *)classNames;
-+ (NSString *)ml_chainLookUpMakerImplementationStringOfNSObjectWithClassNames:(NSArray *)classNames;
-
-+ (NSString *)ml_chainClassDeclearStringOfNSObjectWithClassNames:(NSArray *)classNames;
-+ (NSString *)ml_chainTotalHFileWithClassNames:(NSArray *)classNames;
++ (Class)objectClassOfChainMaker:(id)maker;
++ (NSString *)chainMakerName;
++ (id)createChainMaker;
 @end

@@ -11,18 +11,14 @@
 @implementation NSDictionary (ML_Tools)
 - (NSString *)dictionaryToURLparameterString
 {
-    NSMutableString *mutStr = [[NSMutableString alloc] init];
+    NSMutableArray *mutArr = [[NSMutableArray alloc] init];
     NSArray *keys = [self allKeys];
     for (NSString *key in keys) {
-        [mutStr appendString:key];
-        [mutStr appendString:@"="];
-        [mutStr appendString:[self valueForKey:key]];
-        [mutStr appendString:@"&"];
+        NSString *keyValue = [NSString stringWithFormat:@"%@=%@",key, [self valueForKey:key]];
+        [mutArr addObject:keyValue];
     }
-    if (mutStr.length > 0) {
-        [mutStr deleteCharactersInRange:NSMakeRange(mutStr.length - 1, 1)];
-    }
+
     
-    return mutStr;
+    return [mutArr componentsJoinedByString:@"&"];
 }
 @end

@@ -10,58 +10,54 @@
 
 @implementation NSString (ML_Tools)
 
-- (NSString *)substringFromStringEnding:(NSString *)string
+- (NSString *)substringFromString:(NSString *)string
+{
+    return [self substringFromString:string offset:0];
+}
+- (NSString *)substringFromString:(NSString *)string offset:(NSInteger)offset
 {
     NSString *substring;
     if ([self rangeOfString:string].location != NSNotFound) {
         NSRange range = [self rangeOfString:string];
-       substring = [self substringFromIndex:range.location + range.length];
+        substring = [self substringFromIndex:range.location + offset];
     }
     return substring;
 }
-- (NSString *)substringToStringBegining:(NSString *)string
+
+- (NSString *)substringToString:(NSString *)string
 {
-    return [self substringToStringBegining:string isContainEnding:NO];
+    return [self substringToString:string offset:0];
 }
-- (NSString *)substringToStringBegining:(NSString *)string isContainEnding:(BOOL)isContainEnding
+- (NSString *)substringToString:(NSString *)string offset:(NSInteger)offset
 {
     NSString *substring;
     if ([self rangeOfString:string].location != NSNotFound) {
         NSRange range = [self rangeOfString:string];
-        if (isContainEnding) {
-              substring = [self substringToIndex:range.location + 1];
-        }
-        else
-        {
-        substring = [self substringToIndex:range.location];
-        }
+      
+            substring = [self substringToIndex:range.location + offset];
+      
     }
     return substring;
 }
 
 
-- (NSString *)substringFromStringEnding:(NSString *)stringEnding toStringBegining:(NSString *)stringBegining
+- (NSString *)substringBeweentFrontString:(NSString *)frontString
+                               backString:(NSString *)backString
 {
-    NSString *sub = [self substringFromStringEnding:stringEnding];
-    sub = [sub substringToStringBegining:stringBegining];
-    return sub;
-}
-//tojson 将集合的数据转换成json字符串
-+(NSString *) toJson:(NSDictionary *)params
-{
-    NSError *error = nil;
-    //ios5.0 自带的NSJSONSerialization序列化
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:params options:NSJSONWritingPrettyPrinted error:&error];
-    return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSString *subString = [self substringFromString:frontString  offset:frontString.length];
+    subString = [subString substringToString:backString];
+    return subString;
 }
 
-//toDictionary 将json字符串数据转换成Dictionary字典
-+(NSDictionary *) toDictionary:(NSString *)json
+- (NSMutableAttributedString *)mutableAttributedString
 {
-    NSError *error = nil;
-    //ios5.0 自带的NSJSONSerialization序列化
-    NSData *jsonData = [json dataUsingEncoding:NSUTF8StringEncoding];
-    NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
-    return jsonDic;
+    return [[NSMutableAttributedString alloc] initWithString:self];
 }
+- (NSAttributedString *)attributedString
+{
+    return [[NSAttributedString alloc] initWithString:self];
+}
+
+
+
 @end

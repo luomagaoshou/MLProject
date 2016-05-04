@@ -7,7 +7,7 @@
 //
 
 #import "NSString+Class.h"
-
+#import "CABasicAnimation+ML_make.h"
 @implementation NSString (Class)
 - (NSString *)ml_superClassNameFromSelf
 {
@@ -16,4 +16,5 @@
     Class superClass = [class superclass];
     return NSStringFromClass(superClass);
 }
+
 @end

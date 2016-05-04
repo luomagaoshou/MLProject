@@ -99,46 +99,10 @@
 }
 - (void)animationMaker
 {
-//    CABasicAnimation *animation = [CABasicAnimation animationWithBlock:^(CABasicAnimationMaker *maker, CAAnimationTransformMaker *transfrom) {
-//
-//    }];
-    
-   
-     CABasicAnimation * animation = [CABasicAnimation animationWithBlock:^(CABasicAnimation *animation, CAAnimationKeyPathMaker *keyPathMaker) {
-        [keyPathMaker.transform.scale set];
-         [keyPathMaker.transform.rotation set];
-         
-         [keyPathMaker.path set];
-         
-       
-         animation.toValue = (id)[UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, 300, 300)].CGPath;
-         animation.duration = 3;
-         animation.removedOnCompletion = NO;
-         animation.fillMode = kCAFillModeForwards;
-    
-    }];
-    CABasicAnimation *animation2 = [CABasicAnimation animationWithBlock:^(CABasicAnimation *animation, CAAnimationKeyPathMaker *keyPathMaker) {
-        [keyPathMaker.transform.translation.y set];
-        animation.toValue = @(2);
-    }];
-//    animation.keyPath =  @"transform.scale";
-//    animation.fromValue = @(0.2);
-//    animation.toValue = @(2);
+
    
     
-    CAShapeLayer *layer = [[CAShapeLayer alloc] init];
-    
-    layer.backgroundColor = [UIColor redColor].CGColor;
-    layer.fillColor = [UIColor yellowColor].CGColor;
-    layer.fillRule = kCAFillRuleEvenOdd;
-    layer.frame = CGRectMake(100, 100, 200, 200);
-    [[UIColor greenColor] set];
-     layer.path = (__bridge CGPathRef _Nullable)((id)[UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, 0, 0)].CGPath);
-    [layer masksToBounds];
-    [self.view.layer addSublayer:layer];
-    
-    [layer addAnimation:animation forKey:@"ff"];
-    [layer addAnimation:animation2 forKey:@"bb"];
+
     
 }
 - (void)transitionFromViewController:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController duration:(NSTimeInterval)duration options:(UIViewAnimationOptions)options animations:(void (^)(void))animations completion:(void (^)(BOOL))completion

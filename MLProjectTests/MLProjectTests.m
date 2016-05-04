@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "NSObject+ChainProperty.h"
+#import "NSObject+ChainMethod.h"
 @interface MLProjectTests : XCTestCase
 
 @end

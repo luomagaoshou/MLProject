@@ -9,14 +9,20 @@
 #import <Foundation/Foundation.h>
 
 @interface NSString (ML_Tools)
+- (NSString *)substringFromString:(NSString *)string;
+- (NSString *)substringFromString:(NSString *)string offset:(NSInteger)offset;
+
+- (NSString *)substringToString:(NSString *)string;
+- (NSString *)substringToString:(NSString *)string offset:(NSInteger)offset;
+
+- (NSString *)substringBeweentFrontString:(NSString *)frontString
+                     backString:(NSString *)backString;
 
 
+- (NSMutableAttributedString *)mutableAttributedString;
+- (NSAttributedString *)attributedString;
 
-- (NSString *)substringFromStringEnding:(NSString *)string;
-- (NSString *)substringToStringBegining:(NSString *)string;
-- (NSString *)substringToStringBegining:(NSString *)string isContainEnding:(BOOL)isContainEnding;
-- (NSString *)substringFromStringEnding:(NSString *)stringEnding
-                       toStringBegining:(NSString *)stringBegining;
+
 
 
 @end

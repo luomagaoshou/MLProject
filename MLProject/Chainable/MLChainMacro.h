@@ -10,7 +10,7 @@
 #define MLChainMacro_h
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "NSObject+ChainInvocation.h"
-
+#import "NSObject+ChainProperty.h"
 //从Mansonry得来
 static inline id _ml_chain_MASBoxValue(const char *type, ...) {
     va_list v;
@@ -92,25 +92,6 @@ static inline id _ml_chain_MASBoxValue(const char *type, ...) {
 
 
 
-#define ml_chain_arg(PROPERTY, ...) ml_chain_arg_(PROPERTY, __VA_ARGS__)
-#define ml_chain_arg_(PROPERTY, ...) ml_concat(ml_chain_arg_, metamacro_argcount(__VA_ARGS__), value)(PROPERTY, __VA_ARGS__)
-
-#define ml_chain_arg_1value(PROPERTY, ...) PROPERTY(ml_to_obj_at_0(__VA_ARGS__))
-#define ml_chain_arg_2value(PROPERTY, ...) PROPERTY(ml_to_obj_at_0(__VA_ARGS__), ml_to_obj_at_1(__VA_ARGS__))
-#define ml_chain_arg_3value(PROPERTY, ...) PROPERTY(ml_to_obj_at_0(__VA_ARGS__), ml_to_obj_at_1(__VA_ARGS__), ml_to_obj_at_2(__VA_ARGS__))
-#define ml_chain_arg_4value(PROPERTY, ...) PROPERTY(ml_to_obj_at_0(__VA_ARGS__), ml_to_obj_at_1(__VA_ARGS__), ml_to_obj_at_2(__VA_ARGS__), ml_to_obj_at_3(__VA_ARGS__))
-#define ml_chain_arg_5value(PROPERTY, ...) PROPERTY(ml_to_obj_at_0(__VA_ARGS__), ml_to_obj_at_1(__VA_ARGS__), ml_to_obj_at_2(__VA_ARGS__), ml_to_obj_at_3(__VA_ARGS__), ml_to_obj_at_4(__VA_ARGS__))
-#define ml_chain_arg_6value(PROPERTY, ...) PROPERTY(ml_to_obj_at_0(__VA_ARGS__), ml_to_obj_at_1(__VA_ARGS__), ml_to_obj_at_2(__VA_ARGS__), ml_to_obj_at_3(__VA_ARGS__), ml_to_obj_at_4(__VA_ARGS__), ml_to_obj_at_5(__VA_ARGS__))
-
-#define ml_to_obj_at_0(...) ml_chain_MASBoxValue(metamacro_at0(__VA_ARGS__))
-#define ml_to_obj_at_1(...) ml_chain_MASBoxValue(metamacro_at1(__VA_ARGS__))
-#define ml_to_obj_at_2(...) ml_chain_MASBoxValue(metamacro_at2(__VA_ARGS__))
-#define ml_to_obj_at_3(...) ml_chain_MASBoxValue(metamacro_at3(__VA_ARGS__))
-#define ml_to_obj_at_4(...) ml_chain_MASBoxValue(metamacro_at4(__VA_ARGS__))
-#define ml_to_obj_at_5(...) ml_chain_MASBoxValue(metamacro_at5(__VA_ARGS__))
-
-
-
 //block声明 在链对类的h文件声明
 #define ml_chain_block_maker(CLASS) @class ml_concat(MLChain4, CLASS);\
 typedef ml_concat(MLChain4, CLASS)* (^ml_concat(MLChainParamBlock4, CLASS))(id object, ...)
@@ -157,7 +138,6 @@ return weakSelf;\
 - (ml_concat(MLChain4, CLASS) *)ml_makeConfigs:(void(^)(ml_concat(MLChain4, CLASS) * make))block;\
 NS_ASSUME_NONNULL_END
 
-//获取默认setter的selector
-#define ml_chain_default_setter_with_getter(PROPERTY) [NSObject setterSelectorWithGetterNameChar:#PROPERTY]
+
 
 #endif /* MLChainMacro_h */
