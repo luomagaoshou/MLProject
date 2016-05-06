@@ -85,6 +85,7 @@ static inline id _ml_chain_MASBoxValue(const char *type, ...) {
 
 
 #define ml_concat(...) metamacro_concat(ml_concat, metamacro_argcount(__VA_ARGS__))(__VA_ARGS__)
+#define ml_concat1(A) A
 #define ml_concat2(A, B) metamacro_concat(A , B)
 #define ml_concat3(A, B, C) metamacro_concat(ml_concat2(A, B), C)
 #define ml_concat4(A, B, C, D) metamacro_concat(ml_concat3(A, B, C), D)

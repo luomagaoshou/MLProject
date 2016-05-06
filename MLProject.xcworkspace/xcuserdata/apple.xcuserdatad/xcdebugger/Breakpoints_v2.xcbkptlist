@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MLProject/Chainable/ChainableController.m"
-            timestampString = "484050215.53019"
+            timestampString = "484197358.629016"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "230"
-            endingLineNumber = "230"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
             landmarkName = "-initUI"
             landmarkType = "5">
          </BreakpointContent>
@@ -32,6 +32,22 @@
             startingLineNumber = "93"
             endingLineNumber = "93"
             landmarkName = "+encodeTypeString:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MLProject/Chainable/ChainableController.m"
+            timestampString = "484197358.629016"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
+            landmarkName = "-initUI"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
