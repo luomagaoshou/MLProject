@@ -171,6 +171,9 @@
 		FE71168C1C43EC8300C36951 /* NibTBCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = FE71168A1C43EC8300C36951 /* NibTBCell2.m */; };
 		FE71168E1C43EC8300C36951 /* NibTBCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE71168B1C43EC8300C36951 /* NibTBCell2.xib */; };
 		FE76C9EE1C08BAA600192239 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = FE76C9ED1C08BAA600192239 /* test.png */; };
+		FE79E99F1CDE42CF00439E07 /* MLSQLite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE79E99E1CDE42CF00439E07 /* MLSQLite.storyboard */; };
+		FE79E9A21CDE42DC00439E07 /* MLSQLiteController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE79E9A11CDE42DC00439E07 /* MLSQLiteController.m */; };
+		FE79E9A51CDE454000439E07 /* MLSQLMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = FE79E9A41CDE454000439E07 /* MLSQLMaker.m */; };
 		FE82FA871CD50FB100824A1A /* NSObject+RunTimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FE82FA861CD50FB100824A1A /* NSObject+RunTimeHelper.m */; };
 		FE82FA8A1CD51A0B00824A1A /* NSObject+ChainMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = FE82FA891CD51A0B00824A1A /* NSObject+ChainMethod.m */; };
 		FE945AB01C1D5746007A2421 /* SBHSplitOrderMaster.m in Sources */ = {isa = PBXBuildFile; fileRef = FE945AAD1C1D5746007A2421 /* SBHSplitOrderMaster.m */; };
@@ -540,6 +543,11 @@
 		FE71168A1C43EC8300C36951 /* NibTBCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NibTBCell2.m; sourceTree = "<group>"; };
 		FE71168B1C43EC8300C36951 /* NibTBCell2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NibTBCell2.xib; sourceTree = "<group>"; };
 		FE76C9ED1C08BAA600192239 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
+		FE79E99E1CDE42CF00439E07 /* MLSQLite.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLSQLite.storyboard; sourceTree = "<group>"; };
+		FE79E9A01CDE42DC00439E07 /* MLSQLiteController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSQLiteController.h; sourceTree = "<group>"; };
+		FE79E9A11CDE42DC00439E07 /* MLSQLiteController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSQLiteController.m; sourceTree = "<group>"; };
+		FE79E9A31CDE454000439E07 /* MLSQLMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSQLMaker.h; sourceTree = "<group>"; };
+		FE79E9A41CDE454000439E07 /* MLSQLMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSQLMaker.m; sourceTree = "<group>"; };
 		FE82FA851CD50FB100824A1A /* NSObject+RunTimeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+RunTimeHelper.h"; sourceTree = "<group>"; };
 		FE82FA861CD50FB100824A1A /* NSObject+RunTimeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RunTimeHelper.m"; sourceTree = "<group>"; };
 		FE82FA881CD51A0B00824A1A /* NSObject+ChainMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ChainMethod.h"; sourceTree = "<group>"; };
@@ -1108,6 +1116,18 @@
 			path = MLChain;
 			sourceTree = "<group>";
 		};
+		FE79E99D1CDE42C500439E07 /* SQLite */ = {
+			isa = PBXGroup;
+			children = (
+				FE79E99E1CDE42CF00439E07 /* MLSQLite.storyboard */,
+				FE79E9A01CDE42DC00439E07 /* MLSQLiteController.h */,
+				FE79E9A11CDE42DC00439E07 /* MLSQLiteController.m */,
+				FE79E9A31CDE454000439E07 /* MLSQLMaker.h */,
+				FE79E9A41CDE454000439E07 /* MLSQLMaker.m */,
+			);
+			path = SQLite;
+			sourceTree = "<group>";
+		};
 		FE945AB21C1D5751007A2421 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1206,6 +1226,7 @@
 				FEB529D01BEF1EBA00EAA6C1 /* RootController.h */,
 				FEB529D11BEF1EBA00EAA6C1 /* RootController.m */,
 				FEB529D31BEF208A00EAA6C1 /* RootController.xib */,
+				FE79E99D1CDE42C500439E07 /* SQLite */,
 				18230C381CD1ACA40056C5FB /* KVC_KVO */,
 				FEA1C8741CB16F1E00B5A9D3 /* Struct */,
 				1822283E1CAE86D100A7E43D /* NestListView */,
@@ -1479,6 +1500,7 @@
 				FE3C4A731C2EBA66004CBA21 /* ChainableController.xib in Resources */,
 				1822284A1CAE86DD00A7E43D /* ALFootballLotteryCLCell.xib in Resources */,
 				FEC3494F1BEEFB0D0076E88B /* Images.xcassets in Resources */,
+				FE79E99F1CDE42CF00439E07 /* MLSQLite.storyboard in Resources */,
 				FE3684791C29827F00317135 /* NibCLCell.xib in Resources */,
 				FEDF1FEC1C4A641400DF9A8D /* FDTBCellAutoHeight.storyboard in Resources */,
 				FEE55CDE1BF0EBB000C8F783 /* NibController.xib in Resources */,
@@ -1555,6 +1577,7 @@
 				18C276971C7D41020055C19D /* UIView+Xib.m in Sources */,
 				18CF9D741C8EDFB900E1EA53 /* NSObject+ChainInvocation.m in Sources */,
 				18C276631C7D41020055C19D /* NSObject+ML_CGRect.m in Sources */,
+				FE79E9A21CDE42DC00439E07 /* MLSQLiteController.m in Sources */,
 				18C276771C7D41020055C19D /* UIControl+Block.m in Sources */,
 				FE6B22641CD65178007733FD /* CAShapeLayer+MLChain.m in Sources */,
 				18C276691C7D41020055C19D /* NSString+ML_Tools.m in Sources */,
@@ -1701,6 +1724,7 @@
 				1822284E1CAE86DD00A7E43D /* AthleticsLotteryMaster.m in Sources */,
 				FE6B22741CD65178007733FD /* MLChain4UIView.m in Sources */,
 				18C2767A1C7D41020055C19D /* UIImage+FileName.m in Sources */,
+				FE79E9A51CDE454000439E07 /* MLSQLMaker.m in Sources */,
 				18C276561C7D41020055C19D /* NSData+Base64.m in Sources */,
 				1879DDAA1CD9D0AD000ECD8F /* NSObject+ChainProperty.m in Sources */,
 				FE972D091C5FAB8B00C34DC0 /* MLCALayerController.m in Sources */,
