@@ -21,6 +21,9 @@
 		1822284E1CAE86DD00A7E43D /* AthleticsLotteryMaster.m in Sources */ = {isa = PBXBuildFile; fileRef = 182228481CAE86DD00A7E43D /* AthleticsLotteryMaster.m */; };
 		18230C3B1CD1ACCC0056C5FB /* MLKVC_KVOController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18230C3A1CD1ACCC0056C5FB /* MLKVC_KVOController.m */; };
 		18230C3D1CD1ACF00056C5FB /* MLKVC_KVO.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18230C3C1CD1ACF00056C5FB /* MLKVC_KVO.storyboard */; };
+		183853DB1CE1CAA0006B3262 /* MLSplit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183853DA1CE1CAA0006B3262 /* MLSplit.storyboard */; };
+		183853E31CE1CE72006B3262 /* MLSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183853E21CE1CE72006B3262 /* MLSplitViewController.m */; };
+		183853E91CE1E01E006B3262 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 183853E81CE1E01E006B3262 /* Settings.bundle */; };
 		18463CEC1CA247E300DD87BE /* UIBezierPath+ML_Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18463CEA1CA247E300DD87BE /* UIBezierPath+ML_Tools.m */; };
 		184BCA271CA69AB800EF5A14 /* NetworkCtl+Hud.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BCA241CA69AB800EF5A14 /* NetworkCtl+Hud.m */; };
 		184BCA281CA69AB800EF5A14 /* NetworkCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BCA261CA69AB800EF5A14 /* NetworkCtl.m */; };
@@ -249,6 +252,10 @@
 		18230C391CD1ACCC0056C5FB /* MLKVC_KVOController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLKVC_KVOController.h; sourceTree = "<group>"; };
 		18230C3A1CD1ACCC0056C5FB /* MLKVC_KVOController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLKVC_KVOController.m; sourceTree = "<group>"; };
 		18230C3C1CD1ACF00056C5FB /* MLKVC_KVO.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLKVC_KVO.storyboard; sourceTree = "<group>"; };
+		183853DA1CE1CAA0006B3262 /* MLSplit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLSplit.storyboard; sourceTree = "<group>"; };
+		183853E11CE1CE72006B3262 /* MLSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSplitViewController.h; sourceTree = "<group>"; };
+		183853E21CE1CE72006B3262 /* MLSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSplitViewController.m; sourceTree = "<group>"; };
+		183853E81CE1E01E006B3262 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		18463CEA1CA247E300DD87BE /* UIBezierPath+ML_Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+ML_Tools.m"; sourceTree = "<group>"; };
 		18463CEB1CA247E300DD87BE /* UIBezierPath+ML_Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+ML_Tools.h"; sourceTree = "<group>"; };
 		184BCA231CA69AB800EF5A14 /* NetworkCtl+Hud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetworkCtl+Hud.h"; sourceTree = "<group>"; };
@@ -701,6 +708,16 @@
 				18230C3C1CD1ACF00056C5FB /* MLKVC_KVO.storyboard */,
 			);
 			path = KVC_KVO;
+			sourceTree = "<group>";
+		};
+		183853D91CE1CA8F006B3262 /* SplitViewController */ = {
+			isa = PBXGroup;
+			children = (
+				183853DA1CE1CAA0006B3262 /* MLSplit.storyboard */,
+				183853E11CE1CE72006B3262 /* MLSplitViewController.h */,
+				183853E21CE1CE72006B3262 /* MLSplitViewController.m */,
+			);
+			path = SplitViewController;
 			sourceTree = "<group>";
 		};
 		184BCA221CA69AB800EF5A14 /* HttpRequest */ = {
@@ -1241,6 +1258,8 @@
 				FEB529D01BEF1EBA00EAA6C1 /* RootController.h */,
 				FEB529D11BEF1EBA00EAA6C1 /* RootController.m */,
 				FEB529D31BEF208A00EAA6C1 /* RootController.xib */,
+				183853E81CE1E01E006B3262 /* Settings.bundle */,
+				183853D91CE1CA8F006B3262 /* SplitViewController */,
 				181F99111CE0919400DB57CA /* ResponderChain */,
 				FE79E99D1CDE42C500439E07 /* SQLite */,
 				18230C381CD1ACA40056C5FB /* KVC_KVO */,
@@ -1507,6 +1526,8 @@
 				FE514DB91C1C128400E3AC0C /* ECPOrderJSONStr.json in Resources */,
 				FEE6A69C1C734C66008760CA /* MLAnimations.storyboard in Resources */,
 				FEB529D41BEF208A00EAA6C1 /* RootController.xib in Resources */,
+				183853E91CE1E01E006B3262 /* Settings.bundle in Resources */,
+				183853DB1CE1CAA0006B3262 /* MLSplit.storyboard in Resources */,
 				18230C3D1CD1ACF00056C5FB /* MLKVC_KVO.storyboard in Resources */,
 				FE60DBC71C510748009D836E /* MLStoryboard.storyboard in Resources */,
 				FEE6546D1C130A0D004C44D4 /* LoadNibController.xib in Resources */,
@@ -1623,6 +1644,7 @@
 				18D8E07D1C84576400706195 /* NSObject+ML_Tools.m in Sources */,
 				FEE30BBB1C03421C00B79F8D /* UIView+Ext.m in Sources */,
 				18C276881C7D41020055C19D /* UITableView+Separator.m in Sources */,
+				183853E31CE1CE72006B3262 /* MLSplitViewController.m in Sources */,
 				FEA1C8791CB16F4300B5A9D3 /* MLStructController.m in Sources */,
 				18C276721C7D41020055C19D /* UIButton+Init.m in Sources */,
 				FE6B22721CD65178007733FD /* MLChain4UITextField.m in Sources */,
