@@ -93,6 +93,16 @@
 {
     [super viewDidAppear:animated];
     
+    int b = 2;
+    __block int a = b;
+    void (^block)(int *p) = ^(int *p){
+        *p = 3;
+    };
+    NSLog(@"%d", a);
+    block(&a);
+    NSLog(@"%d", a);
+    @"";
+    
 }
 //即将消失
 - (void)viewWillDisappear:(BOOL)animated
@@ -469,8 +479,8 @@
     queue.maxConcurrentOperationCount = 2;
     NSBlockOperation *block1 = [NSBlockOperation blockOperationWithBlock:^{
         NSLog(@"%@", @"block1 Statr");
-        for (NSInteger i = 0; i < 100000; i++) {
-            NSString *str = @"22";
+        for (NSInteger i = 0; i < 1000; i++) {
+                NSLog(@"%@", @"excute block1");
         }
         NSLog(@"%@", @"block1 End");
     }];
@@ -478,8 +488,8 @@
     NSBlockOperation *block2 = [NSBlockOperation blockOperationWithBlock:^{
         NSLog(@"%@", @"block2 Statr");
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            for (NSInteger i = 0; i < 100000; i++) {
-                NSString *str = @"22";
+            for (NSInteger i = 0; i < 1000; i++) {
+                       NSLog(@"%@", @"excute block2");
             }
         });
         
@@ -489,8 +499,9 @@
     NSBlockOperation *block3 = [NSBlockOperation blockOperationWithBlock:^{
         NSLog(@"%@", @"block3 Statr");
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            for (NSInteger i = 0; i < 100000; i++) {
-                NSString *str = @"22";
+            for (NSInteger i = 0; i < 1000; i++) {
+               // NSString *str = @"22";
+                NSLog(@"%@", @"excute block3");
             }
         });
         
