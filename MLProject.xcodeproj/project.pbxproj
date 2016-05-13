@@ -23,11 +23,12 @@
 		18230C3D1CD1ACF00056C5FB /* MLKVC_KVO.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18230C3C1CD1ACF00056C5FB /* MLKVC_KVO.storyboard */; };
 		183853DB1CE1CAA0006B3262 /* MLSplit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183853DA1CE1CAA0006B3262 /* MLSplit.storyboard */; };
 		183853E31CE1CE72006B3262 /* MLSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183853E21CE1CE72006B3262 /* MLSplitViewController.m */; };
-		183853E91CE1E01E006B3262 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 183853E81CE1E01E006B3262 /* Settings.bundle */; };
 		18463CEC1CA247E300DD87BE /* UIBezierPath+ML_Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18463CEA1CA247E300DD87BE /* UIBezierPath+ML_Tools.m */; };
 		184BCA271CA69AB800EF5A14 /* NetworkCtl+Hud.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BCA241CA69AB800EF5A14 /* NetworkCtl+Hud.m */; };
 		184BCA281CA69AB800EF5A14 /* NetworkCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BCA261CA69AB800EF5A14 /* NetworkCtl.m */; };
 		1879DDAA1CD9D0AD000ECD8F /* NSObject+ChainProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 1879DDA91CD9D0AD000ECD8F /* NSObject+ChainProperty.m */; };
+		187C149F1CE5ADD3008A532C /* huangyibiaoTest.html in Resources */ = {isa = PBXBuildFile; fileRef = 187C149D1CE5ADD3008A532C /* huangyibiaoTest.html */; };
+		187C14A01CE5ADD3008A532C /* huangyibiaoTest1.html in Resources */ = {isa = PBXBuildFile; fileRef = 187C149E1CE5ADD3008A532C /* huangyibiaoTest1.html */; };
 		187D54AE1C8400ED0066EC67 /* MLAttributeStringController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187D54AD1C8400ED0066EC67 /* MLAttributeStringController.m */; };
 		187D54B21C84011E0066EC67 /* MLAttributeString.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 187D54B11C84011E0066EC67 /* MLAttributeString.storyboard */; };
 		1895E12D1C5B506E0046411D /* IQKeyboardManagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895E12B1C5B506E0046411D /* IQKeyboardManagerController.m */; };
@@ -35,6 +36,9 @@
 		1895E1331C5B534B0046411D /* IQKeyboardManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895E1321C5B534B0046411D /* IQKeyboardManagerView.m */; };
 		18ADDE921C48BF8E00E6171E /* MenuScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18ADDE911C48BF8E00E6171E /* MenuScrollView.m */; };
 		18B2D8731C5388BA0063AEB5 /* ProjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B2D8721C5388BA0063AEB5 /* ProjectManager.m */; };
+		18BD051E1CE4158000EDBA62 /* MLWebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18BD051D1CE4158000EDBA62 /* MLWebView.storyboard */; };
+		18BD05211CE4158D00EDBA62 /* MLWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BD05201CE4158D00EDBA62 /* MLWebViewController.m */; };
+		18BD05301CE478BB00EDBA62 /* MLJSMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BD052F1CE478BB00EDBA62 /* MLJSMaker.m */; };
 		18C276521C7D41020055C19D /* ChainableKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C275C11C7D41020055C19D /* ChainableKit.m */; };
 		18C276531C7D41020055C19D /* UIView+Chainable.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C275C31C7D41020055C19D /* UIView+Chainable.m */; };
 		18C276541C7D41020055C19D /* NSArray+ML_Component.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C275C61C7D41020055C19D /* NSArray+ML_Component.m */; };
@@ -255,7 +259,6 @@
 		183853DA1CE1CAA0006B3262 /* MLSplit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLSplit.storyboard; sourceTree = "<group>"; };
 		183853E11CE1CE72006B3262 /* MLSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSplitViewController.h; sourceTree = "<group>"; };
 		183853E21CE1CE72006B3262 /* MLSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSplitViewController.m; sourceTree = "<group>"; };
-		183853E81CE1E01E006B3262 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		18463CEA1CA247E300DD87BE /* UIBezierPath+ML_Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+ML_Tools.m"; sourceTree = "<group>"; };
 		18463CEB1CA247E300DD87BE /* UIBezierPath+ML_Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+ML_Tools.h"; sourceTree = "<group>"; };
 		184BCA231CA69AB800EF5A14 /* NetworkCtl+Hud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetworkCtl+Hud.h"; sourceTree = "<group>"; };
@@ -264,6 +267,8 @@
 		184BCA261CA69AB800EF5A14 /* NetworkCtl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkCtl.m; sourceTree = "<group>"; };
 		1879DDA81CD9D0AD000ECD8F /* NSObject+ChainProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ChainProperty.h"; sourceTree = "<group>"; };
 		1879DDA91CD9D0AD000ECD8F /* NSObject+ChainProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ChainProperty.m"; sourceTree = "<group>"; };
+		187C149D1CE5ADD3008A532C /* huangyibiaoTest.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = huangyibiaoTest.html; sourceTree = "<group>"; };
+		187C149E1CE5ADD3008A532C /* huangyibiaoTest1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = huangyibiaoTest1.html; sourceTree = "<group>"; };
 		187D54AC1C8400ED0066EC67 /* MLAttributeStringController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLAttributeStringController.h; sourceTree = "<group>"; };
 		187D54AD1C8400ED0066EC67 /* MLAttributeStringController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLAttributeStringController.m; sourceTree = "<group>"; };
 		187D54B11C84011E0066EC67 /* MLAttributeString.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLAttributeString.storyboard; sourceTree = "<group>"; };
@@ -276,6 +281,11 @@
 		18ADDE911C48BF8E00E6171E /* MenuScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuScrollView.m; sourceTree = "<group>"; };
 		18B2D8711C5388BA0063AEB5 /* ProjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectManager.h; sourceTree = "<group>"; };
 		18B2D8721C5388BA0063AEB5 /* ProjectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectManager.m; sourceTree = "<group>"; };
+		18BD051D1CE4158000EDBA62 /* MLWebView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLWebView.storyboard; sourceTree = "<group>"; };
+		18BD051F1CE4158D00EDBA62 /* MLWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLWebViewController.h; sourceTree = "<group>"; };
+		18BD05201CE4158D00EDBA62 /* MLWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLWebViewController.m; sourceTree = "<group>"; };
+		18BD052E1CE478BB00EDBA62 /* MLJSMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLJSMaker.h; sourceTree = "<group>"; wrapsLines = 0; };
+		18BD052F1CE478BB00EDBA62 /* MLJSMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLJSMaker.m; sourceTree = "<group>"; };
 		18C275BF1C7D41020055C19D /* ChainableBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChainableBlock.h; sourceTree = "<group>"; };
 		18C275C01C7D41020055C19D /* ChainableKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChainableKit.h; sourceTree = "<group>"; };
 		18C275C11C7D41020055C19D /* ChainableKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChainableKit.m; sourceTree = "<group>"; };
@@ -751,6 +761,20 @@
 				1895E12F1C5B50840046411D /* IQKeyboardManager.storyboard */,
 			);
 			path = IQKeyboardManager;
+			sourceTree = "<group>";
+		};
+		18BD051C1CE4156F00EDBA62 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				187C149D1CE5ADD3008A532C /* huangyibiaoTest.html */,
+				187C149E1CE5ADD3008A532C /* huangyibiaoTest1.html */,
+				18BD051D1CE4158000EDBA62 /* MLWebView.storyboard */,
+				18BD051F1CE4158D00EDBA62 /* MLWebViewController.h */,
+				18BD05201CE4158D00EDBA62 /* MLWebViewController.m */,
+				18BD052E1CE478BB00EDBA62 /* MLJSMaker.h */,
+				18BD052F1CE478BB00EDBA62 /* MLJSMaker.m */,
+			);
+			path = WebView;
 			sourceTree = "<group>";
 		};
 		18C275BD1C7D41020055C19D /* Category */ = {
@@ -1258,7 +1282,7 @@
 				FEB529D01BEF1EBA00EAA6C1 /* RootController.h */,
 				FEB529D11BEF1EBA00EAA6C1 /* RootController.m */,
 				FEB529D31BEF208A00EAA6C1 /* RootController.xib */,
-				183853E81CE1E01E006B3262 /* Settings.bundle */,
+				18BD051C1CE4156F00EDBA62 /* WebView */,
 				183853D91CE1CA8F006B3262 /* SplitViewController */,
 				181F99111CE0919400DB57CA /* ResponderChain */,
 				FE79E99D1CDE42C500439E07 /* SQLite */,
@@ -1517,6 +1541,7 @@
 				FEE55D211BF71E1D00C8F783 /* ScrollViewInXibController.xib in Resources */,
 				FEC349521BEEFB0D0076E88B /* LaunchScreen.xib in Resources */,
 				FE06A08E1CA7AE8600758B37 /* MLImage.storyboard in Resources */,
+				187C149F1CE5ADD3008A532C /* huangyibiaoTest.html in Resources */,
 				FE972D061C5FAB6800C34DC0 /* MLCALayer.storyboard in Resources */,
 				FEE55D181BF4DA2C00C8F783 /* NibToViewView.xib in Resources */,
 				FE514DB31C1BFCDB00E3AC0C /* RunTimeController.xib in Resources */,
@@ -1526,7 +1551,6 @@
 				FE514DB91C1C128400E3AC0C /* ECPOrderJSONStr.json in Resources */,
 				FEE6A69C1C734C66008760CA /* MLAnimations.storyboard in Resources */,
 				FEB529D41BEF208A00EAA6C1 /* RootController.xib in Resources */,
-				183853E91CE1E01E006B3262 /* Settings.bundle in Resources */,
 				183853DB1CE1CAA0006B3262 /* MLSplit.storyboard in Resources */,
 				18230C3D1CD1ACF00056C5FB /* MLKVC_KVO.storyboard in Resources */,
 				FE60DBC71C510748009D836E /* MLStoryboard.storyboard in Resources */,
@@ -1539,10 +1563,12 @@
 				1822284A1CAE86DD00A7E43D /* ALFootballLotteryCLCell.xib in Resources */,
 				FEC3494F1BEEFB0D0076E88B /* Images.xcassets in Resources */,
 				181F990D1CE066E900DB57CA /* MLSQLite.storyboard in Resources */,
+				18BD051E1CE4158000EDBA62 /* MLWebView.storyboard in Resources */,
 				FE3684791C29827F00317135 /* NibCLCell.xib in Resources */,
 				FEDF1FEC1C4A641400DF9A8D /* FDTBCellAutoHeight.storyboard in Resources */,
 				FEE55CDE1BF0EBB000C8F783 /* NibController.xib in Resources */,
 				18FCA22F1C7D3B5C002C4E5C /* image1.jpg in Resources */,
+				187C14A01CE5ADD3008A532C /* huangyibiaoTest1.html in Resources */,
 				FEA1C8761CB16F3300B5A9D3 /* MLStruct.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1604,6 +1630,7 @@
 			files = (
 				18C276801C7D41020055C19D /* UIImageView+ML_Tools.m in Sources */,
 				18C276811C7D41020055C19D /* UILabel+CommonType.m in Sources */,
+				18BD05211CE4158D00EDBA62 /* MLWebViewController.m in Sources */,
 				18C2767E1C7D41020055C19D /* UIImage+AttributeString.m in Sources */,
 				18C276531C7D41020055C19D /* UIView+Chainable.m in Sources */,
 				FE6B221B1CD650AF007733FD /* ChainableController.m in Sources */,
@@ -1777,6 +1804,7 @@
 				18D8E07E1C84576400706195 /* UITableView+Refresh.m in Sources */,
 				18C276671C7D41020055C19D /* NSPredicate+Tools.m in Sources */,
 				FE71168C1C43EC8300C36951 /* NibTBCell2.m in Sources */,
+				18BD05301CE478BB00EDBA62 /* MLJSMaker.m in Sources */,
 				18DC19891C58CA5B0049BD18 /* DelegateSeparationController.m in Sources */,
 				FE6B53D71CD3D01B0071F64E /* NSString+Class.m in Sources */,
 				18ADDE921C48BF8E00E6171E /* MenuScrollView.m in Sources */,

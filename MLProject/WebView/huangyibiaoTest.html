@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>测试IOS与JS之前的互调</title>
+	<style type="text/css">
+	  * {
+	  	font-size: 40px;
+        margin: 20px;
+	  }
+	</style>
+
+  
+</head>
+
+<body>
+  
+<div style="color: red;margin-top: 100px">
+    <h2>fuck</h2>
+	<h1>Test how to use objective-c call js</h1>
+    
+    <p><input type="button" value="Call ObjC system camera" onclick="OCModelhaha.callSystemCamera()"/></p>
+	<input type="button" value="Call ObjC system alert" onclick="OCModelhaha.showAlertMsg('js title', 'js message')"/>
+</div>
+
+<div>
+	<input type="button" value="Call ObjC func with JSON " onclick="OCModelhaha.callWithDict({'name': 'testname', 'age': 10, 'height': 170})" style="color: yellow">
+	<input type="button" value="Call ObjC func with JSON and ObjC call js func to pass args." onclick="OCModelhaha.jsCallObjcAndObjcCallJsWithDict({'name': 'testnamehaha', 'age': 10, 'height': 170})">
+</div>
+
+<div>
+        <input type="button" value="JSFunc" onclick=sayHahaFunc("jjjjj");>
+</div>
+
+<div>
+  <a href="huangyibiaoTest1.html">Click to next page</a>
+</div>
+
+<div style = "color: red; margin-top: 100px">
+   <p><a href="http://www.baidu.com/"><big>baidu</big></a>fuckfuc<br></br>kfuck</p>
+  
+</div>
+<div style = "color: red; margin-top: 100px">
+   
+	<span id="jsParamFuncSpan" style="color: red; font-size: 100px;"></span>
+    
+</div>
+
+<div>
+    <canvas id="myCanvas">your browser does not support the canvas tag </canvas>
+    
+    <script type="text/javascript">
+        
+        var canvas=document.getElementById('myCanvas');
+        var ctx=canvas.getContext('2d');
+        ctx.fillStyle='#FF0000';
+        ctx.fillRect(0,0,80,100);
+        
+        </script>
+    
+</div>
+
+<p id = "pTip">download</p>
+<progress value = "0" max = "100" id = "proDownFile"></progress>
+<input type = "button" value = "download" onclick = "Btn_Click();">
+    
+
+</body>
+
+
+<script type = "text/javascript">
+    var intValue=0;
+    var intTimer;
+    var objPro=document.getElementById('proDownFile');
+    var objTip=document.getElementById('pTip');
+    //定时事件
+    function Interval_handler(){
+        intValue++;
+        objPro.value=intValue;
+        if(intValue>=objPro.max){
+            clearInterval(intTimer);
+            objTip.innerHTML="finished";
+        }else{
+            objTip.innerHTML="downloading"+intValue+"%";
+        }
+    }
+function Btn_Click(){
+    intTimer=setInterval(Interval_handler,100);
+}
+    </script>
+
+
+<script type="text/javascript">
+    
+    var jsFunc = function() {
+        alert('Objective-C call js to show alert');
+        return "downloading";
+    }
+
+var jsParamFunc = function(argument) {
+    document.getElementById('jsParamFuncSpan').innerHTML
+    = argument['name'];
+}
+</script>
+
+<script type="text/javascript" id="sayHahaJSFunc">
+    var sayHahaFunc = function(string){
+        alert(string);
+    }
+</script>
+</html>
