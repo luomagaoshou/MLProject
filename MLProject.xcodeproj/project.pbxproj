@@ -21,11 +21,16 @@
 		1822284E1CAE86DD00A7E43D /* AthleticsLotteryMaster.m in Sources */ = {isa = PBXBuildFile; fileRef = 182228481CAE86DD00A7E43D /* AthleticsLotteryMaster.m */; };
 		18230C3B1CD1ACCC0056C5FB /* MLKVC_KVOController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18230C3A1CD1ACCC0056C5FB /* MLKVC_KVOController.m */; };
 		18230C3D1CD1ACF00056C5FB /* MLKVC_KVO.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18230C3C1CD1ACF00056C5FB /* MLKVC_KVO.storyboard */; };
+		1827CF6F1CED4FCF00552F14 /* MLSwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1827CF6E1CED4FCF00552F14 /* MLSwiftController.swift */; };
 		183853DB1CE1CAA0006B3262 /* MLSplit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183853DA1CE1CAA0006B3262 /* MLSplit.storyboard */; };
 		183853E31CE1CE72006B3262 /* MLSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183853E21CE1CE72006B3262 /* MLSplitViewController.m */; };
 		18463CEC1CA247E300DD87BE /* UIBezierPath+ML_Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18463CEA1CA247E300DD87BE /* UIBezierPath+ML_Tools.m */; };
 		184BCA271CA69AB800EF5A14 /* NetworkCtl+Hud.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BCA241CA69AB800EF5A14 /* NetworkCtl+Hud.m */; };
 		184BCA281CA69AB800EF5A14 /* NetworkCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BCA261CA69AB800EF5A14 /* NetworkCtl.m */; };
+		185947631CEC0C0E008E4582 /* MLCLanguage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 185947621CEC0C0E008E4582 /* MLCLanguage.storyboard */; };
+		185947661CEC0C96008E4582 /* MLCLPointerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185947651CEC0C96008E4582 /* MLCLPointerController.m */; };
+		1859476C1CEC1594008E4582 /* MLSwift.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1859476B1CEC1594008E4582 /* MLSwift.storyboard */; };
+		1859476F1CEC1689008E4582 /* MLSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859476E1CEC1689008E4582 /* MLSwift.swift */; };
 		1879DDAA1CD9D0AD000ECD8F /* NSObject+ChainProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 1879DDA91CD9D0AD000ECD8F /* NSObject+ChainProperty.m */; };
 		187C149F1CE5ADD3008A532C /* huangyibiaoTest.html in Resources */ = {isa = PBXBuildFile; fileRef = 187C149D1CE5ADD3008A532C /* huangyibiaoTest.html */; };
 		187C14A01CE5ADD3008A532C /* huangyibiaoTest1.html in Resources */ = {isa = PBXBuildFile; fileRef = 187C149E1CE5ADD3008A532C /* huangyibiaoTest1.html */; };
@@ -258,6 +263,7 @@
 		18230C391CD1ACCC0056C5FB /* MLKVC_KVOController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLKVC_KVOController.h; sourceTree = "<group>"; };
 		18230C3A1CD1ACCC0056C5FB /* MLKVC_KVOController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLKVC_KVOController.m; sourceTree = "<group>"; };
 		18230C3C1CD1ACF00056C5FB /* MLKVC_KVO.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLKVC_KVO.storyboard; sourceTree = "<group>"; };
+		1827CF6E1CED4FCF00552F14 /* MLSwiftController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLSwiftController.swift; sourceTree = "<group>"; };
 		183853DA1CE1CAA0006B3262 /* MLSplit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLSplit.storyboard; sourceTree = "<group>"; };
 		183853E11CE1CE72006B3262 /* MLSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSplitViewController.h; sourceTree = "<group>"; };
 		183853E21CE1CE72006B3262 /* MLSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSplitViewController.m; sourceTree = "<group>"; };
@@ -267,6 +273,12 @@
 		184BCA241CA69AB800EF5A14 /* NetworkCtl+Hud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetworkCtl+Hud.m"; sourceTree = "<group>"; };
 		184BCA251CA69AB800EF5A14 /* NetworkCtl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkCtl.h; sourceTree = "<group>"; };
 		184BCA261CA69AB800EF5A14 /* NetworkCtl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkCtl.m; sourceTree = "<group>"; };
+		185947621CEC0C0E008E4582 /* MLCLanguage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLCLanguage.storyboard; sourceTree = "<group>"; };
+		185947641CEC0C96008E4582 /* MLCLPointerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLCLPointerController.h; sourceTree = "<group>"; };
+		185947651CEC0C96008E4582 /* MLCLPointerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLCLPointerController.m; sourceTree = "<group>"; };
+		1859476B1CEC1594008E4582 /* MLSwift.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLSwift.storyboard; sourceTree = "<group>"; };
+		1859476D1CEC1689008E4582 /* MLProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MLProject-Bridging-Header.h"; sourceTree = "<group>"; };
+		1859476E1CEC1689008E4582 /* MLSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLSwift.swift; sourceTree = "<group>"; };
 		1879DDA81CD9D0AD000ECD8F /* NSObject+ChainProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ChainProperty.h"; sourceTree = "<group>"; };
 		1879DDA91CD9D0AD000ECD8F /* NSObject+ChainProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ChainProperty.m"; sourceTree = "<group>"; };
 		187C149D1CE5ADD3008A532C /* huangyibiaoTest.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = huangyibiaoTest.html; sourceTree = "<group>"; };
@@ -744,6 +756,27 @@
 				184BCA261CA69AB800EF5A14 /* NetworkCtl.m */,
 			);
 			path = HttpRequest;
+			sourceTree = "<group>";
+		};
+		185947611CEC0C01008E4582 /* CLanguage */ = {
+			isa = PBXGroup;
+			children = (
+				185947621CEC0C0E008E4582 /* MLCLanguage.storyboard */,
+				185947641CEC0C96008E4582 /* MLCLPointerController.h */,
+				185947651CEC0C96008E4582 /* MLCLPointerController.m */,
+			);
+			path = CLanguage;
+			sourceTree = "<group>";
+		};
+		1859476A1CEC1585008E4582 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				1859476B1CEC1594008E4582 /* MLSwift.storyboard */,
+				1827CF6E1CED4FCF00552F14 /* MLSwiftController.swift */,
+				1859476E1CEC1689008E4582 /* MLSwift.swift */,
+				1859476D1CEC1689008E4582 /* MLProject-Bridging-Header.h */,
+			);
+			path = Swift;
 			sourceTree = "<group>";
 		};
 		187D54AB1C8400CB0066EC67 /* AttributeString */ = {
@@ -1297,6 +1330,8 @@
 				FEB529D01BEF1EBA00EAA6C1 /* RootController.h */,
 				FEB529D11BEF1EBA00EAA6C1 /* RootController.m */,
 				FEB529D31BEF208A00EAA6C1 /* RootController.xib */,
+				1859476A1CEC1585008E4582 /* Swift */,
+				185947611CEC0C01008E4582 /* CLanguage */,
 				18EB94331CE9580300C24368 /* DataStructures */,
 				18BD051C1CE4156F00EDBA62 /* WebView */,
 				183853D91CE1CA8F006B3262 /* SplitViewController */,
@@ -1515,6 +1550,7 @@
 		FEC349361BEEFB0D0076E88B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "妙龙赖";
 				TargetAttributes = {
@@ -1548,6 +1584,7 @@
 			files = (
 				FEE55D021BF244D100C8F783 /* FranchiseVerifyingStatusView.xib in Resources */,
 				1822284D1CAE86DD00A7E43D /* AthleticsLottery.storyboard in Resources */,
+				1859476C1CEC1594008E4582 /* MLSwift.storyboard in Resources */,
 				1895E1301C5B50840046411D /* IQKeyboardManager.storyboard in Resources */,
 				FEE30BA71C03412500B79F8D /* LoadNibSubView.xib in Resources */,
 				FE29A26F1C513365006FF01E /* 44C5FC76-E862-43F6-824E-0FBBAFADA5CA.png in Resources */,
@@ -1577,6 +1614,7 @@
 				FE65B91C1C24619A001B24F1 /* NibTBCell.xib in Resources */,
 				FE3C4A731C2EBA66004CBA21 /* ChainableController.xib in Resources */,
 				1822284A1CAE86DD00A7E43D /* ALFootballLotteryCLCell.xib in Resources */,
+				185947631CEC0C0E008E4582 /* MLCLanguage.storyboard in Resources */,
 				FEC3494F1BEEFB0D0076E88B /* Images.xcassets in Resources */,
 				18EB94351CE9583E00C24368 /* MLDataStructures.storyboard in Resources */,
 				181F990D1CE066E900DB57CA /* MLSQLite.storyboard in Resources */,
@@ -1681,6 +1719,7 @@
 				18C276661C7D41020055C19D /* NSPredicate+Regex.m in Sources */,
 				FE6B226E1CD65178007733FD /* MLChain4UIControl.m in Sources */,
 				FE6B227D1CD65178007733FD /* UIView+MLChain.m in Sources */,
+				1827CF6F1CED4FCF00552F14 /* MLSwiftController.swift in Sources */,
 				18EB94381CE9585B00C24368 /* MLDataStructuresController.m in Sources */,
 				18C276521C7D41020055C19D /* ChainableKit.m in Sources */,
 				FE60DBDA1C510948009D836E /* MLTBFooter.m in Sources */,
@@ -1721,6 +1760,7 @@
 				18C2768F1C7D41020055C19D /* UIView+ClearColorShade.m in Sources */,
 				FE6B225F1CD65178007733FD /* CABasicAnimation+MLChain.m in Sources */,
 				18C276611C7D41020055C19D /* NSObject+Add.m in Sources */,
+				1859476F1CEC1689008E4582 /* MLSwift.swift in Sources */,
 				FE60DBCA1C5107D8009D836E /* MLTBHeader.m in Sources */,
 				FEB529D21BEF1EBA00EAA6C1 /* RootController.m in Sources */,
 				FEC349441BEEFB0D0076E88B /* main.m in Sources */,
@@ -1734,6 +1774,7 @@
 				18C2767B1C7D41020055C19D /* UIImage+FX.m in Sources */,
 				18C2765D1C7D41020055C19D /* NSMutableString+ML_Tools.m in Sources */,
 				1822284C1CAE86DD00A7E43D /* ALFootballLotteryView.m in Sources */,
+				185947661CEC0C96008E4582 /* MLCLPointerController.m in Sources */,
 				FE6B226A1CD65178007733FD /* MLChain4CAPropertyAnimation.m in Sources */,
 				18C276541C7D41020055C19D /* NSArray+ML_Component.m in Sources */,
 				FE945AB11C1D5746007A2421 /* SBHSplitOrderModel.m in Sources */,
@@ -1932,6 +1973,8 @@
 			baseConfigurationReference = 607A53E0EBBA05FDA009F1B2 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MLProject/PrefixHeader.pch";
@@ -1991,6 +2034,8 @@
 					"\"Photos\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MLProject/Swift/MLProject-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -1999,6 +2044,8 @@
 			baseConfigurationReference = F48D774E4C6660039E66AE38 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MLProject/PrefixHeader.pch";
@@ -2061,6 +2108,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MLProject/Swift/MLProject-Bridging-Header.h";
 			};
 			name = Release;
 		};

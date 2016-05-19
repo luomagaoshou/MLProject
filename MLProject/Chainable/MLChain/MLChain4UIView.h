@@ -13,6 +13,7 @@
 ml_chain_block_maker(UIView);
 @interface MLChain4UIView:MLChain4UIResponder
 @property (nonatomic, strong)UIView *view;
+@property (nonatomic, copy, readonly) MLChainParamBlock4UIView fuck;
 #ifndef top
 #define top(...) top(ml_chain_MASBoxValue(metamacro_at(0, __VA_ARGS__)))
 #endif
