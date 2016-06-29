@@ -10,6 +10,7 @@
 #import "NetworkCtl.h"
 #import <AFNetworking/AFNetworking.h>
 #import "UIView+DrawRectBlock.h"
+#import "ProjectManager.h"
   typedef void (^MultiThreadTestBlock)(void);
 @interface MultiThreadController ()
 @property (nonatomic, strong) NSMutableArray *dataSource;
@@ -74,7 +75,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-   
+
     
 }
 //排列SubViews
@@ -102,6 +103,30 @@
     block(&a);
     NSLog(@"%d", a);
     @"";
+
+    
+    
+    dispatch_queue_t queue = dispatch_queue_create("sq", DISPATCH_QUEUE_SERIAL);
+    NSLog(@"%@", @"1");
+    dispatch_async(queue, ^{
+        NSLog(@"%@", @"2");
+        dispatch_sync(queue, ^{
+             NSLog(@"%@", @"3");
+        });
+  
+    });
+     NSLog(@"%@", @"5");
+    
+
+//    NSLog(@"1"); // 任务1
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//        NSLog(@"2"); // 任务2
+//        dispatch_sync(dispatch_get_main_queue(), ^{
+//            NSLog(@"3"); // 任务3
+//        });
+//        NSLog(@"4"); // 任务4
+//    });
+//    NSLog(@"5"); // 任务5
     
 }
 //即将消失
@@ -142,10 +167,13 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+   
+
     switch (indexPath.row) {
         case 0:
         {
             [self GCDTaskRunInSerialQueueBySynchronously];
+  
         }
             break;
         case 1:
@@ -214,20 +242,39 @@
 #pragma mark - ========= GCD =========
 - (void)GCDTaskRunInSerialQueueBySynchronously
 {
+    
     dispatch_queue_t queue = dispatch_queue_create("serial", DISPATCH_QUEUE_SERIAL);(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+  
+   dispatch_async(queue, ^{
+      
+       NSLog(@"%@", @"aaa");
+       dispatch_async(queue, ^{
+           NSLog(@"%@", @"bbb");
+       });
+        NSLog(@"%@", @"ccc");
+   });
+    
+    
     dispatch_sync(queue, ^{
-        for (NSInteger i = 0; i < 9; i++) {
+        dispatch_async(queue, ^{
+            NSLog(@"%@", @"dddd");
+        });
+        for (NSInteger i = 0; i < 3; i++) {
             NSLog(@"串行队列，同步操作1:%ld\n%@", i, [NSThread currentThread]);
             [NSThread sleepForTimeInterval:0.5f];
         }
-        
+      
     });
-    [NSThread sleepForTimeInterval:1.0f];
-    NSLog(@"\n\n中场休息\n\n");
-    [NSThread sleepForTimeInterval:1.0f];
-    
+//    [NSThread sleepForTimeInterval:1.0f];
+//    NSLog(@"\n\n中场休息\n\n");
+//    [NSThread sleepForTimeInterval:1.0f];
+//    
     dispatch_sync(queue, ^{
-        for (NSInteger i = 0; i < 9; i++) {
+        dispatch_async(queue, ^{
+            NSLog(@"%@", @"eeee");
+        });
+        for (NSInteger i = 0; i < 3; i++) {
             NSLog(@"串行队列，同步操作2:%ld\n%@", i, [NSThread currentThread]);
             [NSThread sleepForTimeInterval:0.5f];
         }

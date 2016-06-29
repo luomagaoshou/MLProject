@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Nest Nib View Controller-->
+        <scene sceneID="dTm-uL-Lve">
+            <objects>
+                <viewController storyboardIdentifier="MLNestNibViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GOo-md-OT0" customClass="MLNestNibViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uuS-Qf-lyh"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xxh-nu-cSt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Y2L-Gb-qoH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Tf-bT-cI9" customClass="NestView">
+                                <rect key="frame" x="41" y="78" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.29391082499999999" green="0.98427560660000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="fXa-r0-dJY"/>
+                                    <constraint firstAttribute="height" constant="128" id="gF7-Wr-mTK"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P7E-b7-GfD" customClass="NestView2">
+                                <rect key="frame" x="32" y="236" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.9428288064" green="1" blue="0.27617102360000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8Tf-bT-cI9" firstAttribute="top" secondItem="uuS-Qf-lyh" secondAttribute="bottom" constant="58" id="Hol-Nl-JjD"/>
+                            <constraint firstItem="8Tf-bT-cI9" firstAttribute="leading" secondItem="Y2L-Gb-qoH" secondAttribute="leading" constant="41" id="UMG-vy-anq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="nestView" destination="8Tf-bT-cI9" id="b5l-kT-Cf8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NOK-by-4FA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="378" y="-142"/>
+        </scene>
+    </scenes>
+</document>

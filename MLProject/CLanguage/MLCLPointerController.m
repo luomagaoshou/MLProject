@@ -87,7 +87,23 @@
 #pragma mark - ========= InitialUI =========
 - (void)initUI
 {
-    [self pointerAddressValue];
+   // [self pointerAddressValue];
+    int p = 1111;
+    int q = 2222;
+    [self swap:p :q];
+    NSLog(@"%d---%d", p, q);
+    
+    int p2 = 3333;
+    int q2 = 4444;
+    [self swapWithPoint:&p2 :&q2];
+       NSLog(@"%d---%d", p2, q2);
+    
+    @"";
+    int *o = &p2;
+    *o = 555;
+    NSLog(@"%d", p2);
+    
+    
 }
 - (void)pointerAddressValue
 {
@@ -96,6 +112,19 @@
     
     printf("%d %d" , *(a+1), *(ptr-1) );
 }
+- (void)swap:(int)p :(int)q
+{
+    int *temp = &p;
+    p = q;
+    q = *temp;
+}
+- (void)swapWithPoint:(int *)p :(int *)q
+{
+    int temp = *p;
+    *p = *q;
+    *q = temp;
+}
+
 
 #pragma mark - ========= DownloadData =========
 - (void)downloadData

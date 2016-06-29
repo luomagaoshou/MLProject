@@ -17,4 +17,8 @@
 {
     [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
 }
+- (void)moveToSuperview:(UIView *)superview
+{
+    [superview addSubview:self];
+}
 @end

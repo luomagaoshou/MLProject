@@ -8,10 +8,33 @@
 
 import Foundation
 import UIKit
+enum MLSwiftEnum : Int{
+    case first = 1
+    case second
+    case third
+}
+enum MLSwiftMixEnum {
+    case firstParam(Int, Int)
+    case secondParam(String, String)
+}
+enum ErrorMLTestType:ErrorType {
+    case notEnoughLong
+    case tooLong
+}
 typealias sendClosure = (str:String) -> String
+class class1: NSObject {
+    func fuck() -> Void {
+        print("fuck")
+    }
+}
+
+
 class MLSwift: NSObject {
     
      var closureMethod:((str:String) -> String)?
+    var closureMothod2:((str:String)->sendClosure)?
+    
+    
     
    static func instanceTest(str:String)->String
     {
@@ -38,7 +61,7 @@ class MLSwift: NSObject {
     func someFunctionThatTakesAClosure(closure: () -> ()) {
         // 函数体部分
     }
-  
+
     static let numberFormatter: NSNumberFormatter = {
         let formatter = NSNumberFormatter()
         formatter.numberStyle = .DecimalStyle
@@ -60,5 +83,32 @@ class MLSwift: NSObject {
         self.closureMethod = closureImp
         
     }
+    
+   class func valueTest(num:NSNumber = false) -> Bool {
+        if Bool(num) {
+            return true
+        }else
+        {
+            return false
+        }
+    }
+    class func enumTest(enumValue:MLSwiftEnum = MLSwiftEnum.second)->MLSwiftEnum{
+        
+        return enumValue;
+    }
+    class func guardTest(string:String) throws-> String? {
+        let resultString = string + string
+        guard resultString.characters.count > 5 else{
+            throw ErrorMLTestType.notEnoughLong
+        }
+        guard resultString.characters.count < 15 else{
+            throw ErrorMLTestType.tooLong
+        }
+        
+        return resultString
+        
+    }
+//    func arrayTest(obj1:AnyObject) -> Array {
+//        
+//    }
 }
-

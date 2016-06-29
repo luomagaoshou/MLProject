@@ -20,11 +20,10 @@
 - (instancetype)loadSelfXibWithFileOwner:(id)fileOwner;
 - (instancetype)loadSelfXibWithFileOwner:(id)fileOwner serialNumber:(NSInteger)number;
 
-- (instancetype)setupXibWithName:(NSString *)name;
+- (void)setupXibWithName:(NSString *)name;
 - (instancetype)loadXibWithName:(NSString *)name;
 - (instancetype)loadXibWithName:(NSString *)name serialNumber:(NSInteger)number;
 
 - (instancetype)loadXibWithName:(NSString *)name  FileOwner:(id)fileOwner serialNumber:(NSInteger)number;
-- (instancetype)initSelfNameXibOnSelfWithFrame:(CGRect)frame serialNumber:(NSInteger)number;
 
 @end

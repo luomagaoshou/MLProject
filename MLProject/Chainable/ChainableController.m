@@ -200,14 +200,15 @@ return numberOfArguments;
     view.frame = CGRectMake(200, 200, 200, 200);
     [self.view addSubview:view];
     view.backgroundColor = [UIColor blueColor];
-    view.ml_make.lookUpMakerOf(UIView);
+   
     CABasicAnimation *animation =  [CABasicAnimation animation].ml_make.keyPath(@"backgroundColor").lookUpMakerOfCABasicAnimation.toValue((id)[UIColor greenColor].CGColor).duration(3).lookUpMakerOfCABasicAnimation.basicAnimation;
+
 //    CABasicAnimation *animation2 = [CABasicAnimation animation].ml_make.keyPath(M_AniKeyPath(transform.scale)).lookUpMakerOfCABasicAnimation.toValue(@3).duration(2).lookUpMakerOf(basicAnimation).basicAnimation;
   
 //    view.layer.ml_make.addAnimation_forKey(animation, @"").addAnimation_forKey(animation2, @"");
 
 
-    
+
 
 #if 0
     NSArray *classeNames= @[[NSObject class],

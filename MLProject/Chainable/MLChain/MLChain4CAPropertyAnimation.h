@@ -14,7 +14,7 @@ ml_chain_block_maker(CAPropertyAnimation);
 @interface MLChain4CAPropertyAnimation:MLChain4CAAnimation
 @property (nonatomic, strong)CAPropertyAnimation *propertyAnimation;
 - (MLChainParamBlock4CAPropertyAnimation)keyPath;
-
+- (instancetype(^)(id,...))keyPath1;
 #ifndef applyForTime_presentationObject_modelObject
 #define applyForTime_presentationObject_modelObject(...) applyForTime_presentationObject_modelObject(ml_chain_MASBoxValue(metamacro_at(0, __VA_ARGS__)), ml_chain_MASBoxValue(metamacro_at(1, __VA_ARGS__)), ml_chain_MASBoxValue(metamacro_at(2, __VA_ARGS__)))
 #endif

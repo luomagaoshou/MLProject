@@ -15,7 +15,7 @@
 #import <UIKit/UIKit.h>
 #import "NSObject+CreateCode.h"
 #import "NSString+ML_Tools.h"
-
+#import <Foundation/Foundation.h>
 @interface AppDelegate ()
 
 @end
@@ -26,8 +26,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
    
-
-    // Override point for customization after application launch.
+    
+    
+    
+    
+ 
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     self.window.backgroundColor = [UIColor whiteColor];
@@ -37,19 +41,34 @@
    
       self.window.rootViewController = nav;
     
-  
+
     
     
     #pragma mark - ========= SB =========
     #pragma mark - Swift
-    [ProjectManager jumpToStoryboardControllerWithNibName:@"MLSwift" storyboardID:@"MLSwiftController"];
+  //  [ProjectManager jumpToStoryboardControllerWithNibName:@"MLMedia" storyboardID:@"MLMediaController"];
+   //[ProjectManager jumpToStoryboardControllerWithNibName:@"MLSwift" storyboardID:@"MLSwiftController"];
+    
+    //[ProjectManager jumpToStoryboardControllerWithNibName:@"MLMap" storyboardID:@"MLMapOfAmapController"];
+    
+    //[ProjectManager jumpToStoryboardControllerWithNibName:@"MLRunloop" storyboardID:@"MLRunloopController"];
+    
+   
+ //   [ProjectManager jumpToStoryboardControllerWithNibName:@"MLBlueTooth" storyboardID:@"MLBlueToothController"];
+        #pragma mark - Swift
+     [ProjectManager jumpToStoryboardControllerWithNibName:    @"MLNestNib" storyboardID:@"MLNestNibViewController"];
+
+    //[ProjectManager jumpToStoryboardControllerWithNibName:@"MLPropertyKeyword" storyboardID:@"MLPropertyKeywordController"];
+    
+    
+    
    //   [ProjectManager jumpToStoryboardControllerWithNibName:@"MLWebView" storyboardID:@"MLWebViewController"];
     
-  //  [ProjectManager jumpToStoryboardControllerWithNibName:@"MLAnimations" storyboardID:@"MLAnimationsController" title:@""];
+   // [ProjectManager jumpToStoryboardControllerWithNibName:@"MLAnimations" storyboardID:@"MLAnimationsController" title:@""];
     //[ProjectManager jumpToStoryboardControllerWithNibName:@"MLSQLite" storyboardID:@"MLSQLiteController" title:nil];
   //  [ProjectManager jumpToStoryboardControllerWithNibName:@"MLWebView" storyboardID:@"MLWebViewController"];
 
-  //  [ProjectManager jumpToStoryboardControllerWithNibName:@"MLCLanguage" storyboardID:@"MLCLPointerController"];
+   // [ProjectManager jumpToStoryboardControllerWithNibName:@"MLCLanguage" storyboardID:@"MLCLPointerController"];
     
   //  [ProjectManager jumpToStoryboardControllerWithNibName:@"MLSplit" storyboardID:@"MLSplitViewController"];
     
@@ -66,7 +85,7 @@
   //  [ProjectManager jumpToStoryboardControllerWithNibName:@"AlgorithmPlay" storyboardID:@"AlgorithmPlayController" title:@""];
    // [nav pushViewController:[UIStoryboard loadViewControllerWithNibName:@"MLCALayer" storyboardID:@"MLCALayerController"] animated:YES];
     
-   //  [ProjectManager jumpToControllerWithController:@"ChainableController"];
+   // [ProjectManager jumpToControllerWithController:@"ChainableController"];
    // [ProjectManager jumpToStoryboardControllerWithNibName:@"MLKVC_KVO" storyboardID:@"MLKVC_KVOController"];
     #pragma mark - ========= XIB =========
  //[ProjectManager jumpToControllerWithController:@"MultiThreadController"];
@@ -78,9 +97,11 @@
   
    // [ProjectManager jumpToStoryboardControllerWithNibName:@"MLCALayer" storyboardID:@"MLCALayerController"];
   
- 
+  
     return YES;
 }
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

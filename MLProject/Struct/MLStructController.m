@@ -125,7 +125,7 @@ union buck {
       printf("打印已有的树结构如下:\n");
       treeprint(root);
   }];
-    
+
    
 }
 
@@ -140,7 +140,7 @@ struct tnode{
     int count;
     struct tnode *left;
     struct tnode *right;
-};
+} tnode;
 
 /*用于分配结构体内存*/
 struct tnode *talloc(void)

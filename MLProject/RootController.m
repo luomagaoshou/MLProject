@@ -7,7 +7,7 @@
 //
 
 #import "RootController.h"
-#import "NibController.h"
+
 #import "NibToViewController.h"
 #import "ScrollViewInXibController.h"
 #import "MultiThreadController.h"
@@ -17,7 +17,6 @@
 #import "UIButton+Init.h"
 #import "RunTimeController.h"
 #import "NSObject+CreateCode.h"
-#import "NibTBCell.h"
 #import "NSFileManager+ML_Tools.h"
 #import "ChainableController.h"
 
@@ -163,8 +162,7 @@
     switch (indexPath.row) {
         case 0:
         {
-            NibController *testCtl = [[NibController alloc] initWithNibName:self.dataSource[indexPath.row] bundle:nil];
-            [self.navigationController pushViewController:testCtl animated:YES];
+          
         }
             break;
         case 1:

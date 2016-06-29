@@ -10,6 +10,8 @@
 #import "UIView+GestureBlock.h"
 #import <UIKit/UIKit.h>
 #import "CABasicAnimation+ML_make.h"
+#import "CALayer+Animation.h"
+#import "UIView+Animation.h"
 @interface MLAnimationsController ()
 @property (weak, nonatomic) IBOutlet UIImageView *flipImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *tranferImageView;
@@ -96,6 +98,18 @@
 {
     [self createCuteEffect];
     [self animationMaker];
+    [self shake];
+}
+
+- (void)shake
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+    view.backgroundColor = [UIColor blueColor];
+    [self.view addSubview:view];
+    [view.layer ml_shake];
+    
+    UIView.ml_make.frame_(100, 100, 100 ,100).backgroundColor([UIColor blueColor]);
+    
 }
 - (void)animationMaker
 {

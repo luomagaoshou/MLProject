@@ -167,15 +167,16 @@
         }else{
             className = NSStringFromClass(obj);
         }
-        [resultArr addObject:className];
+        if (![resultArr containsObject:className]) {
+            [resultArr addObject:className];
+        }
         
-        
-        NSString *superClassName = [className ml_superClassNameFromSelf];
-        if (superClassName) {
+        for ( NSString *superClassName = [className ml_superClassNameFromSelf]; superClassName != nil; superClassName = [superClassName ml_superClassNameFromSelf]) {
             if (![resultArr containsObject:superClassName]) {
                 [resultArr addObject:superClassName];
             }
         }
+        
         
     }
     return resultArr;

@@ -286,7 +286,7 @@
         [resultString appendFormat:@"- (MLChain4%@ *)lookUpMakerOf%@\n{\nreturn [self lookUpMakerWithSelector:_cmd];\n}\n", classStr, classStr];
     }
     
-    NSString *selectorString = @"- (id)lookUpMakerWithSelector:(SEL)selector\n{\nNSString *selName = NSStringFromSelector(selector);\nNSString *className = [selName stringByReplacingOccurrencesOfString:@\"lookUpMakerOf\" withString:@\"\"];\nNSString *makerName = [NSClassFromString(className) chainMakerName];\nif (![self isKindOfClass:NSClassFromString(makerName)]) {\nNSAssert(0, @\"lookUp maker pointer error, 该指针类型不属于该类\");\n}\nreturn self;\n\n}\n";
+    NSString *selectorString = @"- (id)lookUpMakerWithSelector:(SEL)selector\n{\nNSString *selName = NSStringFromSelector(selector);\nNSString *className = [selName stringByReplacingOccurrencesOfString:@\"lookUpMakerOf\" withString:@\"\"];\nNSString *makerName = [NSClassFromString(className) chainMakerName];\nif (![self isKindOfClass:NSClassFromString(makerName)]) {\nNSAssert(0, @\"lookUp maker pointer error, 该指针类型不属于该类或该类父类\");\n}\nreturn self;\n\n}\n";
     [resultString appendString:selectorString];
     return resultString;
 }

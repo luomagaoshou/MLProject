@@ -11,4 +11,5 @@
 @interface UIView (ML_Tools)
 + (void)resignFirstResponderCommonMothed;
 - (void)resignFirstResponderCommonMothed;
+- (void)moveToSuperview:(UIView *)superview;
 @end

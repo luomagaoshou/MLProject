@@ -17,20 +17,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXn-TE-gkA">
-                                <rect key="frame" x="31" y="143" width="66" height="30"/>
-                                <state key="normal" title="push now"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DvD-a2-OSn">
                                 <rect key="frame" x="20" y="225" width="116" height="30"/>
                                 <state key="normal" title="create then push"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXn-TE-gkA">
+                                <rect key="frame" x="31" y="143" width="66" height="30"/>
+                                <state key="normal" title="push now"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="createThenPush" destination="DvD-a2-OSn" id="QDP-1l-0Hc"/>
-                        <outlet property="pushNow" destination="sXn-TE-gkA" id="CKE-bJ-6fl"/>
+                        <outlet property="createThenPushButton" destination="DvD-a2-OSn" id="soy-Rn-5tc"/>
+                        <outlet property="pushNowButton" destination="sXn-TE-gkA" id="H1x-8I-PIG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bMw-pQ-gu4" userLabel="First Responder" sceneMemberID="firstResponder"/>

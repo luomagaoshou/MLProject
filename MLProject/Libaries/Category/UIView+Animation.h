@@ -12,4 +12,5 @@
 + (void)animateWithDuration:(NSTimeInterval)duration
                       views:(NSArray *)views
                      offset:(CGPoint)offset;
+
 @end

@@ -9,7 +9,6 @@
 #import "UIView+Xib.h"
 #import <objc/runtime.h>
 
-const char *externXibContainerViewKey;
 @implementation UIView (Xib)
 - (void)setupSelfNameXibOnSelf
 {
@@ -20,8 +19,6 @@ const char *externXibContainerViewKey;
 - (void)setupSelfNameXibOnSelfWithSerialNumber:(NSInteger)number
 {
     UIView *containerView = [self loadSelfXibWithFileOwner:self serialNumber:number];
-   
-    
     [self addSubview:containerView];
 }
 - (instancetype)loadSelfXibWithFileOwner:(id)fileOwner
@@ -32,23 +29,17 @@ const char *externXibContainerViewKey;
 
 - (instancetype)loadSelfXibWithFileOwner:(id)fileOwner serialNumber:(NSInteger)number
 {
-
-    UIView *containerView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:fileOwner options:nil][number];
-    containerView.backgroundColor = [UIColor clearColor];
-    containerView.frame = self.bounds;
-    containerView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
-  
-    objc_setAssociatedObject(fileOwner, &externXibContainerViewKey, containerView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    return [self loadXibWithName:NSStringFromClass([self class]) FileOwner:self serialNumber:number];
+    UIView *containerView = [self loadXibWithName:NSStringFromClass([self class]) FileOwner:self serialNumber:0];
+    return containerView;
 }
 
 
-- (instancetype)setupXibWithName:(NSString *)name
+- (void)setupXibWithName:(NSString *)name
 {
     UIView *contianerView = [self loadXibWithName:name];
     [self addSubview:contianerView];
-    return contianerView;
+  
 }
 - (instancetype)loadXibWithName:(NSString *)name
 {
@@ -61,27 +52,16 @@ const char *externXibContainerViewKey;
 - (instancetype)loadXibWithName:(NSString *)name  FileOwner:(id)fileOwner serialNumber:(NSInteger)number
 {
     UIView *containerView = [[NSBundle mainBundle] loadNibNamed:name owner:fileOwner options:nil][number];
-    containerView.backgroundColor = [UIColor clearColor];
     containerView.frame = self.bounds;
     containerView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
-    
-    objc_setAssociatedObject(fileOwner, &externXibContainerViewKey, containerView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(fileOwner, @selector(containerView), containerView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     return containerView;
 }
 
-- (instancetype)initSelfNameXibOnSelfWithFrame:(CGRect)frame serialNumber:(NSInteger)number
-{
-  
-    self = [self initWithFrame:frame];
-    if (self) {
-        [self setupSelfNameXibOnSelfWithSerialNumber:number];
-    }
-    return self;
-    
-}
+
 #pragma mark - ========= Setter & Getter =========
 - (id)containerView
 {
-    return objc_getAssociatedObject(self, &externXibContainerViewKey);
+    return objc_getAssociatedObject(self, @selector(containerView));
 }
 @end
