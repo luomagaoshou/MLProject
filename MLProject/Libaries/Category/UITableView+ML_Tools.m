@@ -45,6 +45,13 @@
     }
 }
 
+- (void)ML_registerClassForCellWithArray:(NSArray *)array
+{
+    for (NSInteger i = 0; i < array.count; i++) {
+        [self ML_registerClassAndCellReuseIdentifierWithDictionary:@{array[0]:array[0]}];
+    }
+  
+}
 
 //用字典注册
 - (void)ML_registerClassAndCellReuseIdentifierWithDictionary:(NSDictionary *)dictionary

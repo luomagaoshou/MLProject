@@ -25,6 +25,7 @@
  *
  *  @param dictionary 
  */
+- (void)ML_registerClassForCellWithArray:(NSArray *)array;
 - (void)ML_registerClassAndCellReuseIdentifierWithDictionary:(NSDictionary *)dictionary;
 - (void)ML_registerNibAndCellReuseIdentifierWithDictionary:(NSDictionary *)dictionary;
 - (void)ML_registerClassAndHeaderFooterViewReuseIdentifierWithDictionary:(NSDictionary *)dictionary;

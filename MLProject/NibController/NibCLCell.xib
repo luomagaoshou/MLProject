@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NibCLCell">
+            <connections>
+                <outlet property="label" destination="wqg-do-Anb" id="uFz-pI-OIA"/>
+                <outlet property="testButton" destination="n6T-ma-kge" id="Ctc-wK-Y48"/>
+                <outlet property="testView" destination="4gZ-BL-SmZ" id="Ud1-w7-f6d"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX">
+            <rect key="frame" x="0.0" y="0.0" width="159" height="147"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="159" height="147"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4gZ-BL-SmZ">
+                        <rect key="frame" x="0.0" y="49" width="159" height="49"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wqg-do-Anb">
+                        <rect key="frame" x="0.0" y="0.0" width="159" height="49"/>
+                        <color key="backgroundColor" red="1" green="0.90367560107741829" blue="0.38678351734537353" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n6T-ma-kge">
+                        <rect key="frame" x="0.0" y="98" width="159" height="49"/>
+                        <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <state key="normal" title="Button"/>
+                        <connections>
+                            <action selector="clickEvent:" destination="-1" eventType="touchUpInside" id="Wev-dg-o2Q"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="4gZ-BL-SmZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="5b3-u7-qxh"/>
+                <constraint firstItem="wqg-do-Anb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Fc0-qN-lo0"/>
+                <constraint firstItem="n6T-ma-kge" firstAttribute="top" secondItem="4gZ-BL-SmZ" secondAttribute="bottom" id="HD1-Sn-u9d"/>
+                <constraint firstItem="4gZ-BL-SmZ" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="1/3" id="RMK-aO-U0m"/>
+                <constraint firstAttribute="trailing" secondItem="4gZ-BL-SmZ" secondAttribute="trailing" id="SPS-EG-3kW"/>
+                <constraint firstAttribute="trailing" secondItem="wqg-do-Anb" secondAttribute="trailing" id="btH-dv-kti"/>
+                <constraint firstItem="n6T-ma-kge" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="n9z-KJ-FHn"/>
+                <constraint firstItem="wqg-do-Anb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="tJk-Cb-tTL"/>
+                <constraint firstItem="4gZ-BL-SmZ" firstAttribute="top" secondItem="wqg-do-Anb" secondAttribute="bottom" id="tvq-MK-dON"/>
+                <constraint firstItem="n6T-ma-kge" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="1/3" id="wqD-ue-05N"/>
+                <constraint firstAttribute="trailing" secondItem="n6T-ma-kge" secondAttribute="trailing" id="x9T-Qw-POo"/>
+                <constraint firstItem="wqg-do-Anb" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="1/3" id="xm5-4a-0Ot"/>
+            </constraints>
+            <size key="customSize" width="159" height="147"/>
+            <point key="canvasLocation" x="251.5" y="312.5"/>
+        </collectionViewCell>
+    </objects>
+</document>

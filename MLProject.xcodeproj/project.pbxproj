@@ -152,6 +152,8 @@
 		FE29A27F1C54F7D0006FF01E /* UIViewController+Storyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = FE29A27E1C54F7D0006FF01E /* UIViewController+Storyboard.m */; };
 		FE31D0E51BFE15FF00D63286 /* MultiThreadController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE31D0E31BFE15FF00D63286 /* MultiThreadController.m */; };
 		FE31D0E61BFE15FF00D63286 /* MultiThreadController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE31D0E41BFE15FF00D63286 /* MultiThreadController.xib */; };
+		FE328C8C1D26AB3100F96691 /* MLMJRefresh.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE328C8B1D26AB3100F96691 /* MLMJRefresh.storyboard */; };
+		FE328C8F1D26AB4D00F96691 /* MLMJRefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE328C8E1D26AB4D00F96691 /* MLMJRefreshViewController.m */; };
 		FE3C4A731C2EBA66004CBA21 /* ChainableController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE3C4A711C2EBA66004CBA21 /* ChainableController.xib */; };
 		FE514DB21C1BFCDB00E3AC0C /* RunTimeController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE514DB01C1BFCDB00E3AC0C /* RunTimeController.m */; };
 		FE514DB31C1BFCDB00E3AC0C /* RunTimeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE514DB11C1BFCDB00E3AC0C /* RunTimeController.xib */; };
@@ -530,6 +532,9 @@
 		FE31D0E21BFE15FF00D63286 /* MultiThreadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiThreadController.h; sourceTree = "<group>"; };
 		FE31D0E31BFE15FF00D63286 /* MultiThreadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiThreadController.m; sourceTree = "<group>"; };
 		FE31D0E41BFE15FF00D63286 /* MultiThreadController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultiThreadController.xib; sourceTree = "<group>"; };
+		FE328C8B1D26AB3100F96691 /* MLMJRefresh.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLMJRefresh.storyboard; sourceTree = "<group>"; };
+		FE328C8D1D26AB4D00F96691 /* MLMJRefreshViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLMJRefreshViewController.h; sourceTree = "<group>"; };
+		FE328C8E1D26AB4D00F96691 /* MLMJRefreshViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLMJRefreshViewController.m; sourceTree = "<group>"; };
 		FE3685231C2ACF6100317135 /* PublicDeclear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicDeclear.h; sourceTree = "<group>"; };
 		FE3C4A6F1C2EBA66004CBA21 /* ChainableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChainableController.h; sourceTree = "<group>"; };
 		FE3C4A701C2EBA66004CBA21 /* ChainableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChainableController.m; sourceTree = "<group>"; };
@@ -1156,6 +1161,16 @@
 			path = MultiThread;
 			sourceTree = "<group>";
 		};
+		FE328C8A1D26AB2600F96691 /* MJRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				FE328C8B1D26AB3100F96691 /* MLMJRefresh.storyboard */,
+				FE328C8D1D26AB4D00F96691 /* MLMJRefreshViewController.h */,
+				FE328C8E1D26AB4D00F96691 /* MLMJRefreshViewController.m */,
+			);
+			path = MJRefresh;
+			sourceTree = "<group>";
+		};
 		FE3C4A6B1C2EBA00004CBA21 /* Chainable */ = {
 			isa = PBXGroup;
 			children = (
@@ -1419,6 +1434,7 @@
 				FEB529D01BEF1EBA00EAA6C1 /* RootController.h */,
 				FEB529D11BEF1EBA00EAA6C1 /* RootController.m */,
 				FEB529D31BEF208A00EAA6C1 /* RootController.xib */,
+				FE328C8A1D26AB2600F96691 /* MJRefresh */,
 				FE01270E1CFFD61A00593576 /* BlueTooth */,
 				FE9F364B1CFC4AC300A16744 /* Map */,
 				FEE3DCA51CF72BCB0046B515 /* OpenGL */,
@@ -1725,6 +1741,7 @@
 				FE972D061C5FAB6800C34DC0 /* MLCALayer.storyboard in Resources */,
 				FEE55D181BF4DA2C00C8F783 /* NibToViewView.xib in Resources */,
 				FE514DB31C1BFCDB00E3AC0C /* RunTimeController.xib in Resources */,
+				FE328C8C1D26AB3100F96691 /* MLMJRefresh.storyboard in Resources */,
 				FEE6A6931C691188008760CA /* AlgorithmPlay.storyboard in Resources */,
 				FE9F364D1CFC4ACC00A16744 /* MLMap.storyboard in Resources */,
 				18FCA2301C7D3B5C002C4E5C /* image2.jpg in Resources */,
@@ -1956,6 +1973,7 @@
 				FE06A0941CA7B01200758B37 /* MLImageNextController.m in Sources */,
 				18C276891C7D41020055C19D /* UITableViewCell+Separator.m in Sources */,
 				1822284B1CAE86DD00A7E43D /* ALFootballLotteryController.m in Sources */,
+				FE328C8F1D26AB4D00F96691 /* MLMJRefreshViewController.m in Sources */,
 				18C276871C7D41020055C19D /* UITableView+ML_Tools.m in Sources */,
 				FE6B22691CD65178007733FD /* MLChain4CALayer.m in Sources */,
 				18FCA2321C7D3B5C002C4E5C /* WHC_XMLParser.m in Sources */,

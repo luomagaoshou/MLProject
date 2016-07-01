@@ -27,8 +27,5 @@
 {
     return [objc_getAssociatedObject(self, @selector(pageNumber)) integerValue];
 }
-- (void)setRequestID:(NSString *)requestID
-{
-    
-}
+
 @end

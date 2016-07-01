@@ -12,5 +12,5 @@
 @interface UITableView (Refresh)
 @property (nonatomic, assign) NSInteger pageSize;
 @property (nonatomic, assign) NSInteger pageNumber;
-@property (nonatomic, copy) NSString *requestID;
+
 @end
