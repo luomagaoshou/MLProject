@@ -11,100 +11,114 @@
 #import "UIStoryboard+Load.h"
 @implementation ProjectManager
 
-+ (UIViewController *)jumpToControllerWithControllerAfterCloseDrawer:(id)controller
-{
-    
-    
-   return [ProjectManager jumpToControllerWithControllerAfterCloseDrawer:controller title:nil];
-}
-+ (UIViewController *)jumpToControllerWithControllerAfterCloseDrawer:(id)controller title:(NSString *)title
-{
-    
-   __block UIViewController *ctl;
-    dispatch_async(dispatch_get_main_queue(), ^{
-      
-    });
-   
-    return ctl;
-}
 
-+ (UIViewController *)jumpToControllerWithController:(id)controller
-{
-   return [self jumpToControllerWithController:controller title:nil];
-}
 
-+ (id)jumpToStoryboardControllerWithNibName:(NSString *)nibName storyboardID:(NSString *)storyboardID
+
++ (id)pushStoryboardControllerWithNibName:(NSString *)nibName storyboardID:(NSString *)storyboardID
 {
-    return [self jumpToStoryboardControllerWithNibName:nibName storyboardID:storyboardID title:nil];
+    return [self pushStoryboardControllerWithNibName:nibName storyboardID:storyboardID title:nil];
 }
-+ (id)jumpToStoryboardControllerWithNibName:(NSString *)nibName storyboardID:(NSString *)storyboardID title:(NSString *)title
++ (id)pushStoryboardControllerWithNibName:(NSString *)nibName storyboardID:(NSString *)storyboardID title:(NSString *)title
 {
     UIViewController *pushedCtl = [UIStoryboard loadViewControllerWithNibName:nibName storyboardID:storyboardID];
+
     pushedCtl.title = title;
     [[self rootNavigationController] pushViewController:pushedCtl animated:YES];
     return pushedCtl;
 }
-//+ (id)jumpToStoryboardControllerAfterCloseWithNibName:(NSString *)nibName storyboardID:(NSString *)storyboardID title:(NSString *)title
-//{
-//    __block UIViewController *ctl;
-// 
-//        [[RootDrawerController shareInstance] closeDrawerAnimated:NO completion:^(BOOL finished) {
-//            ctl = [self jumpToStoryboardControllerWithNibName:nibName storyboardID:storyboardID title:title];
-//        }];
-//  
-//    return ctl;
-//}
-//
 
 
-+ (UIViewController *)jumpToControllerWithController:(id)controller title:(NSString *)title
++ (UIViewController *)pushToControllerWithController:(id)controller
 {
-    UIViewController *pushedCtl;
-    
-    if ([controller isKindOfClass:[UIViewController class]]) {
-        pushedCtl = controller;
-    }
-    else if ([controller isKindOfClass:[NSString class]])
-    {
-       // pushedCtl = [[NSClassFromString(controller) alloc] init];
-     NSString *result =  [[NSBundle mainBundle] pathForResource:controller ofType:@"nib"];
-        if (result) {
-            pushedCtl = [[NSClassFromString(controller) alloc] initWithNibName:controller bundle:nil];
-        }
-        else
-        {
-             pushedCtl = [[NSClassFromString(controller) alloc] init];
-        }
-        
-    }
-    else if ([controller isKindOfClass:[controller class]])
-    {
-           NSString *result =  [[NSBundle mainBundle] pathForResource:NSStringFromClass(controller) ofType:@"nib"];
-        if (result) {
-                 pushedCtl = [[NSClassFromString(NSStringFromClass([controller class])) alloc] initWithNibName:NSStringFromClass(controller) bundle:nil];
-        }
-        else
-        {
-               pushedCtl = [[[controller class] alloc] init];
-        }
-     
-    }
-    
-    
-    if (title) {
-        pushedCtl.title = title;
-    }
-    [[self rootNavigationController] pushViewController:pushedCtl animated:YES];
-    return pushedCtl;
+    return [self pushToControllerWithController:controller title:nil];
 }
+
++ (UIViewController *)pushToControllerWithController:(id)controller title:(NSString *)title
+{
+    UIViewController *ctl = [self viewControllerWithController:controller title:title];
+    [[self rootNavigationController] pushViewController:ctl animated:YES];
+    return ctl;
+}
+
++ (void)popToRootControllerAnimated:(BOOL)animated
+{
+    UINavigationController *nav = (UINavigationController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+    if ([nav isKindOfClass:[UINavigationController class]]) {
+        [nav popToRootViewControllerAnimated:YES];
+    }
+}
+
+#pragma mark - ========= Present =========
++ (id)presentToControllerWithController:(id)controller
+{
+    return [self presentToControllerWithController:controller title:nil];
+}
++ (id)presentToControllerWithController:(id)controller title:(NSString *)title
+{
+    UIViewController *ctl = [self viewControllerWithController:controller title:title];
+    UIViewController *lastVC = [UIViewController getLastViewController];
+    [lastVC presentViewController:ctl animated:YES completion:nil];
+    return ctl;
+}
+
++ (id)presentStoryboardControllerWithNibName:(NSString *)nibName storyboardID:(NSString *)storyboardID
+{
+  return [self presentStoryboardControllerWithNibName:nibName storyboardID:storyboardID title:nil];
+}
++ (id)presentStoryboardControllerWithNibName:(NSString *)nibName storyboardID:(NSString *)storyboardID title:(NSString *)title
+{
+    UIViewController *ctl = [UIStoryboard loadViewControllerWithNibName:nibName storyboardID:storyboardID];
+    ctl.title = title;
+    UIViewController *lastVC = [UIViewController getLastViewController];
+    [lastVC presentViewController:ctl animated:YES completion:nil];
+    return ctl;
+    
+}
+
 + (UINavigationController *)rootNavigationController
 {
    
     UIViewController *lastCtl = [UIViewController getLastViewController];
     return (UINavigationController *)lastCtl;
 }
-//+ (UINavigationController *)centerNavigationControler
-//{
-//    return ((UINavigationController *)[RootDrawerController shareInstance].centerViewController);
-//}
+#pragma mark - ========= 根据类名或类名字串取得viewController =========
++ (id)viewControllerWithController:(id)controller title:(NSString *)title
+{
+    UIViewController *ctl;
+    
+    if ([controller isKindOfClass:[UIViewController class]]) {
+        ctl = controller;
+    }
+    else if ([controller isKindOfClass:[NSString class]])
+    {
+        
+        NSString *result =  [[NSBundle mainBundle] pathForResource:controller ofType:@"nib"];
+        if (result) {
+            ctl = [[NSClassFromString(controller) alloc] initWithNibName:controller bundle:nil];
+        }
+        else
+        {
+            ctl = [[NSClassFromString(controller) alloc] init];
+        }
+        
+    }
+    else if ([controller isKindOfClass:[controller class]])
+    {
+        NSString *result =  [[NSBundle mainBundle] pathForResource:NSStringFromClass(controller) ofType:@"nib"];
+        if (result) {
+            ctl = [[NSClassFromString(NSStringFromClass([controller class])) alloc] initWithNibName:NSStringFromClass(controller) bundle:nil];
+        }
+        else
+        {
+            ctl = [[[controller class] alloc] init];
+        }
+        
+    }
+    
+    
+    if (title) {
+        ctl.title = title;
+    }
+    return ctl;
+}
 @end

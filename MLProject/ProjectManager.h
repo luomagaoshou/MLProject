@@ -12,24 +12,27 @@
 @interface ProjectManager : NSObject
 
 
-+ (void)popToCenterRootControllerAnimated:(BOOL)animated;
++ (void)popToRootControllerAnimated:(BOOL)animated;
 
-+ (id)jumpToStoryboardControllerWithNibName:(NSString *)nibName
++ (id)pushStoryboardControllerWithNibName:(NSString *)nibName
                                storyboardID:(NSString *)storyboardID;
-+ (id)jumpToStoryboardControllerWithNibName:(NSString *)nibName
++ (id)pushStoryboardControllerWithNibName:(NSString *)nibName
                                storyboardID:(NSString *)storyboardID
                                       title:(NSString *)title;
 
-+ (id)jumpToStoryboardControllerAfterCloseWithNibName:(NSString *)nibName
-                               storyboardID:(NSString *)storyboardID
-                                      title:(NSString *)title;
-+ (void)jumpToLoginController;
-+ (void)jumpToPersonalAccountController;
++ (id)pushToControllerWithController:(id)controller;
++ (id)pushToControllerWithController:(id)controller title:(NSString *)title;
 
 
-+ (id)jumpToControllerWithControllerAfterCloseDrawer:(id)controller;
-+ (id)jumpToControllerWithControllerAfterCloseDrawer:(id)controller title:(NSString *)title;
++ (id)presentStoryboardControllerWithNibName:(NSString *)nibName
+                                storyboardID:(NSString *)storyboardID;
++ (id)presentStoryboardControllerWithNibName:(NSString *)nibName
+                                storyboardID:(NSString *)storyboardID
+                                       title:(NSString *)title;
 
-+ (id)jumpToControllerWithController:(id)controller;
-+ (id)jumpToControllerWithController:(id)controller title:(NSString *)title;
+
++ (id)presentToControllerWithController:(id)controller;
++ (id)presentToControllerWithController:(id)controller title:(NSString *)title;
+
+
 @end

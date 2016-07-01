@@ -46,35 +46,35 @@
     
     #pragma mark - ========= SB =========
     #pragma mark - Swift
-  //  [ProjectManager jumpToStoryboardControllerWithNibName:@"MLMedia" storyboardID:@"MLMediaController"];
-   //[ProjectManager jumpToStoryboardControllerWithNibName:@"MLSwift" storyboardID:@"MLSwiftController"];
+  //  [ProjectManager pushStoryboardControllerWithNibName:@"MLMedia" storyboardID:@"MLMediaController"];
+   //[ProjectManager pushStoryboardControllerWithNibName:@"MLSwift" storyboardID:@"MLSwiftController"];
     
-    //[ProjectManager jumpToStoryboardControllerWithNibName:@"MLMap" storyboardID:@"MLMapOfAmapController"];
+    //[ProjectManager pushStoryboardControllerWithNibName:@"MLMap" storyboardID:@"MLMapOfAmapController"];
     
-    //[ProjectManager jumpToStoryboardControllerWithNibName:@"MLRunloop" storyboardID:@"MLRunloopController"];
+    //[ProjectManager pushStoryboardControllerWithNibName:@"MLRunloop" storyboardID:@"MLRunloopController"];
     
    
- //   [ProjectManager jumpToStoryboardControllerWithNibName:@"MLBlueTooth" storyboardID:@"MLBlueToothController"];
+ //   [ProjectManager pushStoryboardControllerWithNibName:@"MLBlueTooth" storyboardID:@"MLBlueToothController"];
         #pragma mark - Swift
-   //  [ProjectManager jumpToStoryboardControllerWithNibName:    @"MLNestNib" storyboardID:@"MLNestNibViewController"];
+   //  [ProjectManager pushStoryboardControllerWithNibName:    @"MLNestNib" storyboardID:@"MLNestNibViewController"];
 
     
-    [ProjectManager jumpToStoryboardControllerWithNibName:@"MLMJRefresh" storyboardID:@"MLMJRefreshViewController"];
-    //[ProjectManager jumpToStoryboardControllerWithNibName:@"MLPropertyKeyword" storyboardID:@"MLPropertyKeywordController"];
+    [ProjectManager pushStoryboardControllerWithNibName:@"MLMJRefresh" storyboardID:@"MLMJRefreshViewController"];
+    //[ProjectManager pushStoryboardControllerWithNibName:@"MLPropertyKeyword" storyboardID:@"MLPropertyKeywordController"];
     
     
     
-   //   [ProjectManager jumpToStoryboardControllerWithNibName:@"MLWebView" storyboardID:@"MLWebViewController"];
+   //   [ProjectManager pushStoryboardControllerWithNibName:@"MLWebView" storyboardID:@"MLWebViewController"];
     
-   // [ProjectManager jumpToStoryboardControllerWithNibName:@"MLAnimations" storyboardID:@"MLAnimationsController" title:@""];
-    //[ProjectManager jumpToStoryboardControllerWithNibName:@"MLSQLite" storyboardID:@"MLSQLiteController" title:nil];
-  //  [ProjectManager jumpToStoryboardControllerWithNibName:@"MLWebView" storyboardID:@"MLWebViewController"];
+   // [ProjectManager pushStoryboardControllerWithNibName:@"MLAnimations" storyboardID:@"MLAnimationsController" title:@""];
+    //[ProjectManager pushStoryboardControllerWithNibName:@"MLSQLite" storyboardID:@"MLSQLiteController" title:nil];
+  //  [ProjectManager pushStoryboardControllerWithNibName:@"MLWebView" storyboardID:@"MLWebViewController"];
 
-   // [ProjectManager jumpToStoryboardControllerWithNibName:@"MLCLanguage" storyboardID:@"MLCLPointerController"];
+   // [ProjectManager pushStoryboardControllerWithNibName:@"MLCLanguage" storyboardID:@"MLCLPointerController"];
     
-  //  [ProjectManager jumpToStoryboardControllerWithNibName:@"MLSplit" storyboardID:@"MLSplitViewController"];
+  //  [ProjectManager pushStoryboardControllerWithNibName:@"MLSplit" storyboardID:@"MLSplitViewController"];
     
-   　// [ProjectManager jumpToStoryboardControllerWithNibName:@"MLResponderChain" storyboardID:@"MLResponderChainController"];
+   　// [ProjectManager pushStoryboardControllerWithNibName:@"MLResponderChain" storyboardID:@"MLResponderChainController"];
 
 //    
 //    
@@ -84,20 +84,20 @@
   
 
 
-  //  [ProjectManager jumpToStoryboardControllerWithNibName:@"AlgorithmPlay" storyboardID:@"AlgorithmPlayController" title:@""];
+  //  [ProjectManager pushStoryboardControllerWithNibName:@"AlgorithmPlay" storyboardID:@"AlgorithmPlayController" title:@""];
    // [nav pushViewController:[UIStoryboard loadViewControllerWithNibName:@"MLCALayer" storyboardID:@"MLCALayerController"] animated:YES];
     
-   // [ProjectManager jumpToControllerWithController:@"ChainableController"];
-   // [ProjectManager jumpToStoryboardControllerWithNibName:@"MLKVC_KVO" storyboardID:@"MLKVC_KVOController"];
+   // [ProjectManager pushToControllerWithController:@"ChainableController"];
+   // [ProjectManager pushStoryboardControllerWithNibName:@"MLKVC_KVO" storyboardID:@"MLKVC_KVOController"];
     #pragma mark - ========= XIB =========
- //[ProjectManager jumpToControllerWithController:@"MultiThreadController"];
+ //[ProjectManager pushToControllerWithController:@"MultiThreadController"];
   
-   // [ProjectManager jumpToStoryboardControllerWithNibName:@"MLStruct" storyboardID:@"MLStructController"];
+   // [ProjectManager pushStoryboardControllerWithNibName:@"MLStruct" storyboardID:@"MLStructController"];
     
-//    [ProjectManager jumpToStoryboardControllerWithNibName:@"MLImage" storyboardID:@"MLImageController" title:@""];
+//    [ProjectManager pushStoryboardControllerWithNibName:@"MLImage" storyboardID:@"MLImageController" title:@""];
    // [nav pushViewController:strCtl animated:YES];
   
-   // [ProjectManager jumpToStoryboardControllerWithNibName:@"MLCALayer" storyboardID:@"MLCALayerController"];
+   // [ProjectManager pushStoryboardControllerWithNibName:@"MLCALayer" storyboardID:@"MLCALayerController"];
   
   
     return YES;

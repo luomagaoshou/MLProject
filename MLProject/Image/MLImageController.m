@@ -94,7 +94,7 @@
 {
         [self.nextButton touchUpInside:^{
             UIImage *image = [self screenShot];
-          MLImageNextController *ctl =   [ProjectManager jumpToStoryboardControllerWithNibName:@"MLImage" storyboardID:@"MLImageNextController" title:@"下一页"];
+          MLImageNextController *ctl =   [ProjectManager pushStoryboardControllerWithNibName:@"MLImage" storyboardID:@"MLImageNextController" title:@"下一页"];
             ctl.image = image;
         }];
 }
