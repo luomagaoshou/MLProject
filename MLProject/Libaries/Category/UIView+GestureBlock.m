@@ -49,10 +49,39 @@ block(sender);\
 }
 
 @implementation UIView (GestureBlock)
+- (void)tapWithEvent:(void (^)(id))eventBlock
+{
+    [self tapWithConfig:nil event:eventBlock];
+}
 UIVIEW_GESTURE_EVENT(tap, Tap)
+
+- (void)swipeWithEvent:(void (^)(id))eventBlock
+{
+    [self swipeWithConfig:nil event:eventBlock];
+}
 UIVIEW_GESTURE_EVENT(swipe, Swipe)
+
+- (void)longPressWithEvent:(void (^)(id))eventBlock
+{
+    [self longPressWithConfig:nil event:eventBlock];
+}
 UIVIEW_GESTURE_EVENT(longPress, LongPress)
+
+- (void)panWithEvent:(void (^)(id))eventBlock
+{
+    [self panWithConfig:nil event:eventBlock];
+}
 UIVIEW_GESTURE_EVENT(pan, Pan)
+
+- (void)pinchWithEvent:(void (^)(id))eventBlock
+{
+    [self pinchWithConfig:nil event:eventBlock];
+}
 UIVIEW_GESTURE_EVENT(pinch, Pinch)
+
+- (void)rotationWithEvent:(void (^)(id))eventBlock
+{
+    [self rotationWithConfig:nil event:eventBlock];
+}
 UIVIEW_GESTURE_EVENT(rotation, Rotation)
 @end
