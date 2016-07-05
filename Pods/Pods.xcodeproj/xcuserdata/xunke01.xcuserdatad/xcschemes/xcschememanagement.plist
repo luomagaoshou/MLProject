@@ -74,11 +74,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Realm.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>UITableView+FDTemplateLayoutCell.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -96,6 +91,92 @@
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict/>
+	<dict>
+		<key>12D056BF0BDC55E6F6A544E4472DFDFB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2238ED435F11B8CB0A049DBD16A5ED63</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>426BC4549A625B5E1E4200D5261A98BF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>47E78E9C0E77745F2803A096919EBEC9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>53480ED0BE09FF49E34B1702D485CAAB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>550F7EEAEEA17E3F92C873912E23B01C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>55DBDD8B7D446F1D618F303A9FB53209</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5DE0CFC5A49539BA8645ACE97BC218DD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5E9EE1C453A984021C8A86744ADCC36F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>70BC44266C6FFE30D2C57129458E070B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>736E57AD5AEFAAF68D47AE4E8FCB8F68</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>928353533005A4198EBDA5B700D37B64</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9F12FB4A63E20F601CFB2E64A65B57C1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B23B3D15FFC0FC9893968F478086D58D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C29B3FAD5B9F1F5C89AC4D8864FC3A50</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E302F999F9AA45C7260A4919CD2F263F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FB4F5C599753DEDACA06ADA9BB4AD116</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
 </dict>
 </plist>

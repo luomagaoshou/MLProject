@@ -14,5 +14,5 @@ pod 'YYKit'
 pod 'AsyncDisplayKit'
 pod 'FMDB'
 pod 'DZNEmptyDataSet'
-pod 'Realm'
+
 end
