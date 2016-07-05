@@ -7,7 +7,7 @@
 //
 
 #import "MultiThreadController.h"
-#import "NetworkCtl.h"
+#import "MLNetwork.h"
 #import <AFNetworking/AFNetworking.h>
 #import "UIView+DrawRectBlock.h"
 #import "ProjectManager.h"

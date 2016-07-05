@@ -45,7 +45,7 @@
             
             
             UILabel *placeholderLabel = [self placeholderLabel];
-            LabelAlignmentFontSizeTextColor(placeholderLabel, NSTextAlignmentLeft, 14, kUI_OBJECT_COLOR_LIGHT_GRAY);
+            LabelAlignment_fontSize_textColor(placeholderLabel, NSTextAlignmentLeft, 14, kUI_OBJECT_COLOR_LIGHT_GRAY);
             
          
           
@@ -75,14 +75,14 @@
             
             
             UILabel *placeholderLabel = [self placeholderLabel];
-            LabelAlignmentFontSizeTextColor(placeholderLabel, NSTextAlignmentLeft, 14, kUI_OBJECT_COLOR_LIGHT_GRAY);
+            LabelAlignment_fontSize_textColor(placeholderLabel, NSTextAlignmentLeft, 14, kUI_OBJECT_COLOR_LIGHT_GRAY);
       
             
             UILabel *leftLable = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, self.height)];
-               LabelAlignmentFontSizeTextColor(leftLable, NSTextAlignmentLeft, 14, kUI_TEXT_COLOR_GRAY);
+               LabelAlignment_fontSize_textColor(leftLable, NSTextAlignmentLeft, 14, kUI_TEXT_COLOR_GRAY);
             self.leftView = leftLable;
     
-            ViewRadiusBorderWidthColor(self, 0, 1/SCREEN_SCALE, kUI_SEPARATOR_COLOR_GRAY);
+            LayerCornerRadius_borderWidth_borderColor(self.layer, 0, 1/SCREEN_SCALE, kUI_SEPARATOR_COLOR_GRAY);
             
         }
             break;

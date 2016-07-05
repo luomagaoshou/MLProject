@@ -72,23 +72,22 @@ CGPointMake(originPoint.x + offsetPoint.x, originPoint.y + offsetPoint.y)
 #define STATUSBAR_HEIGHT (IOS_VERSION < 7.0?20:0)
 // @}end of 状态栏 高度
 
-#define ViewRadiusBorderWidthColor(View, Radius, Width, Color)\
-[View.layer setCornerRadius:(Radius)];\
-[View.layer setMasksToBounds:YES];\
-[View.layer setBorderWidth:(Width)];\
-[View.layer setBorderColor:[(Color == nil ?[UIColor clearColor]:Color) CGColor]]
+#define LayerCornerRadius_borderWidth_borderColor(Layer, Radius, Width, Color)\
+[Layer setCornerRadius:(Radius)];\
+[Layer setMasksToBounds:YES];\
+[Layer setBorderWidth:(Width)];\
+[Layer setBorderColor:[(Color == nil ?[UIColor clearColor]:Color) CGColor]]
 
-#define LabelAlignmentFontSizeTextColor(Label, Alignment, FontSize, TextColor)\
+#define LabelAlignment_fontSize_textColor(Label, Alignment, FontSize, TextColor)\
 Label.textAlignment = Alignment;\
 Label.font = [UIFont systemFontOfSize:FontSize];\
 Label.textColor = TextColor
 
 
-#define ButtonTextColorTextSizeBackground(Button, TextColor, FontSize,  BackgroundColor)\
+#define ButtonTextColor_fontSize_backgroundColor(Button, TextColor, FontSize,  BackgroundColor)\
 [Button setTitleColor:TextColor forState:UIControlStateNormal];\
 Button.titleLabel.font = [UIFont systemFontOfSize:FontSize];\
 Button.backgroundColor = BackgroundColor
 
-#define ButtonEventOnSelf(Action)\
-[Button addTarget:self action:Action forControlEvents:UIControlEventTouchUpInside]
+
 #endif /* PublicDeclear_h */

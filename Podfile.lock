@@ -14,12 +14,6 @@ PODS:
   - AFNetworking/Serialization (3.0.4)
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
-  - AsyncDisplayKit (1.9.7):
-    - AsyncDisplayKit/PINRemoteImage (= 1.9.7)
-  - AsyncDisplayKit/ASDealloc2MainObject (1.9.7)
-  - AsyncDisplayKit/PINRemoteImage (1.9.7):
-    - AsyncDisplayKit/ASDealloc2MainObject
-    - PINRemoteImage/iOS (>= 2)
   - dyci (0.1.5.6):
     - dyci/Injections (= 0.1.5.6)
   - dyci/Injections (0.1.5.6)
@@ -46,11 +40,6 @@ PODS:
     - MMDrawerController/Core
   - MMDrawerController/Subclass (0.6.0):
     - MMDrawerController/Core
-  - PINCache (2.2.2)
-  - PINRemoteImage/Core (2.0.1):
-    - PINCache (>= 2.1)
-  - PINRemoteImage/iOS (2.0.1):
-    - PINRemoteImage/Core
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
   - ReactiveCocoa/Core (2.5):
@@ -68,7 +57,6 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
-  - AsyncDisplayKit
   - dyci (from `https://github.com/DyCI/dyci-main.git`)
   - DZNEmptyDataSet
   - FMDB
@@ -94,7 +82,6 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
-  AsyncDisplayKit: eb762d3bfd3896b2901909ebc24b54c97f32d43c
   dyci: 099c2e6dc98abb8f21b370cabbf1443ff700608a
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
@@ -104,13 +91,9 @@ SPEC CHECKSUMS:
   MJExtension: 290cc966f0f849b12b6391a38e296e0004ae8e5e
   MJRefresh: c5f1f1653e5a1b932c90f78074f2bc86f3f9bd5e
   MMDrawerController: e3a54a5570388463ad3b36975251575b50c4e1a0
-  PINCache: 078426d356ab95ef875e9e62e5c35a2ea3333c28
-  PINRemoteImage: 6feb6da5db9a6cc5e3b9006c8f7b749a7e61be49
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   Realm: 2e15e39d35b08abb529e212ed5d8af107b5236c8
   UITableView+FDTemplateLayoutCell: 234e1582bcc4e18461af91155123bb96538ed030
   YYKit: 8b618ca8d8cefa534d8d4fe2cad10fe9fbd030ed
 
-PODFILE CHECKSUM: e95642b6e4bf517d3afa88aefaf26bf3b758c4fc
-
-COCOAPODS: 1.0.1
+COCOAPODS: 0.39.0

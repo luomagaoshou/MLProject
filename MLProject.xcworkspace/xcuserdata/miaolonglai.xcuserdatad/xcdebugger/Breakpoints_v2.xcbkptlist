@@ -1281,8 +1281,8 @@
                   symbolName = "-[MultiThreadController GCDTaskRunInSerialQueueBySynchronously]"
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/miaolonglai/Desktop/MLProject/MLProject/MultiThread/MultiThreadController.m"
-                  timestampString = "489081816.517804"
+                  urlString = "file:///Users/miaolonglai/Desktop/githubRepo/MLProject/MLProject/MultiThread/MultiThreadController.m"
+                  timestampString = "489424376.885818"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "249"
@@ -1296,8 +1296,8 @@
                   symbolName = "__63-[MultiThreadController GCDTaskRunInSerialQueueBySynchronously]_block_invoke"
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/miaolonglai/Desktop/MLProject/MLProject/MultiThread/MultiThreadController.m"
-                  timestampString = "489081816.51794"
+                  urlString = "file:///Users/miaolonglai/Desktop/githubRepo/MLProject/MLProject/MultiThread/MultiThreadController.m"
+                  timestampString = "489424376.88595"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "251"
@@ -1489,8 +1489,8 @@
                   symbolName = "-[MultiThreadController GCDTaskRunInSerialQueueBySynchronously]"
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/miaolonglai/Desktop/MLProject/MLProject/MultiThread/MultiThreadController.m"
-                  timestampString = "489081816.520397"
+                  urlString = "file:///Users/miaolonglai/Desktop/githubRepo/MLProject/MLProject/MultiThread/MultiThreadController.m"
+                  timestampString = "489424376.888637"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "273"
@@ -1504,8 +1504,8 @@
                   symbolName = "__63-[MultiThreadController GCDTaskRunInSerialQueueBySynchronously]_block_invoke.163"
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/miaolonglai/Desktop/MLProject/MLProject/MultiThread/MultiThreadController.m"
-                  timestampString = "489081816.520494"
+                  urlString = "file:///Users/miaolonglai/Desktop/githubRepo/MLProject/MLProject/MultiThread/MultiThreadController.m"
+                  timestampString = "489424376.888759"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "273"
@@ -1513,22 +1513,6 @@
                   offsetFromSymbolStart = "19">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MLProject/CLanguage/MLCLPointerController.m"
-            timestampString = "486883520.824198"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
-            landmarkName = "-initUI"
-            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1560,22 +1544,6 @@
             startingLineNumber = "117"
             endingLineNumber = "117"
             landmarkName = "-swap::"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MLProject/CLanguage/MLCLPointerController.m"
-            timestampString = "487052808.03783"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
-            landmarkName = "-initUI"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

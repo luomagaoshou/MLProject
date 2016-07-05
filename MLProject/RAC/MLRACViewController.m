@@ -62,13 +62,22 @@
  //  RAC(self.testLabel, text) = self.testTextField.rac_textSignal;
     
     
-    [self.testTextField.rac_textSignal subscribeNext:^(id x) {
-        self.testLabel.text = x;
-    }];
+//    [self.testTextField.rac_textSignal subscribeNext:^(id x) {
+//        self.testLabel.text = x;
+//    }];
     
 //    [RACObserve(self.testTextField, text) subscribeNext:^(id x) {
 //        self.testLabel.text = x;
 //    }];
+    
+//    [[self.testTextField.rac_textSignal filter:^BOOL(id value) {
+//        
+//        return [value length] > 5;
+//    }] subscribeNext:^(id x) {
+//              self.testLabel.text = x;
+//    }];
+    
+  
 
 }
 #pragma mark - ========= DownloadData =========

@@ -57,7 +57,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [[UIView alloc] init];
-    [self.tableView ML_registerClassForCellWithArray:@[@"UITableViewCell"]];
+    [self.tableView ml_registerClassForCellWithNameOrClasses:@[@"UITableViewCell"]];
    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
        NSLog(@"%@", @"haha");
        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

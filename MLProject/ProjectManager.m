@@ -102,15 +102,15 @@
         }
         
     }
-    else if ([controller isKindOfClass:[controller class]])
+    else if (object_isClass(controller))
     {
         NSString *result =  [[NSBundle mainBundle] pathForResource:NSStringFromClass(controller) ofType:@"nib"];
         if (result) {
-            ctl = [[NSClassFromString(NSStringFromClass([controller class])) alloc] initWithNibName:NSStringFromClass(controller) bundle:nil];
+            ctl = [[(Class)controller alloc] initWithNibName:NSStringFromClass(controller) bundle:nil];
         }
         else
         {
-            ctl = [[[controller class] alloc] init];
+            ctl = [[controller alloc] init];
         }
         
     }

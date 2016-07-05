@@ -128,7 +128,7 @@
         return CGSizeMake(SCREEN_WIDTH, 30);
     }];
     
-    [self.collectionView ML_registerNibForCellWithArray:@[@"UICollectionViewCell"]];
+    [self.collectionView ml_registerNibForCellWithNameOrClasses:@[@"UICollectionViewCell"]];
     [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"UICollectionReusableView"];
     [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"UICollectionReusableView"];
     

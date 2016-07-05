@@ -104,7 +104,8 @@
 #pragma mark - ========= InitialUI =========
 - (void)initUI
 {
-    [self.tableview ML_registerNibAndCellReuseIdentifierWithDictionary:@{@"MLSBTestCell":@"MLSBTestCell"}];
+   
+    [self.tableview ml_registerNibForCellWithNameOrClass:@"MLSBTestCell"];
     self.tableview.delegate = self;
     self.tableview.dataSource = self;
     

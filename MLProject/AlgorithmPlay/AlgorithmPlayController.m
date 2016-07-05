@@ -91,7 +91,7 @@
 {
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    [self.tableView ML_registerNibForCellWithArray:@[@"UITableViewCell"]];
+    [self.tableView ml_registerNibForCellWithNameOrClasses:@[@"UITableViewCell"]];
     
     [self.dataSource addObjectsFromArray:@[@"水仙花数",
                                            @"韩信点兵",

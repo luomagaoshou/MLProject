@@ -12,7 +12,7 @@
 #import "AthleticsLotteryMaster.h"
 #import "MJExtension.h"
 #import "ALFootballLotteryView.h"
-#import "NetworkCtl.h"
+#import "MLNetwork.h"
 @interface ALFootballLotteryController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (strong, nonatomic) IBOutlet ALFootballLotteryView *footballLotteryView;
 @property (nonatomic, strong) AthleticsLotteryMaster *athleticsLotteryMaster;
@@ -105,7 +105,7 @@
 
 - (void)initCollectionView
 {
-    [self.footballLotteryView.collectionView ML_registerNibForCellWithArray:@[@"ALFootballLotteryCLCell"]];
+    [self.footballLotteryView.collectionView ml_registerNibForCellWithNameOrClasses:@[@"ALFootballLotteryCLCell"]];
     self.footballLotteryView.collectionView.delegate = self;
     self.footballLotteryView.collectionView.dataSource = self;
 }
@@ -145,11 +145,11 @@
 //        
 //    }];
     
-    [NetworkCtl postWithRequestID:@"" paramBlock:^(URLConfig *urlConfig, PostDataPackage *postDataPackage, RequestParam *requestParam, ResultModelClassManager *resultModelClassManager, NetworkMsgObjManager *msgObjManager) {
+    [MLNetwork postWithRequestID:@"" paramBlock:^(MLURLConfig *urlConfig, MLParamPackage *MLParamPackage, MLRequestParam *requestParam,  NetworkMessageSender *msgObjManager) {
         
-    } success:^(NSURLSessionDataTask *task, id responseObject, NSJSONSerialization *JSONObject, id modelMaster, NSInteger statusCode, URLConfig *urlConfig, RequestParam *requestParam, NSString *requestID, PostDataPackage *postDataPackage) {
+    } success:^(NSURLSessionDataTask *task, id responseObject, NSJSONSerialization *JSONObject, id modelMaster, NSInteger statusCode, MLURLConfig *urlConfig, MLRequestParam *requestParam, NSString *requestID, MLParamPackage *MLParamPackage) {
         
-    } failure:^(NSURLSessionDataTask *task, NSError *error, URLConfig *urlConfig, RequestParam *requestParam, NSString *requestID, PostDataPackage *postDataPackage) {
+    } failure:^(NSURLSessionDataTask *task, NSError *error, MLURLConfig *urlConfig, MLRequestParam *requestParam, NSString *requestID, MLParamPackage *MLParamPackage) {
         
     }];
     
