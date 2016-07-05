@@ -9,39 +9,30 @@
 #import <UIKit/UIKit.h>
 
 @interface UICollectionView (ML_Tools)
-//用类名或类注册，ID与类名一致
-- (void)ML_registerClassAndHeaderFooterViewReuseIdentifierWithArray:(NSArray *)array supplementaryViewOfKind:(NSString *)supplementaryViewOfKind;
-- (void)ML_registerNibForCellWithArray:(NSArray *)array;
+/**
+ *  本文件皆使用与cell class同名的reuseID注册
+ *
+ *
+ */
 
-/**
- *  reuseID为key
- 类为值
- *
- *  @param dictionary
- */
-- (void)ML_registerClassAndCellReuseIdentifierWithDictionary:(NSDictionary *)dictionary;
-/**
- *  reuseID为key 类为值
- *
- *  @param dictionary
- */
-- (void)ML_registerClassAndHeaderFooterViewReuseIdentifierWithDictionary:(NSDictionary *)dictionary supplementaryViewOfKind:(NSString *)supplementaryViewOfKind;
+#pragma mark - ========= Class For Cell =========
+- (void)ml_registerClassForCellWithNameOrClass:(id)nameOrClass;
+- (void)ml_registerClassForCellWithNameOrClasses:(NSArray *)nameOrClasses;
+#pragma mark - ========= Nib For Cell =========
 
-- (void)ML_registerNibAndCellReuseIdentifierWithArray:(NSArray *)array;
-/**
- *  reuseID为key 类为值
- *
- *  @param dictionary
- */
-- (void)ML_registerNibAndCellReuseIdentifierWithDictionary:(NSDictionary *)dictionary;
-/**
- *  reuseID为key 类为值
- *
- *  @param dictionary
- */
-- (void)ML_registerNibAndHeaderFooterViewReuseIdentifierWithDictionary:(NSDictionary *)dictionary supplementaryViewOfKind:(NSString *)supplementaryViewOfKind;
-- (void)ML_registerNibWithNameOrClass:(id)nameOrClass forCellReuseIdentifier:(NSString *)identifier;
-- (void)ML_registerNibWithNameOrClass:(id)nameOrClass forHeaderFooterViewReuseIdentifier:(NSString *)identifier supplementaryViewOfKind:(NSString *)supplementaryViewOfKind;
+- (void)ml_registerNibForCellWithNameOrClass:(id)nameOrClass;
+- (void)ml_registerNibForCellWithNameOrClasses:(NSArray *)nameOrClasses;
+
+#pragma mark - ========= Class For HeaderFooterView =========
+
+- (void)ml_registerClassForSupplementaryViewWithNameOrClass:(id)nameOrClass forSupplementaryViewOfKind:(NSString *)supplementaryViewOfKind;
+- (void)ml_registerClassForSupplementaryViewWithNameOrClasses:(NSArray *)nameOrClasses forSupplementaryViewOfKind:(NSString *)supplementaryViewOfKind;
+
+#pragma mark - ========= Nib For HeaderFooterView =========
+
+- (void)ml_registerNibForSupplementaryViewWithNameOrClass:(id)nameOrClass forSupplementaryViewOfKind:(NSString *)supplementaryViewOfKind;
+- (void)ml_registerNibForSupplementaryViewWithNameOrClasses:(NSArray *)nameOrClasses forSupplementaryViewOfKind:(NSString *)supplementaryViewOfKind;
+
 
 
 @end

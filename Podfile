@@ -1,4 +1,5 @@
 platform:ios,'7.0'
+target :MLProject do
 pod 'Mantle'
 pod 'ReactiveCocoa'
 pod 'MJExtension'
@@ -13,3 +14,5 @@ pod 'YYKit'
 pod 'AsyncDisplayKit'
 pod 'FMDB'
 pod 'DZNEmptyDataSet'
+pod 'Realm'
+end

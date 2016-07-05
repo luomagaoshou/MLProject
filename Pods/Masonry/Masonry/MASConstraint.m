@@ -252,13 +252,7 @@
 
 - (MASConstraint * (^)(MASLayoutPriority priority))priority { MASMethodNotImplemented(); }
 
-- (MASConstraint * (^)(id, NSLayoutRelation))equalToWithRelation {
-    
-    
-    NSLog(@"%@sdfdsfskldfjksdjflksjalfkjadslkfjdslakfjdaslk", self);
-    @throw ([NSException exceptionWithName:NSInternalInconsistencyException
-                                                                                                    reason:[NSString stringWithFormat:@"You must override %@ in a subclass.", NSStringFromSelector(_cmd)]
-                                                                                                  userInfo:nil]); }
+- (MASConstraint * (^)(id, NSLayoutRelation))equalToWithRelation { MASMethodNotImplemented(); }
 
 - (MASConstraint * (^)(id key))key { MASMethodNotImplemented(); }
 

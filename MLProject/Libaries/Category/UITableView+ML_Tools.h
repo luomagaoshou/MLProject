@@ -11,33 +11,28 @@
 
 @interface UITableView (ML_Tools)
 /**
- *  类名与ID一致
+ *  本文件皆使用与cell class同名的reuseID注册
  *
- *  @param array 
- */
-- (void)ML_registerNibForCellWithArray:(NSArray *)array;
-- (void)ML_registerNibAndCellReuseIdentifierWithArray:(NSArray *)array;
-- (void)ML_registerClassAndHeaderFooterViewReuseIdentifierWithArray:(NSArray *)array;
-- (void)ML_registerNibAndHeaderFooterViewReuseIdentifierWithArray:(NSArray *)array;
-/**
- *  reuseID为key
- 类为值
  *
- *  @param dictionary 
  */
-- (void)ML_registerClassForCellWithArray:(NSArray *)array;
-- (void)ML_registerClassAndCellReuseIdentifierWithDictionary:(NSDictionary *)dictionary;
-- (void)ML_registerNibAndCellReuseIdentifierWithDictionary:(NSDictionary *)dictionary;
-- (void)ML_registerClassAndHeaderFooterViewReuseIdentifierWithDictionary:(NSDictionary *)dictionary;
-- (void)ML_registerNibAndHeaderFooterViewReuseIdentifierWithDictionary:(NSDictionary *)dictionary;
-/**
- *  reuseID为key 类为值
- *
- *  @param dictionary
- */
-- (void)ML_registerClassAndCellReuseIdentifierWithNameOrClass:(id)nameOrClass forCellReuseIdentifier:(NSString *)identifier;
-- (void)ML_registerNibWithNameOrClass:(id)nameOrClass forCellReuseIdentifier:(NSString *)identifier;
-- (void)ML_registerClassAndCellReuseIdentifierWithNameOrClass:(id)nameOrClass forHeaderFooterViewReuseIdentifier:(NSString *)identifier;
-- (void)ML_registerNibWithNameOrClass:(id)nameOrClass forHeaderFooterViewReuseIdentifier:(NSString *)identifier;
+
+#pragma mark - ========= Class For Cell =========
+- (void)ml_registerClassForCellWithNameOrClass:(id)nameOrClass;
+- (void)ml_registerClassForCellWithNameOrClasses:(NSArray *)nameOrClasses;
+#pragma mark - ========= Nib For Cell =========
+
+- (void)ml_registerNibForCellWithNameOrClass:(id)nameOrClass;
+- (void)ml_registerNibForCellWithNameOrClasses:(NSArray *)nameOrClasses;
+#pragma mark - ========= Class For HeaderFooterView =========
+
+- (void)ml_registerClassForHeaderFooterViewWithNameOrClass:(id)nameOrClass;
+- (void)ml_registerClassForHeaderFooterViewWithNameOrClasses:(NSArray *)nameOrClasses;
+
+#pragma mark - ========= Nib For HeaderFooterView =========
+
+- (void)ml_registerNibForHeaderFooterViewWithNameOrClass:(id)nameOrClass;
+- (void)ml_registerNibForHeaderFooterViewWithNameOrClasses:(NSArray *)nameOrClasses;
+
+
 
 @end

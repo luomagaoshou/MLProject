@@ -327,7 +327,6 @@ static force_inline id YYValueForMultiKeys(__unsafe_unretained NSDictionary *dic
         static NSSet *types = nil;
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
-            
             NSMutableSet *set = [NSMutableSet new];
             // 32 bit
             [set addObject:@"{CGSize=ff}"];

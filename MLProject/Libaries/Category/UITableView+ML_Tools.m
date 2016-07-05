@@ -9,139 +9,194 @@
 #import "UITableView+ML_Tools.h"
 
 @implementation UITableView (ML_Tools)
-//用数组注册
-- (void)ML_registerNibForCellWithArray:(NSArray *)array
-{
-    for (NSInteger i = 0; i < array.count; i++) {
-        id cellNameOrClass = array[i];
-        [self ML_registerClassAndCellReuseIdentifierWithDictionary:@{cellNameOrClass:cellNameOrClass}];
-        
-    }
-}
-- (void)ML_registerNibAndCellReuseIdentifierWithArray:(NSArray *)array
-{
-    for (NSInteger i = 0; i < array.count; i++) {
-        id cellNameOrClass = array[i];
-        [self ML_registerNibAndCellReuseIdentifierWithDictionary:@{cellNameOrClass:cellNameOrClass}];
-        
-    }
-}
-- (void)ML_registerClassAndHeaderFooterViewReuseIdentifierWithArray:(NSArray *)array
-{
-    for (NSInteger i = 0; i < array.count; i++) {
-        id cellNameOrClass = array[i];
+#pragma mark - ========= Class For Cell =========
 
-        [self ML_registerClassAndHeaderFooterViewReuseIdentifierWithDictionary:@{cellNameOrClass:cellNameOrClass}];
-        
-    }
-}
-- (void)ML_registerNibAndHeaderFooterViewReuseIdentifierWithArray:(NSArray *)array
+- (void)ml_registerClassForCellWithNameOrClass:(id)nameOrClass
 {
-    for (NSInteger i = 0; i < array.count; i++) {
-        id cellNameOrClass = array[i];
-        
-        [self ML_registerNibAndHeaderFooterViewReuseIdentifierWithDictionary:@{cellNameOrClass:cellNameOrClass}];
+    [self ml_registerClassForCellWithNameOrClasses:@[nameOrClass]];
+}
+- (void)ml_registerClassForCellWithNameOrClasses:(NSArray *)nameOrClasses
+{
+    for (NSInteger i = 0; i < nameOrClasses.count; i++) {
+        [self _ml_registerClassForCellWithDictionary:@{nameOrClasses[i]:nameOrClasses[i]}];
+    }
+   
+}
+- (void)_ml_registerClassForCellWithDictionary:(NSDictionary *)dictionary
+{
+    for (NSInteger i = 0; i < dictionary.count; i++) {
+       id key = dictionary.allKeys[i];
+        id value = dictionary.allValues[i];
+        [self _ml_registerClassWithNameOrClass:value forCellReuseIdentifier:key];
         
     }
 }
 
-- (void)ML_registerClassForCellWithArray:(NSArray *)array
+#pragma mark - ========= Nib For Cell =========
+- (void)ml_registerNibForCellWithNameOrClass:(id)nameOrClass
 {
-    for (NSInteger i = 0; i < array.count; i++) {
-        [self ML_registerClassAndCellReuseIdentifierWithDictionary:@{array[0]:array[0]}];
-    }
-  
+    [self ml_registerNibForCellWithNameOrClasses:@[nameOrClass]];
 }
 
-//用字典注册
-- (void)ML_registerClassAndCellReuseIdentifierWithDictionary:(NSDictionary *)dictionary
+- (void)ml_registerNibForCellWithNameOrClasses:(NSArray *)nameOrClasses
 {
-    for (NSString *reuseID in [dictionary allKeys]) {
-        id classValue = [dictionary valueForKey:reuseID];
-        [self ML_registerClassAndCellReuseIdentifierWithNameOrClass:classValue forCellReuseIdentifier:reuseID];
+    for (NSInteger i = 0; i < nameOrClasses.count; i++) {
+        [self _ml_registerNibForCellWithDictionary:@{nameOrClasses[i]:nameOrClasses[i]}];
     }
 }
-
-- (void)ML_registerNibAndCellReuseIdentifierWithDictionary:(NSDictionary *)dictionary
+- (void)_ml_registerNibForCellWithDictionary:(NSDictionary *)dictionary
 {
-    for (NSString *reuseID in [dictionary allKeys]) {
-        id classValue = [dictionary valueForKey:reuseID];
+    for (NSInteger i = 0; i < dictionary.count; i++) {
+        id key = dictionary.allKeys[i];
+        id value = dictionary.allValues[i];
+        [self _ml_registerNibWithNameOrClass:value forCellReuseIdentifier:key];
         
-        [self ML_registerNibWithNameOrClass:classValue forCellReuseIdentifier:reuseID];
     }
 }
-- (void)ML_registerClassAndHeaderFooterViewReuseIdentifierWithDictionary:(NSDictionary *)dictionary
+#pragma mark - ========= Class For HeaderFooterView =========
+
+- (void)ml_registerClassForHeaderFooterViewWithNameOrClass:(id)nameOrClass
 {
-    for (NSString *reuseID in [dictionary allKeys]) {
-        id classValue = [dictionary valueForKey:reuseID];
-      
-      
-
-        [self ML_registerClassAndCellReuseIdentifierWithNameOrClass:classValue forHeaderFooterViewReuseIdentifier:reuseID];
-    }
+    [self ml_registerClassForHeaderFooterViewWithNameOrClasses:@[nameOrClass]];
 }
-
-- (void)ML_registerNibAndHeaderFooterViewReuseIdentifierWithDictionary:(NSDictionary *)dictionary
+- (void)ml_registerClassForHeaderFooterViewWithNameOrClasses:(NSArray *)nameOrClasses
 {
-    for (NSString *reuseID in [dictionary allKeys]) {
-        id classValue = [dictionary valueForKey:reuseID];
-        [self ML_registerNibWithNameOrClass:classValue forHeaderFooterViewReuseIdentifier:reuseID];
+    for (NSInteger i = 0; i < nameOrClasses.count; i++) {
+        [self _ml_registerClassForCellWithDictionary:@{nameOrClasses[i]:nameOrClasses[i]}];
     }
 }
-
-
-//注册
-- (void)ML_registerClassAndCellReuseIdentifierWithNameOrClass:(id)nameOrClass forCellReuseIdentifier:(NSString *)identifier
+- (void)_ml_registerClassForHeaderFooterViewWithDictionary:(NSDictionary *)dictionary
 {
-    NSString *className;
-    if ([nameOrClass isKindOfClass:[NSString class]]) {
-        className = nameOrClass;
+    for (NSInteger i = 0; i < dictionary.count; i++) {
+        id key = dictionary.allKeys[i];
+        id value = dictionary.allValues[i];
+        [self _ml_registerClassWithNameOrClass:value forHeaderFooterViewReuseIdentifier:key];
+        
     }
-    else
-    {
-        className = NSStringFromClass(nameOrClass);
-    }
-    [self registerClass:NSClassFromString(className) forCellReuseIdentifier:identifier];
 }
-- (void)ML_registerNibWithNameOrClass:(id)nameOrClass forCellReuseIdentifier:(NSString *)identifier
+
+#pragma mark - ========= Nib For HeaderFooterView =========
+- (void)ml_registerNibForHeaderFooterViewWithNameOrClass:(id)nameOrClass
+{
+    [self ml_registerNibForHeaderFooterViewWithNameOrClasses:@[nameOrClass]];
+}
+- (void)ml_registerNibForHeaderFooterViewWithNameOrClasses:(NSArray *)nameOrClasses
+{
+    for (NSInteger i = 0; i < nameOrClasses.count; i++) {
+        [self _ml_registerNibForCellWithDictionary:@{nameOrClasses[i]:nameOrClasses[i]}];
+    }
+}
+- (void)_ml_registerNibForHeaderFooterViewWithDictionary:(NSDictionary *)dictionary
+{
+    for (NSInteger i = 0; i < dictionary.count; i++) {
+        id key = dictionary.allKeys[i];
+        id value = dictionary.allValues[i];
+        [self _ml_registerNibWithNameOrClass:value forHeaderFooterViewReuseIdentifier:key];
+        
+    }
+}
+
+#pragma mark - ========= 注册 =========
+- (void)_ml_registerClassWithNameOrClass:(id)nameOrClass forCellReuseIdentifier:(NSString *)identifier
+{
+    
+    
+    Class cellClass;
+    if (object_isClass(nameOrClass)) {
+        
+        cellClass = nameOrClass;
+        
+    }else if ([nameOrClass isKindOfClass:[NSString class]]){
+        
+        cellClass = NSClassFromString(nameOrClass);
+        
+    }
+    
+    if (object_isClass(identifier)) {
+        identifier = NSStringFromClass((Class)identifier);
+    }
+        [self checkClassIsExisted:cellClass className:identifier];
+    [self registerClass:cellClass forCellReuseIdentifier:identifier];
+}
+- (void)_ml_registerNibWithNameOrClass:(id)nameOrClass forCellReuseIdentifier:(NSString *)identifier
 {
     NSString *nibName;
     if ([nameOrClass isKindOfClass:[NSString class]]) {
         nibName = nameOrClass;
     }
-    else
+    else if(object_isClass(nameOrClass))
     {
         nibName = NSStringFromClass(nameOrClass);
     }
-    [self registerNib:[UINib nibWithNibName:nibName bundle:nil] forCellReuseIdentifier:identifier];
+
+    [self checkNibWithName:nibName];
+       UINib *nib = [UINib nibWithNibName:nibName bundle:nil];
+    [self registerNib:nib forCellReuseIdentifier:identifier];
 }
 
-- (void)ML_registerClassAndCellReuseIdentifierWithNameOrClass:(id)nameOrClass forHeaderFooterViewReuseIdentifier:(NSString *)identifier
+
+
+- (void)_ml_registerClassWithNameOrClass:(id)nameOrClass forHeaderFooterViewReuseIdentifier:(NSString *)identifier
 {
-    NSString *className;
-    if ([nameOrClass isKindOfClass:[NSString class]]) {
-        className = nameOrClass;
+    Class cellClass;
+    if (object_isClass(nameOrClass)) {
+        
+        cellClass = nameOrClass;
+        
+    }else if ([nameOrClass isKindOfClass:[NSString class]]){
+        
+        cellClass = NSClassFromString(nameOrClass);
     }
-    else
-    {
-        className = NSStringFromClass(nameOrClass);
+    
+    if (object_isClass(identifier)) {
+        identifier = NSStringFromClass((Class)identifier);
     }
-    [self registerClass:NSClassFromString(className) forHeaderFooterViewReuseIdentifier:identifier];
+    [self checkClassIsExisted:cellClass className:identifier];
+    [self registerClass:cellClass forHeaderFooterViewReuseIdentifier:identifier];
 }
 
 
-- (void)ML_registerNibWithNameOrClass:(id)nameOrClass forHeaderFooterViewReuseIdentifier:(NSString *)identifier
+- (void)_ml_registerNibWithNameOrClass:(id)nameOrClass forHeaderFooterViewReuseIdentifier:(NSString *)identifier
 {
     NSString *nibName;
     if ([nameOrClass isKindOfClass:[NSString class]]) {
         nibName = nameOrClass;
     }
-    else
-    {
+    else if ([nameOrClass isKindOfClass:[NSString class]]){
+    
         nibName = NSStringFromClass(nameOrClass);
     }
-    [self registerNib:[UINib nibWithNibName:nibName bundle:nil] forHeaderFooterViewReuseIdentifier:identifier];
+    [self checkNibWithName:nibName];
+    UINib *nib = [UINib nibWithNibName:nibName bundle:nil];
+    [self registerNib:nib forHeaderFooterViewReuseIdentifier:identifier];
 }
 
+#pragma mark - ========= Check NibFile And Class =========
+- (void)checkNibWithName:(NSString *)nibName
+{
 
+    NSString *path = [[NSBundle mainBundle] pathForResource:nibName ofType:@"nib"];
+    BOOL isExisted;
+    if (path) {
+        isExisted = YES;
+    }
+    else{
+        isExisted = NO;
+    }
+    if (isExisted == NO) {
+        NSException *exception = [NSException exceptionWithName:@"nib不存在" reason:[NSString stringWithFormat:@"%@.nib文件不存在", nibName] userInfo:nil];
+        @throw exception;
+    }
+ 
+    
+}
+- (void)checkClassIsExisted:(Class)class className:(NSString *)className
+{
+   
+    if (class == nil) {
+       
+        NSException *exception = [NSException exceptionWithName:@"cell类不存在"  reason:[NSString stringWithFormat:@"%@类不存在", className] userInfo:nil];
+        @throw exception;
+    }
+}
 @end

@@ -86,10 +86,7 @@ static inline id _MASBoxValue(const char *type, ...) {
     } else if (strcmp(type, @encode(CGSize)) == 0) {
         CGSize actual = (CGSize)va_arg(v, CGSize);
         obj = [NSValue value:&actual withObjCType:type];
-    }else if (strcmp(type, @encode(CGRect)) == 0) {
-        CGRect actual = (CGRect)va_arg(v, CGRect);
-        obj = [NSValue value:&actual withObjCType:type];
-    }else if (strcmp(type, @encode(MASEdgeInsets)) == 0) {
+    } else if (strcmp(type, @encode(MASEdgeInsets)) == 0) {
         MASEdgeInsets actual = (MASEdgeInsets)va_arg(v, MASEdgeInsets);
         obj = [NSValue value:&actual withObjCType:type];
     } else if (strcmp(type, @encode(double)) == 0) {
