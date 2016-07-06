@@ -10,6 +10,7 @@
 #import "NSDictionary+ML_Tools.h"
 #import "UIImage+FX.h"
 #import <MJExtension/MJExtension.h>
+#import <Reachability/Reachability.h>
 #import "MLNetwork+Hud.h"
 @implementation NetworkMessageSender
 MJCodingImplementation
@@ -17,6 +18,21 @@ MJCodingImplementation
 
 @implementation MLURLConfig
 MJCodingImplementation
+
+#define MLURLAppendPathMacro(PROPERTY) - (MLURLAppendPathBlock)PROPERTY{\
+\
+__weak typeof(self) weakSelf = self;\
+return ^MLURLConfig * (NSString *path) {\
+\
+__strong typeof(weakSelf) strongSelf = weakSelf;\
+[strongSelf.appendPaths addObject:path];\
+return strongSelf;\
+};\
+}
+
+MLURLAppendPathMacro(appendPath)
+MLURLAppendPathMacro(teacherName)
+
 - (NSString *)urlString
 {
     
@@ -28,16 +44,28 @@ MJCodingImplementation
     
     
     NSString *urlString = [NSString stringWithFormat:@"%@%@%@",
-                           self.domainNameString != nil ? self.domainNameString:@"",
-                           self.portString != nil ? self.portString:@"",
-                           self.virtualDirectoryString != nil ? self.virtualDirectoryString:@""];
+                           self.domainNameString ? :@"",
+                           self.portString ? :@"",
+                           self.virtualDirectoryString ? :@""];
     return urlString;
+}
+- (NSMutableArray *)appendPaths
+{
+    if (_appendPaths == nil) {
+        
+        _appendPaths = [[NSMutableArray alloc] init];
+        
+    }
+    return _appendPaths;
 }
 @end
 
 @implementation MLParamPackage
 MJCodingImplementation
 @end
+
+
+
 
 @implementation MLRequestParam
 MJCodingImplementation
@@ -65,7 +93,7 @@ MJCodingImplementation
     MLNetwork *networkCtl = [MLNetwork networkCtl];
     networkCtl.requestID = requestID;
     if (paramBlock) {
-        paramBlock(networkCtl.urlConfig, networkCtl.MLParamPackage, networkCtl.requestParam, networkCtl.messageSender);
+        paramBlock(networkCtl.urlConfig, networkCtl.paramPackage, networkCtl.requestParam, networkCtl.messageSender);
     }
     
     [networkCtl getRequestWithSuccess:success failure:failure completion:completion];
@@ -83,7 +111,7 @@ MJCodingImplementation
     MLNetwork *networkCtl = [MLNetwork networkCtl];
     networkCtl.requestID = requestID;
     if (paramBlock) {
-        paramBlock(networkCtl.urlConfig, networkCtl.MLParamPackage, networkCtl.requestParam, networkCtl.messageSender);
+        paramBlock(networkCtl.urlConfig, networkCtl.paramPackage, networkCtl.requestParam, networkCtl.messageSender);
     }
     
     if (networkCtl.messageSender.images.count > 0) {
@@ -112,11 +140,10 @@ MJCodingImplementation
 #pragma mark - ========= get请求方法公用入口 =========
 - (void)getRequestWithSuccess:(AFNSuccess)success failure:(AFNFailure)failure completion:(void (^)(void))completion
 {
+    
 
     
     AFHTTPSessionManager *manager = [self getAFHTTPSessionManager];
-    
-  
     NSString *getRequestURlString = [self handleGetParam];
     [manager GET:getRequestURlString parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
@@ -135,21 +162,41 @@ MJCodingImplementation
 - (void)postRequestWithSuccess:(AFNSuccess)success failure:(AFNFailure)failure completion:(void (^)(void))completion
 {
     
-   AFHTTPSessionManager *manager = [self getAFHTTPSessionManager];
+    //检测网络
+    Reachability* reach = [Reachability reachabilityWithHostname:@"api.chunbo.com"];
     
-    [self handlePostParam];
-    
-    [manager POST:self.urlConfig.urlString
-       parameters:[self.requestParam getPropertyKeyValueOnlyHaveValueDictionary]
-          success:^(NSURLSessionDataTask *task, id responseObject) {
-    
-        [self handleSuccess:success task:task responseObject:responseObject completion:completion];
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@", error);
+    // Set the blocks
+    reach.reachableBlock = ^(Reachability*reach)
+    {
         
-        [self handleFailure:failure task:task error:error completion:nil];
+        AFHTTPSessionManager *manager = [self getAFHTTPSessionManager];
         
-    }];
+        [self handlePostParam];
+        
+        [manager POST:self.urlConfig.urlString
+           parameters:[self.requestParam getPropertyKeyValueOnlyHaveValueDictionary]
+              success:^(NSURLSessionDataTask *task, id responseObject) {
+                  
+                  [self handleSuccess:success task:task responseObject:responseObject completion:completion];
+              } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                  NSLog(@"%@", error);
+                  
+                  [self handleFailure:failure task:task error:error completion:nil];
+                  
+              }];
+        
+
+    };
+    
+    reach.unreachableBlock = ^(Reachability* reach)
+    {
+        NSLog(@"UNREACHABLE!");
+        [self handleFailure:failure task:nil error:nil completion:nil];
+        
+    };
+    
+    
+    [reach startNotifier];
     
     
 }
@@ -199,6 +246,11 @@ MJCodingImplementation
 {
   
     NSDictionary *propertyDic = [self.requestParam getPropertyKeyValueOnlyHaveValueDictionary];
+    if (self.urlConfig.appendPaths.count) {
+        NSString *addPathString = [self.urlConfig.appendPaths componentsJoinedByString:@"/"];
+        
+        self.urlConfig.virtualDirectoryString = [NSString stringWithFormat:@"%@/%@", self.urlConfig.virtualDirectoryString, addPathString];
+    }
     
     NSString *getRequestURlString;
     if (propertyDic.count > 0) {
@@ -223,15 +275,20 @@ MJCodingImplementation
    });
     
     
-    if (self.MLParamPackage) {
-        self.requestParam.data = [[self.MLParamPackage getPropertyKeyValueOnlyHaveValueDictionary] mj_JSONString];
+    if (self.paramPackage) {
+        self.requestParam.data = [[self.paramPackage getPropertyKeyValueOnlyHaveValueDictionary] mj_JSONString];
         
+    }
+    if (self.urlConfig.appendPaths.count) {
+        
+        NSString *addPathString = [self.urlConfig.appendPaths componentsJoinedByString:@"/"];
+        self.urlConfig.virtualDirectoryString = [NSString stringWithFormat:@"%@/%@", self.urlConfig.virtualDirectoryString, addPathString];
     }
     
     NSDictionary *propertyDic = [self.requestParam getPropertyKeyValueOnlyHaveValueDictionary];
  
     
-    NSData *data = [[self.MLParamPackage getPropertyKeyValueOnlyHaveValueDictionary] mj_JSONData];
+    NSData *data = [[self.paramPackage getPropertyKeyValueOnlyHaveValueDictionary] mj_JSONData];
     NSJSONSerialization *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
   
     NSLog(@"请求接口:%@\n\nURLString: %@\npropertyDic:%@ \njson:\n%@",self.requestID, self.urlConfig.urlString, propertyDic, json);
@@ -279,7 +336,7 @@ MJCodingImplementation
        
     }
 
-     success(task, responseObject, JSONObject, modelMaster, statusCode, self.urlConfig, self.requestParam, self.requestID, self.MLParamPackage);
+     success(task, responseObject, JSONObject, modelMaster, statusCode, self.urlConfig, self.requestParam, self.requestID, self.paramPackage);
   
     if (completion) {
         completion();
@@ -291,7 +348,7 @@ MJCodingImplementation
 - (void)handleFailure:(AFNFailure)failure task:(NSURLSessionDataTask *)task error:(NSError *)error completion:(void (^)(void))completion
 {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        failure(task, error, self.urlConfig, self.requestParam, self.requestID, self.MLParamPackage);
+        failure(task, error, self.urlConfig, self.requestParam, self.requestID, self.paramPackage);
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [self removeAllProgressHud];
@@ -315,7 +372,7 @@ MJCodingImplementation
     self.requestID = nil;
     [self.urlConfig setObjectPropertyAllKeyValueNil];
     [self.requestParam setObjectPropertyAllKeyValueNil];
-    [self.MLParamPackage setObjectPropertyAllKeyValueNil];
+    [self.paramPackage setObjectPropertyAllKeyValueNil];
     
 }
 
@@ -340,7 +397,7 @@ MJCodingImplementation
     }
     return _requestParam;
 }
-- (MLParamPackage *)MLParamPackage
+- (MLParamPackage *)paramPackage
 {
     if (_paramPackage == nil) {
         

@@ -10,6 +10,7 @@
 #import "UITableView+Refresh.h"
 #import <MJRefresh/MJRefresh.h>
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+#import "MLNetwork.h"
 @interface MLMJRefreshViewController ()<UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -78,8 +79,24 @@
 #pragma mark - ========= DownloadData =========
 - (void)downloadData
 {
+
     
+    [MLNetwork postWithRequestID:@"ff" paramBlock:^(MLURLConfig *urlConfig, MLParamPackage *paramPackage, MLRequestParam *requestParam, NetworkMessageSender *messageSend) {
+                urlConfig.domainNameString = @"api.chunbo.com";
+               urlConfig.virtualDirectoryString = @"/Cookbook";
+        urlConfig.teacherName(@"appcookbooklist");
+        //参数
+        requestParam.page = @"%d";
+        requestParam.pagesize = @"60";
+        
+        
+    } success:^(NSURLSessionDataTask *task, id responseObject, NSJSONSerialization *JSONObject, id modelMaster, NSInteger statusCode, MLURLConfig *urlConfig, MLRequestParam *requestParam, NSString *requestID, MLParamPackage *paramPackage) {
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error, MLURLConfig *urlConfig, MLRequestParam *requestParam, NSString *requestID, MLParamPackage *paramPackage) {
+        
+    }];
 }
+
 #pragma mark - ========= TabelView Cell =========
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

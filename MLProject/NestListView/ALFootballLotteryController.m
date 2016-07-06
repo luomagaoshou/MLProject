@@ -144,14 +144,14 @@
 //    } failure:^(NSDictionary *failure) {
 //        
 //    }];
-    
-    [MLNetwork postWithRequestID:@"" paramBlock:^(MLURLConfig *urlConfig, MLParamPackage *MLParamPackage, MLRequestParam *requestParam,  NetworkMessageSender *msgObjManager) {
-        
-    } success:^(NSURLSessionDataTask *task, id responseObject, NSJSONSerialization *JSONObject, id modelMaster, NSInteger statusCode, MLURLConfig *urlConfig, MLRequestParam *requestParam, NSString *requestID, MLParamPackage *MLParamPackage) {
-        
-    } failure:^(NSURLSessionDataTask *task, NSError *error, MLURLConfig *urlConfig, MLRequestParam *requestParam, NSString *requestID, MLParamPackage *MLParamPackage) {
-        
-    }];
+//    
+//    [MLNetwork postWithRequestID:@"" paramBlock:^(MLURLConfig *urlConfig, MLParamPackage *MLParamPackage, MLRequestParam *requestParam,  NetworkMessageSender *messageSender) {
+//        
+//    } success:^(NSURLSessionDataTask *task, id responseObject, NSJSONSerialization *JSONObject, id modelMaster, NSInteger statusCode, MLURLConfig *urlConfig, MLRequestParam *requestParam, NSString *requestID, MLParamPackage *MLParamPackage) {
+//        
+//    } failure:^(NSURLSessionDataTask *task, NSError *error, MLURLConfig *urlConfig, MLRequestParam *requestParam, NSString *requestID, MLParamPackage *MLParamPackage) {
+//        
+//    }];
     
 }
 #pragma mark - ========= CollectionView Cell =========

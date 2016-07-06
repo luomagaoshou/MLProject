@@ -12,13 +12,19 @@
 @property (nonatomic, copy) NSString *restulModelClassName;
 @end
 
-
-
+@class MLURLConfig;
+typedef MLURLConfig *(^MLURLAppendPathBlock)(NSString *);
 @interface MLURLConfig : NSObject
 @property (nonatomic, copy) NSString *domainNameString;
 @property (nonatomic, copy) NSString *portString;
 @property (nonatomic, copy) NSString *virtualDirectoryString;
 @property (nonatomic, copy) NSString *urlString;
+
+//添加自定义路径
+@property (nonatomic, copy) MLURLAppendPathBlock appendPath;
+@property (nonatomic, copy) MLURLAppendPathBlock teacherName;
+@property (nonatomic, strong) NSMutableArray *appendPaths;
+
 
 @end
 //数据放在data大括号
@@ -29,16 +35,18 @@
 @end
 
 
+
 @interface MLRequestParam : NSObject
 @property (nonatomic, copy) NSString *data;//JSONString
-
-
+@property (nonatomic, copy) NSString *page;
+@property (nonatomic, copy) NSString *pagesize;
 
 @end
+@class Reachability;
+typedef void (^AFNSuccess)(NSURLSessionDataTask *task, id responseObject, NSJSONSerialization *JSONObject, id modelMaster, NSInteger statusCode, MLURLConfig *urlConfig, MLRequestParam *requestParam, NSString *requestID, MLParamPackage *paramPackage);
 
-typedef void (^AFNSuccess)(NSURLSessionDataTask *task, id responseObject, NSJSONSerialization *JSONObject, id modelMaster, NSInteger statusCode, MLURLConfig *urlConfig, MLRequestParam *requestParam, NSString *requestID, MLParamPackage *MLParamPackage);
-typedef void (^AFNFailure)(NSURLSessionDataTask *task, NSError *error, MLURLConfig *urlConfig, MLRequestParam *requestParam,NSString *requestID, MLParamPackage *MLParamPackage);
-typedef void (^ParamsBlock) (MLURLConfig *urlConfig, MLParamPackage *MLParamPackage, MLRequestParam *requestParam, NetworkMessageSender *msgObjManager);
+typedef void (^AFNFailure)(NSURLSessionDataTask *task, NSError *error, MLURLConfig *urlConfig, MLRequestParam *requestParam,NSString *requestID, MLParamPackage *paramPackage);
+typedef void (^ParamsBlock)(MLURLConfig *urlConfig, MLParamPackage *paramPackage, MLRequestParam *requestParam, NetworkMessageSender *messageSend);
 typedef NS_ENUM(NSInteger, RequestType) {
     RequestTypeOpenLotteryAll,
     RequestTypeGetVerificationCode,

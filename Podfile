@@ -14,4 +14,5 @@ pod 'YYKit'
 pod 'FMDB'
 pod 'DZNEmptyDataSet'
 pod 'Realm'
+pod 'Reachability'
 end
