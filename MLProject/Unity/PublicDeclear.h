@@ -78,15 +78,26 @@ CGPointMake(originPoint.x + offsetPoint.x, originPoint.y + offsetPoint.y)
 [Layer setBorderWidth:(Width)];\
 [Layer setBorderColor:[(Color == nil ?[UIColor clearColor]:Color) CGColor]]
 
-#define LabelAlignment_fontSize_textColor(Label, Alignment, FontSize, TextColor)\
+#define LabelAlignment_fontSize_textColor(Label, TextColor, FontSize, Alignment)\
 Label.textAlignment = Alignment;\
 Label.font = [UIFont systemFontOfSize:FontSize];\
 Label.textColor = TextColor
+
+#define LabelAlignment_fontSizeOfPx_textColor(Label, TextColor, FontSize, Alignment)\
+Label.textAlignment = Alignment;\
+Label.font = [UIFont systemFontOfSize:FontSize * 0.5];\
+Label.textColor = TextColor
+
 
 
 #define ButtonTextColor_fontSize_backgroundColor(Button, TextColor, FontSize,  BackgroundColor)\
 [Button setTitleColor:TextColor forState:UIControlStateNormal];\
 Button.titleLabel.font = [UIFont systemFontOfSize:FontSize];\
+Button.backgroundColor = BackgroundColor
+
+#define ButtonTextColor_fontSizeOfPx_backgroundColor(Button, TextColor, FontSize,  BackgroundColor)\
+[Button setTitleColor:TextColor forState:UIControlStateNormal];\
+Button.titleLabel.font = [UIFont systemFontOfSize:FontSize * 0.5];\
 Button.backgroundColor = BackgroundColor
 
 

@@ -45,14 +45,14 @@
 {
     
     //self.bottomView = <#code#>
-    self.bottomView.backgroundColor = kUI_OBJECT_BACKGROUND_COLOR_BLUE;
+    
 }
 
 - (void)initChosenCountLabel
 {
     
     //self.chosenCountLabel = <#code#>
-    LabelAlignment_fontSize_textColor(self.chosenCountLabel, NSTextAlignmentCenter, 15, kUI_COLOR_WHITE_000000);
+   // LabelAlignment_fontSize_textColor(self.chosenCountLabel, NSTextAlignmentCenter, 15, kUI_COLOR_WHITE_000000);
     
 }
 
@@ -60,7 +60,7 @@
 {
     
     //self.deleteButton = <#code#>
-    ButtonTextColor_fontSize_backgroundColor(self.deleteButton, kUI_COLOR_WHITE_000000, 15, kUI_OBJECT_BACKGROUND_COLOR_BLUE);
+   
     
     
 }
@@ -69,7 +69,7 @@
 {
     
     //self.purchaseButton = <#code#>
-       ButtonTextColor_fontSize_backgroundColor(self.purchaseButton, kUI_COLOR_WHITE_000000, 15, kUI_OBJECT_BACKGROUND_COLOR_BLUE);
+     //  ButtonTextColor_fontSize_backgroundColor(self.purchaseButton, kUI_COLOR_WHITE_000000, 15, kUI_OBJECT_BACKGROUND_COLOR_BLUE);
     
 }
 

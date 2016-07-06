@@ -217,7 +217,7 @@ MJCodingImplementation
 {
    dispatch_async(dispatch_get_main_queue(), ^{
        [self makeProgressHudWithHudConfig:^(MBProgressHUD *hud) {
-           hud.label.textColor = kUI_TEXT_COLOR_BLACK;
+           hud.label.textColor = kUI_COLOR_BLACK_333333;
            hud.bezelView.backgroundColor = [UIColor clearColor];
        } title:@"加载中"];
    });
@@ -266,7 +266,7 @@ MJCodingImplementation
                     hud.mode = MBProgressHUDModeText;
                     [hud hideAnimated:YES afterDelay:0.5];
                     hud.offset = CGPointMake(0.f, MBProgressMaxOffset);
-                    hud.label.textColor = kUI_TEXT_COLOR_BLACK;
+                    hud.label.textColor = kUI_COLOR_BLACK_333333;
                     hud.bezelView.backgroundColor = [UIColor clearColor];
                 } title:errorMsg];
                 if ([errorMsg containsString:@"token已失效"]||[errorMsg containsString:@"登陆超时"]) {
@@ -299,7 +299,7 @@ MJCodingImplementation
                 hud.mode = MBProgressHUDModeText;
                 [hud hideAnimated:YES afterDelay:0.3];
                 hud.offset = CGPointMake(0.f, MBProgressMaxOffset);
-                hud.label.textColor = kUI_TEXT_COLOR_BLACK;
+                hud.label.textColor = kUI_COLOR_BLACK_333333;
                 hud.bezelView.backgroundColor = [UIColor clearColor];
             } title:@"连接错误，请重新再试"];
         });

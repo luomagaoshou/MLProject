@@ -9,6 +9,7 @@
 #import "UITextField+CommonType.h"
 #import "UITextField+ML_Tools.h"
 #import "UILabel+Init.h"
+#import "UIButton+Init.h"
 @implementation UITextField (CommonType)
 @dynamic textFieldCommonType;
 - (void)setTextFieldCommonType:(UITextFieldCommonType)textFieldCommonType
@@ -21,9 +22,9 @@
             emptyView.frame = CGRectMake(0, 0, 30, 1);
             self.leftView = emptyView;
             self.leftViewMode = UITextFieldViewModeAlways;
-            [self setValue:kUI_TEXT_COLOR_LIGHT_GRAY forKeyPath:@"_placeholderLabel.textColor"];
+            [self setValue:kUI_COLOR_GRAY_999999 forKeyPath:@"_placeholderLabel.textColor"];
             [self setValue:[UIFont systemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];
-            [self setTextColor:kUI_TEXT_COLOR_BLACK];
+            [self setTextColor:kUI_COLOR_BLACK_333333];
             
         }
             break;
@@ -41,11 +42,11 @@
             self.textLabelOffset = CGPointMake(10, 0);
             self.placeHolderLabelOffet = CGPointMake(10, 0);
         
-            self.textColor = kUI_TEXT_COLOR_BLACK;
+            self.textColor = kUI_COLOR_BLACK_333333;
             
             
             UILabel *placeholderLabel = [self placeholderLabel];
-            LabelAlignment_fontSize_textColor(placeholderLabel, NSTextAlignmentLeft, 14, kUI_OBJECT_COLOR_LIGHT_GRAY);
+            LabelAlignment_fontSize_textColor(placeholderLabel, kUI_COLOR_GRAY_cccccc, 14, NSTextAlignmentLeft);
             
          
           
@@ -70,19 +71,19 @@
             self.editRectOffset = CGPointMake(10, 0);
             self.textLabelOffset = CGPointMake(10, 0);
             self.placeHolderLabelOffet = CGPointMake(10, 0);
-            self.textColor = kUI_TEXT_COLOR_BLACK;
+            self.textColor = kUI_COLOR_BLACK_333333;
             
             
             
             UILabel *placeholderLabel = [self placeholderLabel];
-            LabelAlignment_fontSize_textColor(placeholderLabel, NSTextAlignmentLeft, 14, kUI_OBJECT_COLOR_LIGHT_GRAY);
+            LabelAlignment_fontSize_textColor(placeholderLabel, kUI_COLOR_GRAY_cccccc, 14, NSTextAlignmentLeft);
       
             
             UILabel *leftLable = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, self.height)];
-               LabelAlignment_fontSize_textColor(leftLable, NSTextAlignmentLeft, 14, kUI_TEXT_COLOR_GRAY);
+               LabelAlignment_fontSize_textColor(leftLable, kUI_COLOR_GRAY_666666, 14, NSTextAlignmentLeft);
             self.leftView = leftLable;
     
-            LayerCornerRadius_borderWidth_borderColor(self.layer, 0, 1/SCREEN_SCALE, kUI_SEPARATOR_COLOR_GRAY);
+              LayerCornerRadius_borderWidth_borderColor(self.layer, 0, 1/SCREEN_SCALE, kUI_COLOR_GRAY_ebebeb);
             
         }
             break;

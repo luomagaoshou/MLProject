@@ -22,14 +22,14 @@
             if (self.buttonType == UIButtonTypeCustom) {
                 [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
                  self.titleLabel.font = [UIFont systemFontOfSize:14];
-                [self setBackgroundColor:kUI_OBJECT_COLOR_BLUE];
+                [self setBackgroundColor:kUI_COLOR_BLUE_009ddf];
             }
               else if (self.buttonType == UIButtonTypeSystem)
               {
                  
                   [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
                    self.titleLabel.font = [UIFont systemFontOfSize:14];
-                  [self setBackgroundColor:kUI_OBJECT_COLOR_BLUE];
+                  [self setBackgroundColor:kUI_COLOR_BLUE_009ddf];
               }
         }
             break;
@@ -38,12 +38,12 @@
             [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             self.titleLabel.font = [UIFont systemFontOfSize:14];
             
-            [self setBackgroundColor:kUI_OBJECT_BACKGROUND_COLOR_GREEN];
+            [self setBackgroundColor:kUI_COLOR_GREEN_0x1bbc9b];
         }
             break;
         case UIButtonCommonTypeGreenText:
         {
-            [self setTitleColor:kUI_OBJECT_BACKGROUND_COLOR_GREEN forState:UIControlStateNormal];
+            [self setTitleColor:kUI_COLOR_GREEN_0x1bbc9b forState:UIControlStateNormal];
             self.titleLabel.font = [UIFont systemFontOfSize:14];
             
             [self setBackgroundColor:[UIColor whiteColor]];
@@ -57,14 +57,14 @@
               [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             self.titleLabel.font = [UIFont systemFontOfSize:14];
            
-            [self setBackgroundColor:kUI_OBJECT_BACKGROUND_COLOR_GRAY];
+            [self setBackgroundColor:kUI_COLOR_GRAY_dbdbdb];
      
            
         }
             break;
         case UIButtonCommonTypeGrayText:
         {
-            [self setTitleColor:kUI_TEXT_COLOR_GRAY forState:UIControlStateNormal];
+            [self setTitleColor:kUI_COLOR_GRAY_666666 forState:UIControlStateNormal];
             self.titleLabel.font = [UIFont systemFontOfSize:14];
             
   
@@ -72,20 +72,20 @@
             break;
         case UIButtonCommonTypeGrayTextAndBorder:
         {
-            [self setTitleColor:kUI_TEXT_COLOR_GRAY forState:UIControlStateNormal];
+            [self setTitleColor:kUI_COLOR_GRAY_666666 forState:UIControlStateNormal];
             self.titleLabel.font = [UIFont systemFontOfSize:14];
             
-            [self setBackgroundColor:kUI_OBJECT_BUTTON_BACKGORND_COLOR_GRAY];
+            [self setBackgroundColor:kUI_COLOR_GRAY_f0f0f0];
             self.clipsToBounds = YES;
             self.layer.borderWidth = 1/SCREEN_SCALE;
-            self.layer.borderColor = kUI_OBJECT_BORDER_COLOR_GRAY.CGColor;
+            self.layer.borderColor = kUI_COLOR_GRAY_dedede.CGColor;
             self.layer.cornerRadius = 3;
         }
             break;
         case UIButtonCommonTypeWhite:
         {
           
-            [self setTitleColor:kUI_TEXT_COLOR_BLACK forState:UIControlStateNormal];
+            [self setTitleColor:kUI_COLOR_BLACK_333333 forState:UIControlStateNormal];
             self.titleLabel.font = [UIFont systemFontOfSize:14];
             [self setBackgroundColor:[UIColor whiteColor]];
         }
@@ -94,12 +94,12 @@
         {
             [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             self.titleLabel.font = [UIFont systemFontOfSize:14];
-            [self setBackgroundColor:kUI_TEXT_COLOR_RED];
+            [self setBackgroundColor:kUI_COLOR_RED_e74747];
         }
             break;
         case UIButtonCommonTypeRedText:
         {
-            [self setTitleColor:kUI_TEXT_COLOR_RED forState:UIControlStateNormal];
+            [self setTitleColor:kUI_COLOR_RED_e74747 forState:UIControlStateNormal];
             self.titleLabel.font = [UIFont systemFontOfSize:14];
             [self setBackgroundColor:[UIColor clearColor]];
             
@@ -109,29 +109,29 @@
         case UIButtonCommonTypeDisableGray:
         {
            
-            [self setTitleColor:kUI_TEXT_COLOR_GRAY forState:UIControlStateNormal];
-            [self setTitleColor:kUI_TEXT_COLOR_GRAY forState:UIControlStateHighlighted];
+            [self setTitleColor:kUI_COLOR_GRAY_666666 forState:UIControlStateNormal];
+            [self setTitleColor:kUI_COLOR_GRAY_666666 forState:UIControlStateHighlighted];
             [self setHighlighted:NO];
             self.titleLabel.font = [UIFont systemFontOfSize:14];
-            [self setBackgroundColor:kUI_OBJECT_COLOR_LIGHT_GRAY];
+            [self setBackgroundColor:kUI_COLOR_GRAY_cccccc];
             
 
         }
             break;
         case UIButtonCommonTypeOrange:
         {
-            [self setTitleColor:kUI_TEXT_COLOR_WHITE forState:UIControlStateNormal];
+            [self setTitleColor:kUI_COLOR_WHITE_000000 forState:UIControlStateNormal];
               self.titleLabel.font = [UIFont systemFontOfSize:14];
-            self.backgroundColor = kUI_OBJECT_BACKGROUND_COLOR_ORANGE;
+            self.backgroundColor = kUI_COLOR_ORANGE_ff9539;
         }
             break;
             
             
         case UIButtonCommonTypeSelectedRed:
         {
-            [self setTitleColor:kUI_TEXT_COLOR_LIGHT_GRAY forState:UIControlStateNormal];
-            [self setTitleColor:kUI_TEXT_COLOR_RED forState:UIControlStateSelected];
-            [self setTitleColor:kUI_TEXT_COLOR_RED forState:UIControlStateHighlighted];
+            [self setTitleColor:kUI_COLOR_GRAY_999999 forState:UIControlStateNormal];
+            [self setTitleColor:kUI_COLOR_RED_e74747 forState:UIControlStateSelected];
+            [self setTitleColor:kUI_COLOR_RED_e74747 forState:UIControlStateHighlighted];
        
             self.titleLabel.font = [UIFont systemFontOfSize:14];
            
@@ -139,10 +139,10 @@
             break;
         case UIButtonCommonTypeSelectedRed2:
         {
-            [self setTitleColor:kUI_TEXT_COLOR_GRAY forState:UIControlStateNormal];
-            [self setTitleColor:kUI_TEXT_COLOR_WHITE forState:UIControlStateSelected];
-            [self setTitleColor:kUI_TEXT_COLOR_WHITE forState:UIControlStateHighlighted];
-            [self setBackgroundImage:[UIImage imageWithColor:kUI_OBJECT_BACKGROUND_RED] forState:UIControlStateSelected];
+            [self setTitleColor:kUI_COLOR_GRAY_666666 forState:UIControlStateNormal];
+            [self setTitleColor:kUI_COLOR_WHITE_000000 forState:UIControlStateSelected];
+            [self setTitleColor:kUI_COLOR_WHITE_000000 forState:UIControlStateHighlighted];
+            [self setBackgroundImage:[UIImage imageWithColor:kUI_COLOR_RED_e74747] forState:UIControlStateSelected];
             [self setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
             self.titleLabel.font = [UIFont systemFontOfSize:14];
             
@@ -150,9 +150,9 @@
             break;
         case UIButtonCommonTypeSelectedRedText:
         {
-            [self setTitleColor:kUI_TEXT_COLOR_LIGHT_GRAY forState:UIControlStateNormal];
-            [self setTitleColor:kUI_TEXT_COLOR_RED forState:UIControlStateSelected];
-            [self setTitleColor:kUI_TEXT_COLOR_RED forState:UIControlStateHighlighted];
+            [self setTitleColor:kUI_COLOR_GRAY_999999 forState:UIControlStateNormal];
+            [self setTitleColor:kUI_COLOR_RED_e74747 forState:UIControlStateSelected];
+            [self setTitleColor:kUI_COLOR_RED_e74747 forState:UIControlStateHighlighted];
          
             self.titleLabel.font = [UIFont systemFontOfSize:14];
         }
@@ -161,11 +161,11 @@
         case UIButtonCommonTypeSelectedBlue:
         {
           
-            [self setBackgroundImage:[UIImage imageWithColor:kUI_OBJECT_BUTTON_BACKGORND_COLOR_BLUE ] forState:UIControlStateSelected];
-              [self setTitleColor:kUI_TEXT_COLOR_WHITE forState:UIControlStateSelected];
+            [self setBackgroundImage:[UIImage imageWithColor:kUI_COLOR_BLUE_4a8fdc ] forState:UIControlStateSelected];
+              [self setTitleColor:kUI_COLOR_WHITE_000000 forState:UIControlStateSelected];
             
             [self setBackgroundImage:[UIImage imageWithColor:[UIColor clearColor]] forState:UIControlStateNormal];
-              [self setTitleColor:kUI_TEXT_DATE_COLOR_GRAY forState:UIControlStateNormal];
+              [self setTitleColor:kUI_COLOR_GRAY_b3b3b3 forState:UIControlStateNormal];
             
         }
             break;
@@ -175,7 +175,7 @@
             self.imageEdgeInsets = UIEdgeInsetsMake(0, 15, 30, -15);
             self.imageView.contentMode = UIViewContentModeScaleAspectFit;
             self.titleEdgeInsets = UIEdgeInsetsMake(self.height/2 + 25, - self.width + 30, 0, 0);
-            [self setTitleColor:kUI_TEXT_COLOR_LIGHT_GRAY forState:UIControlStateNormal];
+            [self setTitleColor:kUI_COLOR_GRAY_999999 forState:UIControlStateNormal];
               self.titleLabel.font = [UIFont systemFontOfSize:14];
             
         }

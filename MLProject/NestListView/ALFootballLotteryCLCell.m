@@ -51,11 +51,11 @@
     
     ReuseButtonCLCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ReuseButtonCLCell" forIndexPath:indexPath];
     
-    LayerCornerRadius_borderWidth_borderColor(cell.tagButton.layer, 0, 1/SCREEN_SCALE, kUI_SEPARATOR_COLOR_GRAY);
+    //LayerCornerRadius_borderWidth_borderColor(cell.tagButton.layer, 0, 1/SCREEN_SCALE, kUI_SEPARATOR_COLOR_GRAY);
      [cell.tagButton setBackgroundImage:[UIImage imageWithColor:kUI_COLOR_WHITE_000000] forState:UIControlStateNormal];
-    
-    [cell.tagButton setTitleColor:kUI_TEXT_COLOR_LIGHT_GRAY forState:UIControlStateSelected];
-    [cell.tagButton setBackgroundImage:[UIImage imageWithColor:kUI_OBJECT_BACKGROUND_COLOR_GREEN] forState:UIControlStateSelected];
+//    
+//    [cell.tagButton setTitleColor:kUI_TEXT_COLOR_LIGHT_GRAY forState:UIControlStateSelected];
+//    [cell.tagButton setBackgroundImage:[UIImage imageWithColor:kUI_OBJECT_BACKGROUND_COLOR_GREEN] forState:UIControlStateSelected];
     
     if ([[self.collectionView indexPathsForSelectedItems] containsObject:indexPath]) {
         cell.selected = YES;
@@ -245,7 +245,7 @@
 {
     
     //self.dateLabel = <#code#>
-    LabelAlignment_fontSize_textColor(self.dateLabel, NSTextAlignmentCenter, 11, kUI_TEXT_COLOR_GRAY);
+   // LabelAlignment_fontSize_textColor(self.dateLabel, NSTextAlignmentCenter, 11, kUI_TEXT_COLOR_GRAY);
       self.dateLabel.adjustsFontSizeToFitWidth = YES;
 }
 
@@ -253,8 +253,8 @@
 {
     
     //self.leagueNameLabel = <#code#>
-    LabelAlignment_fontSize_textColor(self.leagueNameLabel, NSTextAlignmentCenter, 12, kUI_COLOR_WHITE_000000);
-    self.leagueNameLabel.backgroundColor = kUI_COLOR_YELLOW;
+  //  LabelAlignment_fontSize_textColor(self.leagueNameLabel, NSTextAlignmentCenter, 12, kUI_COLOR_WHITE_000000);
+   // self.leagueNameLabel.backgroundColor = kUI_COLOR_YELLOW;
     
 }
 
@@ -262,7 +262,7 @@
 {
     
     //self.timeLabel = <#code#>
-    LabelAlignment_fontSize_textColor(self.timeLabel , NSTextAlignmentCenter, 12, kUI_TEXT_COLOR_GRAY);
+//    LabelAlignment_fontSize_textColor(self.timeLabel , NSTextAlignmentCenter, 12, kUI_TEXT_COLOR_GRAY);
   
     
 }
@@ -279,7 +279,7 @@
 {
     
     //self.homeTeamLabel = <#code#>
-    LabelAlignment_fontSize_textColor(self.homeTeamLabel, NSTextAlignmentCenter, 14, kUI_TEXT_COLOR_BLACK);
+    //LabelAlignment_fontSize_textColor(self.homeTeamLabel, NSTextAlignmentCenter, 14, kUI_TEXT_COLOR_BLACK);
     self.homeTeamLabel.adjustsFontSizeToFitWidth = YES;
 }
 
@@ -287,7 +287,7 @@
 {
     
     //self.VSHintLabel = <#code#>
-    LabelAlignment_fontSize_textColor(self.VSHintLabel , NSTextAlignmentCenter, 14, kUI_TEXT_COLOR_LIGHT_GRAY);
+   // LabelAlignment_fontSize_textColor(self.VSHintLabel , NSTextAlignmentCenter, 14, kUI_TEXT_COLOR_LIGHT_GRAY);
     
 }
 
@@ -296,7 +296,7 @@
     
     //self.visitingTeamLabel = <#code#>
     
-      LabelAlignment_fontSize_textColor(self.visitingTeamLabel, NSTextAlignmentCenter, 14, kUI_TEXT_COLOR_BLACK);
+    //  LabelAlignment_fontSize_textColor(self.visitingTeamLabel, NSTextAlignmentCenter, 14, kUI_TEXT_COLOR_BLACK);
         self.visitingTeamLabel.adjustsFontSizeToFitWidth = YES;
 }
 
@@ -304,8 +304,8 @@
 {
     
     //self.analysisButton = <#code#>
-    self.analysisButton.titleLabel.backgroundColor = kUI_SEPARATOR_COLOR_GRAY;
-    [self.analysisButton setTitleColor:kUI_TEXT_COLOR_LIGHT_GREEN2 forState:UIControlStateNormal];
+   // self.analysisButton.titleLabel.backgroundColor = kUI_SEPARATOR_COLOR_GRAY;
+ //   [self.analysisButton setTitleColor:kUI_TEXT_COLOR_LIGHT_GREEN2 forState:UIControlStateNormal];
     
 }
 

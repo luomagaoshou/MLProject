@@ -18,7 +18,7 @@
         {
             [self setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
             
-            UIImage *backImage = [UIImage imageWithColor:kUI_OBJECT_COLOR_BLUE];
+            UIImage *backImage = [UIImage imageWithColor:kUI_COLOR_BLUE_009ddf];
             [self setBackgroundImage:backImage forBarMetrics:UIBarMetricsDefault];
             
             [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -200) forBarMetrics:UIBarMetricsDefault];
@@ -33,7 +33,7 @@
         {
             [self setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
             
-            UIImage *backImage = [UIImage imageWithColor:kUI_TEXT_COLOR_RED];
+            UIImage *backImage = [UIImage imageWithColor:kUI_COLOR_RED_e74747];
             [self setBackgroundImage:backImage forBarMetrics:UIBarMetricsDefault];
             
             [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -200) forBarMetrics:UIBarMetricsDefault];
@@ -62,7 +62,7 @@
  hideBackButtonTitle:(BOOL)hideBackButtonTitle
 {
        // [[UINavigationBar appearance] setTranslucent:NO];
-    [[UINavigationBar appearance] setBackgroundColor:kUI_OBJECT_COLOR_BLUE];
+    [[UINavigationBar appearance] setBackgroundColor:kUI_COLOR_BLUE_009ddf];
 
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:titleColor}];

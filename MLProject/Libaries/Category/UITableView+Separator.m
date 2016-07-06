@@ -11,7 +11,7 @@
 @implementation UITableView (Separator)
 - (void)makeFullAndGraySeparator
 {
-    [self makeFullSeparatorWithColor:kUI_SEPARATOR_COLOR_GRAY];
+    [self makeFullSeparatorWithColor:kUI_COLOR_GRAY_b3b3b3];
 }
 - (void)makeFullSeparatorWithColor:(UIColor *)color
 {
