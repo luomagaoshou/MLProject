@@ -7,14 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-typedef NS_ENUM(NSInteger, UITextFieldCommonType) {
-    UITextFieldCommonTypeGray,
-    UITextFieldCommonTypeBothLeftAndRightViewHaveImage,
-    UITextFieldCommonTypeLeftViewIsLabel,
-    UITextFieldCommonTypeLeftViewIsLabelAndRightIsButton,
+typedef NS_OPTIONS(NSInteger, UITextFieldCommonOption) {
+    UITextFieldCommonOptionTextGray = 1 << 1,
+    UITextFieldCommonOptionLeftImageView = 1 << 2,
+    UITextFieldCommonOptionRightImageView = 1 << 3,
+    UITextFieldCommonOptionLeftLabel = 1 << 4,
+    UITextFieldCommonOptionRightLabel = 1 << 5,
+    UITextFieldCommonOptionLeftButton = 1 << 6,
+    UITextFieldCommonOptionRightButton = 1 << 7,
   
 };
-
 @interface UITextField (CommonType)
-@property (nonatomic, assign) UITextFieldCommonType textFieldCommonType;
+
+@end
+@interface UITextField()
+@property (nonatomic, assign) UITextFieldCommonOption textFieldCommonOption;
 @end
