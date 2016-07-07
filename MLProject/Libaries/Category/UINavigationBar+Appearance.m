@@ -8,6 +8,7 @@
 
 #import "UINavigationBar+Appearance.h"
 #import "UIImage+Color.h"
+#import "UIView+GestureBlock.h"
 @implementation UINavigationBar (Appearance)
 @dynamic navigationBarCommonType;
 
@@ -20,7 +21,7 @@
             
             UIImage *backImage = [UIImage imageWithColor:kUI_COLOR_BLUE_009ddf];
             [self setBackgroundImage:backImage forBarMetrics:UIBarMetricsDefault];
-            
+                        self.barStyle = UIBarStyleBlack;
             [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -200) forBarMetrics:UIBarMetricsDefault];
         
             [self setTintColor:[UIColor whiteColor]];
@@ -43,12 +44,28 @@
             
         }
             break;
+        case UINavigationBarCommonTypeClear:
+        {
+            [self setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
             
+            UIImage *backImage = [UIImage imageWithColor:[UIColor clearColor]];
+           
+            [self setBackgroundImage:backImage forBarMetrics:UIBarMetricsDefault];
+            
+            [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -200) forBarMetrics:UIBarMetricsDefault];
+            [self setTintColor:[UIColor whiteColor]];
+            self.barStyle = UIBarStyleBlack;
+            [self setTitleTextAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:18]}];
+            
+        }
+            break;
+
             
         default:
             break;
     }
 }
+
 - (void)setTitleColor:(UIColor *)titleColor backgroundColor:(UIColor *)backgroundColor backBarButtonItemTitle:(NSString *)backBarButtonItemTitle
 {
     [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObject:titleColor forKey:UITextAttributeTextColor]];
@@ -57,6 +74,7 @@
  //   [UINavigationBar appearance].backItem.title = @"";
     
 }
+
 + (void)setTintColor:(UIColor *)tintColor
           titleColor:(UIColor *)titleColor
  hideBackButtonTitle:(BOOL)hideBackButtonTitle

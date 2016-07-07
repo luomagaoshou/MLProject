@@ -1282,7 +1282,7 @@
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miaolonglai/Desktop/githubRepo/MLProject/MLProject/MultiThread/MultiThreadController.m"
-                  timestampString = "489516093.635056"
+                  timestampString = "489595764.715419"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "249"
@@ -1297,7 +1297,7 @@
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miaolonglai/Desktop/githubRepo/MLProject/MLProject/MultiThread/MultiThreadController.m"
-                  timestampString = "489516093.635152"
+                  timestampString = "489595764.715518"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "251"
@@ -1490,7 +1490,7 @@
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miaolonglai/Desktop/githubRepo/MLProject/MLProject/MultiThread/MultiThreadController.m"
-                  timestampString = "489516093.637738"
+                  timestampString = "489595764.722141"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "273"
@@ -1505,7 +1505,7 @@
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miaolonglai/Desktop/githubRepo/MLProject/MLProject/MultiThread/MultiThreadController.m"
-                  timestampString = "489516093.637853"
+                  timestampString = "489595764.722255"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "273"
@@ -2168,6 +2168,86 @@
             startingLineNumber = "172"
             endingLineNumber = "172"
             landmarkName = "-postRequestWithSuccess:failure:completion:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MLProject/Libaries/Category/UINavigationBar+Appearance.m"
+            timestampString = "489594592.247838"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "-setNavigationBarCommonType:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MLProject/Libaries/Category/UINavigationBar+Appearance.m"
+            timestampString = "489594592.247838"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "-setNavigationBarCommonType:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MLProject/Navigation/MLNavigationViewController.m"
+            timestampString = "489595190.418675"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "-preferredStatusBarStyle"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MLProject/Navigation/MLNavigationViewController.m"
+            timestampString = "489595190.418675"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MLProject/Libaries/Category/UINavigationBar+Appearance.m"
+            timestampString = "489594592.247838"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "-setNavigationBarCommonType:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

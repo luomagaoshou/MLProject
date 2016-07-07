@@ -19,7 +19,7 @@
     }
     objc_setAssociatedObject(self, @selector(textFieldCommonOption), @(textFieldCommonOption), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    if (self.textFieldCommonOption | UITextFieldCommonOptionTextGray) {
+    if (self.textFieldCommonOption & UITextFieldCommonOptionTextGray) {
         
         self.backgroundColor = [UIColor whiteColor];
         UIView *emptyView = [[UIView alloc] init];
@@ -30,7 +30,7 @@
         [self setValue:[UIFont systemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];
         [self setTextColor:kUI_COLOR_BLACK_333333];
         
-    }else if (self.textFieldCommonOption | UITextFieldCommonOptionLeftImageView){
+    }else if (self.textFieldCommonOption & UITextFieldCommonOptionLeftImageView){
         
         self.backgroundColor = [UIColor whiteColor];
         self.leftViewMode = UITextFieldViewModeAlways;
@@ -45,7 +45,7 @@
         UIImageView *imagaView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 5, self.height - 10, self.height - 10)];
         self.leftView = imagaView;
         
-    }else if (self.textFieldCommonOption | UITextFieldCommonOptionRightImageView){
+    }else if (self.textFieldCommonOption & UITextFieldCommonOptionRightImageView){
         
         self.backgroundColor = [UIColor whiteColor];
          self.rightViewMode = UITextFieldViewModeAlways;
@@ -55,19 +55,19 @@
         LabelAlignment_fontSize_textColor(placeholderLabel, kUI_COLOR_GRAY_cccccc, 14, NSTextAlignmentLeft);
         UIImageView *imagaView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 5, self.height - 10, self.height - 10)];
         self.rightView = imagaView;
-    }else if (self.textFieldCommonOption | UITextFieldCommonOptionLeftButton){
+    }else if (self.textFieldCommonOption & UITextFieldCommonOptionLeftButton){
         
          self.leftViewMode = UITextFieldViewModeAlways;
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom frame:CGRectMake(0, 5, 100, self.height - 10) title:@""];
         self.leftView = button;
         
-    }else if (self.textFieldCommonOption | UITextFieldCommonOptionRightButton){
+    }else if (self.textFieldCommonOption & UITextFieldCommonOptionRightButton){
         
         self.rightViewMode = UITextFieldViewModeAlways;
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom frame:CGRectMake(0, 5, 100, self.height - 10) title:@""];
         self.rightView = button;
         
-    }else if (self.textFieldCommonOption | UITextFieldCommonOptionLeftLabel){
+    }else if (self.textFieldCommonOption & UITextFieldCommonOptionLeftLabel){
         
         self.backgroundColor = [UIColor whiteColor];
         self.leftViewMode = UITextFieldViewModeAlways;
