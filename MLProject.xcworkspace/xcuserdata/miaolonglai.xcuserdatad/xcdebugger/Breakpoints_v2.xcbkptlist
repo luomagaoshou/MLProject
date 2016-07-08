@@ -1282,7 +1282,7 @@
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miaolonglai/Desktop/githubRepo/MLProject/MLProject/MultiThread/MultiThreadController.m"
-                  timestampString = "489595764.715419"
+                  timestampString = "489683781.535954"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "249"
@@ -1297,7 +1297,7 @@
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miaolonglai/Desktop/githubRepo/MLProject/MLProject/MultiThread/MultiThreadController.m"
-                  timestampString = "489595764.715518"
+                  timestampString = "489683781.536064"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "251"
@@ -1490,7 +1490,7 @@
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miaolonglai/Desktop/githubRepo/MLProject/MLProject/MultiThread/MultiThreadController.m"
-                  timestampString = "489595764.722141"
+                  timestampString = "489683781.538678"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "273"
@@ -1505,7 +1505,7 @@
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miaolonglai/Desktop/githubRepo/MLProject/MLProject/MultiThread/MultiThreadController.m"
-                  timestampString = "489595764.722255"
+                  timestampString = "489683781.538808"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "273"
@@ -2248,6 +2248,22 @@
             startingLineNumber = "52"
             endingLineNumber = "52"
             landmarkName = "-setNavigationBarCommonType:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MLProject/MLTextField/MLTextField.m"
+            timestampString = "489683347.856036"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "-calculateMiddelLabelRectWithBounds:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

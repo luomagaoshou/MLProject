@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MLTextField.h"
 typedef NS_OPTIONS(NSInteger, UITextFieldCommonOption) {
     UITextFieldCommonOptionTextGray = 1 << 1,
     UITextFieldCommonOptionLeftImageView = 1 << 2,
@@ -17,9 +18,9 @@ typedef NS_OPTIONS(NSInteger, UITextFieldCommonOption) {
     UITextFieldCommonOptionRightButton = 1 << 7,
   
 };
-@interface UITextField (CommonType)
+@interface MLTextField (CommonType)
 
 @end
-@interface UITextField()
+@interface MLTextField()
 @property (nonatomic, assign) UITextFieldCommonOption textFieldCommonOption;
 @end

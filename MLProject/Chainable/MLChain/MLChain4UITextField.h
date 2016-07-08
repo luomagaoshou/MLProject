@@ -60,13 +60,13 @@ ml_chain_block_maker(UITextField);
 #endif
 - (MLChainParamBlock4UITextField)textLabelOff;
 
-#ifndef placeHolderLabelOffet
-#define placeHolderLabelOffet(...) placeHolderLabelOffet(ml_chain_MASBoxValue(metamacro_at(0, __VA_ARGS__)))
+#ifndef placeHolderLabelOffset
+#define placeHolderLabelOffset(...) placeHolderLabelOffset(ml_chain_MASBoxValue(metamacro_at(0, __VA_ARGS__)))
 #endif
-#ifndef placeHolderLabelOffet_
-#define placeHolderLabelOffet_(...)  placeHolderLabelOffet(ml_chain_MASBoxValue(CGPointMake(__VA_ARGS__)))
+#ifndef placeHolderLabelOffset_
+#define placeHolderLabelOffset_(...)  placeHolderLabelOffset(ml_chain_MASBoxValue(CGPointMake(__VA_ARGS__)))
 #endif
-- (MLChainParamBlock4UITextField)placeHolderLabelOffet;
+- (MLChainParamBlock4UITextField)placeHolderLabelOffset;
 
 #ifndef leftViewRect
 #define leftViewRect(...) leftViewRect(ml_chain_MASBoxValue(metamacro_at(0, __VA_ARGS__)))

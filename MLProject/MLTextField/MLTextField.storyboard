@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Text Field View Controller-->
+        <scene sceneID="2Gi-LQ-JcL">
+            <objects>
+                <viewController storyboardIdentifier="MLTextFieldViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hy8-Qi-K4e" customClass="MLTextFieldViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZR5-J3-cHQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="KPD-4x-lrI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ntm-NU-pdk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="哈哈1111111222222222233333" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hr3-XK-FF9" customClass="MLTextField">
+                                <rect key="frame" x="0.0" y="116" width="594" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Hmy-DP-cot"/>
+                                    <constraint firstAttribute="width" constant="370" id="aGr-1d-058"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="aGr-1d-058"/>
+                                    </mask>
+                                </variation>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Hr3-XK-FF9" firstAttribute="leading" secondItem="ntm-NU-pdk" secondAttribute="leading" id="Bcw-yY-yB1"/>
+                            <constraint firstItem="Hr3-XK-FF9" firstAttribute="top" secondItem="ZR5-J3-cHQ" secondAttribute="bottom" constant="96" id="D3h-Xq-rUW"/>
+                            <constraint firstAttribute="trailing" secondItem="Hr3-XK-FF9" secondAttribute="trailing" constant="6" id="Haj-Nj-nxo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textField" destination="Hr3-XK-FF9" id="Kw5-Od-NAG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k5I-4d-kgJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="538" y="-409"/>
+        </scene>
+    </scenes>
+</document>

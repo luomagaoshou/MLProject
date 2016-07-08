@@ -109,7 +109,7 @@ return weakSelf;
 - (MLChainParamBlock4UITextField)textLabelOff{
 __weak typeof(self) weakSelf = self;
 return ^ MLChain4UITextField *(id firstObject, ...){
-NSString *selName = @"setTextLabelOffset:";
+NSString *selName = @"settextLabelOffset:";
 __strong typeof(weakSelf) strongSelf = weakSelf;
 id chainObject = [strongSelf objectOfChainMaker];
 va_list arglist;
@@ -122,10 +122,10 @@ return weakSelf;
 };
 }
 
-- (MLChainParamBlock4UITextField)placeHolderLabelOffet{
+- (MLChainParamBlock4UITextField)placeHolderLabelOffset{
 __weak typeof(self) weakSelf = self;
 return ^ MLChain4UITextField *(id firstObject, ...){
-NSString *selName = @"setPlaceHolderLabelOffet:";
+NSString *selName = @"setplaceHolderLabelOffset:";
 __strong typeof(weakSelf) strongSelf = weakSelf;
 id chainObject = [strongSelf objectOfChainMaker];
 va_list arglist;

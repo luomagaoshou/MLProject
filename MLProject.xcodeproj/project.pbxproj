@@ -16,7 +16,6 @@
 		16BC0B881D2CFEDD0041D124 /* UIButton+CommonType.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC0B871D2CFEDD0041D124 /* UIButton+CommonType.m */; };
 		16BC0B8B1D2CFEF10041D124 /* UILabel+CommonType.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC0B8A1D2CFEF10041D124 /* UILabel+CommonType.m */; };
 		16BC0B911D2CFF5C0041D124 /* UINavigationBar+Appearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC0B901D2CFF5C0041D124 /* UINavigationBar+Appearance.m */; };
-		16BC0B951D2D126C0041D124 /* UITextField+CommonType.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC0B941D2D126C0041D124 /* UITextField+CommonType.m */; };
 		18008A4F1CA69E4600EFA08E /* UITabBarController+ML_Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 18008A4E1CA69E4600EFA08E /* UITabBarController+ML_Create.m */; };
 		181F990D1CE066E900DB57CA /* MLSQLite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 181F99081CE066E900DB57CA /* MLSQLite.storyboard */; };
 		181F990E1CE066E900DB57CA /* MLSQLiteController.m in Sources */ = {isa = PBXBuildFile; fileRef = 181F990A1CE066E900DB57CA /* MLSQLiteController.m */; };
@@ -163,6 +162,10 @@
 		FE384E011D2E818300D5F282 /* MLNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE384E001D2E818300D5F282 /* MLNavigationViewController.m */; };
 		FE384E041D2E81D300D5F282 /* MLNavigationTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE384E031D2E81D300D5F282 /* MLNavigationTestViewController.m */; };
 		FE384E071D2E9D2400D5F282 /* MLNavigationTestViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = FE384E061D2E9D2400D5F282 /* MLNavigationTestViewController2.m */; };
+		FE384E0B1D2FD39200D5F282 /* MLTextFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE384E0A1D2FD39200D5F282 /* MLTextFieldViewController.m */; };
+		FE384E0D1D2FD39C00D5F282 /* MLTextField.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE384E0C1D2FD39C00D5F282 /* MLTextField.storyboard */; };
+		FE384E141D2FFC7400D5F282 /* MLTextField+CommonType.m in Sources */ = {isa = PBXBuildFile; fileRef = FE384E131D2FFC7400D5F282 /* MLTextField+CommonType.m */; };
+		FE384E171D2FFC9000D5F282 /* MLTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = FE384E161D2FFC9000D5F282 /* MLTextField.m */; };
 		FE3C4A731C2EBA66004CBA21 /* ChainableController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE3C4A711C2EBA66004CBA21 /* ChainableController.xib */; };
 		FE514DB21C1BFCDB00E3AC0C /* RunTimeController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE514DB01C1BFCDB00E3AC0C /* RunTimeController.m */; };
 		FE514DB31C1BFCDB00E3AC0C /* RunTimeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE514DB11C1BFCDB00E3AC0C /* RunTimeController.xib */; };
@@ -289,8 +292,6 @@
 		16BC0B8A1D2CFEF10041D124 /* UILabel+CommonType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+CommonType.m"; sourceTree = "<group>"; };
 		16BC0B8F1D2CFF5C0041D124 /* UINavigationBar+Appearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Appearance.h"; sourceTree = "<group>"; };
 		16BC0B901D2CFF5C0041D124 /* UINavigationBar+Appearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Appearance.m"; sourceTree = "<group>"; };
-		16BC0B931D2D126C0041D124 /* UITextField+CommonType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+CommonType.h"; sourceTree = "<group>"; };
-		16BC0B941D2D126C0041D124 /* UITextField+CommonType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+CommonType.m"; sourceTree = "<group>"; };
 		18008A4D1CA69E4600EFA08E /* UITabBarController+ML_Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+ML_Create.h"; sourceTree = "<group>"; };
 		18008A4E1CA69E4600EFA08E /* UITabBarController+ML_Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+ML_Create.m"; sourceTree = "<group>"; };
 		181F99081CE066E900DB57CA /* MLSQLite.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLSQLite.storyboard; sourceTree = "<group>"; };
@@ -559,6 +560,13 @@
 		FE384E031D2E81D300D5F282 /* MLNavigationTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLNavigationTestViewController.m; sourceTree = "<group>"; };
 		FE384E051D2E9D2400D5F282 /* MLNavigationTestViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLNavigationTestViewController2.h; sourceTree = "<group>"; };
 		FE384E061D2E9D2400D5F282 /* MLNavigationTestViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLNavigationTestViewController2.m; sourceTree = "<group>"; };
+		FE384E091D2FD39200D5F282 /* MLTextFieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLTextFieldViewController.h; sourceTree = "<group>"; };
+		FE384E0A1D2FD39200D5F282 /* MLTextFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLTextFieldViewController.m; sourceTree = "<group>"; };
+		FE384E0C1D2FD39C00D5F282 /* MLTextField.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLTextField.storyboard; sourceTree = "<group>"; };
+		FE384E121D2FFC7400D5F282 /* MLTextField+CommonType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MLTextField+CommonType.h"; sourceTree = "<group>"; };
+		FE384E131D2FFC7400D5F282 /* MLTextField+CommonType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MLTextField+CommonType.m"; sourceTree = "<group>"; };
+		FE384E151D2FFC9000D5F282 /* MLTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLTextField.h; sourceTree = "<group>"; };
+		FE384E161D2FFC9000D5F282 /* MLTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLTextField.m; sourceTree = "<group>"; };
 		FE3C4A6F1C2EBA66004CBA21 /* ChainableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChainableController.h; sourceTree = "<group>"; };
 		FE3C4A701C2EBA66004CBA21 /* ChainableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChainableController.m; sourceTree = "<group>"; };
 		FE3C4A711C2EBA66004CBA21 /* ChainableController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChainableController.xib; sourceTree = "<group>"; };
@@ -910,8 +918,6 @@
 				18C275C41C7D41020055C19D /* ML_Category.h */,
 				16BC0B891D2CFEF10041D124 /* UILabel+CommonType.h */,
 				16BC0B8A1D2CFEF10041D124 /* UILabel+CommonType.m */,
-				16BC0B931D2D126C0041D124 /* UITextField+CommonType.h */,
-				16BC0B941D2D126C0041D124 /* UITextField+CommonType.m */,
 				16BC0B861D2CFEDD0041D124 /* UIButton+CommonType.h */,
 				16BC0B871D2CFEDD0041D124 /* UIButton+CommonType.m */,
 				FE6B53D51CD3D01B0071F64E /* NSString+Class.h */,
@@ -1236,6 +1242,27 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
+		FE384E081D2FD31800D5F282 /* MLTextField */ = {
+			isa = PBXGroup;
+			children = (
+				FE384E091D2FD39200D5F282 /* MLTextFieldViewController.h */,
+				FE384E0A1D2FD39200D5F282 /* MLTextFieldViewController.m */,
+				FE384E0C1D2FD39C00D5F282 /* MLTextField.storyboard */,
+			);
+			path = MLTextField;
+			sourceTree = "<group>";
+		};
+		FE384E111D2FFC6300D5F282 /* MLUtilily */ = {
+			isa = PBXGroup;
+			children = (
+				FE384E121D2FFC7400D5F282 /* MLTextField+CommonType.h */,
+				FE384E131D2FFC7400D5F282 /* MLTextField+CommonType.m */,
+				FE384E151D2FFC9000D5F282 /* MLTextField.h */,
+				FE384E161D2FFC9000D5F282 /* MLTextField.m */,
+			);
+			path = MLUtilily;
+			sourceTree = "<group>";
+		};
 		FE3C4A6B1C2EBA00004CBA21 /* Chainable */ = {
 			isa = PBXGroup;
 			children = (
@@ -1499,6 +1526,7 @@
 				FEB529D01BEF1EBA00EAA6C1 /* RootController.h */,
 				FEB529D11BEF1EBA00EAA6C1 /* RootController.m */,
 				FEB529D31BEF208A00EAA6C1 /* RootController.xib */,
+				FE384E081D2FD31800D5F282 /* MLTextField */,
 				FE384DFC1D2E816800D5F282 /* Navigation */,
 				FE384DF61D2C046200D5F282 /* MLNetwork */,
 				166218A51D2B4B3900DF9FAF /* RAC */,
@@ -1577,6 +1605,7 @@
 		FEC349671BEEFEF00076E88B /* Libaries */ = {
 			isa = PBXGroup;
 			children = (
+				FE384E111D2FFC6300D5F282 /* MLUtilily */,
 				FE1141CD1CA6C69C00302A03 /* MBProgressHud */,
 				16556F221D2CEC5A002CC9B4 /* MLNetwork */,
 				FEFB49DB1C95205200634A97 /* vk_msgSend */,
@@ -1837,6 +1866,7 @@
 				FEC3494F1BEEFB0D0076E88B /* Images.xcassets in Resources */,
 				FE84ED831CEEBA3C004FC7B3 /* MLPropertyKeyword.storyboard in Resources */,
 				18EB94351CE9583E00C24368 /* MLDataStructures.storyboard in Resources */,
+				FE384E0D1D2FD39C00D5F282 /* MLTextField.storyboard in Resources */,
 				FE0C63141D1683E900F73C95 /* NibController.xib in Resources */,
 				181F990D1CE066E900DB57CA /* MLSQLite.storyboard in Resources */,
 				FE384DF81D2C047200D5F282 /* MLNetwork.storyboard in Resources */,
@@ -1933,6 +1963,7 @@
 				18008A4F1CA69E4600EFA08E /* UITabBarController+ML_Create.m in Sources */,
 				FE84ED861CEEBA4B004FC7B3 /* MLPropertyKeywordController.m in Sources */,
 				FE1141D01CA6C6AD00302A03 /* MBProgressHUD.m in Sources */,
+				FE384E0B1D2FD39200D5F282 /* MLTextFieldViewController.m in Sources */,
 				FEA1C86F1CAEDD2300B5A9D3 /* ReuseButtonCLCell.m in Sources */,
 				18C276971C7D41020055C19D /* UIView+Xib.m in Sources */,
 				166218AA1D2B4B3900DF9FAF /* MLRACViewController.m in Sources */,
@@ -2013,7 +2044,6 @@
 				FE6B22781CD65178007733FD /* UILabel+MLChain.m in Sources */,
 				FEDF1FF01C4A64A200DF9A8D /* FDTBCell.m in Sources */,
 				FEF7DDA81C7CC4EF00BF3630 /* MLCALayerView2.m in Sources */,
-				16BC0B951D2D126C0041D124 /* UITextField+CommonType.m in Sources */,
 				1895E12D1C5B506E0046411D /* IQKeyboardManagerController.m in Sources */,
 				FEE6A6961C691196008760CA /* AlgorithmPlayController.m in Sources */,
 				18C2767B1C7D41020055C19D /* UIImage+FX.m in Sources */,
@@ -2104,6 +2134,8 @@
 				181F990F1CE066E900DB57CA /* MLSQLMaker.m in Sources */,
 				FE9F364F1CFC4B0600A16744 /* MLMapOfAmapController.swift in Sources */,
 				16BC0B881D2CFEDD0041D124 /* UIButton+CommonType.m in Sources */,
+				FE384E141D2FFC7400D5F282 /* MLTextField+CommonType.m in Sources */,
+				FE384E171D2FFC9000D5F282 /* MLTextField.m in Sources */,
 				18C276561C7D41020055C19D /* NSData+Base64.m in Sources */,
 				1879DDAA1CD9D0AD000ECD8F /* NSObject+ChainProperty.m in Sources */,
 				FEE3DCA41CF72BB60046B515 /* MLMediaController.swift in Sources */,
