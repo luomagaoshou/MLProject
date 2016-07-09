@@ -13,9 +13,15 @@
 		16556F281D2CEC5A002CC9B4 /* MLNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 16556F261D2CEC5A002CC9B4 /* MLNetwork.m */; };
 		166218A91D2B4B3900DF9FAF /* MLRAC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 166218A61D2B4B3900DF9FAF /* MLRAC.storyboard */; };
 		166218AA1D2B4B3900DF9FAF /* MLRACViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 166218A81D2B4B3900DF9FAF /* MLRACViewController.m */; };
+		16A761D71D2F3ACD0086AC22 /* UINavigationBar+Appearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A761D61D2F3ACD0086AC22 /* UINavigationBar+Appearance.m */; };
+		16A761DA1D2F3B240086AC22 /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A761D91D2F3B240086AC22 /* UITextView+Placeholder.m */; };
 		16BC0B881D2CFEDD0041D124 /* UIButton+CommonType.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC0B871D2CFEDD0041D124 /* UIButton+CommonType.m */; };
 		16BC0B8B1D2CFEF10041D124 /* UILabel+CommonType.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC0B8A1D2CFEF10041D124 /* UILabel+CommonType.m */; };
+<<<<<<< Updated upstream
 		16BC0B911D2CFF5C0041D124 /* UINavigationBar+Appearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC0B901D2CFF5C0041D124 /* UINavigationBar+Appearance.m */; };
+=======
+		16BC0B951D2D126C0041D124 /* UITextField+CommonType.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC0B941D2D126C0041D124 /* UITextField+CommonType.m */; };
+>>>>>>> Stashed changes
 		18008A4F1CA69E4600EFA08E /* UITabBarController+ML_Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 18008A4E1CA69E4600EFA08E /* UITabBarController+ML_Create.m */; };
 		181F990D1CE066E900DB57CA /* MLSQLite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 181F99081CE066E900DB57CA /* MLSQLite.storyboard */; };
 		181F990E1CE066E900DB57CA /* MLSQLiteController.m in Sources */ = {isa = PBXBuildFile; fileRef = 181F990A1CE066E900DB57CA /* MLSQLiteController.m */; };
@@ -286,12 +292,21 @@
 		166218A61D2B4B3900DF9FAF /* MLRAC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLRAC.storyboard; sourceTree = "<group>"; };
 		166218A71D2B4B3900DF9FAF /* MLRACViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLRACViewController.h; sourceTree = "<group>"; };
 		166218A81D2B4B3900DF9FAF /* MLRACViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLRACViewController.m; sourceTree = "<group>"; };
+		16A761D51D2F3ACD0086AC22 /* UINavigationBar+Appearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Appearance.h"; sourceTree = "<group>"; };
+		16A761D61D2F3ACD0086AC22 /* UINavigationBar+Appearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Appearance.m"; sourceTree = "<group>"; };
+		16A761D81D2F3B240086AC22 /* UITextView+Placeholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
+		16A761D91D2F3B240086AC22 /* UITextView+Placeholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Placeholder.m"; sourceTree = "<group>"; };
 		16BC0B861D2CFEDD0041D124 /* UIButton+CommonType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+CommonType.h"; sourceTree = "<group>"; };
 		16BC0B871D2CFEDD0041D124 /* UIButton+CommonType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+CommonType.m"; sourceTree = "<group>"; };
 		16BC0B891D2CFEF10041D124 /* UILabel+CommonType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+CommonType.h"; sourceTree = "<group>"; };
 		16BC0B8A1D2CFEF10041D124 /* UILabel+CommonType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+CommonType.m"; sourceTree = "<group>"; };
+<<<<<<< Updated upstream
 		16BC0B8F1D2CFF5C0041D124 /* UINavigationBar+Appearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Appearance.h"; sourceTree = "<group>"; };
 		16BC0B901D2CFF5C0041D124 /* UINavigationBar+Appearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Appearance.m"; sourceTree = "<group>"; };
+=======
+		16BC0B931D2D126C0041D124 /* UITextField+CommonType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+CommonType.h"; sourceTree = "<group>"; };
+		16BC0B941D2D126C0041D124 /* UITextField+CommonType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+CommonType.m"; sourceTree = "<group>"; };
+>>>>>>> Stashed changes
 		18008A4D1CA69E4600EFA08E /* UITabBarController+ML_Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+ML_Create.h"; sourceTree = "<group>"; };
 		18008A4E1CA69E4600EFA08E /* UITabBarController+ML_Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+ML_Create.m"; sourceTree = "<group>"; };
 		181F99081CE066E900DB57CA /* MLSQLite.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLSQLite.storyboard; sourceTree = "<group>"; };
@@ -1013,8 +1028,8 @@
 				18C2762D1C7D41020055C19D /* UIStoryboard+Load.m */,
 				18C2762E1C7D41020055C19D /* UITableView+ML_Tools.h */,
 				18C2762F1C7D41020055C19D /* UITableView+ML_Tools.m */,
-				16BC0B8F1D2CFF5C0041D124 /* UINavigationBar+Appearance.h */,
-				16BC0B901D2CFF5C0041D124 /* UINavigationBar+Appearance.m */,
+				16A761D51D2F3ACD0086AC22 /* UINavigationBar+Appearance.h */,
+				16A761D61D2F3ACD0086AC22 /* UINavigationBar+Appearance.m */,
 				18C276301C7D41020055C19D /* UITableView+Separator.h */,
 				18C276311C7D41020055C19D /* UITableView+Separator.m */,
 				18C276321C7D41020055C19D /* UITableViewCell+Separator.h */,
@@ -1051,6 +1066,8 @@
 				18D8E07C1C84576400706195 /* UITableView+Refresh.m */,
 				18E727F61C9D35E500DA9438 /* CALayer+Line.h */,
 				18E727F71C9D35E500DA9438 /* CALayer+Line.m */,
+				16A761D81D2F3B240086AC22 /* UITextView+Placeholder.h */,
+				16A761D91D2F3B240086AC22 /* UITextView+Placeholder.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -2110,12 +2127,12 @@
 				18C276621C7D41020055C19D /* NSObject+CreateCode.m in Sources */,
 				FE614CF21D0C488200B6D0F0 /* MLBLECentralController.swift in Sources */,
 				18C2765F1C7D41020055C19D /* NSNotificationCenter+Block.m in Sources */,
-				16BC0B911D2CFF5C0041D124 /* UINavigationBar+Appearance.m in Sources */,
 				18C276841C7D41020055C19D /* UILabel+NumberValue.m in Sources */,
 				FE06A08C1CA7AE7500758B37 /* MLImageController.m in Sources */,
 				18C2768B1C7D41020055C19D /* UITextField+ML_Tools.m in Sources */,
 				FE6B22601CD65178007733FD /* CAEmitterCell+MLChain.m in Sources */,
 				FE6B22661CD65178007733FD /* MLChain4CABasicAnimation.m in Sources */,
+				16A761D71D2F3ACD0086AC22 /* UINavigationBar+Appearance.m in Sources */,
 				18C276741C7D41020055C19D /* UICollectionView+ML_Tools.m in Sources */,
 				FE6B226D1CD65178007733FD /* MLChain4UIButton.m in Sources */,
 				18C276791C7D41020055C19D /* UIImage+Color.m in Sources */,
@@ -2151,6 +2168,7 @@
 				18D8E07E1C84576400706195 /* UITableView+Refresh.m in Sources */,
 				FE384E041D2E81D300D5F282 /* MLNavigationTestViewController.m in Sources */,
 				18C276671C7D41020055C19D /* NSPredicate+Tools.m in Sources */,
+				16A761DA1D2F3B240086AC22 /* UITextView+Placeholder.m in Sources */,
 				18BD05301CE478BB00EDBA62 /* MLJSMaker.m in Sources */,
 				FEED3FC31D104F000084A143 /* MLRunloopController.swift in Sources */,
 				18DC19891C58CA5B0049BD18 /* DelegateSeparationController.m in Sources */,

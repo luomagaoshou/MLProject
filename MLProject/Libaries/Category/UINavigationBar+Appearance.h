@@ -9,15 +9,12 @@
 #import <UIKit/UIKit.h>
 typedef NS_ENUM(NSInteger, UINavigationBarCommonType) {
     
-    UINavigationBarCommonTypeBlue = 1,
-    UINavigationBarCommonTypeRed = 2,
-    UINavigationBarCommonTypeClear = 3,
+    UINavigationBarCommonTypeBlue,
+    UINavigationBarCommonTypeRed,
+    UINavigationBarCommonTypeClear,
 };
-
 @interface UINavigationBar (Appearance)
 @property (nonatomic, assign) UINavigationBarCommonType navigationBarCommonType;
-
-
 - (void)setTitleColor:(UIColor *)titleColor
       backgroundColor:(UIColor *)backgroundColor
 backBarButtonItemTitle:(NSString *)backBarButtonItemTitle;
