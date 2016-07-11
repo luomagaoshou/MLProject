@@ -8,15 +8,14 @@
 
 #import "MLTextField+CommonType.h"
 #import "UITextField+ML_Tools.h"
-#import "UILabel+Init.h"
-#import "UIButton+Init.h"
+
 
 @implementation MLTextField (CommonType)
 
 - (void)setTextFieldCommonOption:(UITextFieldCommonOption)textFieldCommonOption
 {
   
-    
+    objc_setAssociatedObject(self, @selector(textFieldCommonOption), @(textFieldCommonOption), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     if (self.textFieldCommonOption & UITextFieldCommonOptionTextGray) {
         
         self.backgroundColor = [UIColor whiteColor];
@@ -92,5 +91,9 @@
     
 }
 
+- (UITextFieldCommonOption)textFieldCommonOption
+{
+    return [objc_getAssociatedObject(self, @selector(textFieldCommonOption)) integerValue];
+}
 @end
 

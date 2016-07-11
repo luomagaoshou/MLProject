@@ -17,19 +17,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="填写测试数据" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mgC-zE-e03">
-                                <rect key="frame" x="63" y="159" width="350" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="fff" borderStyle="roundedRect" placeholder="填写测试数据" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mgC-zE-e03">
+                                <rect key="frame" x="125" y="159" width="350" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="QS1-Af-ZTl"/>
+                                    <constraint firstAttribute="width" constant="350" id="Y8t-Yn-D62"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddL-02-cwp">
-                                <rect key="frame" x="63" y="100" width="350" height="42"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddL-02-cwp">
+                                <rect key="frame" x="125" y="100" width="350" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="HhQ-Mm-fSv"/>
+                                    <constraint firstAttribute="width" constant="350" id="g5y-dC-7iP"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ddL-02-cwp" firstAttribute="top" secondItem="OX7-bT-Mqa" secondAttribute="bottom" constant="80" id="5O7-Uw-Vpi"/>
+                            <constraint firstItem="mgC-zE-e03" firstAttribute="centerX" secondItem="1bQ-Iv-0Ym" secondAttribute="centerX" id="Ekg-w6-xqY"/>
+                            <constraint firstItem="mgC-zE-e03" firstAttribute="top" secondItem="ddL-02-cwp" secondAttribute="bottom" constant="17" id="F8N-nT-eMt"/>
+                            <constraint firstItem="ddL-02-cwp" firstAttribute="centerX" secondItem="1bQ-Iv-0Ym" secondAttribute="centerX" id="gTX-QR-9GY"/>
+                            <constraint firstItem="ddL-02-cwp" firstAttribute="centerY" secondItem="1bQ-Iv-0Ym" secondAttribute="centerY" id="o5V-NY-pHt"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="o5V-NY-pHt"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="testLabel" destination="ddL-02-cwp" id="ZW2-bm-YFk"/>

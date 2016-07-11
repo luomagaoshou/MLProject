@@ -76,9 +76,21 @@
 //    }] subscribeNext:^(id x) {
 //              self.testLabel.text = x;
 //    }];
-    
+//    
   
 
+   // RAC(self.testTextField, alpha) = self.testTextField.rac_textSignal;
+    self.testTextField.backgroundColor = [UIColor blueColor];
+    RACSignal *signal = RACObserve(self.testTextField, text);
+    RAC(self.testTextField, alpha) = [signal map:^id(id value) {
+        
+        return @(([value length] %10)/10.0f);
+        
+    }];
+    
+    
+    
+    
 }
 #pragma mark - ========= DownloadData =========
 - (void)downloadData

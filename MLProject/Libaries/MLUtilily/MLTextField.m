@@ -75,7 +75,7 @@
 
 - (CGRect)calculateMiddelLabelRectWithBounds:(CGRect)bounds
 {
-      CGRect rect = CGRectMake(self.leftView.right, 0, self.width - self.leftView.right - (self.width - self.rightView.left) - self.leftViewOffset.x + self.rightViewOffset.x, CGRectGetHeight(bounds));
+      CGRect rect = CGRectMake(self.leftView.right, 0, self.width, CGRectGetHeight(bounds));
     return rect;
 }
 - (CGRect)editingRectForBounds:(CGRect)bounds

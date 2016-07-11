@@ -1282,7 +1282,7 @@
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miaolonglai/Desktop/githubRepo/MLProject/MLProject/MultiThread/MultiThreadController.m"
-                  timestampString = "489683781.535954"
+                  timestampString = "489942694.750335"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "249"
@@ -1297,7 +1297,7 @@
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miaolonglai/Desktop/githubRepo/MLProject/MLProject/MultiThread/MultiThreadController.m"
-                  timestampString = "489683781.536064"
+                  timestampString = "489942694.750456"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "251"
@@ -1490,7 +1490,7 @@
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miaolonglai/Desktop/githubRepo/MLProject/MLProject/MultiThread/MultiThreadController.m"
-                  timestampString = "489683781.538678"
+                  timestampString = "489942694.753168"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "273"
@@ -1505,7 +1505,7 @@
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miaolonglai/Desktop/githubRepo/MLProject/MLProject/MultiThread/MultiThreadController.m"
-                  timestampString = "489683781.538808"
+                  timestampString = "489942694.753277"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "273"
@@ -2265,6 +2265,213 @@
             endingLineNumber = "79"
             landmarkName = "-calculateMiddelLabelRectWithBounds:"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/ReactiveCocoa/ReactiveCocoa/RACSignal+Operations.m"
+            timestampString = "489770836.911891"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "925"
+            endingLineNumber = "925"
+            landmarkName = "+defer:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/ReactiveCocoa/ReactiveCocoa/UITextField+RACSignalSupport.m"
+            timestampString = "489770842.915118"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "-rac_textSignal"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/ReactiveCocoa/ReactiveCocoa/UITextField+RACSignalSupport.m"
+            timestampString = "489770843.758283"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "-rac_textSignal"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/ReactiveCocoa/ReactiveCocoa/UITextField+RACSignalSupport.m"
+            timestampString = "489770847.842785"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "-rac_textSignal"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__47-[UITextField(RACSignalSupport) rac_textSignal]_block_invoke"
+                  moduleName = "MLProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miaolonglai/Desktop/githubRepo/MLProject/Pods/ReactiveCocoa/ReactiveCocoa/UITextField+RACSignalSupport.m"
+                  timestampString = "489770906.844782"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "97">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__copy_helper_block_"
+                  moduleName = "MLProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miaolonglai/Desktop/githubRepo/MLProject/Pods/ReactiveCocoa/ReactiveCocoa/UITextField+RACSignalSupport.m"
+                  timestampString = "489770906.845058"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "37">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_"
+                  moduleName = "MLProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miaolonglai/Desktop/githubRepo/MLProject/Pods/ReactiveCocoa/ReactiveCocoa/UITextField+RACSignalSupport.m"
+                  timestampString = "489770906.845275"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "25">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/ReactiveCocoa/ReactiveCocoa/RACSignal.m"
+            timestampString = "489770855.616844"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
+            landmarkName = "-concat:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/ReactiveCocoa/ReactiveCocoa/RACStream.m"
+            timestampString = "489770858.645331"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "-map:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/ReactiveCocoa/ReactiveCocoa/UITextField+RACSignalSupport.m"
+            timestampString = "489770865.97773"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "-rac_textSignal"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/ReactiveCocoa/ReactiveCocoa/RACSignal+Operations.m"
+            timestampString = "489770905.803185"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "924"
+            endingLineNumber = "924"
+            landmarkName = "+defer:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "+[RACSignal(Operations) defer:]"
+                  moduleName = "MLProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miaolonglai/Desktop/githubRepo/MLProject/Pods/ReactiveCocoa/ReactiveCocoa/RACSignal+Operations.m"
+                  timestampString = "489942694.763713"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "924"
+                  endingLineNumber = "924"
+                  offsetFromSymbolStart = "429">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__31+[RACSignal(Operations) defer:]_block_invoke"
+                  moduleName = "MLProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miaolonglai/Desktop/githubRepo/MLProject/Pods/ReactiveCocoa/ReactiveCocoa/RACSignal+Operations.m"
+                  timestampString = "489942694.763819"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "925"
+                  endingLineNumber = "925"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

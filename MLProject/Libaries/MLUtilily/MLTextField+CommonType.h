@@ -18,9 +18,8 @@ typedef NS_OPTIONS(NSInteger, UITextFieldCommonOption) {
     UITextFieldCommonOptionRightButton = 1 << 7,
   
 };
-@interface MLTextField (CommonType)
 
-@end
-@interface MLTextField()
+@interface MLTextField (CommonType)
 @property (nonatomic, assign) UITextFieldCommonOption textFieldCommonOption;
 @end
+
