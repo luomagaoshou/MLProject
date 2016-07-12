@@ -8,6 +8,7 @@
 
 #import "MLRACViewController.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
+#import <ReactiveCocoa/RACReturnSignal.h>
 @interface MLRACViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *testLabel;
 @property (weak, nonatomic) IBOutlet UITextField *testTextField;
@@ -81,16 +82,35 @@
 
    // RAC(self.testTextField, alpha) = self.testTextField.rac_textSignal;
     self.testTextField.backgroundColor = [UIColor blueColor];
-    RACSignal *signal = RACObserve(self.testTextField, text);
-    RAC(self.testTextField, alpha) = [signal map:^id(id value) {
-        
-        return @(([value length] %10)/10.0f);
-        
-    }];
+//
+//    RACSignal *signal = RACObserve(self.testTextField, text);
+//    RAC(self.testLabel, alpha) = [signal map:^id(id value) {
+//        
+//        return @(([value length] %10)/10.0f);
+//        
+//    }];
+ 
+//    [signal subscribeNext:^(id x) {
+//        NSLog(@"%@", x);
+//    }];
     
+//   [[self.testTextField.rac_textSignal bind:^RACStreamBindBlock{
+//    
+//       return ^RACStream *(id value, BOOL *stop){
+//           
+//           // 什么时候调用block:当信号有新的值发出，就会来到这个block。
+//           
+//           // block作用:做返回值的处理
+//           
+//           // 做好处理，通过信号返回出去.
+//           return [RACReturnSignal return:[NSString stringWithFormat:@"输出:%@",value]];
+//       };
+//   }] subscribeNext:^(id x) {
+//      
+//       NSLog(@"%@", x);
+//   }];
     
-    
-    
+    RAC(self.testLabel, text) = self.testTextField.rac_textSignal;
 }
 #pragma mark - ========= DownloadData =========
 - (void)downloadData

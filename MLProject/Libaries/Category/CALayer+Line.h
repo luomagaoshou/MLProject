@@ -16,6 +16,6 @@ typedef NS_ENUM(NSInteger, CALayerDrawLinePositionType) {
 };
 @interface CALayer (Line)
 - (CALayer *)makeLineWithPositionType:(CALayerDrawLinePositionType)positionType lineColor:(UIColor *)lineColor;
-- (CALayer *)makeLineWithPositionType:(CALayerDrawLinePositionType)positionType insets:(UIEdgeInsets)insets lineColor:(UIColor *)lineColor;
-- (CALayer *)makeLineWithPositionType:(CALayerDrawLinePositionType)positionType lineWidthOrHeight:(CGFloat)lineWidthOrHeight insets:(UIEdgeInsets)insets lineColor:(UIColor *)lineColor;
+- (CALayer *)makeLineWithPositionType:(CALayerDrawLinePositionType)positionType lineColor:(UIColor *)lineColor insets:(UIEdgeInsets)insets;
+- (CALayer *)makeLineWithPositionType:(CALayerDrawLinePositionType)positionType lineWidthOrHeight:(CGFloat)lineWidthOrHeight lineColor:(UIColor *)lineColor insets:(UIEdgeInsets)insets;
 @end

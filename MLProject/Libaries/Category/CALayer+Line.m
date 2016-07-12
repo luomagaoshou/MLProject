@@ -11,23 +11,23 @@
 @implementation CALayer (Line)
 -(CALayer *)makeLineWithPositionType:(CALayerDrawLinePositionType)positionType lineColor:(UIColor *)lineColor
 {
-    return [self makeLineWithPositionType:positionType insets:UIEdgeInsetsZero lineColor:lineColor];
+    return [self makeLineWithPositionType:positionType lineColor:lineColor insets:UIEdgeInsetsZero];
 }
 
-- (CALayer *)makeLineWithPositionType:(CALayerDrawLinePositionType)positionType insets:(UIEdgeInsets)insets lineColor:(UIColor *)lineColor
+- (CALayer *)makeLineWithPositionType:(CALayerDrawLinePositionType)positionType lineColor:(UIColor *)lineColor insets:(UIEdgeInsets)insets
 {
-    return [self makeLineWithPositionType:positionType lineWidthOrHeight:1/SCREEN_SCALE insets:insets lineColor:lineColor];
+    return [self makeLineWithPositionType:positionType lineWidthOrHeight:1/SCREEN_SCALE lineColor:lineColor insets:insets];
 }
-- (CALayer *)makeLineWithPositionType:(CALayerDrawLinePositionType)positionType lineWidthOrHeight:(CGFloat)lineWidthOrHeight insets:(UIEdgeInsets)insets  lineColor:(UIColor *)lineColor
+- (CALayer *)makeLineWithPositionType:(CALayerDrawLinePositionType)positionType lineWidthOrHeight:(CGFloat)lineWidthOrHeight   lineColor:(UIColor *)lineColor insets:(UIEdgeInsets)insets
 {
     CALayer *layer = [[CALayer alloc] init];
     layer.backgroundColor = lineColor.CGColor;
 
-    layer.frame = [self getFrameWithType:positionType lineWidthOrHeight:lineWidthOrHeight insets:insets];
+    layer.frame = [self calculateFrameForType:positionType lineWidthOrHeight:lineWidthOrHeight insets:insets];
     [self addSublayer:layer];
     return layer;
 }
-- (CGRect)getFrameWithType:(CALayerDrawLinePositionType)positionType  lineWidthOrHeight:(CGFloat)lineWidthOrHeight insets:(UIEdgeInsets)insets
+- (CGRect)calculateFrameForType:(CALayerDrawLinePositionType)positionType  lineWidthOrHeight:(CGFloat)lineWidthOrHeight insets:(UIEdgeInsets)insets
 {
     CGRect frame;
     switch (positionType) {
