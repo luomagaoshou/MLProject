@@ -55,6 +55,7 @@
 - (void)configUI
 {
     [self testRACSignal];
+ 
 }
 
 - (void)testRACSignal
