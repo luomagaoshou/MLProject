@@ -167,6 +167,9 @@
 		FE384E141D2FFC7400D5F282 /* MLTextField+CommonType.m in Sources */ = {isa = PBXBuildFile; fileRef = FE384E131D2FFC7400D5F282 /* MLTextField+CommonType.m */; };
 		FE384E171D2FFC9000D5F282 /* MLTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = FE384E161D2FFC9000D5F282 /* MLTextField.m */; };
 		FE3C4A731C2EBA66004CBA21 /* ChainableController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE3C4A711C2EBA66004CBA21 /* ChainableController.xib */; };
+		FE48EE0E1D3940B0002FE0A3 /* MLMenuCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE48EE0D1D3940B0002FE0A3 /* MLMenuCollectionView.m */; };
+		FE48EE171D3941DC002FE0A3 /* MLMenuCLCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE48EE151D3941DC002FE0A3 /* MLMenuCLCell.m */; };
+		FE48EE181D3941DC002FE0A3 /* MLMenuCLCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE48EE161D3941DC002FE0A3 /* MLMenuCLCell.xib */; };
 		FE514DB21C1BFCDB00E3AC0C /* RunTimeController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE514DB01C1BFCDB00E3AC0C /* RunTimeController.m */; };
 		FE514DB31C1BFCDB00E3AC0C /* RunTimeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE514DB11C1BFCDB00E3AC0C /* RunTimeController.xib */; };
 		FE514DB91C1C128400E3AC0C /* ECPOrderJSONStr.json in Resources */ = {isa = PBXBuildFile; fileRef = FE514DB81C1C128400E3AC0C /* ECPOrderJSONStr.json */; };
@@ -571,6 +574,11 @@
 		FE3C4A701C2EBA66004CBA21 /* ChainableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChainableController.m; sourceTree = "<group>"; };
 		FE3C4A711C2EBA66004CBA21 /* ChainableController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChainableController.xib; sourceTree = "<group>"; };
 		FE41D5A41C88805E0098E7BA /* MLChainMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLChainMacro.h; sourceTree = "<group>"; };
+		FE48EE0C1D3940B0002FE0A3 /* MLMenuCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLMenuCollectionView.h; sourceTree = "<group>"; };
+		FE48EE0D1D3940B0002FE0A3 /* MLMenuCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLMenuCollectionView.m; sourceTree = "<group>"; };
+		FE48EE141D3941DC002FE0A3 /* MLMenuCLCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLMenuCLCell.h; sourceTree = "<group>"; };
+		FE48EE151D3941DC002FE0A3 /* MLMenuCLCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLMenuCLCell.m; sourceTree = "<group>"; };
+		FE48EE161D3941DC002FE0A3 /* MLMenuCLCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MLMenuCLCell.xib; sourceTree = "<group>"; };
 		FE514DAF1C1BFCDB00E3AC0C /* RunTimeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunTimeController.h; sourceTree = "<group>"; };
 		FE514DB01C1BFCDB00E3AC0C /* RunTimeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunTimeController.m; sourceTree = "<group>"; };
 		FE514DB11C1BFCDB00E3AC0C /* RunTimeController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RunTimeController.xib; sourceTree = "<group>"; };
@@ -1472,6 +1480,11 @@
 				18ADDE901C48BF8E00E6171E /* MenuScrollView.h */,
 				18ADDE911C48BF8E00E6171E /* MenuScrollView.m */,
 				FE0C62F91D14195700F73C95 /* MLNestNib.storyboard */,
+				FE48EE0C1D3940B0002FE0A3 /* MLMenuCollectionView.h */,
+				FE48EE0D1D3940B0002FE0A3 /* MLMenuCollectionView.m */,
+				FE48EE141D3941DC002FE0A3 /* MLMenuCLCell.h */,
+				FE48EE151D3941DC002FE0A3 /* MLMenuCLCell.m */,
+				FE48EE161D3941DC002FE0A3 /* MLMenuCLCell.xib */,
 				FE0C62FE1D15729900F73C95 /* NestView.h */,
 				FE0C62FF1D15729900F73C95 /* NestView.m */,
 				FE0C63011D1572A300F73C95 /* NestView.xib */,
@@ -1867,6 +1880,7 @@
 				FE84ED831CEEBA3C004FC7B3 /* MLPropertyKeyword.storyboard in Resources */,
 				18EB94351CE9583E00C24368 /* MLDataStructures.storyboard in Resources */,
 				FE384E0D1D2FD39C00D5F282 /* MLTextField.storyboard in Resources */,
+				FE48EE181D3941DC002FE0A3 /* MLMenuCLCell.xib in Resources */,
 				FE0C63141D1683E900F73C95 /* NibController.xib in Resources */,
 				181F990D1CE066E900DB57CA /* MLSQLite.storyboard in Resources */,
 				FE384DF81D2C047200D5F282 /* MLNetwork.storyboard in Resources */,
@@ -1968,6 +1982,7 @@
 				18C276971C7D41020055C19D /* UIView+Xib.m in Sources */,
 				166218AA1D2B4B3900DF9FAF /* MLRACViewController.m in Sources */,
 				18CF9D741C8EDFB900E1EA53 /* NSObject+ChainInvocation.m in Sources */,
+				FE48EE171D3941DC002FE0A3 /* MLMenuCLCell.m in Sources */,
 				18C276631C7D41020055C19D /* NSObject+ML_CGRect.m in Sources */,
 				181F990E1CE066E900DB57CA /* MLSQLiteController.m in Sources */,
 				18C276771C7D41020055C19D /* UIControl+Block.m in Sources */,
@@ -2094,6 +2109,7 @@
 				18C276891C7D41020055C19D /* UITableViewCell+Separator.m in Sources */,
 				1822284B1CAE86DD00A7E43D /* ALFootballLotteryController.m in Sources */,
 				16BC0B8B1D2CFEF10041D124 /* UILabel+CommonType.m in Sources */,
+				FE48EE0E1D3940B0002FE0A3 /* MLMenuCollectionView.m in Sources */,
 				FE328C8F1D26AB4D00F96691 /* MLMJRefreshViewController.m in Sources */,
 				18C276871C7D41020055C19D /* UITableView+ML_Tools.m in Sources */,
 				FE6B22691CD65178007733FD /* MLChain4CALayer.m in Sources */,
