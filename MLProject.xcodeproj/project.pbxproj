@@ -18,7 +18,6 @@
 		169176B01D3A45F200086A5A /* MLAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 169176A71D3A45F200086A5A /* MLAlertView.xib */; };
 		169176B11D3A45F200086A5A /* MLTextField+CommonType.m in Sources */ = {isa = PBXBuildFile; fileRef = 169176A91D3A45F200086A5A /* MLTextField+CommonType.m */; };
 		169176B21D3A45F200086A5A /* MLTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 169176AB1D3A45F200086A5A /* MLTextField.m */; };
-		169176B31D3A45F200086A5A /* MLToastManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 169176AD1D3A45F200086A5A /* MLToastManager.m */; };
 		169176B61D3A461800086A5A /* MBProgressHUD+Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = 169176B51D3A461800086A5A /* MBProgressHUD+Loading.m */; };
 		16BC0B881D2CFEDD0041D124 /* UIButton+CommonType.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC0B871D2CFEDD0041D124 /* UIButton+CommonType.m */; };
 		16BC0B8B1D2CFEF10041D124 /* UILabel+CommonType.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC0B8A1D2CFEF10041D124 /* UILabel+CommonType.m */; };
@@ -178,6 +177,7 @@
 		FE48EE1B1D3A89DF002FE0A3 /* test2.png in Resources */ = {isa = PBXBuildFile; fileRef = FE48EE191D3A89DF002FE0A3 /* test2.png */; };
 		FE48EE1C1D3A89DF002FE0A3 /* test1.png in Resources */ = {isa = PBXBuildFile; fileRef = FE48EE1A1D3A89DF002FE0A3 /* test1.png */; };
 		FE48EE1E1D3A8A29002FE0A3 /* test0.png in Resources */ = {isa = PBXBuildFile; fileRef = FE48EE1D1D3A8A29002FE0A3 /* test0.png */; };
+		FE48EE211D3C7FB3002FE0A3 /* BGTToastManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE48EE201D3C7FB3002FE0A3 /* BGTToastManager.m */; };
 		FE514DB21C1BFCDB00E3AC0C /* RunTimeController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE514DB01C1BFCDB00E3AC0C /* RunTimeController.m */; };
 		FE514DB31C1BFCDB00E3AC0C /* RunTimeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE514DB11C1BFCDB00E3AC0C /* RunTimeController.xib */; };
 		FE514DB91C1C128400E3AC0C /* ECPOrderJSONStr.json in Resources */ = {isa = PBXBuildFile; fileRef = FE514DB81C1C128400E3AC0C /* ECPOrderJSONStr.json */; };
@@ -306,8 +306,6 @@
 		169176A91D3A45F200086A5A /* MLTextField+CommonType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MLTextField+CommonType.m"; sourceTree = "<group>"; };
 		169176AA1D3A45F200086A5A /* MLTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLTextField.h; sourceTree = "<group>"; };
 		169176AB1D3A45F200086A5A /* MLTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLTextField.m; sourceTree = "<group>"; };
-		169176AC1D3A45F200086A5A /* MLToastManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLToastManager.h; sourceTree = "<group>"; };
-		169176AD1D3A45F200086A5A /* MLToastManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLToastManager.m; sourceTree = "<group>"; };
 		169176B41D3A461800086A5A /* MBProgressHUD+Loading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Loading.h"; sourceTree = "<group>"; };
 		169176B51D3A461800086A5A /* MBProgressHUD+Loading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Loading.m"; sourceTree = "<group>"; };
 		16BC0B861D2CFEDD0041D124 /* UIButton+CommonType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+CommonType.h"; sourceTree = "<group>"; };
@@ -599,6 +597,8 @@
 		FE48EE191D3A89DF002FE0A3 /* test2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test2.png; sourceTree = "<group>"; };
 		FE48EE1A1D3A89DF002FE0A3 /* test1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test1.png; sourceTree = "<group>"; };
 		FE48EE1D1D3A8A29002FE0A3 /* test0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test0.png; sourceTree = "<group>"; };
+		FE48EE1F1D3C7FB3002FE0A3 /* BGTToastManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGTToastManager.h; sourceTree = "<group>"; };
+		FE48EE201D3C7FB3002FE0A3 /* BGTToastManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGTToastManager.m; sourceTree = "<group>"; };
 		FE514DAF1C1BFCDB00E3AC0C /* RunTimeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunTimeController.h; sourceTree = "<group>"; };
 		FE514DB01C1BFCDB00E3AC0C /* RunTimeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunTimeController.m; sourceTree = "<group>"; };
 		FE514DB11C1BFCDB00E3AC0C /* RunTimeController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RunTimeController.xib; sourceTree = "<group>"; };
@@ -844,10 +844,10 @@
 				169176A91D3A45F200086A5A /* MLTextField+CommonType.m */,
 				169176AA1D3A45F200086A5A /* MLTextField.h */,
 				169176AB1D3A45F200086A5A /* MLTextField.m */,
-				169176AC1D3A45F200086A5A /* MLToastManager.h */,
-				169176AD1D3A45F200086A5A /* MLToastManager.m */,
 				169176B41D3A461800086A5A /* MBProgressHUD+Loading.h */,
 				169176B51D3A461800086A5A /* MBProgressHUD+Loading.m */,
+				FE48EE1F1D3C7FB3002FE0A3 /* BGTToastManager.h */,
+				FE48EE201D3C7FB3002FE0A3 /* BGTToastManager.m */,
 			);
 			path = MLUtilily;
 			sourceTree = "<group>";
@@ -2160,6 +2160,7 @@
 				18C2767F1C7D41020055C19D /* UIImage+ML_Tools.m in Sources */,
 				18C276641C7D41020055C19D /* NSObject+ML_ModelMethodHelper.m in Sources */,
 				18C276941C7D41020055C19D /* UIView+ML_Tools.m in Sources */,
+				FE48EE211D3C7FB3002FE0A3 /* BGTToastManager.m in Sources */,
 				182228491CAE86DD00A7E43D /* ALFootballLotteryCLCell.m in Sources */,
 				FE6B226F1CD65178007733FD /* MLChain4UILabel.m in Sources */,
 				16556F271D2CEC5A002CC9B4 /* MLNetwork+Hud.m in Sources */,
@@ -2188,7 +2189,6 @@
 				FE6B22741CD65178007733FD /* MLChain4UIView.m in Sources */,
 				18C2767A1C7D41020055C19D /* UIImage+FileName.m in Sources */,
 				181F99161CE091B900DB57CA /* MLResponderChainController.m in Sources */,
-				169176B31D3A45F200086A5A /* MLToastManager.m in Sources */,
 				181F990F1CE066E900DB57CA /* MLSQLMaker.m in Sources */,
 				FE9F364F1CFC4B0600A16744 /* MLMapOfAmapController.swift in Sources */,
 				16BC0B881D2CFEDD0041D124 /* UIButton+CommonType.m in Sources */,
