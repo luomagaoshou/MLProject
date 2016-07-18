@@ -12,7 +12,7 @@
 
 @end
 
-@implementation BGTLogin
+@implementation BGTLoginToastManager
 
 
 
