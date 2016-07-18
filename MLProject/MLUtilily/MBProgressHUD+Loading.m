@@ -7,7 +7,8 @@
 //
 
 #import "MBProgressHUD+Loading.h"
-
+#import "UIImage+FX.h"
+#import "UIImage+FileName.h"
 @implementation MBProgressHUD (Loading)
 + (void)showNativeLoadingHudOnKeywindow
 {
@@ -45,56 +46,40 @@
     }
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     
-//      hud.mode = MBProgressHUDModeText;
+  
       hud.mode = MBProgressHUDModeCustomView;
     hud.backgroundView.style = MBProgressHUDBackgroundStyleSolidColor;
-#if 0
-    for (NSInteger i = 0; i < hud.subviews.count; i++) {
-        UIView *view1  = hud.subviews[i];
-        view1.backgroundColor = [UIColor clearColor];
-        for (NSInteger j = 0; j < view1.subviews.count; j++) {
-            UIView *view2 = view1.subviews[j];
-             view2.backgroundColor = [UIColor clearColor];
-            for (NSInteger k = 0; k < view2.subviews.count; k++) {
-                UIView *view3 = view2.subviews[k];
-                view3.backgroundColor = [UIColor clearColor];
-            }
-        }
+
+    hud.bezelView.backgroundColor = [UIColor clearColor];
+    #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000
+    if ([hud.bezelView valueForKey:@"effectView"]) {
+        UIVisualEffectView *effectView = [hud.bezelView valueForKey:@"effectView"];
+        effectView.backgroundColor = [UIColor clearColor];
+        effectView.effect = nil;
+    }
+#else
+    if ([hud.bezelView valueForKey:@"toolbar"]) {
+        UIToolbar *toolbar = [hud.bezelView valueForKey:@"toolbar"];
+        toolbar.tintColor = [UIColor clearColor];
+        toolbar.backgroundColor = [UIColor clearColor];
     }
 #endif
-   
-    hud.color = [UIColor clearColor];
-    hud.bezelView.backgroundColor = [UIColor clearColor];
-//    hud.bezelView.alpha = 0;
-    
-  //    for (NSInteger i = 0; i < hud.backgroundView.subviews[1].subviews.count; i++) {
-//        UIView *subview = hud.subviews[1].subviews[i];
-//        subview.backgroundColor = [UIColor greenColor];
-//    }
-//        hud.removeFromSuperViewOnHide = YES;
- 
-//    hud.bezelView.backgroundColor = [UIColor redColor];
-//    hud.bezelView.alpha = 0;
-//    hud.backgroundView.backgroundColor = [UIColor orangeColor];
-//    hud.backgroundColor = [UIColor greenColor];
-//    hud.color = [UIColor blueColor];
     
    
-    UIImageView *customImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    UIImageView *customImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
    
     NSMutableArray *images = [[NSMutableArray alloc] init];
-    for (NSInteger i = 0; i < 6; i++) {
-        UIImage *image = [UIImage imageWithFileName:[NSString stringWithFormat:@"pic_loading%ld", i]];
+    for (NSInteger i = 0; i < 3; i++) {
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"test%ld", i]];
         [images addObject:image];
     }
     customImageView.animationImages = images;
-    customImageView.animationDuration = 0.5;
+    customImageView.animationDuration = 1;
     customImageView.animationRepeatCount = 0;
     [customImageView startAnimating];
 
-    //[hud.bezelView addSubview:customImageView];
-   // hud.minSize = CGSizeMake(100, 100);
-   
+
+    hud.minSize = CGSizeMake(50, 50);
     hud.customView = customImageView;
     
         

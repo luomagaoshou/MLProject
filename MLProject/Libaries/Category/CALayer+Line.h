@@ -7,15 +7,19 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
-typedef NS_ENUM(NSInteger, CALayerDrawLinePositionType) {
-    CALayerDrawLineTypePositionTop,
-    CALayerDrawLineTypePositionLeft,
-    CALayerDrawLineTypePositionBottom,
-    CALayerDrawLineTypePositionRight
+typedef NS_OPTIONS(NSInteger, CALayerDrawLinePositionOption) {
+    CALayerDrawLinePositionOptionTop,
+    CALayerDrawLinePositionOptionLeft,
+    CALayerDrawLinePositionOptionBottom,
+    CALayerDrawLinePositionOptionRight
     
 };
 @interface CALayer (Line)
-- (CALayer *)makeLineWithPositionType:(CALayerDrawLinePositionType)positionType lineColor:(UIColor *)lineColor;
-- (CALayer *)makeLineWithPositionType:(CALayerDrawLinePositionType)positionType lineColor:(UIColor *)lineColor insets:(UIEdgeInsets)insets;
-- (CALayer *)makeLineWithPositionType:(CALayerDrawLinePositionType)positionType lineWidthOrHeight:(CGFloat)lineWidthOrHeight lineColor:(UIColor *)lineColor insets:(UIEdgeInsets)insets;
+- (CALayer *)makeLineWithPositionType:(CALayerDrawLinePositionOption)positionType lineColor:(UIColor *)lineColor;
+- (CALayer *)makeLineWithPositionType:(CALayerDrawLinePositionOption)positionType lineColor:(UIColor *)lineColor lineWidthOrHeight:(CGFloat)lineWidthOrHeight;
+
+- (CALayer *)makeLineWithPositionType:(CALayerDrawLinePositionOption)positionType lineColor:(UIColor *)lineColor insets:(UIEdgeInsets)insets;
+
+
+- (CALayer *)makeLineWithPositionType:(CALayerDrawLinePositionOption)positionType lineWidthOrHeight:(CGFloat)lineWidthOrHeight lineColor:(UIColor *)lineColor insets:(UIEdgeInsets)insets;
 @end

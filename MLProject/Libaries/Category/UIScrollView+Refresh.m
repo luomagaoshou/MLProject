@@ -6,9 +6,9 @@
 //  Copyright © 2016年 apple. All rights reserved.
 //
 
-#import "UITableView+Refresh.h"
+#import "UIScrollView+Refresh.h"
 
-@implementation UITableView (Refresh)
+@implementation UIScrollView (Refresh)
 #pragma mark - ========= Setter & Getter =========
 - (void)setPageSize:(NSInteger)pageSize
 {
@@ -27,5 +27,20 @@
 {
     return [objc_getAssociatedObject(self, @selector(pageNumber)) integerValue];
 }
-
+- (void)setStatusType:(UIScrollViewStatusType)statusType
+{
+    objc_setAssociatedObject(self, @selector(statusType), @(statusType), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+- (UIScrollViewStatusType)statusType
+{
+    return [objc_getAssociatedObject(self, @selector(statusType)) integerValue];
+}
+- (void)setLoadType:(UIScrollViewLoadType)loadType
+{
+    objc_setAssociatedObject(self, @selector(loadType), @(loadType), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+- (UIScrollViewLoadType)loadType
+{
+    return [objc_getAssociatedObject(self, @selector(loadType)) integerValue];
+}
 @end

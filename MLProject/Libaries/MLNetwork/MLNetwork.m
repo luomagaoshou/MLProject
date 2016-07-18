@@ -347,6 +347,9 @@ MJCodingImplementation
 
 - (void)handleFailure:(AFNFailure)failure task:(NSURLSessionDataTask *)task error:(NSError *)error completion:(void (^)(void))completion
 {
+    /*
+     Error Domain=NSURLErrorDomain Code=-1001 "The request timed out." UserInfo={NSUnderlyingError=0x7f9fc30018e0 {Error Domain=kCFErrorDomainCFNetwork Code=-1001 "(null)" UserInfo={_kCFStreamErrorCodeKey=-2102, _kCFStreamErrorDomainKey=4}}, NSErrorFailingURLStringKey=http://api.chunbo.com/Cookbook/appcookbooklist, NSErrorFailingURLKey=http://api.chunbo.com/Cookbook/appcookbooklist, _kCFStreamErrorDomainKey=4, _kCFStreamErrorCodeKey=-2102, NSLocalizedDescription=The request timed out.}
+     */
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         failure(task, error, self.urlConfig, self.requestParam, self.requestID, self.paramPackage);
         

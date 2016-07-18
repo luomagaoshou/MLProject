@@ -10,6 +10,7 @@
 
 typedef NS_ENUM(NSInteger, UIButtonCommonType) {
     UIButtonCommonTypeBlue,///<蓝底白字
+    UIButtonCommonTypeBlueText,
     UIButtonCommonTypeGreen,///<绿底白字
     UIButtonCommonTypeGreenText,
     UIButtonCommonTypeGray,

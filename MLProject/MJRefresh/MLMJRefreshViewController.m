@@ -7,12 +7,22 @@
 //
 
 #import "MLMJRefreshViewController.h"
-#import "UITableView+Refresh.h"
+#import "UIScrollView+Refresh.h"
 #import <MJRefresh/MJRefresh.h>
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import "MLNetwork.h"
-@interface MLMJRefreshViewController ()<UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
+#import "DZNEmptyDataSeparator.h"
+#import "UIView+GestureBlock.h"
+#import "MBProgressHUD+Loading.h"
+#import "MLMenuCollectionView.h"
+#import "MLMenuCLCell.h"
+#import "CALayer+Line.h"
+@interface MLMJRefreshViewController ()<UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@property (weak, nonatomic) IBOutlet MLMenuCollectionView *menuCollectionView;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *menuTitles;
+@property (nonatomic, strong) NSMutableArray *cellDatas;
 
 @end
 
@@ -55,27 +65,78 @@
 #pragma mark - ========= Config UI =========
 - (void)configUI
 {
+    //[self configTableView];
+    [self configMenuCollectionView];
+   // [self configCollectionView];
+}
+- (void)configTableView
+{
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [[UIView alloc] init];
     [self.tableView ml_registerClassForCellWithNameOrClasses:@[@"UITableViewCell"]];
-   self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-       NSLog(@"%@", @"haha");
-       dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                  [self.tableView.mj_header endRefreshing];
-           [self.tableView reloadEmptyDataSet];
-       });
-       
-
-   }];
-
-    self.tableView.emptyDataSetDelegate = self;
-    self.tableView.emptyDataSetSource = self;
-//    self.tableView.mj_header image
-//    
+    self.tableView.backgroundColor = [UIColor orangeColor];
+    [MBProgressHUD showLoadingHudOnKeywindow];
+    [self configEmpeyDataSet];
+    
+    
+    //   self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    //       NSLog(@"%@", @"haha");
+    //       dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    //                  [self.tableView.mj_header endRefreshing];
+    //           [self.tableView reloadEmptyDataSet];
+    //       });
+    //
+    //
+    //   }];
+    
+    //    self.tableView.emptyDataSetDelegate = self;
+    //    self.tableView.emptyDataSetSource = self;
+    UIView *emptyDataSetView = [self.tableView valueForKeyPath:@"emptyDataSetView"];
+    //    UIControl *tapView = [UIControl new];
+    //    //tapView.frame = [UIScreen mainScreen].bounds;
+    //    tapView.backgroundColor = [UIColor grayColor];
+    //    tapView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+    //    [emptyDataSetView addSubview:tapView];
+    //    [emptyDataSetView sendSubviewToBack:tapView];
+    //    NSLog(@"%@", [emptyDataSetView getPropertyKeyValueOnlyHaveValueDictionary]);
+    //    [tapView tapWithEvent:^(id gesture) {
+    //        NSLog(@"%@", emptyDataSetView);
+    //    }];
 }
-
-
+- (void)configMenuCollectionView
+{
+//    [self.menuCollectionView setTitles:@[@"标题1", @"标题2", @"标题3"] clickBlock:^(NSInteger index) {
+//        NSLog(@"%ld", index);
+//    }];
+//    [self.menuCollectionView.layer makeLineWithPositionType:CALayerDrawLinePositionOptionTop lineColor:kUI_COLOR_GRAY_f0f0f0 lineWidthOrHeight:1];
+//    self.menuCollectionView.delegate = self;
+//    self.menuCollectionView.dataSource = self;
+//    [self.menuTitles addObject:@[@"标题1", @"标题2", @"标题3"]];
+//    [self.menuCollectionView ml_registerNibForCellWithNameOrClass:@"MLMenuCLCell"];
+//    [self.menuCollectionView reloadData];
+}
+- (void)configCollectionView
+{
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+    [self.menuTitles addObject:@[@"标题1", @"标题2", @"标题3"]];
+     [self.collectionView ml_registerNibForCellWithNameOrClass:@"MLMenuCLCell"];
+    [self.collectionView reloadData];
+}
+- (void)configEmpeyDataSet
+{
+    DZNEmptyDataSeparator *separator = [DZNEmptyDataSeparator separatorWithScrollView:self.tableView];
+    DZNEmptyDataSeparatorModel *modelOfEmpty = [DZNEmptyDataSeparatorModel modelWithTableViewStatus:UIScrollViewStatusTypeEmptyData imageName:@"test" title:@"gagag" buttonTitle:@"fgggg" moreConfig:^(DZNEmptyDataSeparatorModel *model) {
+        model.allowTouch = YES;
+        [model setTapViewBlock:^{
+            NSLog(@"%@", @"ffff");
+        }];
+    }];
+    [separator configWithModels:@[modelOfEmpty]];
+    self.tableView.statusType = UIScrollViewStatusTypeEmptyData;
+   // [self.tableView reloadData];
+}
 #pragma mark - ========= DownloadData =========
 - (void)downloadData
 {
@@ -88,7 +149,7 @@
         //参数
         requestParam.page = @"%d";
         requestParam.pagesize = @"60";
-        
+    
         
     } success:^(NSURLSessionDataTask *task, id responseObject, NSJSONSerialization *JSONObject, id modelMaster, NSInteger statusCode, MLURLConfig *urlConfig, MLRequestParam *requestParam, NSString *requestID, MLParamPackage *paramPackage) {
         
@@ -106,7 +167,7 @@
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 0;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -121,6 +182,49 @@
 {
     
     
+}
+
+
+#pragma mark - ========= CollectionView Cell =========
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    
+    MLMenuCLCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MLMenuCLCell" forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor blueColor];
+    cell.titleLabel.text = self.menuTitles[indexPath.section][indexPath.row];
+    return cell;
+    
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(50, 50);
+    return CGSizeMake(SCREEN_WIDTH/self.menuTitles.count, 50);
+}
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return self.menuTitles.count;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    
+    return [self.menuTitles[section] count];;
+}
+//全部0间距
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 0;
+}
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 0;
+}
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsZero;
 }
 
 #pragma mark - DZNEmptyDataSetSource Methods
@@ -191,10 +295,6 @@
     return [UIColor whiteColor];
 }
 
-- (UIView *)customViewForEmptyDataSet:(UIScrollView *)scrollView
-{
-    return nil;
-}
 
 
 #pragma mark - DZNEmptyDataSetSource Methods
@@ -212,7 +312,7 @@
 - (void)emptyDataSet:(UIScrollView *)scrollView didTapView:(UIView *)view
 {
     
-    [self.searchDisplayController setActive:NO animated:YES];
+    NSLog(@"%s --  %s",__FUNCTION__, _cmd);
 }
 
 - (void)emptyDataSet:(UIScrollView *)scrollView didTapButton:(UIButton *)button
@@ -223,6 +323,21 @@
 
 
 #pragma mark - ========= Setter & Getter =========
-
+- (NSMutableArray *)menuTitles
+{
+    if (_menuTitles == nil) {
+        _menuTitles = [[NSMutableArray alloc] init];
+    }
+    return _menuTitles;
+}
+- (NSMutableArray *)cellDatas
+{
+    if (_cellDatas == nil) {
+     
+        _cellDatas = [[NSMutableArray alloc] init];
+        
+    }
+    return _cellDatas;
+}
 
 @end

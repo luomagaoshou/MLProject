@@ -103,10 +103,10 @@
     [self.view addSubview:view];
     view.backgroundColor = [UIColor greenColor];
     
-    [view.layer makeLineWithPositionType:CALayerDrawLineTypePositionTop  lineWidthOrHeight:10  lineColor:[UIColor redColor] insets:UIEdgeInsetsMake(3, 5, 0, 5)];
-    [view.layer makeLineWithPositionType:CALayerDrawLineTypePositionRight lineWidthOrHeight:10  lineColor:[UIColor yellowColor] insets:UIEdgeInsetsMake(3, 0, 3, 2)];
-    [view.layer makeLineWithPositionType:CALayerDrawLineTypePositionBottom lineWidthOrHeight:10  lineColor:[UIColor blueColor] insets:UIEdgeInsetsMake(3, 0, 3, 2)];
-    [view.layer makeLineWithPositionType:CALayerDrawLineTypePositionLeft lineWidthOrHeight:10 lineColor:[UIColor cyanColor]  insets:UIEdgeInsetsMake(3, 0, 3, 2)];
+    [view.layer makeLineWithPositionType:CALayerDrawLinePositionOptionTop  lineWidthOrHeight:10  lineColor:[UIColor redColor] insets:UIEdgeInsetsMake(3, 5, 0, 5)];
+    [view.layer makeLineWithPositionType:CALayerDrawLinePositionOptionRight lineWidthOrHeight:10  lineColor:[UIColor yellowColor] insets:UIEdgeInsetsMake(3, 0, 3, 2)];
+    [view.layer makeLineWithPositionType:CALayerDrawLinePositionOptionBottom lineWidthOrHeight:10  lineColor:[UIColor blueColor] insets:UIEdgeInsetsMake(3, 0, 3, 2)];
+    [view.layer makeLineWithPositionType:CALayerDrawLinePositionOptionLeft lineWidthOrHeight:10 lineColor:[UIColor cyanColor]  insets:UIEdgeInsetsMake(3, 0, 3, 2)];
 //    CAShapeLayer *shapeLayer = [[CAShapeLayer alloc] init];
 //    shapeLayer.backgroundColor = [UIColor greenColor].CGColor;
 //    shapeLayer.frame = view.bounds;

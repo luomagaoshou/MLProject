@@ -9,6 +9,8 @@
 #import "DZNEmptyDataSeparator.h"
 #import "UIImage+FX.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+#import "UIScrollView+Refresh.h"
+#import "UIImage+FileName.h"
 @implementation DZNEmptyDataSeparatorModel
 + (instancetype)modelWithTableViewStatus:(UIScrollViewStatusType)statusType imageName:(NSString *)imageName title:(NSString *)title buttonTitle:(NSString *)buttonTitle
 {
@@ -54,7 +56,7 @@
 @interface DZNEmptyDataSeparator()<DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) NSMutableDictionary *separatorModelDic;
-@property (nonatomic, weak) UIView *emptyDataSetView;
+
 @end
 @implementation DZNEmptyDataSeparator
 + (instancetype)separatorWithScrollView:(__kindof UIScrollView *)scrollView
@@ -67,6 +69,15 @@
     //防止自动释放
     objc_setAssociatedObject(scrollView, @selector(separatorWithScrollView:), separator, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
+    //加背景Control  才能全屏点击(DZN有hitTest过滤)
+    UIControl *control = [UIControl new];
+    control.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+    UIView *emptyDataSetView = [scrollView valueForKey: @"emptyDataSetView"];
+    if (emptyDataSetView) {
+        [emptyDataSetView addSubview:control];
+           [emptyDataSetView sendSubviewToBack:control];
+    }
+    
     return separator;
 }
 - (void)configWithModels:(NSArray<DZNEmptyDataSeparatorModel *> *)models
@@ -74,13 +85,7 @@
     for (NSInteger i = 0; i < models.count; i++) {
         self.separatorModelDic[@(models[i].statusType)] = models[i];
     }
-    self.emptyDataSetView = [self.scrollView valueForKey:@"emptyDataSetView"];
-    self.emptyDataSetView.userInteractionEnabled = YES;
-//    if (self.emptyDataSetView) {
-//        [self.emptyDataSetView tapWithEvent:^(id gesture) {
-//            NSLog(@"%@", @"sdfsdf");
-//        }];
-//    }
+
 }
 #pragma mark - DZNEmptyDataSetSource Methods
 
@@ -218,3 +223,12 @@
     return _separatorModelDic;
 }
 @end
+//@class DZNEmptyDataSetView;
+//@interface DZNEmptyDataSetView(OverridedHitTest)
+//
+//@end
+//@implementation DZNEmptyDataSetView(OverridedHitTest)
+//
+//
+//
+//@end

@@ -14,7 +14,7 @@
 #define kUI_COLOR_WHITE_000000 [UIColor whiteColor]
 #define kUI_COLOR_BLUE_009ddf [UIColor colorWithHex:(0x009ddf)]
 #define kUI_COLOR_BLUE_61c7e2 [UIColor colorWithHex:(0x61c7e2)]
-
+#define kUI_COLOR_BLUE_00b4e9 [UIColor colorWithHex:(0x00b4e9)]
 
 #define kUI_COLOR_GREEN_00b746 [UIColor colorWithHex:(0x00b746)]
 

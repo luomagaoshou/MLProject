@@ -11,7 +11,7 @@
 @implementation MLNetwork (Hud)
 - (void)makeProgressHudWithHudConfig:(void (^)(MBProgressHUD *hud))config title:(NSString *)title
 {
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].windows[0] animated:YES];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
     if (config) {
         config(hud);
     }

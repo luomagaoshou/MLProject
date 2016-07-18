@@ -42,3 +42,5 @@ typedef void(^DZNEmptyDataSeparatorConfigBlock)(DZNEmptyDataSeparatorModel *mode
 + (instancetype)separatorWithScrollView:(__kindof UIScrollView *)tableView;
 - (void)configWithModels:(NSArray <DZNEmptyDataSeparatorModel *> *)models;
 @end
+
+

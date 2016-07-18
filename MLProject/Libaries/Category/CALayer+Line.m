@@ -9,16 +9,17 @@
 #import "CALayer+Line.h"
 #import "UIView+Frame.h"
 @implementation CALayer (Line)
--(CALayer *)makeLineWithPositionType:(CALayerDrawLinePositionType)positionType lineColor:(UIColor *)lineColor
+-(CALayer *)makeLineWithPositionType:(CALayerDrawLinePositionOption)positionType lineColor:(UIColor *)lineColor
 {
     return [self makeLineWithPositionType:positionType lineColor:lineColor insets:UIEdgeInsetsZero];
 }
 
-- (CALayer *)makeLineWithPositionType:(CALayerDrawLinePositionType)positionType lineColor:(UIColor *)lineColor insets:(UIEdgeInsets)insets
+- (CALayer *)makeLineWithPositionType:(CALayerDrawLinePositionOption)positionType lineColor:(UIColor *)lineColor insets:(UIEdgeInsets)insets
 {
     return [self makeLineWithPositionType:positionType lineWidthOrHeight:1/SCREEN_SCALE lineColor:lineColor insets:insets];
 }
-- (CALayer *)makeLineWithPositionType:(CALayerDrawLinePositionType)positionType lineWidthOrHeight:(CGFloat)lineWidthOrHeight   lineColor:(UIColor *)lineColor insets:(UIEdgeInsets)insets
+
+- (CALayer *)makeLineWithPositionType:(CALayerDrawLinePositionOption)positionType lineWidthOrHeight:(CGFloat)lineWidthOrHeight   lineColor:(UIColor *)lineColor insets:(UIEdgeInsets)insets
 {
     CALayer *layer = [[CALayer alloc] init];
     layer.backgroundColor = lineColor.CGColor;
@@ -27,26 +28,26 @@
     [self addSublayer:layer];
     return layer;
 }
-- (CGRect)calculateFrameForType:(CALayerDrawLinePositionType)positionType  lineWidthOrHeight:(CGFloat)lineWidthOrHeight insets:(UIEdgeInsets)insets
+- (CGRect)calculateFrameForType:(CALayerDrawLinePositionOption)positionType  lineWidthOrHeight:(CGFloat)lineWidthOrHeight insets:(UIEdgeInsets)insets
 {
     CGRect frame;
     switch (positionType) {
-        case CALayerDrawLineTypePositionTop:
+        case CALayerDrawLinePositionOptionTop:
         {
             frame = CGRectMake(0, 0, self.bounds.size.width, lineWidthOrHeight);
         }
             break;
-        case CALayerDrawLineTypePositionLeft:
+        case CALayerDrawLinePositionOptionLeft:
         {
             frame = CGRectMake(0, 0, lineWidthOrHeight, self.bounds.size.height);
         }
             break;
-        case CALayerDrawLineTypePositionBottom:
+        case CALayerDrawLinePositionOptionBottom:
         {
             frame = CGRectMake(0, self.bounds.size.height - lineWidthOrHeight, self.bounds.size.width, lineWidthOrHeight);
         }
             break;
-        case CALayerDrawLineTypePositionRight:
+        case CALayerDrawLinePositionOptionRight:
         {
              frame = CGRectMake(self.bounds.size.width - lineWidthOrHeight, 0, lineWidthOrHeight, self.bounds.size.height);
         }
