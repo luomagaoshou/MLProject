@@ -9,29 +9,47 @@
 #import "CALayer+Line.h"
 #import "UIView+Frame.h"
 @implementation CALayer (Line)
--(CALayer *)makeLineWithPositionType:(CALayerDrawLinePositionOption)positionType lineColor:(UIColor *)lineColor
+-(void)drawLineWithPositionOption:(CALayerDrawLinePositionOption)positionOption lineColor:(UIColor *)lineColor
 {
-    return [self makeLineWithPositionType:positionType lineColor:lineColor insets:UIEdgeInsetsZero];
+    [self drawLineWithPositionOption:positionOption lineColor:lineColor lineWidthOrHeight:-1/[UIScreen mainScreen].scale];
+}
+- (void)drawLineWithPositionOption:(CALayerDrawLinePositionOption)positionOption lineColor:(UIColor *)lineColor lineWidthOrHeight:(CGFloat)lineWidthOrHeight
+{
+    [self drawLineWithPositionOption:positionOption lineColor:lineColor lineWidthOrHeight:lineWidthOrHeight insets:UIEdgeInsetsZero];
 }
 
-- (CALayer *)makeLineWithPositionType:(CALayerDrawLinePositionOption)positionType lineColor:(UIColor *)lineColor insets:(UIEdgeInsets)insets
+- (void)drawLineWithPositionOption:(CALayerDrawLinePositionOption)positionOption
+                            lineColor:(UIColor *)lineColor
+                    lineWidthOrHeight:(CGFloat)lineWidthOrHeight
+                               insets:(UIEdgeInsets)insets
 {
-    return [self makeLineWithPositionType:positionType lineWidthOrHeight:1/SCREEN_SCALE lineColor:lineColor insets:insets];
+    if (positionOption | CALayerDrawLinePositionOptionTop) {
+        [self _drawLineWithPositionOption:CALayerDrawLinePositionOptionTop lineColor:lineColor lineWidthOrHeight:lineWidthOrHeight insets:insets];
+    }
+    if (positionOption | CALayerDrawLinePositionOptionLeft) {
+        [self _drawLineWithPositionOption:CALayerDrawLinePositionOptionLeft lineColor:lineColor lineWidthOrHeight:lineWidthOrHeight insets:insets];
+    }
+   
+    if (positionOption | CALayerDrawLinePositionOptionBottom) {
+        [self _drawLineWithPositionOption:CALayerDrawLinePositionOptionBottom lineColor:lineColor lineWidthOrHeight:lineWidthOrHeight insets:insets];
+    }
+    if (positionOption | CALayerDrawLinePositionOptionRight) {
+        [self _drawLineWithPositionOption:CALayerDrawLinePositionOptionRight lineColor:lineColor lineWidthOrHeight:lineWidthOrHeight insets:insets];
+    }
+    
 }
-
-- (CALayer *)makeLineWithPositionType:(CALayerDrawLinePositionOption)positionType lineWidthOrHeight:(CGFloat)lineWidthOrHeight   lineColor:(UIColor *)lineColor insets:(UIEdgeInsets)insets
+- (void)_drawLineWithPositionOption:(CALayerDrawLinePositionOption)positionOption lineColor:(UIColor *)lineColor lineWidthOrHeight:(CGFloat)lineWidthOrHeight insets:(UIEdgeInsets)insets
 {
     CALayer *layer = [[CALayer alloc] init];
     layer.backgroundColor = lineColor.CGColor;
-
-    layer.frame = [self calculateFrameForType:positionType lineWidthOrHeight:lineWidthOrHeight insets:insets];
+    layer.frame = [self _calculateFrameForType:positionOption lineWidthOrHeight:lineWidthOrHeight insets:insets];
+    
     [self addSublayer:layer];
-    return layer;
 }
-- (CGRect)calculateFrameForType:(CALayerDrawLinePositionOption)positionType  lineWidthOrHeight:(CGFloat)lineWidthOrHeight insets:(UIEdgeInsets)insets
+- (CGRect)_calculateFrameForType:(CALayerDrawLinePositionOption)positionOption  lineWidthOrHeight:(CGFloat)lineWidthOrHeight insets:(UIEdgeInsets)insets
 {
     CGRect frame;
-    switch (positionType) {
+    switch (positionOption) {
         case CALayerDrawLinePositionOptionTop:
         {
             frame = CGRectMake(0, 0, self.bounds.size.width, lineWidthOrHeight);

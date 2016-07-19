@@ -1282,7 +1282,7 @@
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miaolonglai/Desktop/githubRepo/MLProject/MLProject/MultiThread/MultiThreadController.m"
-                  timestampString = "490464505.507308"
+                  timestampString = "490545878.399297"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "249"
@@ -1297,7 +1297,7 @@
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miaolonglai/Desktop/githubRepo/MLProject/MLProject/MultiThread/MultiThreadController.m"
-                  timestampString = "490464505.50742"
+                  timestampString = "490545878.399434"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "251"
@@ -1490,7 +1490,7 @@
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miaolonglai/Desktop/githubRepo/MLProject/MLProject/MultiThread/MultiThreadController.m"
-                  timestampString = "490464505.510309"
+                  timestampString = "490545878.402325"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "273"
@@ -1505,7 +1505,7 @@
                   moduleName = "MLProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miaolonglai/Desktop/githubRepo/MLProject/MLProject/MultiThread/MultiThreadController.m"
-                  timestampString = "490464505.510413"
+                  timestampString = "490545878.402447"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "273"
@@ -2465,11 +2465,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MLProject/MJRefresh/MLMJRefreshViewController.m"
-            timestampString = "490464104.462983"
+            timestampString = "490545818.292341"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "314"
-            endingLineNumber = "314"
+            startingLineNumber = "320"
+            endingLineNumber = "320"
             landmarkName = "-emptyDataSet:didTapView:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2481,11 +2481,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MLProject/MJRefresh/MLMJRefreshViewController.m"
-            timestampString = "490464104.462983"
+            timestampString = "490545818.292341"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "308"
-            endingLineNumber = "308"
+            startingLineNumber = "314"
+            endingLineNumber = "314"
             landmarkName = "-emptyDataSetShouldAllowScroll:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2497,11 +2497,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MLProject/MJRefresh/MLMJRefreshViewController.m"
-            timestampString = "490464104.462983"
+            timestampString = "490545818.292341"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "320"
-            endingLineNumber = "320"
+            startingLineNumber = "326"
+            endingLineNumber = "326"
             landmarkName = "-emptyDataSet:didTapButton:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2561,11 +2561,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MLProject/MJRefresh/MLMJRefreshViewController.m"
-            timestampString = "490464104.462983"
+            timestampString = "490545818.292341"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "315"
-            endingLineNumber = "315"
+            startingLineNumber = "321"
+            endingLineNumber = "321"
             landmarkName = "-emptyDataSet:didTapView:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2609,11 +2609,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MLProject/MJRefresh/MLMJRefreshViewController.m"
-            timestampString = "490464104.462983"
+            timestampString = "490545818.292341"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
             landmarkName = "-configEmpeyDataSet"
             landmarkType = "5">
          </BreakpointContent>
@@ -2625,11 +2625,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MLProject/MJRefresh/MLMJRefreshViewController.m"
-            timestampString = "490464104.462983"
+            timestampString = "490545818.292341"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
             landmarkName = "-configEmpeyDataSet"
             landmarkType = "5">
          </BreakpointContent>
@@ -2849,11 +2849,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MLProject/MJRefresh/MLMJRefreshViewController.m"
-            timestampString = "490464104.462983"
+            timestampString = "490545818.292341"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "194"
-            endingLineNumber = "194"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
             landmarkName = "-collectionView:cellForItemAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2865,11 +2865,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MLProject/MJRefresh/MLMJRefreshViewController.m"
-            timestampString = "490464104.462983"
+            timestampString = "490545818.292341"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
             landmarkName = "-numberOfSectionsInCollectionView:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2881,11 +2881,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MLProject/MJRefresh/MLMJRefreshViewController.m"
-            timestampString = "490464104.462983"
+            timestampString = "490545818.292341"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
             landmarkName = "-collectionView:numberOfItemsInSection:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2897,11 +2897,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MLProject/MJRefresh/MLMJRefreshViewController.m"
-            timestampString = "490464104.462983"
+            timestampString = "490545818.292341"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "202"
-            endingLineNumber = "202"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
             landmarkName = "-collectionView:layout:sizeForItemAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2913,11 +2913,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MLProject/MJRefresh/MLMJRefreshViewController.m"
-            timestampString = "490464104.462983"
+            timestampString = "490545818.292341"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
             landmarkName = "-collectionView:cellForItemAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2929,11 +2929,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MLProject/MJRefresh/MLMJRefreshViewController.m"
-            timestampString = "490464104.462983"
+            timestampString = "490545818.292341"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "195"
-            endingLineNumber = "195"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
             landmarkName = "-collectionView:cellForItemAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2989,17 +2989,113 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MLProject/Libaries/Category/CALayer+Line.m"
-            timestampString = "490464474.330064"
+            timestampString = "490545681.476487"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "-makeLineWithPositionType:lineWidthOrHeight:lineColor:insets:"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "-drawLineWithPositionOption:lineColor:lineWidthOrHeight:insets:"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MLProject/Libaries/Category/CALayer+Line.m"
+            timestampString = "490545723.596012"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "-_calculateFrameForType:lineWidthOrHeight:insets:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MLProject/Libaries/Category/CALayer+Line.m"
+            timestampString = "490545815.176839"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "-_calculateFrameForType:lineWidthOrHeight:insets:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MLProject/MJRefresh/MLMJRefreshViewController.m"
+            timestampString = "490545871.283293"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "-configMenuCollectionView"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MLProject/MJRefresh/MLMJRefreshViewController.m"
+            timestampString = "490545871.938559"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "-configMenuCollectionView"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[MLMJRefreshViewController configMenuCollectionView]"
+                  moduleName = "MLProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miaolonglai/Desktop/githubRepo/MLProject/MLProject/MJRefresh/MLMJRefreshViewController.m"
+                  timestampString = "490545878.413015"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "114"
+                  endingLineNumber = "114"
+                  offsetFromSymbolStart = "27">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__53-[MLMJRefreshViewController configMenuCollectionView]_block_invoke"
+                  moduleName = "MLProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miaolonglai/Desktop/githubRepo/MLProject/MLProject/MJRefresh/MLMJRefreshViewController.m"
+                  timestampString = "490545878.41311"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "114"
+                  endingLineNumber = "114"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

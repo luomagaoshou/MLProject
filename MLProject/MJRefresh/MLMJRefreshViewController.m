@@ -17,6 +17,7 @@
 #import "MLMenuCollectionView.h"
 #import "MLMenuCLCell.h"
 #import "CALayer+Line.h"
+
 @interface MLMJRefreshViewController ()<UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet MLMenuCollectionView *menuCollectionView;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -38,6 +39,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
     
 }
 
@@ -109,7 +111,11 @@
 //    [self.menuCollectionView setTitles:@[@"标题1", @"标题2", @"标题3"] clickBlock:^(NSInteger index) {
 //        NSLog(@"%ld", index);
 //    }];
-//    [self.menuCollectionView.layer makeLineWithPositionType:CALayerDrawLinePositionOptionTop lineColor:kUI_COLOR_GRAY_f0f0f0 lineWidthOrHeight:1];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.menuCollectionView.layer drawLineWithPositionOption:CALayerDrawLinePositionOptionBottom|CALayerDrawLinePositionOptionTop|CALayerDrawLinePositionOptionLeft|CALayerDrawLinePositionOptionRight
+                                                        lineColor:kUI_COLOR_GREEN_00b746 lineWidthOrHeight:2];
+    });
+
 //    self.menuCollectionView.delegate = self;
 //    self.menuCollectionView.dataSource = self;
 //    [self.menuTitles addObject:@[@"标题1", @"标题2", @"标题3"]];
@@ -142,20 +148,20 @@
 {
 
     
-    [MLNetwork postWithRequestID:@"ff" paramBlock:^(MLURLConfig *urlConfig, MLParamPackage *paramPackage, MLRequestParam *requestParam, NetworkMessageSender *messageSend) {
-                urlConfig.domainNameString = @"api.chunbo.com";
-               urlConfig.virtualDirectoryString = @"/Cookbook";
-        urlConfig.teacherName(@"appcookbooklist");
-        //参数
-        requestParam.page = @"%d";
-        requestParam.pagesize = @"60";
-    
-        
-    } success:^(NSURLSessionDataTask *task, id responseObject, NSJSONSerialization *JSONObject, id modelMaster, NSInteger statusCode, MLURLConfig *urlConfig, MLRequestParam *requestParam, NSString *requestID, MLParamPackage *paramPackage) {
-        
-    } failure:^(NSURLSessionDataTask *task, NSError *error, MLURLConfig *urlConfig, MLRequestParam *requestParam, NSString *requestID, MLParamPackage *paramPackage) {
-        
-    }];
+//    [MLNetwork postWithRequestID:@"ff" paramBlock:^(MLURLConfig *urlConfig, MLParamPackage *paramPackage, MLRequestParam *requestParam, NetworkMessageSender *messageSend) {
+//                urlConfig.domainNameString = @"api.chunbo.com";
+//               urlConfig.virtualDirectoryString = @"/Cookbook";
+//        urlConfig.teacherName(@"appcookbooklist");
+//        //参数
+//        requestParam.page = @"%d";
+//        requestParam.pagesize = @"60";
+//    
+//        
+//    } success:^(NSURLSessionDataTask *task, id responseObject, NSJSONSerialization *JSONObject, id modelMaster, NSInteger statusCode, MLURLConfig *urlConfig, MLRequestParam *requestParam, NSString *requestID, MLParamPackage *paramPackage) {
+//        
+//    } failure:^(NSURLSessionDataTask *task, NSError *error, MLURLConfig *urlConfig, MLRequestParam *requestParam, NSString *requestID, MLParamPackage *paramPackage) {
+//        
+//    }];
 }
 
 #pragma mark - ========= TabelView Cell =========

@@ -69,14 +69,16 @@
         
         if (i == buttonTitles.count - 1) {
             button.buttonCommonType = UIButtonCommonTypeBlueText;
-            [button.layer makeLineWithPositionType:CALayerDrawLinePositionOptionTop lineColor:kUI_COLOR_GRAY_dedede insets:UIEdgeInsetsMake(-1/SCREEN_SCALE, 0, 0, 0)];
+            
+//            [button.layer drawLineWithPositionOption:CALayerDrawLinePositionOptionTop lineColor:kUI_COLOR_GRAY_dedede insets:UIEdgeInsetsMake(-1/SCREEN_SCALE, 0, 0, 0)];
+//            
             
             
         }else
         {
             button.buttonCommonType = UIButtonCommonTypeGrayText;
-          [button.layer makeLineWithPositionType:CALayerDrawLinePositionOptionTop lineColor:kUI_COLOR_GRAY_dedede insets:UIEdgeInsetsMake(-1/SCREEN_SCALE, 0, 0, 0) ];
-             [button.layer makeLineWithPositionType:CALayerDrawLinePositionOptionRight lineColor:kUI_COLOR_GRAY_dedede insets:UIEdgeInsetsMake(0, 0, 0, -1/SCREEN_SCALE)];
+//          [button.layer drawLineWithPositionOption:CALayerDrawLinePositionOptionTop lineColor:kUI_COLOR_GRAY_dedede insets:UIEdgeInsetsMake(-1/SCREEN_SCALE, 0, 0, 0) ];
+//             [button.layer drawLineWithPositionOption:CALayerDrawLinePositionOptionRight lineColor:kUI_COLOR_GRAY_dedede insets:UIEdgeInsetsMake(0, 0, 0, -1/SCREEN_SCALE)];
         }
         
     }

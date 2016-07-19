@@ -15,11 +15,13 @@ typedef NS_OPTIONS(NSInteger, CALayerDrawLinePositionOption) {
     
 };
 @interface CALayer (Line)
-- (CALayer *)makeLineWithPositionType:(CALayerDrawLinePositionOption)positionType lineColor:(UIColor *)lineColor;
-- (CALayer *)makeLineWithPositionType:(CALayerDrawLinePositionOption)positionType lineColor:(UIColor *)lineColor lineWidthOrHeight:(CGFloat)lineWidthOrHeight;
-
-- (CALayer *)makeLineWithPositionType:(CALayerDrawLinePositionOption)positionType lineColor:(UIColor *)lineColor insets:(UIEdgeInsets)insets;
+- (void)drawLineWithPositionOption:(CALayerDrawLinePositionOption)positionType lineColor:(UIColor *)lineColor;
+- (void)drawLineWithPositionOption:(CALayerDrawLinePositionOption)positionType lineColor:(UIColor *)lineColor lineWidthOrHeight:(CGFloat)lineWidthOrHeight;
 
 
-- (CALayer *)makeLineWithPositionType:(CALayerDrawLinePositionOption)positionType lineWidthOrHeight:(CGFloat)lineWidthOrHeight lineColor:(UIColor *)lineColor insets:(UIEdgeInsets)insets;
+
+- (void)drawLineWithPositionOption:(CALayerDrawLinePositionOption)positionType
+                            lineColor:(UIColor *)lineColor
+                    lineWidthOrHeight:(CGFloat)lineWidthOrHeight
+                               insets:(UIEdgeInsets)insets;
 @end
