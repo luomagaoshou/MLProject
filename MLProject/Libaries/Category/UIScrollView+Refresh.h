@@ -9,16 +9,16 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSInteger ,UIScrollViewStatusType) {
-    UIScrollViewStatusTypeEmptyData = 0,
-    UIScrollViewStatusTypeNetworkDelay,
-    UIScrollViewStatusTypeError,
-    UIScrollViewStatusTypeNoSignal,
+    UIScrollViewStatusTypeDefault = 0,
+    UIScrollViewStatusTypeEmptyData,
+    UIScrollViewStatusTypeNetworkError,
+    UIScrollViewStatusTypeNoConnetion,
     
 };
 typedef NS_ENUM(NSInteger, UIScrollViewLoadType) {
-    UIScrollViewStatusTypeFirstTime = 0,
-    UIScrollViewStatusTypeRefresh,
-    UIScrollViewStatusTypeLoadMore,
+    UIScrollViewLoadTypeFirstTime = 0,
+    UIScrollViewLoadTypeRefresh,
+    UIScrollViewLoadTypeLoadMore,
     
 };
 @interface UIScrollView (Refresh)

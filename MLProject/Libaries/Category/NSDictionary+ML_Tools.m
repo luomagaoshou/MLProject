@@ -9,7 +9,7 @@
 #import "NSDictionary+ML_Tools.h"
 
 @implementation NSDictionary (ML_Tools)
-- (NSString *)dictionaryToURLparameterString
+- (NSString *)urlParameterString
 {
     NSMutableArray *mutArr = [[NSMutableArray alloc] init];
     NSArray *keys = [self allKeys];

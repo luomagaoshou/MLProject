@@ -9,6 +9,8 @@
 #import "UIViewController+ML_Tools.h"
 #import "UIImage+ML_Tools.h"
 #import <MJRefresh/MJRefresh.h>
+#import "UIScrollView+Refresh.h"
+
 @implementation UIViewController (ML_Tools)
 
 
@@ -76,49 +78,46 @@
     
 }
 - (void)configSuccuessDataShowWithScrollView:(__kindof UIScrollView *)scrollView
-              statusCode:(NSInteger)statusCode
            originalDatas:(NSArray <NSArray *>*)originalDatas
                cellDatas:(NSMutableArray *)cellDatas
-              moreConfig:(void(^)(NSInteger status))moreConfig
+              moreConfig:(void(^)(void))moreConfig
 {
-    if (statusCode == 0) {
+
         if (scrollView.loadType == UIScrollViewLoadTypeRefresh) {
             [cellDatas removeAllObjects];
         }
         if (originalDatas) {
          
             for (NSInteger i = 0; i < originalDatas.count; i++) {
-                NSArray *sendconLevelArray = originalDatas[i];
-                if (![sendconLevelArray isKindOfClass:[NSArray class]]) {
+                NSArray *secondLevelArray = originalDatas[i];
+                if (![secondLevelArray isKindOfClass:[NSArray class]]) {
                     continue;
                 }
+                if (secondLevelArray.count < 1) {
+                    continue;
+                }
+                //防止嵌套错误
+                if (secondLevelArray.count == 1 && [secondLevelArray[0] isKindOfClass:[NSArray class]]) {
+                    secondLevelArray = secondLevelArray[0];
+                }
+                //过滤非对象返回
                 BOOL isObject = YES;
-                for (id Obj in sendconLevelArray) {
-                    if ([Obj isKindOfClass:[NSNull class]] || [Obj isKindOfClass:[NSString class]]) {
+                for (id ObjIn2ndArr in secondLevelArray) {
+                    if ([ObjIn2ndArr isKindOfClass:[NSNull class]] || [ObjIn2ndArr isKindOfClass:[NSString class]]) {
                         isObject = NO;
                         break;
                     }
                 }
                 
                 if (isObject) {
-                    [cellDatas addObject:sendconLevelArray];
+                    [cellDatas addObject:secondLevelArray];
                 }
                 
             }
             
-        }else
-        {
-            scrollView.statusType = UIScrollViewStatusTypeEmptyData;
         }
-    }
-    else
-    {
-        
-    }
     
-    if (moreConfig) {
-        moreConfig(statusCode);
-    }
+
     if (cellDatas.count == 0) {
          scrollView.statusType = UIScrollViewStatusTypeEmptyData;
     }else{

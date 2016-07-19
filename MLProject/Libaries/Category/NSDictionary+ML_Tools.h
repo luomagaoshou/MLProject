@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface NSDictionary (ML_Tools)
-- (NSString *)dictionaryToURLparameterString;
+- (NSString *)urlParameterString;
 @end

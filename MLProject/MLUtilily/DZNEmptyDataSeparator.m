@@ -35,7 +35,7 @@
 }
 + (instancetype)noSignalModelWithTapViewBlock:(void (^)(void))tapViewBlock
 {
-    DZNEmptyDataSeparatorModel *modelOfNoSignal = [DZNEmptyDataSeparatorModel modelWithTableViewStatus:UIScrollViewStatusTypeError imageName:@"pic_network_no_signal" title:@"这个星球没找到哦!" buttonTitle:@"点击屏幕重新加载" moreConfig:^(DZNEmptyDataSeparatorModel *model) {
+    DZNEmptyDataSeparatorModel *modelOfNoSignal = [DZNEmptyDataSeparatorModel modelWithTableViewStatus:UIScrollViewStatusTypeNetworkError imageName:@"pic_network_no_signal" title:@"这个星球没找到哦!" buttonTitle:@"点击屏幕重新加载" moreConfig:^(DZNEmptyDataSeparatorModel *model) {
         model.allowTouch = YES;
         model.tapViewBlock = tapViewBlock;
     }];
@@ -45,7 +45,7 @@
     return [self delayModelWithTapViewBlock:nil];
 }
 + (instancetype)delayModelWithTapViewBlock:(void (^)(void))tapViewBlock{
-    DZNEmptyDataSeparatorModel *modelOfDelay = [DZNEmptyDataSeparatorModel modelWithTableViewStatus:UIScrollViewStatusTypeNetworkDelay imageName:@"pic_network_response_delay" title:@"网络不给力喔!" buttonTitle:@"点击屏幕重新加载" moreConfig:^(DZNEmptyDataSeparatorModel *model) {
+    DZNEmptyDataSeparatorModel *modelOfDelay = [DZNEmptyDataSeparatorModel modelWithTableViewStatus:UIScrollViewStatusTypeNetworkError imageName:@"pic_network_response_delay" title:@"网络不给力喔!" buttonTitle:@"点击屏幕重新加载" moreConfig:^(DZNEmptyDataSeparatorModel *model) {
         model.allowTouch = YES;
         model.tapViewBlock = tapViewBlock;
     }];

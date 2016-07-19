@@ -10,12 +10,12 @@
 #import "NSDictionary+ML_Tools.h"
 #import "UIImage+FX.h"
 #import <MJExtension/MJExtension.h>
-#import "BondTool+Secure.h"
+//#import "BondTool+Secure.h"
 
 #import "NSDate+ML_Tools.h"
-#import "NSString+Hashing.h"
-#import "UserInfoManager.h"
-#import "MBProgressHUD+XK.h"
+
+#import "NSDictionary+ML_Tools.h"
+
 #import "MBProgressHUD+Loading.h"
 #import "NSDictionary+ML_Tools.h"
 #import "DZNEmptyDataSeparator.h"
@@ -89,7 +89,8 @@ MJCodingImplementation
     }
     
     if (![Reachability reachabilityForInternetConnection].isReachable) {
-        [MBProgressHUD showHudOnKeywindowWithTitle:kToast.noConnection];
+        
+        [MBProgressHUD showHudOnKeywindowWithTitle:@"无连接"];
         networkCtl.messageSender.scrollViewOfShowingData.statusType = UIScrollViewStatusTypeNoConnetion;
         [networkCtl.messageSender.scrollViewOfShowingData reloadEmptyDataSet];
         return;
@@ -117,7 +118,7 @@ MJCodingImplementation
     }
 
     if (![Reachability reachabilityForInternetConnection].isReachable) {
-        [MBProgressHUD showHudOnKeywindowWithTitle:kToast.noConnection];
+        [MBProgressHUD showHudOnKeywindowWithTitle:@"无连接"];
         networkCtl.messageSender.scrollViewOfShowingData.statusType = UIScrollViewStatusTypeNoConnetion;
         [networkCtl.messageSender.scrollViewOfShowingData reloadEmptyDataSet];
         return;
@@ -265,12 +266,12 @@ MJCodingImplementation
     }else{
         self.requestParam.jsonData = @"";
     }
-    
+  #if 0
     //默认参数
     if (self.requestParam.sessionId == nil) {
         self.requestParam.sessionId = [UserInfoManager shareManager].sessionId ? : @"";
     }
-    
+
     self.requestParam.imei = [BondTool deviceId];
     self.requestParam.version = [BondTool internalVersion];
     self.requestParam.clientType = [BondTool clientType];
@@ -290,6 +291,7 @@ MJCodingImplementation
     [authorizationOringinalString MD5Hash].lowercaseString;
     
     
+#endif
     
 #if DEBUG
     NSDictionary *propertyDic = [self.requestParam getPropertyKeyValueOnlyHaveValueDictionary];
@@ -386,7 +388,7 @@ MJCodingImplementation
     }
     else
     {
-        [MBProgressHUD showHudOnKeywindowWithTitle:kToast.networkError];
+        [MBProgressHUD showHudOnKeywindowWithTitle:@"网络错误"];
     }
     
     [self setHelperPropertyNil];
