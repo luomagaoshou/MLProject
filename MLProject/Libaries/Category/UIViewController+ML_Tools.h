@@ -13,8 +13,10 @@
 - (void)setNavigationBarBackgroundAutoResizeImage:(UIImage *)image;
 + (UIViewController *)getLastViewController;
 + (id)getLastViewControllerWithClass:(Class)aClass;
-- (void)setupContollerDefaultConfig;
-- (id)setupSelfNameControllerRootView;
-- (void)addChildViewControllerAndView:(UIViewController *)childController;
-- (void)addChildViewControllerAndView:(UIViewController *)childController childControllerViewFrame:(CGRect)frame;
+- (void)configSuccuessDataShowWithScrollView:(__kindof UIScrollView *)scrollView
+                statusCode:(NSInteger)statusCode
+                        originalDatas:(NSArray <NSArray *>*)originalDatas
+                            cellDatas:(NSMutableArray *)cellDatas
+              moreConfig:(void(^)(NSInteger status))moreConfig;
+- (void)closeHeaderOrFooterWithScrollView:(__kindof UIScrollView *)scrollView;
 @end

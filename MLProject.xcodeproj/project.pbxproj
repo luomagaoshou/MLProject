@@ -22,6 +22,7 @@
 		16BC0B881D2CFEDD0041D124 /* UIButton+CommonType.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC0B871D2CFEDD0041D124 /* UIButton+CommonType.m */; };
 		16BC0B8B1D2CFEF10041D124 /* UILabel+CommonType.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC0B8A1D2CFEF10041D124 /* UILabel+CommonType.m */; };
 		16BC0B911D2CFF5C0041D124 /* UINavigationBar+Appearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC0B901D2CFF5C0041D124 /* UINavigationBar+Appearance.m */; };
+		16D5D22D1D3E681B003CA180 /* UIViewController+ML_Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D5D22C1D3E681B003CA180 /* UIViewController+ML_Tools.m */; };
 		18008A4F1CA69E4600EFA08E /* UITabBarController+ML_Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 18008A4E1CA69E4600EFA08E /* UITabBarController+ML_Create.m */; };
 		181F990D1CE066E900DB57CA /* MLSQLite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 181F99081CE066E900DB57CA /* MLSQLite.storyboard */; };
 		181F990E1CE066E900DB57CA /* MLSQLiteController.m in Sources */ = {isa = PBXBuildFile; fileRef = 181F990A1CE066E900DB57CA /* MLSQLiteController.m */; };
@@ -118,7 +119,6 @@
 		18C276941C7D41020055C19D /* UIView+ML_Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C276491C7D41020055C19D /* UIView+ML_Tools.m */; };
 		18C276951C7D41020055C19D /* UIView+Shade.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C2764B1C7D41020055C19D /* UIView+Shade.m */; };
 		18C276971C7D41020055C19D /* UIView+Xib.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C2764F1C7D41020055C19D /* UIView+Xib.m */; };
-		18C276981C7D41020055C19D /* UIViewController+ML_Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C276511C7D41020055C19D /* UIViewController+ML_Tools.m */; };
 		18CF9D741C8EDFB900E1EA53 /* NSObject+ChainInvocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CF9D731C8EDFB900E1EA53 /* NSObject+ChainInvocation.m */; };
 		18D8E07D1C84576400706195 /* NSObject+ML_Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D8E07A1C84576400706195 /* NSObject+ML_Tools.m */; };
 		18D8E07E1C84576400706195 /* UIScrollView+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D8E07C1C84576400706195 /* UIScrollView+Refresh.m */; };
@@ -315,6 +315,8 @@
 		16BC0B8A1D2CFEF10041D124 /* UILabel+CommonType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+CommonType.m"; sourceTree = "<group>"; };
 		16BC0B8F1D2CFF5C0041D124 /* UINavigationBar+Appearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Appearance.h"; sourceTree = "<group>"; };
 		16BC0B901D2CFF5C0041D124 /* UINavigationBar+Appearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Appearance.m"; sourceTree = "<group>"; };
+		16D5D22B1D3E681B003CA180 /* UIViewController+ML_Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ML_Tools.h"; sourceTree = "<group>"; };
+		16D5D22C1D3E681B003CA180 /* UIViewController+ML_Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ML_Tools.m"; sourceTree = "<group>"; };
 		18008A4D1CA69E4600EFA08E /* UITabBarController+ML_Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+ML_Create.h"; sourceTree = "<group>"; };
 		18008A4E1CA69E4600EFA08E /* UITabBarController+ML_Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+ML_Create.m"; sourceTree = "<group>"; };
 		181F99081CE066E900DB57CA /* MLSQLite.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLSQLite.storyboard; sourceTree = "<group>"; };
@@ -497,8 +499,6 @@
 		18C2764B1C7D41020055C19D /* UIView+Shade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Shade.m"; sourceTree = "<group>"; };
 		18C2764E1C7D41020055C19D /* UIView+Xib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Xib.h"; sourceTree = "<group>"; };
 		18C2764F1C7D41020055C19D /* UIView+Xib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Xib.m"; sourceTree = "<group>"; };
-		18C276501C7D41020055C19D /* UIViewController+ML_Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ML_Tools.h"; sourceTree = "<group>"; };
-		18C276511C7D41020055C19D /* UIViewController+ML_Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ML_Tools.m"; sourceTree = "<group>"; };
 		18CF9D721C8EDFB900E1EA53 /* NSObject+ChainInvocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+ChainInvocation.h"; path = "MLProject/Chainable/NSObject+ChainInvocation.h"; sourceTree = SOURCE_ROOT; };
 		18CF9D731C8EDFB900E1EA53 /* NSObject+ChainInvocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+ChainInvocation.m"; path = "MLProject/Chainable/NSObject+ChainInvocation.m"; sourceTree = SOURCE_ROOT; };
 		18D8E0791C84576400706195 /* NSObject+ML_Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ML_Tools.h"; sourceTree = "<group>"; };
@@ -1096,8 +1096,8 @@
 				18C2764B1C7D41020055C19D /* UIView+Shade.m */,
 				18C2764E1C7D41020055C19D /* UIView+Xib.h */,
 				18C2764F1C7D41020055C19D /* UIView+Xib.m */,
-				18C276501C7D41020055C19D /* UIViewController+ML_Tools.h */,
-				18C276511C7D41020055C19D /* UIViewController+ML_Tools.m */,
+				16D5D22B1D3E681B003CA180 /* UIViewController+ML_Tools.h */,
+				16D5D22C1D3E681B003CA180 /* UIViewController+ML_Tools.m */,
 				18D8E0791C84576400706195 /* NSObject+ML_Tools.h */,
 				18D8E07A1C84576400706195 /* NSObject+ML_Tools.m */,
 				18D8E07B1C84576400706195 /* UIScrollView+Refresh.h */,
@@ -2111,7 +2111,6 @@
 				FE6B226A1CD65178007733FD /* MLChain4CAPropertyAnimation.m in Sources */,
 				18C276541C7D41020055C19D /* NSArray+ML_Component.m in Sources */,
 				FE945AB11C1D5746007A2421 /* SBHSplitOrderModel.m in Sources */,
-				18C276981C7D41020055C19D /* UIViewController+ML_Tools.m in Sources */,
 				18C276951C7D41020055C19D /* UIView+Shade.m in Sources */,
 				FE0C62FD1D141A3600F73C95 /* MLNestNibViewController.m in Sources */,
 				FEE55D011BF244D100C8F783 /* FranchiseVerifyingStatusView.m in Sources */,
@@ -2206,6 +2205,7 @@
 				FE972D091C5FAB8B00C34DC0 /* MLCALayerController.m in Sources */,
 				FE82FA8A1CD51A0B00824A1A /* NSObject+ChainMethod.m in Sources */,
 				FE29A27F1C54F7D0006FF01E /* UIViewController+Storyboard.m in Sources */,
+				16D5D22D1D3E681B003CA180 /* UIViewController+ML_Tools.m in Sources */,
 				FEA1C87C1CB5394300B5A9D3 /* PaiLie.m in Sources */,
 				18230C3B1CD1ACCC0056C5FB /* MLKVC_KVOController.m in Sources */,
 				FE514DB21C1BFCDB00E3AC0C /* RunTimeController.m in Sources */,

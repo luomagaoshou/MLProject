@@ -8,55 +8,9 @@
 
 #import "UIViewController+ML_Tools.h"
 #import "UIImage+ML_Tools.h"
+#import <MJRefresh/MJRefresh.h>
 @implementation UIViewController (ML_Tools)
-//#pragma clang diagnostic push
-//#pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
-////重写 因为老viewcontroller的NavigationBar为自定义
-//- (void)viewWillAppear:(BOOL)animated
-//{
-//  
-//    NSLog(@"%@",self);
-//    [self hideNavigationBar];
-//    
-//    for (UIViewController *childviewController in self.childViewControllers) {
-//        [childviewController hideNavigationBar];
-//        
-//    }
-// 
-//   
-//    
-//}
-- (void)setupContollerDefaultConfig
-{
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.automaticallyAdjustsScrollViewInsets = NO;
-}
-- (id)setupSelfNameControllerRootView
-{
-    
-    NSString *selfName = NSStringFromClass([self class]);
-    NSString *selfViewName = [[selfName substringToIndex:[selfName rangeOfString:@"Controller"].location] stringByAppendingString:@"View"];
-   
-      NSString *result =  [[NSBundle mainBundle] pathForResource:selfViewName ofType:@"nib"];
-   
-    UIView *rootView;
-    if (result) {
-         rootView = [[[NSBundle mainBundle] loadNibNamed:selfViewName owner:nil options:nil] firstObject];
-         rootView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-        
-    }
-    else
-    {
-        rootView = [[NSClassFromString(selfViewName) alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 64)];
-    }
 
-   
-        [self.view addSubview:rootView];
-    NSAssert(rootView, @"没有对应的view");
-        return rootView;
-    
-
-}
 
 
 + (id)getLastViewControllerWithClass:(Class)aClass
@@ -112,48 +66,82 @@
     
     
 }
-- (void)addChildViewControllerAndView:(UIViewController *)childController
-{
-    [self addChildViewControllerAndView:childController childControllerViewFrame:CGRectZero];
-}
-- (void)addChildViewControllerAndView:(UIViewController *)childController childControllerViewFrame:(CGRect)frame
-{
-    [self addChildViewController:childController];
-    [self.view addSubview:childController.view];
-    if (!CGRectIsNull(frame)) {
-        childController.view.frame = frame;
-    }
-    
-}
-#pragma clang diagnostic pop
-- (void)hideNavigationBar
-{
-    for (UIView *subView in self.view.subviews) {
-        if ([subView.featureIdentifier isEqualToString:@"自定义背景视图"]) {
-            self.navigationController.navigationBar.hidden = YES;
-            
-            return;
-        }
-        else
-        {
-            if ([subView isKindOfClass:[UIScrollView class]]) {
-                for (UIView *subviewInScrollView in subView.subviews) {
-                    if ([subviewInScrollView.featureIdentifier isEqualToString:@"自定义背景视图"]) {
-                        self.navigationController.navigationBar.hidden = YES;
-                        
-                        return;
-                    }
-                }
-            }
-        }
-    }
-    self.navigationController.navigationBar.hidden = NO;
-}
+
+
 - (void)setNavigationBarBackgroundAutoResizeImage:(UIImage *)image
 {
  
     image = [image stretchableImageWithCenterPoint];
     [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
     
+}
+- (void)configSuccuessDataShowWithScrollView:(__kindof UIScrollView *)scrollView
+              statusCode:(NSInteger)statusCode
+           originalDatas:(NSArray <NSArray *>*)originalDatas
+               cellDatas:(NSMutableArray *)cellDatas
+              moreConfig:(void(^)(NSInteger status))moreConfig
+{
+    if (statusCode == 0) {
+        if (scrollView.loadType == UIScrollViewLoadTypeRefresh) {
+            [cellDatas removeAllObjects];
+        }
+        if (originalDatas) {
+         
+            for (NSInteger i = 0; i < originalDatas.count; i++) {
+                NSArray *sendconLevelArray = originalDatas[i];
+                if (![sendconLevelArray isKindOfClass:[NSArray class]]) {
+                    continue;
+                }
+                BOOL isObject = YES;
+                for (id Obj in sendconLevelArray) {
+                    if ([Obj isKindOfClass:[NSNull class]] || [Obj isKindOfClass:[NSString class]]) {
+                        isObject = NO;
+                        break;
+                    }
+                }
+                
+                if (isObject) {
+                    [cellDatas addObject:sendconLevelArray];
+                }
+                
+            }
+            
+        }else
+        {
+            scrollView.statusType = UIScrollViewStatusTypeEmptyData;
+        }
+    }
+    else
+    {
+        
+    }
+    
+    if (moreConfig) {
+        moreConfig(statusCode);
+    }
+    if (cellDatas.count == 0) {
+         scrollView.statusType = UIScrollViewStatusTypeEmptyData;
+    }else{
+        scrollView.statusType = UIScrollViewStatusTypeDefault;
+    }
+    
+    [scrollView performSelector:@selector(reloadData)];
+    [self closeHeaderOrFooterWithScrollView:scrollView];
+    
+}
+- (void)closeHeaderOrFooterWithScrollView:(__kindof UIScrollView *)scrollView
+{
+    if (scrollView.loadType == UIScrollViewLoadTypeRefresh) {
+        if (scrollView.mj_header) {
+            [scrollView.mj_header endRefreshing];
+        }
+        
+    }
+    else if (scrollView.loadType == UIScrollViewLoadTypeLoadMore){
+        if (scrollView.mj_footer) {
+            [scrollView.mj_footer endRefreshing];
+        }
+        
+    }
 }
 @end
