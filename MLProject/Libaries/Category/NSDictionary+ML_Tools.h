@@ -10,4 +10,8 @@
 
 @interface NSDictionary (ML_Tools)
 - (NSString *)urlParameterString;
+- (NSString *)jsonString;
+@property (nonatomic, strong, readonly) id firstValue;
+@property (nonatomic, strong, readonly) id firstKey;
+
 @end

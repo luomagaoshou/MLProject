@@ -359,11 +359,11 @@ NSString *const kML_CreateCodeFileType_m = @"m";
     NSDictionary *info = [[NSBundle mainBundle] infoDictionary];
     NSString *appName = [info valueForKey:@"CFBundleName"];
     
-    NSString *dateStr = [NSDate getCurrentTimeWithtimeFormatter:@"yyyy/MM/dd"];
+    NSString *dateStr = [NSDate getCurrentTimeWithDateFormat:@"yyyy/MM/dd"];
     NSString *createrName = @"赖妙龙";
     NSString *createDetailStr = [NSString stringWithFormat:@"Created by %@ on %@.",createrName, dateStr];
     
-    NSString *yearStr = [NSDate getCurrentTimeWithtimeFormatter:@"yyyy"];
+    NSString *yearStr = [NSDate getCurrentTimeWithDateFormat:@"yyyy"];
     NSString *companyName = @"myCompany";
     NSString *copyRightStr = [NSString stringWithFormat:@"Copyright © %@年 %@. All rights reserved.",yearStr, companyName];
     
@@ -403,16 +403,16 @@ NSString *const kML_CreateCodeFileType_m = @"m";
     [initHelperString appendString:layoutStr];
     
 
-    NSString *helperHintStr = @"#pragma mark - ========= Xib View Init Helper =========\n\n";
+    NSString *helperHintStr = @"#pragma mark - ========= Xib View Config Helper =========\n\n";
         [initHelperString appendString:helperHintStr];
     
     NSMutableString *porpertyInitStr = [[NSMutableString alloc] init];
       for (NSInteger i = 0; i < properties.count; i++) {
           NSString *property = properties[i];
           NSString *upperFirstLetterString = [NSObject upperWriteFirstLetter:property];
-          [porpertyInitStr appendFormat:@"[self init%@];\n", upperFirstLetterString];
+          [porpertyInitStr appendFormat:@"[self configure%@];\n", upperFirstLetterString];
       }
-    NSString *commitInitStr = [NSString stringWithFormat:@"- (void)commitInit{\n\n%@\n\n}\n\n", porpertyInitStr];
+    NSString *commitInitStr = [NSString stringWithFormat:@"- (void)commitConfig{\n\n%@\n\n}\n\n", porpertyInitStr];
     [initHelperString appendString:commitInitStr];
     
     
@@ -422,7 +422,7 @@ NSString *const kML_CreateCodeFileType_m = @"m";
         NSString *property = properties[i];
         NSString *upperFirstLetterString = [NSObject upperWriteFirstLetter:property];
         
-        [initHelperString appendFormat:@"- (void)init%@\n", upperFirstLetterString];
+        [initHelperString appendFormat:@"- (void)configure%@\n", upperFirstLetterString];
         
        // NSString *containerViewStr = [NSString stringWithFormat:@"%@ *cell = (%@ *)[self containerView];\n//cell.%@ = <#code#>",NSStringFromClass(aClass), NSStringFromClass(aClass),property];
         

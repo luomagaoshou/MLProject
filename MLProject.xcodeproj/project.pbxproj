@@ -19,9 +19,12 @@
 		169176B21D3A45F200086A5A /* MLTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 169176AB1D3A45F200086A5A /* MLTextField.m */; };
 		169176B61D3A461800086A5A /* MBProgressHUD+Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = 169176B51D3A461800086A5A /* MBProgressHUD+Loading.m */; };
 		16A14F411D3DC2B900302B34 /* MLNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A14F401D3DC2B900302B34 /* MLNetwork.m */; };
+		16A1BAA81D3F0D4C0064962B /* NSDictionary+ML_Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A1BAA71D3F0D4C0064962B /* NSDictionary+ML_Tools.m */; };
+		16A1BAAB1D3F0D730064962B /* NSDate+ML_Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A1BAAA1D3F0D730064962B /* NSDate+ML_Tools.m */; };
 		16BC0B881D2CFEDD0041D124 /* UIButton+CommonType.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC0B871D2CFEDD0041D124 /* UIButton+CommonType.m */; };
 		16BC0B8B1D2CFEF10041D124 /* UILabel+CommonType.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC0B8A1D2CFEF10041D124 /* UILabel+CommonType.m */; };
 		16BC0B911D2CFF5C0041D124 /* UINavigationBar+Appearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC0B901D2CFF5C0041D124 /* UINavigationBar+Appearance.m */; };
+		16BF0E0C1D40B405007FFAAE /* NSObject+CreateCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BF0E0B1D40B405007FFAAE /* NSObject+CreateCode.m */; };
 		16D5D22D1D3E681B003CA180 /* UIViewController+ML_Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D5D22C1D3E681B003CA180 /* UIViewController+ML_Tools.m */; };
 		18008A4F1CA69E4600EFA08E /* UITabBarController+ML_Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 18008A4E1CA69E4600EFA08E /* UITabBarController+ML_Create.m */; };
 		181F990D1CE066E900DB57CA /* MLSQLite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 181F99081CE066E900DB57CA /* MLSQLite.storyboard */; };
@@ -63,9 +66,7 @@
 		18C276541C7D41020055C19D /* NSArray+ML_Component.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C275C61C7D41020055C19D /* NSArray+ML_Component.m */; };
 		18C276551C7D41020055C19D /* NSBundle+ML_Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C275C81C7D41020055C19D /* NSBundle+ML_Tools.m */; };
 		18C276561C7D41020055C19D /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C275CA1C7D41020055C19D /* NSData+Base64.m */; };
-		18C276571C7D41020055C19D /* NSDate+ML_Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C275CC1C7D41020055C19D /* NSDate+ML_Tools.m */; };
 		18C276581C7D41020055C19D /* NSDictionary+GetKeyOrValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C275CE1C7D41020055C19D /* NSDictionary+GetKeyOrValue.m */; };
-		18C276591C7D41020055C19D /* NSDictionary+ML_Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C275D01C7D41020055C19D /* NSDictionary+ML_Tools.m */; };
 		18C2765A1C7D41020055C19D /* NSFileManager+ML_Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C275D21C7D41020055C19D /* NSFileManager+ML_Tools.m */; };
 		18C2765B1C7D41020055C19D /* NSMutableArray+ML_Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C275D41C7D41020055C19D /* NSMutableArray+ML_Tools.m */; };
 		18C2765C1C7D41020055C19D /* NSMutableAttributedString+ML_Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C275D61C7D41020055C19D /* NSMutableAttributedString+ML_Tools.m */; };
@@ -74,7 +75,6 @@
 		18C2765F1C7D41020055C19D /* NSNotificationCenter+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C275DC1C7D41020055C19D /* NSNotificationCenter+Block.m */; };
 		18C276601C7D41020055C19D /* NSNumber+String.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C275DE1C7D41020055C19D /* NSNumber+String.m */; };
 		18C276611C7D41020055C19D /* NSObject+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C275E01C7D41020055C19D /* NSObject+Add.m */; };
-		18C276621C7D41020055C19D /* NSObject+CreateCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C275E21C7D41020055C19D /* NSObject+CreateCode.m */; };
 		18C276631C7D41020055C19D /* NSObject+ML_CGRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C275E41C7D41020055C19D /* NSObject+ML_CGRect.m */; };
 		18C276641C7D41020055C19D /* NSObject+ML_ModelMethodHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C275E61C7D41020055C19D /* NSObject+ML_ModelMethodHelper.m */; };
 		18C276661C7D41020055C19D /* NSPredicate+Regex.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C275EA1C7D41020055C19D /* NSPredicate+Regex.m */; };
@@ -309,12 +309,18 @@
 		169176B51D3A461800086A5A /* MBProgressHUD+Loading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Loading.m"; sourceTree = "<group>"; };
 		16A14F3F1D3DC2B900302B34 /* MLNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLNetwork.h; sourceTree = "<group>"; };
 		16A14F401D3DC2B900302B34 /* MLNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLNetwork.m; sourceTree = "<group>"; };
+		16A1BAA61D3F0D4C0064962B /* NSDictionary+ML_Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ML_Tools.h"; sourceTree = "<group>"; };
+		16A1BAA71D3F0D4C0064962B /* NSDictionary+ML_Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ML_Tools.m"; sourceTree = "<group>"; };
+		16A1BAA91D3F0D730064962B /* NSDate+ML_Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+ML_Tools.h"; sourceTree = "<group>"; };
+		16A1BAAA1D3F0D730064962B /* NSDate+ML_Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+ML_Tools.m"; sourceTree = "<group>"; };
 		16BC0B861D2CFEDD0041D124 /* UIButton+CommonType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+CommonType.h"; sourceTree = "<group>"; };
 		16BC0B871D2CFEDD0041D124 /* UIButton+CommonType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+CommonType.m"; sourceTree = "<group>"; };
 		16BC0B891D2CFEF10041D124 /* UILabel+CommonType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+CommonType.h"; sourceTree = "<group>"; };
 		16BC0B8A1D2CFEF10041D124 /* UILabel+CommonType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+CommonType.m"; sourceTree = "<group>"; };
 		16BC0B8F1D2CFF5C0041D124 /* UINavigationBar+Appearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Appearance.h"; sourceTree = "<group>"; };
 		16BC0B901D2CFF5C0041D124 /* UINavigationBar+Appearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Appearance.m"; sourceTree = "<group>"; };
+		16BF0E0A1D40B405007FFAAE /* NSObject+CreateCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+CreateCode.h"; sourceTree = "<group>"; };
+		16BF0E0B1D40B405007FFAAE /* NSObject+CreateCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CreateCode.m"; sourceTree = "<group>"; };
 		16D5D22B1D3E681B003CA180 /* UIViewController+ML_Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ML_Tools.h"; sourceTree = "<group>"; };
 		16D5D22C1D3E681B003CA180 /* UIViewController+ML_Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ML_Tools.m"; sourceTree = "<group>"; };
 		18008A4D1CA69E4600EFA08E /* UITabBarController+ML_Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+ML_Create.h"; sourceTree = "<group>"; };
@@ -385,12 +391,8 @@
 		18C275C81C7D41020055C19D /* NSBundle+ML_Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+ML_Tools.m"; sourceTree = "<group>"; };
 		18C275C91C7D41020055C19D /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
 		18C275CA1C7D41020055C19D /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
-		18C275CB1C7D41020055C19D /* NSDate+ML_Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+ML_Tools.h"; sourceTree = "<group>"; };
-		18C275CC1C7D41020055C19D /* NSDate+ML_Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+ML_Tools.m"; sourceTree = "<group>"; };
 		18C275CD1C7D41020055C19D /* NSDictionary+GetKeyOrValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+GetKeyOrValue.h"; sourceTree = "<group>"; };
 		18C275CE1C7D41020055C19D /* NSDictionary+GetKeyOrValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+GetKeyOrValue.m"; sourceTree = "<group>"; };
-		18C275CF1C7D41020055C19D /* NSDictionary+ML_Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ML_Tools.h"; sourceTree = "<group>"; };
-		18C275D01C7D41020055C19D /* NSDictionary+ML_Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ML_Tools.m"; sourceTree = "<group>"; };
 		18C275D11C7D41020055C19D /* NSFileManager+ML_Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+ML_Tools.h"; sourceTree = "<group>"; };
 		18C275D21C7D41020055C19D /* NSFileManager+ML_Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+ML_Tools.m"; sourceTree = "<group>"; };
 		18C275D31C7D41020055C19D /* NSMutableArray+ML_Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+ML_Tools.h"; sourceTree = "<group>"; };
@@ -407,8 +409,6 @@
 		18C275DE1C7D41020055C19D /* NSNumber+String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+String.m"; sourceTree = "<group>"; };
 		18C275DF1C7D41020055C19D /* NSObject+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Add.h"; sourceTree = "<group>"; };
 		18C275E01C7D41020055C19D /* NSObject+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Add.m"; sourceTree = "<group>"; };
-		18C275E11C7D41020055C19D /* NSObject+CreateCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+CreateCode.h"; sourceTree = "<group>"; };
-		18C275E21C7D41020055C19D /* NSObject+CreateCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CreateCode.m"; sourceTree = "<group>"; };
 		18C275E31C7D41020055C19D /* NSObject+ML_CGRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ML_CGRect.h"; sourceTree = "<group>"; };
 		18C275E41C7D41020055C19D /* NSObject+ML_CGRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ML_CGRect.m"; sourceTree = "<group>"; };
 		18C275E51C7D41020055C19D /* NSObject+ML_ModelMethodHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ML_ModelMethodHelper.h"; sourceTree = "<group>"; };
@@ -985,12 +985,12 @@
 				18C275C81C7D41020055C19D /* NSBundle+ML_Tools.m */,
 				18C275C91C7D41020055C19D /* NSData+Base64.h */,
 				18C275CA1C7D41020055C19D /* NSData+Base64.m */,
-				18C275CB1C7D41020055C19D /* NSDate+ML_Tools.h */,
-				18C275CC1C7D41020055C19D /* NSDate+ML_Tools.m */,
+				16A1BAA91D3F0D730064962B /* NSDate+ML_Tools.h */,
+				16A1BAAA1D3F0D730064962B /* NSDate+ML_Tools.m */,
+				16A1BAA61D3F0D4C0064962B /* NSDictionary+ML_Tools.h */,
+				16A1BAA71D3F0D4C0064962B /* NSDictionary+ML_Tools.m */,
 				18C275CD1C7D41020055C19D /* NSDictionary+GetKeyOrValue.h */,
 				18C275CE1C7D41020055C19D /* NSDictionary+GetKeyOrValue.m */,
-				18C275CF1C7D41020055C19D /* NSDictionary+ML_Tools.h */,
-				18C275D01C7D41020055C19D /* NSDictionary+ML_Tools.m */,
 				18C275D11C7D41020055C19D /* NSFileManager+ML_Tools.h */,
 				18C275D21C7D41020055C19D /* NSFileManager+ML_Tools.m */,
 				18C275D31C7D41020055C19D /* NSMutableArray+ML_Tools.h */,
@@ -1005,10 +1005,10 @@
 				18C275DC1C7D41020055C19D /* NSNotificationCenter+Block.m */,
 				18C275DD1C7D41020055C19D /* NSNumber+String.h */,
 				18C275DE1C7D41020055C19D /* NSNumber+String.m */,
+				16BF0E0A1D40B405007FFAAE /* NSObject+CreateCode.h */,
+				16BF0E0B1D40B405007FFAAE /* NSObject+CreateCode.m */,
 				18C275DF1C7D41020055C19D /* NSObject+Add.h */,
 				18C275E01C7D41020055C19D /* NSObject+Add.m */,
-				18C275E11C7D41020055C19D /* NSObject+CreateCode.h */,
-				18C275E21C7D41020055C19D /* NSObject+CreateCode.m */,
 				18C275E31C7D41020055C19D /* NSObject+ML_CGRect.h */,
 				18C275E41C7D41020055C19D /* NSObject+ML_CGRect.m */,
 				FE82FA851CD50FB100824A1A /* NSObject+RunTimeHelper.h */,
@@ -2023,6 +2023,7 @@
 				18C276971C7D41020055C19D /* UIView+Xib.m in Sources */,
 				166218AA1D2B4B3900DF9FAF /* MLRACViewController.m in Sources */,
 				18CF9D741C8EDFB900E1EA53 /* NSObject+ChainInvocation.m in Sources */,
+				16A1BAA81D3F0D4C0064962B /* NSDictionary+ML_Tools.m in Sources */,
 				FE48EE171D3941DC002FE0A3 /* MLMenuCLCell.m in Sources */,
 				18C276631C7D41020055C19D /* NSObject+ML_CGRect.m in Sources */,
 				181F990E1CE066E900DB57CA /* MLSQLiteController.m in Sources */,
@@ -2035,14 +2036,12 @@
 				187D54AE1C8400ED0066EC67 /* MLAttributeStringController.m in Sources */,
 				18C2765C1C7D41020055C19D /* NSMutableAttributedString+ML_Tools.m in Sources */,
 				169176B11D3A45F200086A5A /* MLTextField+CommonType.m in Sources */,
-				18C276591C7D41020055C19D /* NSDictionary+ML_Tools.m in Sources */,
 				18C276681C7D41020055C19D /* NSString+Base64.m in Sources */,
 				FE0C63001D15729900F73C95 /* NestView.m in Sources */,
 				FEFB49DF1C95205200634A97 /* NSObject+vk_msgSend.m in Sources */,
 				FE6B226C1CD65178007733FD /* MLChain4NSObject.m in Sources */,
 				FE6B22671CD65178007733FD /* MLChain4CAEmitterCell.m in Sources */,
 				FE6B22611CD65178007733FD /* CAEmitterLayer+MLChain.m in Sources */,
-				18C276571C7D41020055C19D /* NSDate+ML_Tools.m in Sources */,
 				FEE55CFC1BF244CC00C8F783 /* UILabel+CommonType.m in Sources */,
 				18C276601C7D41020055C19D /* NSNumber+String.m in Sources */,
 				18C276781C7D41020055C19D /* UIImage+Alpha.m in Sources */,
@@ -2085,6 +2084,7 @@
 				FEE55D161BF4DA1C00C8F783 /* NibToViewView.m in Sources */,
 				FE6B22621CD65178007733FD /* CALayer+MLChain.m in Sources */,
 				FEE30BB91C03421C00B79F8D /* FileOwner.m in Sources */,
+				16A1BAAB1D3F0D730064962B /* NSDate+ML_Tools.m in Sources */,
 				18C2767C1C7D41020055C19D /* UIImage+Resize.m in Sources */,
 				FE60DBD11C51080F009D836E /* MLStoryboardController.m in Sources */,
 				FE384DFB1D2C047C00D5F282 /* MLNetworkViewController.m in Sources */,
@@ -2116,6 +2116,7 @@
 				FEE55D011BF244D100C8F783 /* FranchiseVerifyingStatusView.m in Sources */,
 				FED38B5D1CD6394C0007B0D0 /* NSObject+ChainFileCreater.m in Sources */,
 				FEDF13C51CB9521F00156D85 /* CABasicAnimation+ML_make.m in Sources */,
+				16BF0E0C1D40B405007FFAAE /* NSObject+CreateCode.m in Sources */,
 				FE48EE241D3D0669002FE0A3 /* MLNetwork+StatusCode.m in Sources */,
 				18DC197E1C58C9C40049BD18 /* MLCollectionSeparationManager.m in Sources */,
 				FE614CF01D0C487200B6D0F0 /* MLBLEPeripheralController.swift in Sources */,
@@ -2169,7 +2170,6 @@
 				182228491CAE86DD00A7E43D /* ALFootballLotteryCLCell.m in Sources */,
 				FE6B226F1CD65178007733FD /* MLChain4UILabel.m in Sources */,
 				16556F271D2CEC5A002CC9B4 /* MLNetwork+Hud.m in Sources */,
-				18C276621C7D41020055C19D /* NSObject+CreateCode.m in Sources */,
 				FE614CF21D0C488200B6D0F0 /* MLBLECentralController.swift in Sources */,
 				18C2765F1C7D41020055C19D /* NSNotificationCenter+Block.m in Sources */,
 				16BC0B911D2CFF5C0041D124 /* UINavigationBar+Appearance.m in Sources */,
