@@ -1,5 +1,5 @@
 //
-//  MLCustomViewController.h
+//  MLCustomCLView.h
 //  MLProject
 //
 //  Created by 妙龙赖 on 16/7/21.
@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MLCustomViewController : UIViewController
+@interface MLCustomCLView : UIView
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end

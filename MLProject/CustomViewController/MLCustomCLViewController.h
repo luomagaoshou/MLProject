@@ -1,5 +1,5 @@
 //
-//  MLCustomView.h
+//  MLCustomCLViewController.h
 //  MLProject
 //
 //  Created by 妙龙赖 on 16/7/21.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MLCustomView : UIView
+@interface MLCustomCLViewController : UIViewController
 
 @end

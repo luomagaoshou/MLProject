@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--CustomCL View Controller-->
+        <scene sceneID="ix1-95-r0P">
+            <objects>
+                <viewController storyboardIdentifier="MLCustomCLViewController" id="yJm-To-EFK" customClass="MLCustomCLViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XG8-ce-EAF"/>
+                        <viewControllerLayoutGuide type="bottom" id="CtZ-vj-l4d"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NlX-2f-qrM" customClass="MLCustomCLView">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eWa-zZ-Gpp">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ak1-eq-KRq">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="yED-4P-ndU">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eWa-zZ-Gpp" firstAttribute="leading" secondItem="NlX-2f-qrM" secondAttribute="leading" id="28b-lS-SUl"/>
+                            <constraint firstItem="CtZ-vj-l4d" firstAttribute="top" secondItem="eWa-zZ-Gpp" secondAttribute="bottom" id="BdS-Pn-3pb"/>
+                            <constraint firstAttribute="trailing" secondItem="eWa-zZ-Gpp" secondAttribute="trailing" id="gek-A8-cc4"/>
+                            <constraint firstItem="eWa-zZ-Gpp" firstAttribute="top" secondItem="NlX-2f-qrM" secondAttribute="top" id="ih2-OO-vs2"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="collectionView" destination="eWa-zZ-Gpp" id="Qqi-lL-ZZy"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="customCLView" destination="NlX-2f-qrM" id="cP7-Hv-dgh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jEJ-BV-L1w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="884" y="-45"/>
+        </scene>
+    </scenes>
+</document>
