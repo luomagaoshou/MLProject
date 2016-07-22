@@ -14,6 +14,7 @@
 #import "MLCustomCLHeader.h"
 #import "UIControl+Block.h"
 #import "CircleLayout.h"
+#import "MLCustomCLLayout.h"
 @interface MLCustomCLViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (strong, nonatomic) IBOutlet MLCustomCLView *customCLView;
 
@@ -86,7 +87,9 @@
     [self.cellDatas addObjectsFromArray:datas];
     self.customCLView.collectionView.delegate = self;
     self.customCLView.collectionView.dataSource = self;
-    self.customCLView.collectionView.collectionViewLayout = [[CSStickyHeaderFlowLayout alloc] init];
+//    self.customCLView.collectionView.collectionViewLayout = [[CSStickyHeaderFlowLayout alloc] init];
+//    self.customCLView.collectionView.collectionViewLayout = [[CircleLayout alloc] init];
+    self.customCLView.collectionView.collectionViewLayout = [[MLCustomCLLayout alloc] init];
     [self.customCLView.collectionView registerNib:[UINib nibWithNibName:@"CSAlwaysOnTopHeader" bundle:nil] forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader withReuseIdentifier:@"CSAlwaysOnTopHeader"];
      [self.customCLView.collectionView registerNib:[UINib nibWithNibName:@"MLCustomCLHeader" bundle:nil]  forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"MLCustomCLHeader"];
     
@@ -132,7 +135,7 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(SCREEN_WIDTH * 2, 100);
+    return CGSizeMake(SCREEN_WIDTH, 100);
 }
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {

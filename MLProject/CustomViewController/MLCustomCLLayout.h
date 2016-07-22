@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CSStickyHeaderFlowLayout/CSStickyHeaderFlowLayout.h>
+@interface MLCustomCLLayout : CSStickyHeaderFlowLayout
 
-@interface MLCustomCLLayout : UICollectionViewLayout
 
 @end
