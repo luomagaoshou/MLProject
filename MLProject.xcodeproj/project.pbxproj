@@ -179,6 +179,9 @@
 		FE48EE1E1D3A8A29002FE0A3 /* test0.png in Resources */ = {isa = PBXBuildFile; fileRef = FE48EE1D1D3A8A29002FE0A3 /* test0.png */; };
 		FE48EE211D3C7FB3002FE0A3 /* BGTToastManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE48EE201D3C7FB3002FE0A3 /* BGTToastManager.m */; };
 		FE48EE241D3D0669002FE0A3 /* MLNetwork+StatusCode.m in Sources */ = {isa = PBXBuildFile; fileRef = FE48EE231D3D0669002FE0A3 /* MLNetwork+StatusCode.m */; };
+		FE48EE281D412401002FE0A3 /* MLCustomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE48EE271D412401002FE0A3 /* MLCustomViewController.m */; };
+		FE48EE2A1D41240A002FE0A3 /* MLCustomViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE48EE291D41240A002FE0A3 /* MLCustomViewController.storyboard */; };
+		FE48EE2D1D412432002FE0A3 /* MLCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE48EE2C1D412432002FE0A3 /* MLCustomView.m */; };
 		FE514DB21C1BFCDB00E3AC0C /* RunTimeController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE514DB01C1BFCDB00E3AC0C /* RunTimeController.m */; };
 		FE514DB31C1BFCDB00E3AC0C /* RunTimeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE514DB11C1BFCDB00E3AC0C /* RunTimeController.xib */; };
 		FE514DB91C1C128400E3AC0C /* ECPOrderJSONStr.json in Resources */ = {isa = PBXBuildFile; fileRef = FE514DB81C1C128400E3AC0C /* ECPOrderJSONStr.json */; };
@@ -602,6 +605,11 @@
 		FE48EE201D3C7FB3002FE0A3 /* BGTToastManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGTToastManager.m; sourceTree = "<group>"; };
 		FE48EE221D3D0669002FE0A3 /* MLNetwork+StatusCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MLNetwork+StatusCode.h"; sourceTree = "<group>"; };
 		FE48EE231D3D0669002FE0A3 /* MLNetwork+StatusCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MLNetwork+StatusCode.m"; sourceTree = "<group>"; };
+		FE48EE261D412401002FE0A3 /* MLCustomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLCustomViewController.h; sourceTree = "<group>"; };
+		FE48EE271D412401002FE0A3 /* MLCustomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLCustomViewController.m; sourceTree = "<group>"; };
+		FE48EE291D41240A002FE0A3 /* MLCustomViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLCustomViewController.storyboard; sourceTree = "<group>"; };
+		FE48EE2B1D412432002FE0A3 /* MLCustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLCustomView.h; sourceTree = "<group>"; };
+		FE48EE2C1D412432002FE0A3 /* MLCustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLCustomView.m; sourceTree = "<group>"; };
 		FE514DAF1C1BFCDB00E3AC0C /* RunTimeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunTimeController.h; sourceTree = "<group>"; };
 		FE514DB01C1BFCDB00E3AC0C /* RunTimeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunTimeController.m; sourceTree = "<group>"; };
 		FE514DB11C1BFCDB00E3AC0C /* RunTimeController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RunTimeController.xib; sourceTree = "<group>"; };
@@ -1325,6 +1333,18 @@
 			path = Chainable;
 			sourceTree = "<group>";
 		};
+		FE48EE251D4123E0002FE0A3 /* CustomViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FE48EE261D412401002FE0A3 /* MLCustomViewController.h */,
+				FE48EE271D412401002FE0A3 /* MLCustomViewController.m */,
+				FE48EE2B1D412432002FE0A3 /* MLCustomView.h */,
+				FE48EE2C1D412432002FE0A3 /* MLCustomView.m */,
+				FE48EE291D41240A002FE0A3 /* MLCustomViewController.storyboard */,
+			);
+			path = CustomViewController;
+			sourceTree = "<group>";
+		};
 		FE514D0B1C1BF94000E3AC0C /* Runtime */ = {
 			isa = PBXGroup;
 			children = (
@@ -1573,6 +1593,7 @@
 				FEB529D01BEF1EBA00EAA6C1 /* RootController.h */,
 				FEB529D11BEF1EBA00EAA6C1 /* RootController.m */,
 				FEB529D31BEF208A00EAA6C1 /* RootController.xib */,
+				FE48EE251D4123E0002FE0A3 /* CustomViewController */,
 				FE384E081D2FD31800D5F282 /* MLTextField */,
 				FE384DFC1D2E816800D5F282 /* Navigation */,
 				FE384DF61D2C046200D5F282 /* MLNetwork */,
@@ -1872,6 +1893,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE0C63021D1572A300F73C95 /* NestView.xib in Resources */,
+				FE48EE2A1D41240A002FE0A3 /* MLCustomViewController.storyboard in Resources */,
 				FE0C636A1D1707B600F73C95 /* NestView2.xib in Resources */,
 				FEE55D021BF244D100C8F783 /* FranchiseVerifyingStatusView.xib in Resources */,
 				1822284D1CAE86DD00A7E43D /* AthleticsLottery.storyboard in Resources */,
@@ -2129,6 +2151,7 @@
 				FEF7DDA51C7B1C2900BF3630 /* MLCALayerView.m in Sources */,
 				FE945AB01C1D5746007A2421 /* SBHSplitOrderMaster.m in Sources */,
 				18C276751C7D41020055C19D /* UICollectionView+Multiselect.m in Sources */,
+				FE48EE281D412401002FE0A3 /* MLCustomViewController.m in Sources */,
 				FE6B22651CD65178007733FD /* MLChain4CAAnimation.m in Sources */,
 				FEE6546C1C130A0D004C44D4 /* LoadNibController.m in Sources */,
 				FEE30BA51C03411900B79F8D /* LoadNibSubView.m in Sources */,
@@ -2143,6 +2166,7 @@
 				FE514DBF1C1C272700E3AC0C /* MyRunTimeClass.m in Sources */,
 				FE0127121CFFD63100593576 /* MLBlueToothController.swift in Sources */,
 				18C276911C7D41020055C19D /* UIView+Frame.m in Sources */,
+				FE48EE2D1D412432002FE0A3 /* MLCustomView.m in Sources */,
 				18C2766C1C7D41020055C19D /* NSString+Size.m in Sources */,
 				18C2768E1C7D41020055C19D /* UIView+CellXib.m in Sources */,
 				FE31D0E51BFE15FF00D63286 /* MultiThreadController.m in Sources */,

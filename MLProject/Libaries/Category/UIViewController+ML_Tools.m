@@ -78,7 +78,7 @@
     
 }
 - (void)configSuccuessDataShowWithScrollView:(__kindof UIScrollView *)scrollView
-           originalDatas:(NSArray <NSArray *>*)originalDatas
+           originalDatas:(NSArray <NSArray <id>*>*)originalDatas
                cellDatas:(NSMutableArray *)cellDatas
               moreConfig:(void(^)(void))moreConfig
 {
