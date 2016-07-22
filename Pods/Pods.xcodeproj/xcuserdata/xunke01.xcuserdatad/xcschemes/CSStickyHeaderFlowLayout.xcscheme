@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '5DE0CFC5A49539BA8645ACE97BC218DD'
-               BlueprintName = 'PINRemoteImage'
+               BlueprintIdentifier = '1376614EF3971FB1754445A70BF65873'
+               BlueprintName = 'CSStickyHeaderFlowLayout'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libPINRemoteImage.a'>
+               BuildableName = 'libCSStickyHeaderFlowLayout.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
