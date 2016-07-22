@@ -15,7 +15,7 @@
 + (id)getLastViewControllerWithClass:(Class)aClass;
 - (void)configSuccuessDataShowWithScrollView:(__kindof UIScrollView *)scrollView
                 statusCode:(NSInteger)statusCode
-                        originalDatas:(NSArray <NSArray *>*)originalDatas
+                        originalDatas:(NSArray <NSArray <id> *> *)originalDatas
                             cellDatas:(NSMutableArray *)cellDatas
               moreConfig:(void(^)(NSInteger status))moreConfig;
 - (void)closeHeaderOrFooterWithScrollView:(__kindof UIScrollView *)scrollView;
