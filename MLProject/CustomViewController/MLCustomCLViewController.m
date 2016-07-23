@@ -17,6 +17,7 @@
 #import "MLCustomCLLayout.h"
 #import "MLCustomCLCell.h"
 #import <MJRefresh/MJRefresh.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
 @interface MLCustomCLViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (strong, nonatomic) IBOutlet MLCustomCLView *customCLView;
 
@@ -70,12 +71,12 @@
     [self.cellDatas addObjectsFromArray:datas];
     self.customCLView.collectionView.delegate = self;
     self.customCLView.collectionView.dataSource = self;
-    
+    self.customCLView.collectionView.pagingEnabled = YES;
    CSStickyHeaderFlowLayout *layout = [[CSStickyHeaderFlowLayout alloc] init];
     
-// layout = [[UICollectionViewFlowLayout alloc] init];
-      layout = [[MLCustomCLLayout alloc] init];
-    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+ layout = [[UICollectionViewFlowLayout alloc] init];
+   //   layout = [[MLCustomCLLayout alloc] init];
+   layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
 
     self.customCLView.collectionView.collectionViewLayout = layout;
    
@@ -102,7 +103,7 @@
         layout.parallaxHeaderAlwaysOnTop = YES;
         
         // If we want to disable the sticky header effect
-        layout.disableStickyHeaders = NO;
+        layout.disableStickyHeaders = YES;
     }
     
 }
@@ -117,8 +118,40 @@
     
     
     MLCustomCLCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MLCustomCLCell" forIndexPath:indexPath];
-    cell.tableView.backgroundColor = [UIColor colorWithWhite:indexPath.row * 0.4 alpha:1];
+   // cell.tableView.backgroundColor = [UIColor colorWithWhite:indexPath.row * 0.4 alpha:1];
     cell.tableView.scrollEnabled = YES;
+    [RACObserve(cell.tableView, contentOffset) subscribeNext:^(id x) {
+        CGPoint offset = [x CGPointValue];
+        [UIView beginAnimations:@"" context:nil];
+        BOOL isUp;
+        BOOL isDown;
+        if (offset.y < 0) {
+            isDown = YES;
+        }
+        if (offset.y > 0) {
+            isUp = YES;
+        }
+        
+        if (isUp) {
+            if (offset.y > 50) {
+                   self.customCLView.topViewConstaint.constant = -50;
+            }else
+            {
+            self.customCLView.topViewConstaint.constant = -offset.y ;
+            }
+        }
+      
+        if (isDown) {
+            if (offset.y < -20) {
+                self.customCLView.topViewConstaint.constant = 20;
+            }else
+            {
+                self.customCLView.topViewConstaint.constant = -offset.y;
+            }
+        }
+       
+          [UIView commitAnimations];
+    }];
     cell.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         NSLog(@"%@", @"刷新");
         [cell.tableView.mj_header endRefreshing];
@@ -192,21 +225,13 @@
     return CGSizeZero;
     return CGSizeMake(50, 200);
 }
-//#pragma mark - ========= ScrollView Delegate =========
-//- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-//{
-//    MLCustomCLCell *cell = (MLCustomCLCell *)[self.customCLView.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
-//   
-//        if ((cell.leftTableView.contentOffset.y <= 0 || cell.rightTableView.contentOffset.y <= 0) && self.customCLView.collectionView.contentOffset.y <=-64) {
-//            cell.leftTableView.scrollEnabled = YES;
-//            cell.rightTableView.scrollEnabled = YES;
-//        }else
-//        {
-//            cell.leftTableView.scrollEnabled = NO;
-//            cell.rightTableView.scrollEnabled = NO;
-//        }
-//    
-//}
+#pragma mark - ========= ScrollView Delegate =========
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    MLCustomCLCell *cell = (MLCustomCLCell *)[self.customCLView.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+   
+ 
+}
 //- (void)scrollViewDidScroll:(UIScrollView *)scrollView
 //{
 //    MLCustomCLCell *cell = (MLCustomCLCell *)[self.customCLView.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];

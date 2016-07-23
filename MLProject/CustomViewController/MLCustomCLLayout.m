@@ -13,15 +13,20 @@
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewLayoutAttributes *attributes = [[super layoutAttributesForItemAtIndexPath:indexPath] copy];
-    CGRect frame = attributes.frame;
+    if (self.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
+            CGRect frame = attributes.frame;
+            frame.origin.y += 64;
+            attributes.frame = frame;
+    }
 
-    attributes.frame = frame;
     return attributes;
 }
 - (NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect
 {
     
     NSMutableArray *attributes = (NSMutableArray *)[super layoutAttributesForElementsInRect:rect];
+   
+       if (self.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
     for (NSInteger i = 0; i < attributes.count; i++) {
         UICollectionViewLayoutAttributes *attr = attributes[i];
         NSLog(@"%@ -- %@", attr.representedElementKind, [attr valueForKeyPath:@"_elementKind"]);
@@ -31,7 +36,7 @@
             [attributes insertObject:newAttr atIndex:i];
         }
     }
-    
+        }
     return attributes;
 }
 @end

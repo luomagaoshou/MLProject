@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--CustomCL View Controller-->
@@ -17,8 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eWa-zZ-Gpp">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eWa-zZ-Gpp">
+                                <rect key="frame" x="0.0" y="100" width="600" height="500"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lQQ-EL-d3P">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -27,16 +29,50 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="edp-PA-PPI">
+                                <rect key="frame" x="0.0" y="20" width="600" height="80"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YBK-lC-jxW">
+                                        <rect key="frame" x="0.0" y="40" width="300" height="40"/>
+                                        <color key="backgroundColor" red="0.73945150118977798" green="0.34548592841783299" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="oZx-qc-89z"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c02-db-ewZ">
+                                        <rect key="frame" x="300" y="40" width="300" height="40"/>
+                                        <color key="backgroundColor" red="0.78546541779863654" green="1" blue="0.49721720973272565" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.50419377669999998" blue="0.71981990969999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="YBK-lC-jxW" firstAttribute="leading" secondItem="edp-PA-PPI" secondAttribute="leading" id="2AA-ti-tZl"/>
+                                    <constraint firstAttribute="height" constant="80" id="79U-CP-nmh"/>
+                                    <constraint firstAttribute="bottom" secondItem="YBK-lC-jxW" secondAttribute="bottom" id="TCh-h2-57f"/>
+                                    <constraint firstItem="YBK-lC-jxW" firstAttribute="width" secondItem="edp-PA-PPI" secondAttribute="width" multiplier="0.5" id="ZPm-w3-Lr5"/>
+                                    <constraint firstItem="c02-db-ewZ" firstAttribute="width" secondItem="YBK-lC-jxW" secondAttribute="width" id="hfh-i1-pg1"/>
+                                    <constraint firstAttribute="bottom" secondItem="c02-db-ewZ" secondAttribute="bottom" id="kSG-HM-Mkl"/>
+                                    <constraint firstItem="c02-db-ewZ" firstAttribute="height" secondItem="YBK-lC-jxW" secondAttribute="height" id="rIe-tU-PD4"/>
+                                    <constraint firstItem="c02-db-ewZ" firstAttribute="leading" secondItem="YBK-lC-jxW" secondAttribute="trailing" id="zEz-YO-T2b"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="eWa-zZ-Gpp" firstAttribute="leading" secondItem="NlX-2f-qrM" secondAttribute="leading" id="4vb-ze-TiQ"/>
+                            <constraint firstItem="edp-PA-PPI" firstAttribute="top" secondItem="XG8-ce-EAF" secondAttribute="bottom" id="97e-rV-0Tg"/>
                             <constraint firstAttribute="trailing" secondItem="eWa-zZ-Gpp" secondAttribute="trailing" id="ARA-HS-jII"/>
-                            <constraint firstItem="eWa-zZ-Gpp" firstAttribute="top" secondItem="NlX-2f-qrM" secondAttribute="top" id="JSy-FK-ms6"/>
                             <constraint firstItem="CtZ-vj-l4d" firstAttribute="top" secondItem="eWa-zZ-Gpp" secondAttribute="bottom" id="box-eD-fD9"/>
+                            <constraint firstItem="edp-PA-PPI" firstAttribute="leading" secondItem="NlX-2f-qrM" secondAttribute="leading" id="dP9-0T-Xqr"/>
+                            <constraint firstItem="eWa-zZ-Gpp" firstAttribute="top" secondItem="XG8-ce-EAF" secondAttribute="bottom" constant="80" id="jyn-aM-M92"/>
+                            <constraint firstAttribute="trailing" secondItem="edp-PA-PPI" secondAttribute="trailing" id="mxs-Jx-fDh"/>
                         </constraints>
                         <connections>
                             <outlet property="collectionView" destination="eWa-zZ-Gpp" id="Qqi-lL-ZZy"/>
+                            <outlet property="topView" destination="edp-PA-PPI" id="YMF-pm-Wre"/>
+                            <outlet property="topViewConstaint" destination="97e-rV-0Tg" id="WNa-UA-uHr"/>
                         </connections>
                     </view>
                     <connections>

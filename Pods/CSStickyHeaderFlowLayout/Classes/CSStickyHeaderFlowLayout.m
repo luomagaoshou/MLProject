@@ -271,13 +271,9 @@ static const NSInteger kHeaderZIndex = 1024;
         y = self.collectionView.contentOffset.y + insetTop;
         currentAttribute.zIndex = 2000;
     }
-    CGFloat x = frame.origin.x;
-    if (self.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
-        x += self.collectionView.contentOffset.x;
-    }
+
     currentAttribute.frame = (CGRect){
-        
-        x,
+        frame.origin.x,
         y,
         frame.size.width,
         height,

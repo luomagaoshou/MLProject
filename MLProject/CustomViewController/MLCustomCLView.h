@@ -10,5 +10,7 @@
 
 @interface MLCustomCLView : UIView
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIView *topView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewConstaint;
 
 @end
