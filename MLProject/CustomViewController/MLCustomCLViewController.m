@@ -15,6 +15,8 @@
 #import "UIControl+Block.h"
 #import "CircleLayout.h"
 #import "MLCustomCLLayout.h"
+#import "MLCustomCLCell.h"
+#import <MJRefresh/MJRefresh.h>
 @interface MLCustomCLViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (strong, nonatomic) IBOutlet MLCustomCLView *customCLView;
 
@@ -62,39 +64,28 @@
 {
     NSArray *datas = @[
                       @[
-                          @"Song 1",
-                          @"Song 2",
-                          @"Song 3",
-                          @"Song 4",
-                          @"Song 5",
-                          @"Song 6",
-                          @"Song 7",
-                          @"Song 8",
-                          @"Song 9",
-                          @"Song 10",
-                          @"Song 11",
-                          @"Song 12",
-                          @"Song 13",
-                          @"Song 14",
-                          @"Song 15",
-                          @"Song 16",
-                          @"Song 17",
-                          @"Song 18",
-                          @"Song 19",
-                          @"Song 20",
+                          @"Song 1",@"Song 1",@"Song 1"
                           ],
                       ];
     [self.cellDatas addObjectsFromArray:datas];
     self.customCLView.collectionView.delegate = self;
     self.customCLView.collectionView.dataSource = self;
-//    self.customCLView.collectionView.collectionViewLayout = [[CSStickyHeaderFlowLayout alloc] init];
+    
+   CSStickyHeaderFlowLayout *layout = [[CSStickyHeaderFlowLayout alloc] init];
+    
+// layout = [[UICollectionViewFlowLayout alloc] init];
+      layout = [[MLCustomCLLayout alloc] init];
+    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+
+    self.customCLView.collectionView.collectionViewLayout = layout;
+   
 //    self.customCLView.collectionView.collectionViewLayout = [[CircleLayout alloc] init];
-    self.customCLView.collectionView.collectionViewLayout = [[MLCustomCLLayout alloc] init];
+   // self.customCLView.collectionView.collectionViewLayout = [[MLCustomCLLayout alloc] init];
     [self.customCLView.collectionView registerNib:[UINib nibWithNibName:@"CSAlwaysOnTopHeader" bundle:nil] forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader withReuseIdentifier:@"CSAlwaysOnTopHeader"];
      [self.customCLView.collectionView registerNib:[UINib nibWithNibName:@"MLCustomCLHeader" bundle:nil]  forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"MLCustomCLHeader"];
     
     
-    [self.customCLView.collectionView ml_registerNibForCellWithNameOrClass:@"ReuseButtonCLCell"];
+    [self.customCLView.collectionView ml_registerNibForCellWithNameOrClasses:@[@"ReuseButtonCLCell", @"MLCustomCLCell"]];
     
     [self.customCLView.collectionView reloadData];
     [self reloadLayout];
@@ -105,8 +96,8 @@
     CSStickyHeaderFlowLayout *layout = (id)self.customCLView.collectionView.collectionViewLayout;
     
     if ([layout isKindOfClass:[CSStickyHeaderFlowLayout class]]) {
-        layout.parallaxHeaderReferenceSize = CGSizeMake(self.view.frame.size.width, 426);
-        layout.parallaxHeaderMinimumReferenceSize = CGSizeMake(self.view.frame.size.width, 0);
+        layout.parallaxHeaderReferenceSize = CGSizeMake(self.view.frame.size.width, 166);
+        layout.parallaxHeaderMinimumReferenceSize = CGSizeMake(self.view.frame.size.width, 50);
         layout.itemSize = CGSizeMake(self.view.frame.size.width, layout.itemSize.height);
         layout.parallaxHeaderAlwaysOnTop = YES;
         
@@ -125,17 +116,26 @@
 {
     
     
-    ReuseButtonCLCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ReuseButtonCLCell" forIndexPath:indexPath];
+    MLCustomCLCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MLCustomCLCell" forIndexPath:indexPath];
+    cell.tableView.backgroundColor = [UIColor colorWithWhite:indexPath.row * 0.4 alpha:1];
+    cell.tableView.scrollEnabled = YES;
+    cell.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        NSLog(@"%@", @"刷新");
+        [cell.tableView.mj_header endRefreshing];
+    }];
+    //cell.backgroundSrcollView.contentSize = CGSizeMake(SCREEN_WIDTH * 2, 0.01);
+    //cell.backgroundSrcollView.contentOffset = CGPointMake(100, 0);
     
-    [cell.tagButton setTitle:self.cellDatas[indexPath.section][indexPath.row] forState:UIControlStateNormal];
-    cell.backgroundColor = [UIColor grayColor];
+    
+//    [cell.tagButton setTitle:self.cellDatas[indexPath.section][indexPath.row] forState:UIControlStateNormal];
+//    cell.backgroundColor = [UIColor grayColor];
     return cell;
     
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(SCREEN_WIDTH, 100);
+    return CGSizeMake(SCREEN_WIDTH , SCREEN_HEIGHT);
 }
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
@@ -161,6 +161,7 @@
 {
     return UIEdgeInsetsZero;
 }
+
 #pragma mark - ========= TabelView HeaderView =========
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
  
@@ -171,13 +172,7 @@
                                                                    withReuseIdentifier:@"MLCustomCLHeader"
                                                                           forIndexPath:indexPath];
         cell.backgroundColor = [UIColor greenColor];
-        [cell.leftButton touchDown:^{
-            self.customCLView.collectionView.contentOffset = CGPointMake(SCREEN_WIDTH /2 , 0);
-        }];
-        
-        [cell.rightButton touchDown:^{
-             self.customCLView.collectionView.contentOffset = CGPointMake(0 , 0);
-        }];
+     
         return cell;
         
     } else if ([kind isEqualToString:CSStickyHeaderParallaxHeader]) {
@@ -194,10 +189,40 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
-    return CGSizeMake(400, 200);
+    return CGSizeZero;
+    return CGSizeMake(50, 200);
 }
-
-
+//#pragma mark - ========= ScrollView Delegate =========
+//- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+//{
+//    MLCustomCLCell *cell = (MLCustomCLCell *)[self.customCLView.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+//   
+//        if ((cell.leftTableView.contentOffset.y <= 0 || cell.rightTableView.contentOffset.y <= 0) && self.customCLView.collectionView.contentOffset.y <=-64) {
+//            cell.leftTableView.scrollEnabled = YES;
+//            cell.rightTableView.scrollEnabled = YES;
+//        }else
+//        {
+//            cell.leftTableView.scrollEnabled = NO;
+//            cell.rightTableView.scrollEnabled = NO;
+//        }
+//    
+//}
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+//{
+//    MLCustomCLCell *cell = (MLCustomCLCell *)[self.customCLView.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+//    if (scrollView == cell.leftTableView || scrollView == cell.rightTableView) {
+//        if (scrollView.contentOffset.y <= 0 && self.customCLView.collectionView.contentOffset.y <=-64) {
+//            cell.leftTableView.scrollEnabled = YES;
+//            cell.rightTableView.scrollEnabled = YES;
+//        }else
+//        {
+//            cell.leftTableView.scrollEnabled = NO;
+//            cell.rightTableView.scrollEnabled = NO;
+//        }
+//    }
+//    
+//}
+//
 #pragma mark - ========= Setter & Getter =========
 - (NSMutableArray *)cellDatas
 {

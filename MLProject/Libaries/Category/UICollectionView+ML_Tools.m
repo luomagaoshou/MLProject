@@ -21,7 +21,7 @@
 - (void)ml_registerClassForCellWithNameOrClasses:(NSArray *)nameOrClasses
 {
     for (NSInteger i = 0; i < nameOrClasses.count; i++) {
-        [self _ml_registerClassForCellWithDictionary:@{nameOrClasses[0]:nameOrClasses[0]}];
+        [self _ml_registerClassForCellWithDictionary:@{nameOrClasses[i]:nameOrClasses[i]}];
     }
    
 }
@@ -43,7 +43,7 @@
 - (void)ml_registerNibForCellWithNameOrClasses:(NSArray *)nameOrClasses
 {
     for (NSInteger i = 0; i < nameOrClasses.count; i++) {
-        [self _ml_registerNibForCellWithDictionary:@{nameOrClasses[0]:nameOrClasses[0]}];
+        [self _ml_registerNibForCellWithDictionary:@{nameOrClasses[i]:nameOrClasses[i]}];
     }
     
 }

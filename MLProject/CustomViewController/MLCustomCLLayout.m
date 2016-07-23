@@ -14,7 +14,7 @@
 {
     UICollectionViewLayoutAttributes *attributes = [[super layoutAttributesForItemAtIndexPath:indexPath] copy];
     CGRect frame = attributes.frame;
-    frame.origin.x += [UIScreen mainScreen].bounds.size.width * indexPath.row;
+
     attributes.frame = frame;
     return attributes;
 }
@@ -24,8 +24,8 @@
     NSMutableArray *attributes = (NSMutableArray *)[super layoutAttributesForElementsInRect:rect];
     for (NSInteger i = 0; i < attributes.count; i++) {
         UICollectionViewLayoutAttributes *attr = attributes[i];
-        NSLog(@"%@ -- %@", attr.representedElementKind, attr.representedElementCategory);
-        if ([attr.representedElementKind isEqualToString:@"UICollectionElementKindCell"]) {
+        NSLog(@"%@ -- %@", attr.representedElementKind, [attr valueForKeyPath:@"_elementKind"]);
+        if ([[attr valueForKeyPath:@"_elementKind"] isEqualToString:@"UICollectionElementKindCell"]) {
             UICollectionViewLayoutAttributes *newAttr = [self layoutAttributesForItemAtIndexPath:attr.indexPath];
             [attributes removeObjectAtIndex:i];
             [attributes insertObject:newAttr atIndex:i];

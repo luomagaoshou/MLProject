@@ -295,6 +295,8 @@
 		FEE6A69C1C734C66008760CA /* MLAnimations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEE6A69B1C734C66008760CA /* MLAnimations.storyboard */; };
 		FEED3FBF1D104E520084A143 /* MLRunloop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEED3FBE1D104E520084A143 /* MLRunloop.storyboard */; };
 		FEED3FC31D104F000084A143 /* MLRunloopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEED3FC21D104F000084A143 /* MLRunloopController.swift */; };
+		FEF6708F1D4312CF00AF7115 /* MLCustomCLInCLCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF6708D1D4312CF00AF7115 /* MLCustomCLInCLCell.m */; };
+		FEF670901D4312CF00AF7115 /* MLCustomCLInCLCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEF6708E1D4312CF00AF7115 /* MLCustomCLInCLCell.xib */; };
 		FEF7DDA51C7B1C2900BF3630 /* MLCALayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF7DDA41C7B1C2900BF3630 /* MLCALayerView.m */; };
 		FEF7DDA81C7CC4EF00BF3630 /* MLCALayerView2.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF7DDA71C7CC4EF00BF3630 /* MLCALayerView2.m */; };
 		FEFB49DF1C95205200634A97 /* NSObject+vk_msgSend.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFB49DD1C95205200634A97 /* NSObject+vk_msgSend.m */; };
@@ -814,6 +816,9 @@
 		FEE6A69B1C734C66008760CA /* MLAnimations.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLAnimations.storyboard; sourceTree = "<group>"; };
 		FEED3FBE1D104E520084A143 /* MLRunloop.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLRunloop.storyboard; sourceTree = "<group>"; };
 		FEED3FC21D104F000084A143 /* MLRunloopController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLRunloopController.swift; sourceTree = "<group>"; };
+		FEF6708C1D4312CF00AF7115 /* MLCustomCLInCLCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLCustomCLInCLCell.h; sourceTree = "<group>"; };
+		FEF6708D1D4312CF00AF7115 /* MLCustomCLInCLCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLCustomCLInCLCell.m; sourceTree = "<group>"; };
+		FEF6708E1D4312CF00AF7115 /* MLCustomCLInCLCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MLCustomCLInCLCell.xib; sourceTree = "<group>"; };
 		FEF7DDA31C7B1C2900BF3630 /* MLCALayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLCALayerView.h; sourceTree = "<group>"; };
 		FEF7DDA41C7B1C2900BF3630 /* MLCALayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLCALayerView.m; sourceTree = "<group>"; };
 		FEF7DDA61C7CC4EF00BF3630 /* MLCALayerView2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLCALayerView2.h; sourceTree = "<group>"; };
@@ -1379,6 +1384,9 @@
 				16B8B1BF1D4201D000434758 /* MLCustomCLCell.h */,
 				16B8B1C01D4201D000434758 /* MLCustomCLCell.m */,
 				16B8B1C11D4201D000434758 /* MLCustomCLCell.xib */,
+				FEF6708C1D4312CF00AF7115 /* MLCustomCLInCLCell.h */,
+				FEF6708D1D4312CF00AF7115 /* MLCustomCLInCLCell.m */,
+				FEF6708E1D4312CF00AF7115 /* MLCustomCLInCLCell.xib */,
 				1613886B1D42319100D6FFC4 /* MLCustomCLLayout.h */,
 				1613886C1D42319100D6FFC4 /* MLCustomCLLayout.m */,
 				1613886E1D42342100D6FFC4 /* CircleLayout.h */,
@@ -1947,6 +1955,7 @@
 				FE31D0E61BFE15FF00D63286 /* MultiThreadController.xib in Resources */,
 				FE0C63121D1683E900F73C95 /* NibCLCell.xib in Resources */,
 				FE60DBD71C5108A3009D836E /* MLSBTestCell.xib in Resources */,
+				FEF670901D4312CF00AF7115 /* MLCustomCLInCLCell.xib in Resources */,
 				FEE55D211BF71E1D00C8F783 /* ScrollViewInXibController.xib in Resources */,
 				FEC349521BEEFB0D0076E88B /* LaunchScreen.xib in Resources */,
 				FE06A08E1CA7AE8600758B37 /* MLImage.storyboard in Resources */,
@@ -2075,6 +2084,7 @@
 				FE384E0B1D2FD39200D5F282 /* MLTextFieldViewController.m in Sources */,
 				1613886D1D42319100D6FFC4 /* MLCustomCLLayout.m in Sources */,
 				FEA1C86F1CAEDD2300B5A9D3 /* ReuseButtonCLCell.m in Sources */,
+				FEF6708F1D4312CF00AF7115 /* MLCustomCLInCLCell.m in Sources */,
 				18C276971C7D41020055C19D /* UIView+Xib.m in Sources */,
 				166218AA1D2B4B3900DF9FAF /* MLRACViewController.m in Sources */,
 				18CF9D741C8EDFB900E1EA53 /* NSObject+ChainInvocation.m in Sources */,
