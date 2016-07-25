@@ -10,6 +10,19 @@
 
 @implementation UIScrollView (Refresh)
 #pragma mark - ========= Setter & Getter =========
+- (void)setCellDatas:(NSMutableArray *)cellDatas
+{
+    objc_setAssociatedObject(self, @selector(cellDatas), cellDatas, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+- (NSMutableArray *)cellDatas
+{
+    NSMutableArray *cellDatas = objc_getAssociatedObject(self, @selector(cellDatas));
+    if (cellDatas == nil) {
+       cellDatas = [[NSMutableArray alloc] init];
+        objc_setAssociatedObject(self, @selector(cellDatas), cellDatas, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    return cellDatas;
+}
 - (void)setPageSize:(NSInteger)pageSize
 {
     objc_setAssociatedObject(self, @selector(pageSize), @(pageSize), OBJC_ASSOCIATION_RETAIN_NONATOMIC);

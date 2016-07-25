@@ -118,6 +118,7 @@
     
     
     MLCustomCLCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MLCustomCLCell" forIndexPath:indexPath];
+    [self.customCLView bringSubviewToFront:cell];
    // cell.tableView.backgroundColor = [UIColor colorWithWhite:indexPath.row * 0.4 alpha:1];
     cell.tableView.scrollEnabled = YES;
     [RACObserve(cell.tableView, contentOffset) subscribeNext:^(id x) {
@@ -152,10 +153,7 @@
        
           [UIView commitAnimations];
     }];
-    cell.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        NSLog(@"%@", @"刷新");
-        [cell.tableView.mj_header endRefreshing];
-    }];
+  
     //cell.backgroundSrcollView.contentSize = CGSizeMake(SCREEN_WIDTH * 2, 0.01);
     //cell.backgroundSrcollView.contentOffset = CGPointMake(100, 0);
     

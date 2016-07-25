@@ -261,6 +261,8 @@
 		FEC3494F1BEEFB0D0076E88B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEC3494E1BEEFB0D0076E88B /* Images.xcassets */; };
 		FEC349521BEEFB0D0076E88B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEC349501BEEFB0D0076E88B /* LaunchScreen.xib */; };
 		FED38B5D1CD6394C0007B0D0 /* NSObject+ChainFileCreater.m in Sources */ = {isa = PBXBuildFile; fileRef = FED38B5C1CD6394C0007B0D0 /* NSObject+ChainFileCreater.m */; };
+		FEDD9EF71D43D4CC00DC2FC4 /* MLVCInCLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDD9EF61D43D4CC00DC2FC4 /* MLVCInCLViewController.m */; };
+		FEDD9EFA1D43D4FB00DC2FC4 /* MLVCInCLView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDD9EF91D43D4FB00DC2FC4 /* MLVCInCLView.m */; };
 		FEDF13C51CB9521F00156D85 /* CABasicAnimation+ML_make.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDF13C41CB9521F00156D85 /* CABasicAnimation+ML_make.m */; };
 		FEDF1FEC1C4A641400DF9A8D /* FDTBCellAutoHeight.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEDF1FEB1C4A641400DF9A8D /* FDTBCellAutoHeight.storyboard */; };
 		FEDF1FF01C4A64A200DF9A8D /* FDTBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDF1FEF1C4A64A200DF9A8D /* FDTBCell.m */; };
@@ -762,6 +764,10 @@
 		FEC34A241BEF00380076E88B /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		FED38B5B1CD6394C0007B0D0 /* NSObject+ChainFileCreater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ChainFileCreater.h"; sourceTree = "<group>"; };
 		FED38B5C1CD6394C0007B0D0 /* NSObject+ChainFileCreater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ChainFileCreater.m"; sourceTree = "<group>"; };
+		FEDD9EF51D43D4CC00DC2FC4 /* MLVCInCLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLVCInCLViewController.h; sourceTree = "<group>"; };
+		FEDD9EF61D43D4CC00DC2FC4 /* MLVCInCLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLVCInCLViewController.m; sourceTree = "<group>"; };
+		FEDD9EF81D43D4FB00DC2FC4 /* MLVCInCLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLVCInCLView.h; sourceTree = "<group>"; };
+		FEDD9EF91D43D4FB00DC2FC4 /* MLVCInCLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLVCInCLView.m; sourceTree = "<group>"; };
 		FEDF13C31CB9521F00156D85 /* CABasicAnimation+ML_make.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CABasicAnimation+ML_make.h"; sourceTree = "<group>"; };
 		FEDF13C41CB9521F00156D85 /* CABasicAnimation+ML_make.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CABasicAnimation+ML_make.m"; sourceTree = "<group>"; };
 		FEDF1FEB1C4A641400DF9A8D /* FDTBCellAutoHeight.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FDTBCellAutoHeight.storyboard; sourceTree = "<group>"; };
@@ -876,7 +882,6 @@
 			children = (
 				FE48EE261D412401002FE0A3 /* MLCustomCLViewController.h */,
 				FE48EE271D412401002FE0A3 /* MLCustomCLViewController.m */,
-				FE48EE2B1D412432002FE0A3 /* MLCustomCLView.h */,
 				FE48EE2C1D412432002FE0A3 /* MLCustomCLView.m */,
 				167973AA1D41C6AF0056EDD7 /* CSAlwaysOnTopHeader.h */,
 				167973AB1D41C6AF0056EDD7 /* CSAlwaysOnTopHeader.m */,
@@ -1377,8 +1382,13 @@
 			isa = PBXGroup;
 			children = (
 				FE48EE291D41240A002FE0A3 /* MLCustomCLViewController.storyboard */,
+				FEDD9EF51D43D4CC00DC2FC4 /* MLVCInCLViewController.h */,
+				FEDD9EF61D43D4CC00DC2FC4 /* MLVCInCLViewController.m */,
+				FEDD9EF81D43D4FB00DC2FC4 /* MLVCInCLView.h */,
+				FEDD9EF91D43D4FB00DC2FC4 /* MLVCInCLView.m */,
 				16910EC51D4377F8004FB2A5 /* One */,
 				16B8B1BA1D41FC0A00434758 /* MLCustomCLHeader.h */,
+				FE48EE2B1D412432002FE0A3 /* MLCustomCLView.h */,
 				16B8B1BB1D41FC0A00434758 /* MLCustomCLHeader.m */,
 				16B8B1BC1D41FC0A00434758 /* MLCustomCLHeader.xib */,
 				16B8B1BF1D4201D000434758 /* MLCustomCLCell.h */,
@@ -2115,6 +2125,7 @@
 				1827CF6F1CED4FCF00552F14 /* MLSwiftController.swift in Sources */,
 				18EB94381CE9585B00C24368 /* MLDataStructuresController.m in Sources */,
 				18C276521C7D41020055C19D /* ChainableKit.m in Sources */,
+				FEDD9EF71D43D4CC00DC2FC4 /* MLVCInCLViewController.m in Sources */,
 				FE60DBDA1C510948009D836E /* MLTBFooter.m in Sources */,
 				1895E1331C5B534B0046411D /* IQKeyboardManagerView.m in Sources */,
 				FE6B22791CD65178007733FD /* UIResponder+MLChain.m in Sources */,
@@ -2217,6 +2228,7 @@
 				FEE3DCA91CF72BF50046B515 /* MLOpenGLController.swift in Sources */,
 				164019161D2B46F100B6FD30 /* MLRealmViewController.m in Sources */,
 				18463CEC1CA247E300DD87BE /* UIBezierPath+ML_Tools.m in Sources */,
+				FEDD9EFA1D43D4FB00DC2FC4 /* MLVCInCLView.m in Sources */,
 				FE06A0941CA7B01200758B37 /* MLImageNextController.m in Sources */,
 				FE384E071D2E9D2400D5F282 /* MLNavigationTestViewController2.m in Sources */,
 				18C276891C7D41020055C19D /* UITableViewCell+Separator.m in Sources */,

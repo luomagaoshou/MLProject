@@ -20,7 +20,6 @@
 {
     self.delegate = self;
     self.dataSource = self;
-    self.backgroundColor = [UIColor redColor];
     self.bounces = NO;
     [self addSubview:self.animationView];
 

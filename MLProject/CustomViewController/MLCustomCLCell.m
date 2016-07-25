@@ -7,6 +7,7 @@
 //
 
 #import "MLCustomCLCell.h"
+#import <MJRefresh/MJRefresh.h>
 @interface MLCustomCLCell()<UITableViewDelegate, UITableViewDataSource>
 @end
 @implementation MLCustomCLCell
@@ -21,7 +22,13 @@
     [self.tableView ml_registerClassForCellWithNameOrClass:[UITableViewCell class]];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-   
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        NSLog(@"%@", @"刷新");
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.tableView.mj_header endRefreshing];
+        });
+       
+    }];
 }
 
 #pragma mark - ========= TableView Cell =========

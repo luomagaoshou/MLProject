@@ -22,6 +22,7 @@ typedef NS_ENUM(NSInteger, UIScrollViewLoadType) {
     
 };
 @interface UIScrollView (Refresh)
+@property (nonatomic, strong) NSMutableArray *cellDatas;
 @property (nonatomic, assign) NSInteger pageSize;
 @property (nonatomic, assign) NSInteger pageNumber;
 @property (nonatomic, assign) UIScrollViewStatusType statusType;
