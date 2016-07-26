@@ -1,24 +1,24 @@
 //
-//  MLVCInCLViewController.m
+//  MLViewInCLViewController.m
 //  MLProject
 //
 //  Created by 妙龙赖 on 16/7/24.
 //  Copyright © 2016年 妙龙赖. All rights reserved.
 //
 
-#import "MLVCInCLViewController.h"
+#import "MLViewInCLViewController.h"
 #import "UIScrollView+Refresh.h"
-#import "MLVCInCLView.h"
+#import "MLViewInCLView.h"
 #import "MLCustomCLCell.h"
 #import "MLCustomCLLayout.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "UIView+GestureBlock.h"
-@interface MLVCInCLViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
-@property (strong, nonatomic) IBOutlet MLVCInCLView *vcInCLView;
+@interface MLViewInCLViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@property (strong, nonatomic) IBOutlet MLViewInCLView *vcInCLView;
 
 @end
 
-@implementation MLVCInCLViewController
+@implementation MLViewInCLViewController
 #pragma mark - ========= View LifeCycle =========
 - (void)viewDidLoad {
     [super viewDidLoad];

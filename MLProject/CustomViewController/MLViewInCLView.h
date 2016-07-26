@@ -1,5 +1,5 @@
 //
-//  MLVCInCLView.h
+//  MLViewInCLView.h
 //  MLProject
 //
 //  Created by 妙龙赖 on 16/7/24.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MLMenuCollectionView.h"
-@interface MLVCInCLView : UIView
+@interface MLViewInCLView : UIView
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIView *topView;
 @property (weak, nonatomic) IBOutlet MLMenuCollectionView *menuCollectionView;

@@ -1,14 +1,14 @@
 //
-//  MLVCInCLView.m
+//  MLViewInCLView.m
 //  MLProject
 //
 //  Created by 妙龙赖 on 16/7/24.
 //  Copyright © 2016年 妙龙赖. All rights reserved.
 //
 
-#import "MLVCInCLView.h"
+#import "MLViewInCLView.h"
 
-@implementation MLVCInCLView
+@implementation MLViewInCLView
 
 /*
 // Only override drawRect: if you perform custom drawing.

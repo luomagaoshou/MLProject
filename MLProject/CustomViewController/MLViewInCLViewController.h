@@ -1,5 +1,5 @@
 //
-//  MLVCInCLViewController.h
+//  MLViewInCLViewController.h
 //  MLProject
 //
 //  Created by 妙龙赖 on 16/7/24.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MLVCInCLViewController : UIViewController
+@interface MLViewInCLViewController : UIViewController
 
 @end

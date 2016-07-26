@@ -83,15 +83,15 @@
             </objects>
             <point key="canvasLocation" x="884" y="-45"/>
         </scene>
-        <!--InCL View Controller-->
+        <!--View InCL View Controller-->
         <scene sceneID="H1Z-xo-tol">
             <objects>
-                <viewController storyboardIdentifier="MLVCInCLViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="phV-lD-0Qi" customClass="MLVCInCLViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MLViewInCLViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="phV-lD-0Qi" customClass="MLViewInCLViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="c7v-kZ-yzl"/>
                         <viewControllerLayoutGuide type="bottom" id="GOG-nJ-Kyd"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="x0o-s4-pAR" customClass="MLVCInCLView">
+                    <view key="view" contentMode="scaleToFill" id="x0o-s4-pAR" customClass="MLViewInCLView">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -177,6 +177,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="szH-W9-JXA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="351" y="615"/>
+        </scene>
+        <!--ReuseVC View Controller-->
+        <scene sceneID="TfS-st-Osc">
+            <objects>
+                <viewController storyboardIdentifier="MLReuseVCViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Fm8-8Z-gTJ" customClass="MLReuseVCViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MvY-nJ-2i9"/>
+                        <viewControllerLayoutGuide type="bottom" id="Jbo-qL-iQL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gPf-16-iNx">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="khU-QB-MIg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
 </document>
