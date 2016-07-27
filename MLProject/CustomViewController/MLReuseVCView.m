@@ -143,7 +143,7 @@ typedef NS_ENUM(NSUInteger, MLReuseVC) {
 {
     
   
-    
+#if 0
     if ([self.delegate respondsToSelector:@selector(reuseVCView:viewControlerAtIndexPath:)]) {
         
         UIViewController *viewController = [self.delegate reuseVCView:self viewControlerAtIndexPath:indexPath];
@@ -157,6 +157,24 @@ typedef NS_ENUM(NSUInteger, MLReuseVC) {
     }else{
         
         assert(@"需要实现该方法");
+    }
+#endif
+    
+    if ([self.delegate respondsToSelector:@selector(reuseVCView:reuseIdentifierAtIndexPath:)]) {
+        NSString *reuseId = [self.delegate reuseVCView:self reuseIdentifierAtIndexPath:indexPath];
+        UIViewController *vc = nil;
+        if ([self.reuseViewControllerPool valueForKey:reuseId].count) {
+            vc = [self.reuseViewControllerPool valueForKey:reuseId].lastObject;
+            [[self.reuseViewControllerPool valueForKey:reuseId] removeLastObject];
+        }else{
+            vc = [self ml_dequeueReusableCellWithReuseIdentifier:reuseId indexPath:indexPath];
+        }
+        
+        UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"UICollectionViewCell" forIndexPath:indexPath];
+        [cell.contentView addSubview:vc.view];
+        [[UIViewController viewControllerOfView:cell] addChildViewController:vc];
+        
+        return cell;
     }
    
     return nil;
@@ -204,8 +222,14 @@ typedef NS_ENUM(NSUInteger, MLReuseVC) {
 {
     
 
- // [self.ownerViewController addChildViewController:[UIViewController viewControllerOfView:cell.contentView.subviews.firstObject]];
     
+    for (UIView *view in cell.contentView.subviews) {
+        [[UIViewController viewControllerOfView:view] removeFromParentViewController];
+        [view removeFromSuperview];
+        [self.reuseViewControllerPool[cell.reuseIdentifier] addObject:[UIViewController viewControllerOfView:view]];
+    }
+    
+ 
     
     
 }

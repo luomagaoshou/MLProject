@@ -24,6 +24,10 @@
 @property(nonatomic, strong) Person *owner;
 @end
 @implementation Dog
++ (NSString *)primaryKey
+{
+    return @"Dog";
+}
 @end
 
 RLM_ARRAY_TYPE(Dog)
@@ -111,6 +115,7 @@ RLM_ARRAY_TYPE(Dog)
     mydog.picture = nil;
     mydog.owner = jim;
     
+    
     RLMResults<Dog *> *pupplies = [Dog objectsWhere:@"age < 2"];
     NSInteger count = pupplies.count;
     
@@ -118,7 +123,8 @@ RLM_ARRAY_TYPE(Dog)
     [realm transactionWithBlock:^{
         [realm addObject:mydog];
     }];
-    
+    [Dog objectInRealm:realm forPrimaryKey:@"Dog"];
+
     count = pupplies.count;
     dispatch_async(dispatch_queue_create("background", 0), ^{
         Dog *theDog = [[Dog objectsWhere:@"age == 1"] firstObject];

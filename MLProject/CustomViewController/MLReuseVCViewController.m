@@ -107,6 +107,11 @@
    
     return viewController;
 }
+- (NSString *)reuseVCView:(MLReuseVCView *)reuseVCView reuseIdentifierAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"MLCustomCLViewController";
+}
+
 
 - (CGSize)reuseVCView:(MLReuseVCView *)reuseVCView viewSizeAtIndexPath:(NSIndexPath *)indexPath
 {

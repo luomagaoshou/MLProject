@@ -10,6 +10,7 @@
 @class MLReuseVCView;
 
 @protocol MLReuseViewControllerDelegate<NSObject>
+- (NSString *)reuseVCView:(MLReuseVCView *)reuseVCView reuseIdentifierAtIndexPath:(NSIndexPath *)indexPath;
 - (__kindof UIViewController *)reuseVCView:(MLReuseVCView *)reuseVCView viewControlerAtIndexPath:(NSIndexPath *)indexPath;
 - (CGSize)reuseVCView:(MLReuseVCView *)reuseVCView viewSizeAtIndexPath:(NSIndexPath *)indexPath;
 @end
