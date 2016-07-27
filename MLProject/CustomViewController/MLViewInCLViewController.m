@@ -88,7 +88,7 @@
     [self.vcInCLView.collectionView registerNib:[UINib nibWithNibName:@"CSAlwaysOnTopHeader" bundle:nil] forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader withReuseIdentifier:@"CSAlwaysOnTopHeader"];
     
     [self.vcInCLView.collectionView ml_registerNibForCellWithNameOrClass:@"MLCustomCLCell"];
-    NSArray *cellDatas = @[@[@"1", @"2", @"3"]];
+    NSArray *cellDatas = @[@[@"1"]];
     [self.vcInCLView.collectionView.cellDatas addObjectsFromArray:cellDatas];
     [self.vcInCLView.collectionView reloadData];
       //[self reloadLayout];

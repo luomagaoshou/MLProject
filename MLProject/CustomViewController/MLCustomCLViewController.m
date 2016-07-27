@@ -65,7 +65,7 @@
 {
     NSArray *datas = @[
                       @[
-                          @"Song 1",@"Song 1",@"Song 1"
+                          @"Song 1"
                           ],
                       ];
     [self.cellDatas addObjectsFromArray:datas];

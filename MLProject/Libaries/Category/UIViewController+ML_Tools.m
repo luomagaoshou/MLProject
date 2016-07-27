@@ -68,7 +68,18 @@
     
     
 }
-
++ (UIViewController *)viewControllerOfView:(UIView *)view
+{
+    UIViewController *vc = nil;
+    for (UIResponder *nextResponder = view; nextResponder != nil; nextResponder = nextResponder.nextResponder) {
+        if ([nextResponder isKindOfClass:[UIViewController class]]) {
+            vc = (UIViewController *)nextResponder;
+            break;
+        }
+    }
+    return vc;
+    
+}
 
 - (void)setNavigationBarBackgroundAutoResizeImage:(UIImage *)image
 {

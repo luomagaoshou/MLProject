@@ -13,6 +13,7 @@
 - (void)setNavigationBarBackgroundAutoResizeImage:(UIImage *)image;
 + (UIViewController *)getLastViewController;
 + (id)getLastViewControllerWithClass:(Class)aClass;
++ (__kindof UIViewController *)viewControllerOfView:(UIView *)view;
 - (void)configSuccuessDataShowWithScrollView:(__kindof UIScrollView *)scrollView
                 statusCode:(NSInteger)statusCode
                         originalDatas:(NSArray <NSArray <id> *> *)originalDatas

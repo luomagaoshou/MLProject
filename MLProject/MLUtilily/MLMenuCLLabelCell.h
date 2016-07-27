@@ -1,5 +1,5 @@
 //
-//  MLMenuCLCell.h
+//  MLMenuCLLabelCell.h
 //  MLProject
 //
 //  Created by 妙龙赖 on 16/7/16.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MLMenuCLCell : UICollectionViewCell
+@interface MLMenuCLLabelCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end

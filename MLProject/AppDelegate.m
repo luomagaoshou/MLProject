@@ -43,8 +43,7 @@
       self.window.rootViewController = nav;
     
 
- 
-    
+       
     
     
     
@@ -63,7 +62,7 @@
     
    //  [ProjectManager pushStoryboardControllerWithNibName:    @"MLNestNib" storyboardID:@"MLNestNibViewController"];
 
-    [ProjectManager pushStoryboardControllerWithNibName:@"MLCustomCLViewController" storyboardID:@"MLViewInCLViewController"];
+    [ProjectManager pushStoryboardControllerWithNibName:@"MLCustomCLViewController" storyboardID:@"MLReuseVCViewController"];
   //  [ProjectManager pushStoryboardControllerWithNibName:@"MLMJRefresh" storyboardID:@"MLMJRefreshViewController"];
 //    [ProjectManager pushStoryboardControllerWithNibName:@"MLNavigation" storyboardID:@"MLNavigationViewController"];
 //    [ProjectManager pushStoryboardControllerWithNibName:@"MLTextField" storyboardID:@"MLTextFieldViewController"];

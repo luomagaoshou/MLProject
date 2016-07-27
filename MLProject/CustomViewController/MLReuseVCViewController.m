@@ -7,31 +7,112 @@
 //
 
 #import "MLReuseVCViewController.h"
+#import "MLReuseVCView.h"
 
-@interface MLReuseVCViewController ()
+#import "UIScrollView+Refresh.h"
+@interface MLReuseVCViewController ()<MLReuseViewControllerDelegate>
+@property (weak, nonatomic) IBOutlet MLReuseVCView *reuseVCView;
+
 
 @end
 
 @implementation MLReuseVCViewController
-
+#pragma mark - ========= View LifeCycle =========
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self configureUI];
+    [self downloadData];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - ========= Configure UI =========
+- (void)configureUI
+{
+    [self configureReuseVCView];
+    
 }
-*/
+
+- (void)configureReuseVCView
+{
+    self.reuseVCView.delegate = self;
+    
+    [self.reuseVCView ml_registerViewControllerForStoryboardWithClassOrName:@"MLViewInCLViewController" nibName:@"MLCustomCLViewController"];
+        [self.reuseVCView ml_registerViewControllerForStoryboardWithClassOrName:@"MLCustomCLViewController" nibName:@"MLCustomCLViewController"];
+
+    [self.reuseVCView.collectionView.cellDatas addObjectsFromArray:@[@[@"1", @"2", @"3"]]];
+   [self.reuseVCView.collectionView reloadData];
+   
+//    MLReuseVCView *reuseVCView = [[MLReuseVCView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+//    [self.view addSubview:reuseVCView];
+//    //[reuseVCView ml_registerViewControllerForNibWithClassOrName:@"MLViewInCLViewController"];
+//    [reuseVCView.collectionView reloadData];
+    
+}
+#pragma mark - ========= Network Operation  =========
+- (void)downloadData
+{
+    
+}
+#pragma mark - ========= Reuse VC =========
+- (UIViewController *)reuseVCView:(MLReuseVCView *)reuseVCView viewControlerAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIViewController *viewController = nil;
+    switch (indexPath.row) {
+        case 1:
+        {
+            viewController = [reuseVCView ml_dequeueReusableCellWithReuseIdentifier:@"MLViewInCLViewController" indexPath:indexPath];
+            
+        }
+            break;
+            
+            case 0:
+        {
+            viewController = [reuseVCView ml_dequeueReusableCellWithReuseIdentifier:@"MLCustomCLViewController" indexPath:indexPath];
+        }
+             break;
+        default:
+        {
+            viewController = [reuseVCView ml_dequeueReusableCellWithReuseIdentifier:@"MLCustomCLViewController" indexPath:indexPath];
+        }
+            break;
+    }
+ 
+   
+    return viewController;
+}
+
+- (CGSize)reuseVCView:(MLReuseVCView *)reuseVCView viewSizeAtIndexPath:(NSIndexPath *)indexPath
+{
+     return CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT);
+}
+
+#pragma mark - ========= Setter & Getter =========
 
 @end

@@ -7,12 +7,13 @@
 //
 
 #import "MLMenuCollectionView.h"
-#import "MLMenuCLCell.h"
+#import "MLMenuCLLabelCell.h"
 #import "UICollectionView+ML_Tools.h"
 @interface MLMenuCollectionView()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, copy) NSMutableArray *menuTitles;
 @property (nonatomic, copy) MLMenuClickBlock clickBlock;
-@property (nonatomic, strong) UIView *animationView;
+@property (nonatomic, copy) MLMenuCellConfigBlock cellConfigBlock;
+@property (nonatomic, copy) NSString *cellClassName;
 @end
 @implementation MLMenuCollectionView
 
@@ -20,31 +21,40 @@
 {
     self.delegate = self;
     self.dataSource = self;
+    self.backgroundColor = [UIColor whiteColor];
     self.bounces = NO;
     [self addSubview:self.animationView];
 
 }
 - (void)setTitles:(NSArray *)titles clickBlock:(MLMenuClickBlock)clickBlock
 {
+    NSAssert(self.cellConfigBlock, @"请先设置cellConfigBlock");
     self.clickBlock = clickBlock;
     [self.menuTitles removeAllObjects];
     [self.menuTitles addObject:titles];
-       [self ml_registerNibForCellWithNameOrClass:@"MLMenuCLCell"];
+    
        [self setAnimationViewPoistionWithTitlesCount:[self.menuTitles[0] count] index:0 animated:NO];
     [self reloadData];
-//    if (titles.count) {
-//        [self.delegate collectionView:self didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-//    }
-}
 
+}
+- (void)configureCellWithClassName:(NSString *)className configBlock:(MLMenuCellConfigBlock)configBlock
+{
+    NSAssert(NSClassFromString(className), @"不存在该类");
+     [self ml_registerNibForCellWithNameOrClass:className];
+    self.cellClassName = className;
+    self.cellConfigBlock = configBlock;
+}
 #pragma mark - ========= CollectionView Cell =========
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
     
-    MLMenuCLCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MLMenuCLCell" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor blueColor];
-    cell.titleLabel.text = self.menuTitles[indexPath.section][indexPath.row];
+    MLMenuCLLabelCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:self.cellClassName forIndexPath:indexPath];
+    
+    if (self.cellConfigBlock) {
+        self.cellConfigBlock(cell, self.menuTitles, indexPath);
+    }
+    
     return cell;
     
 }
@@ -81,24 +91,36 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
-   
+    
     [self setAnimationViewPoistionWithTitlesCount:[self.menuTitles[indexPath.section] count] index:indexPath.row animated:YES];
     if (self.clickBlock) {
         self.clickBlock(indexPath.row);
     }
 }
 #pragma mark - ========= AnimationView Position =========
+- (void)setCurrentIndex:(NSUInteger)currentIndex animated:(BOOL)animated
+{
+    [self setCurrentIndex:currentIndex];
+    
+        [self setAnimationViewPoistionWithTitlesCount:[self.menuTitles[0] count] index:currentIndex animated:animated];
+    
+}
+
 - (void)setAnimationViewPoistionWithTitlesCount:(NSInteger)titlesCount index:(NSInteger)index animated:(BOOL)animated
 {
-     [self bringSubviewToFront:self.animationView];
-    if (animated) {
-        [UIView animateWithDuration:0.3 animations:^{
-            self.animationView.frame = CGRectMake(SCREEN_WIDTH/titlesCount * index, self.height - 5, SCREEN_WIDTH/titlesCount, 3);
-        }];
-    }else
-    {
-          self.animationView.frame = CGRectMake(SCREEN_WIDTH/titlesCount * index, self.height - 5, SCREEN_WIDTH/titlesCount, 3);
-    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self bringSubviewToFront:self.animationView];
+        
+        if (animated) {
+            [UIView animateWithDuration:0.3 animations:^{
+                self.animationView.frame = CGRectMake(SCREEN_WIDTH/titlesCount * index, self.height - 2, SCREEN_WIDTH/titlesCount, 2);
+            }];
+        }else
+        {
+            self.animationView.frame = CGRectMake(SCREEN_WIDTH/titlesCount * index, self.height - 2, SCREEN_WIDTH/titlesCount, 2);
+        }
+    });
+   
     
 }
 #pragma mark - ========= Setter & Getter =========
@@ -116,8 +138,9 @@
         
         _animationView = [[UIView alloc] init];
         _animationView.backgroundColor = [UIColor redColor];
-           }
+    }
     return _animationView;
 }
+
 
 @end

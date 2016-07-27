@@ -15,7 +15,7 @@
 #import "UIView+GestureBlock.h"
 #import "MBProgressHUD+Loading.h"
 #import "MLMenuCollectionView.h"
-#import "MLMenuCLCell.h"
+#import "MLMenuCLLabelCell.h"
 #import "CALayer+Line.h"
 
 @interface MLMJRefreshViewController ()<UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
@@ -127,7 +127,7 @@
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     [self.menuTitles addObject:@[@"标题1", @"标题2", @"标题3"]];
-     [self.collectionView ml_registerNibForCellWithNameOrClass:@"MLMenuCLCell"];
+     [self.collectionView ml_registerNibForCellWithNameOrClass:@"MLMenuCLLabelCell"];
     [self.collectionView reloadData];
 }
 - (void)configEmpeyDataSet
@@ -196,7 +196,7 @@
 {
     
     
-    MLMenuCLCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MLMenuCLCell" forIndexPath:indexPath];
+    MLMenuCLLabelCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MLMenuCLLabelCell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor blueColor];
     cell.titleLabel.text = self.menuTitles[indexPath.section][indexPath.row];
     return cell;
