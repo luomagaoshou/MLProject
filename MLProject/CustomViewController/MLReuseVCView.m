@@ -38,13 +38,11 @@ typedef NS_ENUM(NSUInteger, MLReuseVC) {
     return self;
 }
 - (UIViewController *)ownerViewController
-{
-   static UIViewController *vc = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-      vc = [UIViewController viewControllerOfView:self];
+{ 
+ 
+      UIViewController *vc = [UIViewController viewControllerOfView:self];
       
-    });
+  
    
     return vc;
 }

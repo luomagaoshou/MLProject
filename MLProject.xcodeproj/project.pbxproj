@@ -16,6 +16,8 @@
 		166218AA1D2B4B3900DF9FAF /* MLRACViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 166218A81D2B4B3900DF9FAF /* MLRACViewController.m */; };
 		167973AD1D41C6AF0056EDD7 /* CSAlwaysOnTopHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 167973AB1D41C6AF0056EDD7 /* CSAlwaysOnTopHeader.m */; };
 		167973AE1D41C6AF0056EDD7 /* CSAlwaysOnTopHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 167973AC1D41C6AF0056EDD7 /* CSAlwaysOnTopHeader.xib */; };
+		1690CABE1D49AA0E001A0B3C /* MLPageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1690CABD1D49AA0E001A0B3C /* MLPageViewController.storyboard */; };
+		1690CAC41D49ACDB001A0B3C /* MLPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1690CAC31D49ACDB001A0B3C /* MLPageViewController.m */; };
 		169176AE1D3A45F200086A5A /* DZNEmptyDataSeparator.m in Sources */ = {isa = PBXBuildFile; fileRef = 169176A41D3A45F200086A5A /* DZNEmptyDataSeparator.m */; };
 		169176AF1D3A45F200086A5A /* MLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 169176A61D3A45F200086A5A /* MLAlertView.m */; };
 		169176B01D3A45F200086A5A /* MLAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 169176A71D3A45F200086A5A /* MLAlertView.xib */; };
@@ -324,6 +326,9 @@
 		167973AA1D41C6AF0056EDD7 /* CSAlwaysOnTopHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSAlwaysOnTopHeader.h; sourceTree = "<group>"; };
 		167973AB1D41C6AF0056EDD7 /* CSAlwaysOnTopHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSAlwaysOnTopHeader.m; sourceTree = "<group>"; };
 		167973AC1D41C6AF0056EDD7 /* CSAlwaysOnTopHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSAlwaysOnTopHeader.xib; sourceTree = "<group>"; };
+		1690CABD1D49AA0E001A0B3C /* MLPageViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLPageViewController.storyboard; sourceTree = "<group>"; };
+		1690CAC21D49ACDB001A0B3C /* MLPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPageViewController.h; sourceTree = "<group>"; };
+		1690CAC31D49ACDB001A0B3C /* MLPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPageViewController.m; sourceTree = "<group>"; };
 		169176A31D3A45F200086A5A /* DZNEmptyDataSeparator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZNEmptyDataSeparator.h; sourceTree = "<group>"; };
 		169176A41D3A45F200086A5A /* DZNEmptyDataSeparator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZNEmptyDataSeparator.m; sourceTree = "<group>"; };
 		169176A51D3A45F200086A5A /* MLAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLAlertView.h; sourceTree = "<group>"; };
@@ -886,6 +891,16 @@
 				166218A81D2B4B3900DF9FAF /* MLRACViewController.m */,
 			);
 			path = RAC;
+			sourceTree = "<group>";
+		};
+		1690CABC1D49A9F7001A0B3C /* PageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1690CABD1D49AA0E001A0B3C /* MLPageViewController.storyboard */,
+				1690CAC21D49ACDB001A0B3C /* MLPageViewController.h */,
+				1690CAC31D49ACDB001A0B3C /* MLPageViewController.m */,
+			);
+			path = PageViewController;
 			sourceTree = "<group>";
 		};
 		16910EC51D4377F8004FB2A5 /* One */ = {
@@ -1679,6 +1694,7 @@
 				18B2D8721C5388BA0063AEB5 /* ProjectManager.m */,
 				FEB529D01BEF1EBA00EAA6C1 /* RootController.h */,
 				FEB529D31BEF208A00EAA6C1 /* RootController.xib */,
+				1690CABC1D49A9F7001A0B3C /* PageViewController */,
 				FE48EE251D4123E0002FE0A3 /* CustomViewController */,
 				FE384E081D2FD31800D5F282 /* MLTextField */,
 				FE384DFC1D2E816800D5F282 /* Navigation */,
@@ -2042,6 +2058,7 @@
 				FEDF1FEC1C4A641400DF9A8D /* FDTBCellAutoHeight.storyboard in Resources */,
 				FE0C63101D1683E900F73C95 /* NestNib.storyboard in Resources */,
 				16B8B1BE1D41FC0A00434758 /* MLCustomCLHeader.xib in Resources */,
+				1690CABE1D49AA0E001A0B3C /* MLPageViewController.storyboard in Resources */,
 				18FCA22F1C7D3B5C002C4E5C /* image1.jpg in Resources */,
 				187C14A01CE5ADD3008A532C /* huangyibiaoTest1.html in Resources */,
 				FE0C631D1D16973B00F73C95 /* NibTBCell.xib in Resources */,
@@ -2301,6 +2318,7 @@
 				1822284E1CAE86DD00A7E43D /* AthleticsLotteryMaster.m in Sources */,
 				FE6B22741CD65178007733FD /* MLChain4UIView.m in Sources */,
 				18C2767A1C7D41020055C19D /* UIImage+FileName.m in Sources */,
+				1690CAC41D49ACDB001A0B3C /* MLPageViewController.m in Sources */,
 				181F99161CE091B900DB57CA /* MLResponderChainController.m in Sources */,
 				181F990F1CE066E900DB57CA /* MLSQLMaker.m in Sources */,
 				FE9F364F1CFC4B0600A16744 /* MLMapOfAmapController.swift in Sources */,
