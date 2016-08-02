@@ -19,7 +19,7 @@
 #import "NSObject+CreateCode.h"
 #import "NSFileManager+ML_Tools.h"
 #import "ChainableController.h"
-
+#import "ProjectManager.h"
 @interface RootController ()
 @property (nonatomic, strong) UIButton *startTimeButton;
 
@@ -162,7 +162,7 @@
     switch (indexPath.row) {
         case 0:
         {
-          
+              [ProjectManager pushStoryboardControllerWithNibName:@"MLPageViewController" storyboardID:@"MLPageViewController"];
         }
             break;
         case 1:

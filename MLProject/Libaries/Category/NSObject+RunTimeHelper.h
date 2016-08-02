@@ -66,13 +66,9 @@
  */
 + (NSDictionary *)getPropertyDictionaryJoinedWithIvarList:(NSArray *)ivarList model:(id)model;
 
-
-
-@end
-
-@interface NSObject ()
 @property (nonatomic, strong) NSString *featureIdentifier;
 @property (nonatomic, strong) NSString *operationIdentifier;
-
 @end
+
+
 

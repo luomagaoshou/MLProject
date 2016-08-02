@@ -1,38 +1,38 @@
 //
-//  MLPageViewController.m
+//  MLPageViewController2.m
 //  MLProject
 //
-//  Created by xunke01 on 16/7/28.
+//  Created by 妙龙赖 on 16/8/2.
 //  Copyright © 2016年 妙龙赖. All rights reserved.
 //
 
-#import "MLPageViewController.h"
-#import "MLMenuCollectionView.h"
+#import "MLPageViewController2.h"
 #import "MLMenuCLLabelCell.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
+#import "MLMenuCollectionView.h"
 #import "MLPageSubViewController1.h"
 #import "MLPageSubViewController2.h"
 #import "MLPageSubViewController3.h"
-@interface MLPageViewStickyView : UIView
+@interface MLPageViewStickyView2 : UIView
 @property (weak, nonatomic) IBOutlet UIView *topView;
 @property (weak, nonatomic) IBOutlet MLMenuCollectionView *menuCollectionView;
+@end
+
+@implementation MLPageViewStickyView2
+
+
 
 @end
-@implementation MLPageViewStickyView
+@interface MLPageViewController2 ()<UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIScrollViewDelegate>
 
+@property (weak, nonatomic) IBOutlet MLPageViewStickyView2 *stickyView;
+@property (weak, nonatomic) IBOutlet UIView *pageVCContainerView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *stickyViewTopConstraint;
 
-
-@end
-@interface MLPageViewController ()<UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIScrollViewDelegate>
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet MLPageViewStickyView *stickyView;
-
-@property (weak, nonatomic) IBOutlet UIView *pageView;
 @property (strong, nonatomic) UIPageViewController *pageViewController;
 @property (nonatomic, strong) NSArray *viewControllers;
 @end
 
-@implementation MLPageViewController
+@implementation MLPageViewController2
 #pragma mark - ========= View LifeCycle =========
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -71,7 +71,7 @@
 #pragma mark - ========= Configure UI =========
 - (void)configureUI
 {
-    [self configureScrollView];
+    
     [self configurePageViewController];
     [self configureStickyView];
 }
@@ -86,13 +86,13 @@
     self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     self.pageViewController.delegate = self;
     self.pageViewController.dataSource = self;
-    self.pageViewController.view.frame = self.pageView.bounds;
-
-    [self.pageView addSubview:self.pageViewController.view];
-  
+    self.pageViewController.view.frame = self.pageVCContainerView.bounds;
+    
+    [self.pageVCContainerView addSubview:self.pageViewController.view];
+    
     [self.pageViewController setViewControllers:@[page1] direction:UIPageViewControllerNavigationDirectionReverse animated:YES completion:nil];
     [self addChildViewController:self.pageViewController];
- 
+    
     self.viewControllers = @[page1, page2, page3];
     
     
@@ -100,58 +100,63 @@
         NSLog(@"%@\n%@\n%@\n", note.name, note.userInfo, note.object);
         UITableView *tableView = note.object;
         CGFloat y = ((UITableView *)note.object).contentOffset.y;
-//        if (y > 0  && y < 100) {
-//          
-//           
-//        }else if (y >= 100){
-//           
-//            
-//        }else if (y < 0){
-//            
-//            
+//        if (y < 100 && y > 0) {
+//            self.stickyViewTopConstraint.constant = -y;
+//        }else if (y < 0)
+//        {
+//            self.stickyViewTopConstraint.constant = -y;
 //        }
-//        else if (y == 0){
-//            
+//        else if(y > 100){
+//            self.stickyViewTopConstraint.constant = -100;
 //        }
-        if (self.scrollView.contentOffset.y  > 0) {
-            
+        
+        if (self.stickyViewTopConstraint.constant == -100) {
+            if (y > 0) {
+                return ;
+            }
+        }
+//        if (self.stickyViewTopConstraint.constant < 0 && self.stickyViewTopConstraint.constant != -100) {
+//            if (-self.stickyViewTopConstraint.constant > y) {
+//                return;
+//            }
+//        }
+        
+        if (y < 100 && y > 0) {
+            self.stickyViewTopConstraint.constant = -y;
+        }else if (y < 0)
+        {
+           [UIView animateWithDuration:0.2 animations:^{
+                  self.stickyViewTopConstraint.constant = 0;
+               [self.view layoutIfNeeded];
+            }];
+          
+        }
+        else if(y > 100){
+            self.stickyViewTopConstraint.constant = -100;
         }
         
-//        if (y < 0) {
-//            self.pageView.userInteractionEnabled = NO;
-//            self.scrollView.scrollEnabled = YES;
-//        }
-//        else
-//        {
-//            self.pageView.userInteractionEnabled = YES;
-//            self.scrollView.scrollEnabled = NO;
-//        }
-//      
     }];
-  
-//     [page2.tableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionNew context:nil];
-//     [page3.tableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionNew context:nil];
+    
+    //     [page2.tableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionNew context:nil];
+    //     [page3.tableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionNew context:nil];
     
     
-//    [RACObserve(page1.tableView, contentOffset) subscribeNext:^(id x) {
-//        NSLog(@"%@", x);
-//    }];
-//    [RACObserve(page2.tableView, contentOffset) subscribeNext:^(id x) {
-//        NSLog(@"%@", x);
-//    }];
-//    [RACObserve(page3.tableView, contentOffset) subscribeNext:^(id x) {
-//        NSLog(@"%@", x);
-//    }];
+    //    [RACObserve(page1.tableView, contentOffset) subscribeNext:^(id x) {
+    //        NSLog(@"%@", x);
+    //    }];
+    //    [RACObserve(page2.tableView, contentOffset) subscribeNext:^(id x) {
+    //        NSLog(@"%@", x);
+    //    }];
+    //    [RACObserve(page3.tableView, contentOffset) subscribeNext:^(id x) {
+    //        NSLog(@"%@", x);
+    //    }];
     
 }
-- (void)configureScrollView
-{
-    self.scrollView.delegate = self;
-}
+
 - (void)configureStickyView
 {
     [self.stickyView.menuCollectionView configureCellWithClassName:@"MLMenuCLLabelCell" configBlock:^(__kindof UICollectionViewCell *cell, NSArray *cellDatas, NSIndexPath *indexPath) {
-       
+        
         ((MLMenuCLLabelCell *)cell).titleLabel.text = cellDatas[indexPath.section][indexPath.row];
     }];
     @weakify(self);
@@ -159,7 +164,7 @@
         @strongify(self);
         NSLog(@"%ld", index);
         NSInteger direction = [self.viewControllers indexOfObject:self.pageViewController.viewControllers.firstObject] < index;
-         [self.pageViewController setViewControllers:@[self.viewControllers[index]] direction:direction animated:YES completion:nil];
+        [self.pageViewController setViewControllers:@[self.viewControllers[index]] direction:direction animated:YES completion:nil];
     }];
 }
 
@@ -179,28 +184,28 @@
     if (index == 0 || index == NSNotFound) {
         return nil;
     }
-   
-        --index;
-   
+    
+    --index;
+    
     return self.viewControllers[index];
     
-
-  
+    
+    
     
 }
 
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
 {
-  
+    
     NSInteger index = [self.viewControllers indexOfObject:viewController];
-
+    
     if (index >= self.viewControllers.count - 1 || index == NSNotFound) {
         return nil;
     }
     ++index;
-
-      return self.viewControllers[index];
+    
+    return self.viewControllers[index];
 }
 - (void)pageViewController:(UIPageViewController *)pageViewController willTransitionToViewControllers:(NSArray<UIViewController *> *)pendingViewControllers
 {
@@ -212,30 +217,16 @@
 
 {
     NSLog(@"%@--%@", pageViewController.viewControllers, previousViewControllers);
-     [self.stickyView.menuCollectionView setCurrentIndex:[self.viewControllers indexOfObject:pageViewController.viewControllers.firstObject] animated:YES];
+    [self.stickyView.menuCollectionView setCurrentIndex:[self.viewControllers indexOfObject:pageViewController.viewControllers.firstObject] animated:YES];
     
     
 }
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    NSLog(@"%@", scrollView);
-    CGFloat y = scrollView.contentOffset.y;
-//    if ( y <= 0 ) {
-//            scrollView.contentOffset = CGPointMake(0, y);
-//    }else if (y > 0) {
-//        scrollView.contentOffset = CGPointMake(0, 0);
-//        self.pageView.userInteractionEnabled = YES;
-//        self.scrollView.scrollEnabled = NO;
-//    }
 
-}
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{
-        NSLog(@"%@", scrollView);
-      CGFloat y = scrollView.contentOffset.y;
-}
 
 
 #pragma mark - ========= Setter & Getter =========
+
+
+
 
 @end

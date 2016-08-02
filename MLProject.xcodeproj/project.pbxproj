@@ -266,7 +266,13 @@
 		FEC349471BEEFB0D0076E88B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC349461BEEFB0D0076E88B /* AppDelegate.m */; };
 		FEC3494F1BEEFB0D0076E88B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEC3494E1BEEFB0D0076E88B /* Images.xcassets */; };
 		FEC349521BEEFB0D0076E88B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEC349501BEEFB0D0076E88B /* LaunchScreen.xib */; };
+		FEC65C0B1D4DEF9F00DA823E /* MLPageSubViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC65C0A1D4DEF9F00DA823E /* MLPageSubViewController1.m */; };
+		FEC65C0E1D4DEFA800DA823E /* MLPageSubViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC65C0D1D4DEFA800DA823E /* MLPageSubViewController2.m */; };
+		FEC65C111D4DEFAF00DA823E /* MLPageSubViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC65C101D4DEFAF00DA823E /* MLPageSubViewController3.m */; };
 		FED38B5D1CD6394C0007B0D0 /* NSObject+ChainFileCreater.m in Sources */ = {isa = PBXBuildFile; fileRef = FED38B5C1CD6394C0007B0D0 /* NSObject+ChainFileCreater.m */; };
+		FEDC82421D4E654B009C6445 /* test@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEDC82401D4E654B009C6445 /* test@2x.png */; };
+		FEDC82431D4E654B009C6445 /* test@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEDC82411D4E654B009C6445 /* test@3x.png */; };
+		FEDC82461D4FA9B3009C6445 /* MLPageViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDC82451D4FA9B3009C6445 /* MLPageViewController2.m */; };
 		FEDD9EF71D43D4CC00DC2FC4 /* MLViewInCLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDD9EF61D43D4CC00DC2FC4 /* MLViewInCLViewController.m */; };
 		FEDD9EFA1D43D4FB00DC2FC4 /* MLViewInCLView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDD9EF91D43D4FB00DC2FC4 /* MLViewInCLView.m */; };
 		FEDF13C51CB9521F00156D85 /* CABasicAnimation+ML_make.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDF13C41CB9521F00156D85 /* CABasicAnimation+ML_make.m */; };
@@ -778,8 +784,18 @@
 		FEC3495C1BEEFB0D0076E88B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FEC3495D1BEEFB0D0076E88B /* MLProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLProjectTests.m; sourceTree = "<group>"; };
 		FEC34A241BEF00380076E88B /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		FEC65C091D4DEF9F00DA823E /* MLPageSubViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPageSubViewController1.h; sourceTree = "<group>"; };
+		FEC65C0A1D4DEF9F00DA823E /* MLPageSubViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPageSubViewController1.m; sourceTree = "<group>"; };
+		FEC65C0C1D4DEFA800DA823E /* MLPageSubViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPageSubViewController2.h; sourceTree = "<group>"; };
+		FEC65C0D1D4DEFA800DA823E /* MLPageSubViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPageSubViewController2.m; sourceTree = "<group>"; };
+		FEC65C0F1D4DEFAF00DA823E /* MLPageSubViewController3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPageSubViewController3.h; sourceTree = "<group>"; };
+		FEC65C101D4DEFAF00DA823E /* MLPageSubViewController3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPageSubViewController3.m; sourceTree = "<group>"; };
 		FED38B5B1CD6394C0007B0D0 /* NSObject+ChainFileCreater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ChainFileCreater.h"; sourceTree = "<group>"; };
 		FED38B5C1CD6394C0007B0D0 /* NSObject+ChainFileCreater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ChainFileCreater.m"; sourceTree = "<group>"; };
+		FEDC82401D4E654B009C6445 /* test@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test@2x.png"; sourceTree = "<group>"; };
+		FEDC82411D4E654B009C6445 /* test@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test@3x.png"; sourceTree = "<group>"; };
+		FEDC82441D4FA9B3009C6445 /* MLPageViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPageViewController2.h; sourceTree = "<group>"; };
+		FEDC82451D4FA9B3009C6445 /* MLPageViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPageViewController2.m; sourceTree = "<group>"; };
 		FEDD9EF51D43D4CC00DC2FC4 /* MLViewInCLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLViewInCLViewController.h; sourceTree = "<group>"; };
 		FEDD9EF61D43D4CC00DC2FC4 /* MLViewInCLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLViewInCLViewController.m; sourceTree = "<group>"; };
 		FEDD9EF81D43D4FB00DC2FC4 /* MLViewInCLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLViewInCLView.h; sourceTree = "<group>"; };
@@ -899,6 +915,14 @@
 				1690CABD1D49AA0E001A0B3C /* MLPageViewController.storyboard */,
 				1690CAC21D49ACDB001A0B3C /* MLPageViewController.h */,
 				1690CAC31D49ACDB001A0B3C /* MLPageViewController.m */,
+				FEDC82441D4FA9B3009C6445 /* MLPageViewController2.h */,
+				FEDC82451D4FA9B3009C6445 /* MLPageViewController2.m */,
+				FEC65C091D4DEF9F00DA823E /* MLPageSubViewController1.h */,
+				FEC65C0A1D4DEF9F00DA823E /* MLPageSubViewController1.m */,
+				FEC65C0C1D4DEFA800DA823E /* MLPageSubViewController2.h */,
+				FEC65C0D1D4DEFA800DA823E /* MLPageSubViewController2.m */,
+				FEC65C0F1D4DEFAF00DA823E /* MLPageSubViewController3.h */,
+				FEC65C101D4DEFAF00DA823E /* MLPageSubViewController3.m */,
 			);
 			path = PageViewController;
 			sourceTree = "<group>";
@@ -1740,6 +1764,8 @@
 				FEC3494E1BEEFB0D0076E88B /* Images.xcassets */,
 				FEC349501BEEFB0D0076E88B /* LaunchScreen.xib */,
 				FE48EE1D1D3A8A29002FE0A3 /* test0.png */,
+				FEDC82401D4E654B009C6445 /* test@2x.png */,
+				FEDC82411D4E654B009C6445 /* test@3x.png */,
 				FE76C9ED1C08BAA600192239 /* test.png */,
 				FE48EE191D3A89DF002FE0A3 /* test2.png */,
 				FE48EE1A1D3A89DF002FE0A3 /* test1.png */,
@@ -2002,6 +2028,7 @@
 				1895E1301C5B50840046411D /* IQKeyboardManager.storyboard in Resources */,
 				FEE30BA71C03412500B79F8D /* LoadNibSubView.xib in Resources */,
 				FE29A26F1C513365006FF01E /* 44C5FC76-E862-43F6-824E-0FBBAFADA5CA.png in Resources */,
+				FEDC82431D4E654B009C6445 /* test@3x.png in Resources */,
 				FE48EE1E1D3A8A29002FE0A3 /* test0.png in Resources */,
 				FEE3DCA31CF72BB60046B515 /* MLMedia.storyboard in Resources */,
 				FE31D0E61BFE15FF00D63286 /* MultiThreadController.xib in Resources */,
@@ -2018,6 +2045,7 @@
 				FE514DB31C1BFCDB00E3AC0C /* RunTimeController.xib in Resources */,
 				169176B01D3A45F200086A5A /* MLAlertView.xib in Resources */,
 				FE328C8C1D26AB3100F96691 /* MLMJRefresh.storyboard in Resources */,
+				FEDC82421D4E654B009C6445 /* test@2x.png in Resources */,
 				FEE6A6931C691188008760CA /* AlgorithmPlay.storyboard in Resources */,
 				FE48EE1C1D3A89DF002FE0A3 /* test1.png in Resources */,
 				FE9F364D1CFC4ACC00A16744 /* MLMap.storyboard in Resources */,
@@ -2220,6 +2248,7 @@
 				16B8B1C21D4201D000434758 /* MLCustomCLCell.m in Sources */,
 				FEC349441BEEFB0D0076E88B /* main.m in Sources */,
 				18DC19801C58C9C40049BD18 /* MLTableSeparationManager.m in Sources */,
+				FEC65C111D4DEFAF00DA823E /* MLPageSubViewController3.m in Sources */,
 				FE6B22781CD65178007733FD /* UILabel+MLChain.m in Sources */,
 				FEDF1FF01C4A64A200DF9A8D /* FDTBCell.m in Sources */,
 				FEF7DDA81C7CC4EF00BF3630 /* MLCALayerView2.m in Sources */,
@@ -2277,9 +2306,11 @@
 				FEDD9EFA1D43D4FB00DC2FC4 /* MLViewInCLView.m in Sources */,
 				FE06A0941CA7B01200758B37 /* MLImageNextController.m in Sources */,
 				FE384E071D2E9D2400D5F282 /* MLNavigationTestViewController2.m in Sources */,
+				FEC65C0E1D4DEFA800DA823E /* MLPageSubViewController2.m in Sources */,
 				18C276891C7D41020055C19D /* UITableViewCell+Separator.m in Sources */,
 				1822284B1CAE86DD00A7E43D /* ALFootballLotteryController.m in Sources */,
 				16BC0B8B1D2CFEF10041D124 /* UILabel+CommonType.m in Sources */,
+				FEC65C0B1D4DEF9F00DA823E /* MLPageSubViewController1.m in Sources */,
 				FE328C8F1D26AB4D00F96691 /* MLMJRefreshViewController.m in Sources */,
 				18C276871C7D41020055C19D /* UITableView+ML_Tools.m in Sources */,
 				FE6B22691CD65178007733FD /* MLChain4CALayer.m in Sources */,
@@ -2288,6 +2319,7 @@
 				FE6B22771CD65178007733FD /* UIControl+MLChain.m in Sources */,
 				FEE55D201BF71E1D00C8F783 /* ScrollViewInXibController.m in Sources */,
 				18C2767F1C7D41020055C19D /* UIImage+ML_Tools.m in Sources */,
+				FEDC82461D4FA9B3009C6445 /* MLPageViewController2.m in Sources */,
 				18C276641C7D41020055C19D /* NSObject+ML_ModelMethodHelper.m in Sources */,
 				18C276941C7D41020055C19D /* UIView+ML_Tools.m in Sources */,
 				FE48EE211D3C7FB3002FE0A3 /* BGTToastManager.m in Sources */,

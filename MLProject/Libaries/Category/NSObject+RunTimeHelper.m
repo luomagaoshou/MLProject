@@ -255,5 +255,22 @@
     }
     return postParameter;
 }
+#pragma mark - ========= Setter & Getter =========
+- (void)setFeatureIdentifier:(NSString *)featureIdentifier
+{
+    objc_setAssociatedObject(self, @selector(featureIdentifier), featureIdentifier, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+- (NSString *)featureIdentifier
+{
+    return objc_getAssociatedObject(self, @selector(featureIdentifier));
+}
 
+- (void)setOperationIdentifier:(NSString *)operationIdentifier
+{
+    objc_setAssociatedObject(self, @selector(operationIdentifier), operationIdentifier, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+- (NSString *)operationIdentifier
+{
+    return objc_getAssociatedObject(self, @selector(operationIdentifier));
+}
 @end

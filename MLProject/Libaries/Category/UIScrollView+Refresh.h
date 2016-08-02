@@ -27,4 +27,5 @@ typedef NS_ENUM(NSInteger, UIScrollViewLoadType) {
 @property (nonatomic, assign) NSInteger pageNumber;
 @property (nonatomic, assign) UIScrollViewStatusType statusType;
 @property (nonatomic, assign) UIScrollViewLoadType loadType;
+
 @end

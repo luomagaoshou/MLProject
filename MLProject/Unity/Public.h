@@ -36,5 +36,5 @@
 #import "UIViewController+Storyboard.h"
 #import "UIButton+Init.h"
 #import "MLChain.h"
-
+#import "UIScrollView+Refresh.h"
 #endif /* Public_h */
