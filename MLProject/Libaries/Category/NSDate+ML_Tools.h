@@ -9,11 +9,18 @@
 #import <Foundation/Foundation.h>
 
 @interface NSDate (ML_Tools)
-
-+ (NSString *)getCurrentTimeWithDateFormat:(NSString *)dateFormat;
-+ (NSString *)timeStringWithTimestamp:(id)timestampValue dateFormat:(NSString *)dateFormat;
 + (instancetype)dateWithDateString:(NSString *)dateString dateFormat:(NSString *)dateFormat;
 
+
+- (NSString *)timeStringWithDateFormat:(NSString *)dateFormat;
+- (NSString *)timeStringWithDateFormat:(NSString *)dateFormat isIntellectual:(BOOL)isIntellectual;
++ (NSString *)currentTimeStringWithDateFormat:(NSString *)dateFormat;
+
++ (NSString *)timeStringWithTimestamp:(id)timestampValue dateFormat:(NSString *)dateFormat;
+
+
+
++ (NSString *)timeLongStringWithTimestamp:(id)timestampValue;
 
 
 

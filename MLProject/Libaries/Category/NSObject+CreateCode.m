@@ -239,7 +239,7 @@ NSString *const kML_CreateCodeFileType_m = @"m";
 + (NSString *)ML_createPropertyStringWithClass:(Class)aClass
 {
  
-    NSArray *attrs = [aClass getPropertyAttributeList];
+    NSArray *attrs = [aClass arrayOfPropertyAttributes];
          NSMutableString *createString = [[NSMutableString alloc] init];
     [createString appendString:@"#pragma mark - ========= Setter & Getter =========\n"];
     for (NSInteger i = 0; i < attrs.count; i++) {
@@ -294,7 +294,7 @@ NSString *const kML_CreateCodeFileType_m = @"m";
     }
    
     [mutStr appendString:@"if (self) {\n"];
-    NSArray *properties = [aClass getPropertyList];
+    NSArray *properties = [aClass arrayOfProperties];
     for (NSInteger i = 0; i < properties.count; i++) {
         [mutStr appendString:[NSString stringWithFormat:@"[self addSubview:self.%@];\n", properties[i]]];
     }
@@ -311,7 +311,7 @@ NSString *const kML_CreateCodeFileType_m = @"m";
     [mutStr appendString:@"#pragma mark - ========= LayoutSubviews =========\n"];
  
     [mutStr appendString:@"- (void)layoutSubviews\n{\n"];
-       NSArray *properties = [aClass getPropertyList];
+       NSArray *properties = [aClass arrayOfProperties];
     for (NSInteger i = 0; i < properties.count; i++) {
         [mutStr appendString:[NSString stringWithFormat:@"//self.%@.frame = CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>);\n",properties[i]]];
     }
@@ -332,7 +332,7 @@ NSString *const kML_CreateCodeFileType_m = @"m";
 
 + (NSString *)ML_createGetterMethodStringWithClass:(Class)aClass
 {
-    NSArray *attrs = [aClass getPropertyAttributeList];
+    NSArray *attrs = [aClass arrayOfPropertyAttributes];
     NSMutableString *getterMethodString = [[NSMutableString alloc] init];
     for (NSInteger i = 0; i < attrs.count; i++) {
         [getterMethodString appendString:@"- ("];
@@ -359,11 +359,11 @@ NSString *const kML_CreateCodeFileType_m = @"m";
     NSDictionary *info = [[NSBundle mainBundle] infoDictionary];
     NSString *appName = [info valueForKey:@"CFBundleName"];
     
-    NSString *dateStr = [NSDate getCurrentTimeWithDateFormat:@"yyyy/MM/dd"];
+    NSString *dateStr = [NSDate currentTimeStringWithDateFormat:@"yyyy/MM/dd"];
     NSString *createrName = @"赖妙龙";
     NSString *createDetailStr = [NSString stringWithFormat:@"Created by %@ on %@.",createrName, dateStr];
     
-    NSString *yearStr = [NSDate getCurrentTimeWithDateFormat:@"yyyy"];
+    NSString *yearStr = [NSDate currentTimeStringWithDateFormat:@"yyyy"];
     NSString *companyName = @"myCompany";
     NSString *copyRightStr = [NSString stringWithFormat:@"Copyright © %@年 %@. All rights reserved.",yearStr, companyName];
     
@@ -396,7 +396,7 @@ NSString *const kML_CreateCodeFileType_m = @"m";
 }
 + (NSString *)ML_createXibViewInitHelperWithClass:(Class)aClass isOutPutToDeskTop:(BOOL)isOutPutToDeskTop
 {
-    NSArray *properties= [aClass getPropertyList];
+    NSArray *properties= [aClass arrayOfProperties];
     NSMutableString *initHelperString = [[NSMutableString alloc] init];
     
     NSString *layoutStr = [NSObject ML_createLayoutStringWithClass:aClass];

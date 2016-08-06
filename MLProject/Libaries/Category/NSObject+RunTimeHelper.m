@@ -12,7 +12,7 @@
 @implementation NSObject (RunTimeHelper)
 
 
-+ (NSArray *)getIvarList
++ (NSArray *)arrayOfIvars
 {
     unsigned int count = 0;
     //获取类中所有属性名
@@ -32,7 +32,7 @@
 }
 
 
-+ (NSArray *)getPropertyList
++ (NSArray *)arrayOfProperties
 {
     unsigned int count = 0;
     //获取类中所有成员变量
@@ -52,7 +52,7 @@
     
 }
 
-+ (NSArray *)getInstanceMethodList
++ (NSArray *)arrayOfInstanceMethods
 {
     unsigned int count = 0;
     Method *methodList = class_copyMethodList([self class], &count);
@@ -75,7 +75,7 @@
     return methods;
 }
 
-+ (NSArray *)getClassMethodList
++ (NSArray *)arrayOfClassMethods
 {
 
     unsigned int count = 0;
@@ -99,7 +99,7 @@
 }
 
 
-+ (NSArray *)getProtocolList
++ (NSArray *)arrayOfProtocols
 {
     
      Protocol * protocols1 = objc_getProtocol("NSCoding");
@@ -118,10 +118,10 @@
     free(protocols);
     return protocolArray;
 }
-+ (NSArray *)getSubClassList
++ (NSArray *)arrayOfSubClasses
 {
      NSMutableArray * classList = [NSMutableArray array];
-    NSArray *allClassList = [self getClassListWithPrefixs:@[@"NS", @"UI", @"CA"]];
+    NSArray *allClassList = [self arrayOfClassesWithPrefixs:@[@"NS", @"UI", @"CA"]];
     
     
     for (NSString *className in allClassList) {
@@ -132,11 +132,11 @@
     }
     return classList;
 }
-+ (NSArray *)getClassListWithPrefixs:(NSArray *)prefixs
++ (NSArray *)arrayOfClassesWithPrefixs:(NSArray *)prefixs
 {
     
     NSMutableArray * classList = [NSMutableArray array];
-    NSArray *allClassList = [self getAllClassList];
+    NSArray *allClassList = [self arrayOfAllClass];
     for (NSString *className in allClassList) {
        
         for (NSString *prefix in prefixs) {
@@ -152,7 +152,7 @@
     }
     return classList;
 }
-+ (NSArray *)getAllClassList {
++ (NSArray *)arrayOfAllClass {
     NSMutableArray * classList = [NSMutableArray array];
     
     unsigned int classesCount = 0;
@@ -169,7 +169,7 @@
     return classList;
 }
 
-+ (NSArray *)getPropertyAttributeList
++ (NSArray *)arrayOfPropertyAttributes
 {
     
         unsigned int count = 0;
@@ -199,7 +199,7 @@
 {
 
     id object =  [[[self class] alloc] init];
-    NSArray *urlConfigProperties = [[self class] getPropertyList];
+    NSArray *urlConfigProperties = [[self class] arrayOfProperties];
     for (NSInteger i = 0; i< urlConfigProperties.count; i++) {
         if ([self valueForKey:urlConfigProperties[i]]) {
             [object setValue:[self valueForKey:urlConfigProperties[i]] forKey:urlConfigProperties[i]];
@@ -209,7 +209,7 @@
 }
 - (void)setObjectPropertyAllKeyValueNil
 {
-    NSArray *properties = [[self class] getPropertyList];
+    NSArray *properties = [[self class] arrayOfProperties];
    
     for (NSInteger i = 0; i < properties.count; i++) {
         if ([self valueForKey:properties[i]]) {
@@ -227,9 +227,9 @@
 }
 #pragma mark - ========= 拼接 =========
 
-- (NSDictionary *)getPropertyKeyValueOnlyHaveValueDictionary
+- (NSDictionary *)dictionaryOfPropertyKeyValues
 {
-    NSArray *properties = [[self class] getPropertyList];
+    NSArray *properties = [[self class] arrayOfProperties];
     NSMutableDictionary *keyValueDictionary = [[NSMutableDictionary alloc] init];
     for (NSInteger i = 0; i < properties.count; i++) {
         if ([self valueForKey:properties[i]]) {
@@ -238,24 +238,35 @@
     }
     return keyValueDictionary;
 }
-+ (NSDictionary *)getPropertyDictionaryJoinedWithIvarList:(NSArray *)ivarList model:(id)model
+
+- (NSDictionary *)dictionaryWithIvarList:(NSArray *)ivarList
 {
     //取Model成员变量拼接字典
     NSMutableDictionary *postParameter = [[NSMutableDictionary alloc] init];
     for (NSInteger i = 0 ; i< ivarList.count; i++) {
         
-        NSString *propertyName = ivarList[i];
-        id propertyValue = [model valueForKey:propertyName];
-        if (!propertyValue) {
-            propertyValue = @"";
+        NSString *ivarName = ivarList[i];
+        id value = [self valueForKey:ivarName];
+        if (value) {
+            if ([ivarName hasPrefix:@"_"]) {
+                ivarName = [ivarName substringFromIndex:1];
+            }
+            [postParameter addEntriesFromDictionary:@{ivarName:value}];
         }
-        NSString *actualPropertyName = [propertyName substringFromIndex:1];
-        [postParameter addEntriesFromDictionary:@{actualPropertyName:propertyValue}];
+      
         
     }
     return postParameter;
 }
 #pragma mark - ========= Setter & Getter =========
+- (void)setOperationIdentifier:(NSString *)operationIdentifier
+{
+    objc_setAssociatedObject(self, @selector(operationIdentifier), operationIdentifier, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+- (NSString *)operationIdentifier
+{
+    return objc_getAssociatedObject(self, @selector(operationIdentifier));
+}
 - (void)setFeatureIdentifier:(NSString *)featureIdentifier
 {
     objc_setAssociatedObject(self, @selector(featureIdentifier), featureIdentifier, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -265,12 +276,4 @@
     return objc_getAssociatedObject(self, @selector(featureIdentifier));
 }
 
-- (void)setOperationIdentifier:(NSString *)operationIdentifier
-{
-    objc_setAssociatedObject(self, @selector(operationIdentifier), operationIdentifier, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-- (NSString *)operationIdentifier
-{
-    return objc_getAssociatedObject(self, @selector(operationIdentifier));
-}
 @end

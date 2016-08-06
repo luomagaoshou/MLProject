@@ -22,7 +22,7 @@
 @end
 NSString *nameGetter(id self, SEL _cmd) {
     Ivar ivar = class_getInstanceVariable([SomeClass class], "_name");
-    [self getPropertyList];
+    [[self class] arrayOfProperties];
     return object_getIvar(self, ivar);
 }
 

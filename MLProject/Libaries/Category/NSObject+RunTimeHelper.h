@@ -19,29 +19,28 @@
  *  @return
  */
 
-+ (NSArray *)getIvarList;
++ (NSArray *)arrayOfIvars;
 
 //获取成员变量列表
 
-+ (NSArray *)getPropertyList;
++ (NSArray *)arrayOfProperties;
 
 
 
 
-+ (NSArray *)getInstanceMethodList;
-+ (NSArray *)getClassMethodList;
++ (NSArray *)arrayOfInstanceMethods;
++ (NSArray *)arrayOfClassMethods;
 
 
-+ (NSArray *)getProtocolList;
++ (NSArray *)arrayOfProtocols;
 
-+ (NSArray *)getClassListWithPrefixs:(NSArray *)prefixs;
-+ (NSArray *)getClassListWithClassName:(NSString *)className;
-+ (NSArray *)getAllClassList;
-+ (NSArray *)getSubClassList;
++ (NSArray *)arrayOfClassesWithPrefixs:(NSArray *)prefixs;
++ (NSArray *)arrayOfAllClass;
++ (NSArray *)arrayOfSubClasses;
 
 
-- (NSDictionary *)getPropertyKeyValueOnlyHaveValueDictionary;
-+ (NSArray *)getPropertyAttributeList;
+- (NSDictionary *)dictionaryOfPropertyKeyValues;
++ (NSArray *)arrayOfPropertyAttributes;
 
 /**
  *  清对象所有成员变量值
@@ -57,17 +56,18 @@
  */
 - (id)createSameObject;
 /**
- *  传入成员变量列表与model 只有赋  返回字典
+ *  传入成员变量列表与object   返回对应字典
  *
  *  @param ivarList
  *  @param model
  *
  *  @return 字典
  */
-+ (NSDictionary *)getPropertyDictionaryJoinedWithIvarList:(NSArray *)ivarList model:(id)model;
+- (NSDictionary *)dictionaryWithIvarList:(NSArray *)ivarList;
 
 @property (nonatomic, strong) NSString *featureIdentifier;
 @property (nonatomic, strong) NSString *operationIdentifier;
+
 @end
 
 
