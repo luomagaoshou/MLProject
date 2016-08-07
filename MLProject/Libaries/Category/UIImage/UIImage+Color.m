@@ -149,10 +149,10 @@
  *  @return 获得灰度图片
  */
 
-+ (UIImage*)covertToGrayImageFromImage:(UIImage*)sourceImage
+- (UIImage*)imageByConvertingToGray
 {
-    int width = sourceImage.size.width;
-    int height = sourceImage.size.height;
+    int width = self.size.width;
+    int height = self.size.height;
     
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceGray();
     CGContextRef context = CGBitmapContextCreate (nil,width,height,8,0,colorSpace,kCGImageAlphaNone);
@@ -162,7 +162,7 @@
         return nil;
     }
     
-    CGContextDrawImage(context,CGRectMake(0, 0, width, height), sourceImage.CGImage);
+    CGContextDrawImage(context,CGRectMake(0, 0, width, height), self.CGImage);
     CGImageRef contextRef = CGBitmapContextCreateImage(context);
     UIImage *grayImage = [UIImage imageWithCGImage:contextRef];
     CGContextRelease(context);

@@ -13,6 +13,8 @@
 #import "MLPageSubViewController1.h"
 #import "MLPageSubViewController2.h"
 #import "MLPageSubViewController3.h"
+#import "UINavigationBar+Appearance.h"
+
 @interface MLPageViewStickyView : UIView
 @property (weak, nonatomic) IBOutlet UIView *topView;
 @property (weak, nonatomic) IBOutlet MLMenuCollectionView *menuCollectionView;
@@ -158,6 +160,7 @@
     [self.stickyView.menuCollectionView setTitles:@[@"1", @"2", @"3"] clickBlock:^(NSInteger index) {
         @strongify(self);
         NSLog(@"%ld", index);
+      
         NSInteger direction = [self.viewControllers indexOfObject:self.pageViewController.viewControllers.firstObject] < index;
          [self.pageViewController setViewControllers:@[self.viewControllers[index]] direction:direction animated:YES completion:nil];
     }];

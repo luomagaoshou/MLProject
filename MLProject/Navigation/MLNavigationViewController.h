@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MLNavigationViewController : UIViewController
-
+@property (nonatomic, assign) NSInteger navigationBarCommonType;
 @end

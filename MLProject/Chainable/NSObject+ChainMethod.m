@@ -427,7 +427,7 @@
 //所有返回值为空函数视为设置函数
 + (NSArray *)ml_noReturnValueSelNames
 {
-    NSArray *selNames = [self getInstanceMethodList];
+    NSArray *selNames = [self arrayOfInstanceMethods];
     NSMutableArray *resultSelNames = [[NSMutableArray alloc] init];
     
     for (NSString *selName in selNames) {

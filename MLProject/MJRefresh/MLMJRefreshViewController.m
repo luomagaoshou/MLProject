@@ -101,7 +101,7 @@
     //    tapView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     //    [emptyDataSetView addSubview:tapView];
     //    [emptyDataSetView sendSubviewToBack:tapView];
-    //    NSLog(@"%@", [emptyDataSetView getPropertyKeyValueOnlyHaveValueDictionary]);
+    //    NSLog(@"%@", [emptyDataSetView dictionaryOfPropertyKeyValues]);
     //    [tapView tapWithEvent:^(id gesture) {
     //        NSLog(@"%@", emptyDataSetView);
     //    }];

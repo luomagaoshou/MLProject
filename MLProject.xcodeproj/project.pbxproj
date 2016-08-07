@@ -273,6 +273,10 @@
 		FEDC82421D4E654B009C6445 /* test@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEDC82401D4E654B009C6445 /* test@2x.png */; };
 		FEDC82431D4E654B009C6445 /* test@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEDC82411D4E654B009C6445 /* test@3x.png */; };
 		FEDC82461D4FA9B3009C6445 /* MLPageViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDC82451D4FA9B3009C6445 /* MLPageViewController2.m */; };
+		FEDC824D1D56FD1D009C6445 /* MLTintColor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEDC824C1D56FD1D009C6445 /* MLTintColor.storyboard */; };
+		FEDC82501D56FD28009C6445 /* MLTintColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDC824F1D56FD28009C6445 /* MLTintColorViewController.m */; };
+		FEDC82551D57003B009C6445 /* MLTintColorTBCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEDC82531D57003B009C6445 /* MLTintColorTBCell.xib */; };
+		FEDC82581D570188009C6445 /* MLTintColorTBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDC82571D570188009C6445 /* MLTintColorTBCell.m */; };
 		FEDD9EF71D43D4CC00DC2FC4 /* MLViewInCLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDD9EF61D43D4CC00DC2FC4 /* MLViewInCLViewController.m */; };
 		FEDD9EFA1D43D4FB00DC2FC4 /* MLViewInCLView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDD9EF91D43D4FB00DC2FC4 /* MLViewInCLView.m */; };
 		FEDF13C51CB9521F00156D85 /* CABasicAnimation+ML_make.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDF13C41CB9521F00156D85 /* CABasicAnimation+ML_make.m */; };
@@ -772,7 +776,7 @@
 		FEA1C87D1CB6B60A00B5A9D3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FEB529CF1BEF057700EAA6C1 /* Public.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Public.h; sourceTree = "<group>"; };
 		FEB529D01BEF1EBA00EAA6C1 /* RootController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootController.h; sourceTree = "<group>"; };
-		FEB529D11BEF1EBA00EAA6C1 /* RootController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootController.m; path = ../RootController.m; sourceTree = "<group>"; };
+		FEB529D11BEF1EBA00EAA6C1 /* RootController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootController.m; sourceTree = "<group>"; };
 		FEB529D31BEF208A00EAA6C1 /* RootController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootController.xib; sourceTree = "<group>"; };
 		FEC3493E1BEEFB0D0076E88B /* MLProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEC349421BEEFB0D0076E88B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -796,6 +800,12 @@
 		FEDC82411D4E654B009C6445 /* test@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test@3x.png"; sourceTree = "<group>"; };
 		FEDC82441D4FA9B3009C6445 /* MLPageViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPageViewController2.h; sourceTree = "<group>"; };
 		FEDC82451D4FA9B3009C6445 /* MLPageViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPageViewController2.m; sourceTree = "<group>"; };
+		FEDC824C1D56FD1D009C6445 /* MLTintColor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLTintColor.storyboard; sourceTree = "<group>"; };
+		FEDC824E1D56FD28009C6445 /* MLTintColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLTintColorViewController.h; sourceTree = "<group>"; };
+		FEDC824F1D56FD28009C6445 /* MLTintColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLTintColorViewController.m; sourceTree = "<group>"; };
+		FEDC82531D57003B009C6445 /* MLTintColorTBCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MLTintColorTBCell.xib; sourceTree = "<group>"; };
+		FEDC82561D570188009C6445 /* MLTintColorTBCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLTintColorTBCell.h; sourceTree = "<group>"; };
+		FEDC82571D570188009C6445 /* MLTintColorTBCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLTintColorTBCell.m; sourceTree = "<group>"; };
 		FEDD9EF51D43D4CC00DC2FC4 /* MLViewInCLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLViewInCLViewController.h; sourceTree = "<group>"; };
 		FEDD9EF61D43D4CC00DC2FC4 /* MLViewInCLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLViewInCLViewController.m; sourceTree = "<group>"; };
 		FEDD9EF81D43D4FB00DC2FC4 /* MLViewInCLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLViewInCLView.h; sourceTree = "<group>"; };
@@ -935,7 +945,6 @@
 				FE48EE2B1D412432002FE0A3 /* MLCustomCLView.h */,
 				FE48EE2C1D412432002FE0A3 /* MLCustomCLView.m */,
 				167973AA1D41C6AF0056EDD7 /* CSAlwaysOnTopHeader.h */,
-				FEB529D11BEF1EBA00EAA6C1 /* RootController.m */,
 				167973AB1D41C6AF0056EDD7 /* CSAlwaysOnTopHeader.m */,
 				167973AC1D41C6AF0056EDD7 /* CSAlwaysOnTopHeader.xib */,
 			);
@@ -1717,7 +1726,9 @@
 				18B2D8711C5388BA0063AEB5 /* ProjectManager.h */,
 				18B2D8721C5388BA0063AEB5 /* ProjectManager.m */,
 				FEB529D01BEF1EBA00EAA6C1 /* RootController.h */,
+				FEB529D11BEF1EBA00EAA6C1 /* RootController.m */,
 				FEB529D31BEF208A00EAA6C1 /* RootController.xib */,
+				FEDC824B1D56FD05009C6445 /* TintColor */,
 				1690CABC1D49A9F7001A0B3C /* PageViewController */,
 				FE48EE251D4123E0002FE0A3 /* CustomViewController */,
 				FE384E081D2FD31800D5F282 /* MLTextField */,
@@ -1814,6 +1825,19 @@
 				FEE30BB21C03421C00B79F8D /* LoadNibCommon */,
 			);
 			path = Libaries;
+			sourceTree = "<group>";
+		};
+		FEDC824B1D56FD05009C6445 /* TintColor */ = {
+			isa = PBXGroup;
+			children = (
+				FEDC824C1D56FD1D009C6445 /* MLTintColor.storyboard */,
+				FEDC824E1D56FD28009C6445 /* MLTintColorViewController.h */,
+				FEDC824F1D56FD28009C6445 /* MLTintColorViewController.m */,
+				FEDC82561D570188009C6445 /* MLTintColorTBCell.h */,
+				FEDC82571D570188009C6445 /* MLTintColorTBCell.m */,
+				FEDC82531D57003B009C6445 /* MLTintColorTBCell.xib */,
+			);
+			name = TintColor;
 			sourceTree = "<group>";
 		};
 		FEDF1FEA1C4A63FD00DF9A8D /* FDTBCellAutoHeight */ = {
@@ -2034,6 +2058,7 @@
 				FE31D0E61BFE15FF00D63286 /* MultiThreadController.xib in Resources */,
 				FE0C63121D1683E900F73C95 /* NibCLCell.xib in Resources */,
 				FE60DBD71C5108A3009D836E /* MLSBTestCell.xib in Resources */,
+				FEDC82551D57003B009C6445 /* MLTintColorTBCell.xib in Resources */,
 				FEF670901D4312CF00AF7115 /* MLCustomCLInCLCell.xib in Resources */,
 				FEE55D211BF71E1D00C8F783 /* ScrollViewInXibController.xib in Resources */,
 				FEC349521BEEFB0D0076E88B /* LaunchScreen.xib in Resources */,
@@ -2053,6 +2078,7 @@
 				181F99131CE091A900DB57CA /* MLResponderChain.storyboard in Resources */,
 				FE514DB91C1C128400E3AC0C /* ECPOrderJSONStr.json in Resources */,
 				FEE6A69C1C734C66008760CA /* MLAnimations.storyboard in Resources */,
+				FEDC824D1D56FD1D009C6445 /* MLTintColor.storyboard in Resources */,
 				FE48EE1B1D3A89DF002FE0A3 /* test2.png in Resources */,
 				FEB529D41BEF208A00EAA6C1 /* RootController.xib in Resources */,
 				183853DB1CE1CAA0006B3262 /* MLSplit.storyboard in Resources */,
@@ -2203,6 +2229,7 @@
 				1895E1331C5B534B0046411D /* IQKeyboardManagerView.m in Sources */,
 				FE6B22791CD65178007733FD /* UIResponder+MLChain.m in Sources */,
 				FE495AB31D47BC8200606B2D /* MLReuseVCViewController.m in Sources */,
+				FEDC82501D56FD28009C6445 /* MLTintColorViewController.m in Sources */,
 				18D8E07D1C84576400706195 /* NSObject+ML_Tools.m in Sources */,
 				FEE30BBB1C03421C00B79F8D /* UIView+Ext.m in Sources */,
 				FE0C63111D1683E900F73C95 /* NibCLCell.m in Sources */,
@@ -2230,6 +2257,7 @@
 				169176AE1D3A45F200086A5A /* DZNEmptyDataSeparator.m in Sources */,
 				FEE55D161BF4DA1C00C8F783 /* NibToViewView.m in Sources */,
 				FE6B22621CD65178007733FD /* CALayer+MLChain.m in Sources */,
+				FEDC82581D570188009C6445 /* MLTintColorTBCell.m in Sources */,
 				FEE30BB91C03421C00B79F8D /* FileOwner.m in Sources */,
 				167973AD1D41C6AF0056EDD7 /* CSAlwaysOnTopHeader.m in Sources */,
 				18C2767C1C7D41020055C19D /* UIImage+Resize.m in Sources */,

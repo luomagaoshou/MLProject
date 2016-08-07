@@ -179,7 +179,7 @@ MJCodingImplementation
     [self handlePostParam];
     
     [manager POST:self.urlConfig.urlString
-       parameters:[self.requestParam getPropertyKeyValueOnlyHaveValueDictionary]
+       parameters:[self.requestParam dictionaryOfPropertyKeyValues]
           success:^(NSURLSessionDataTask *task, id responseObject) {
               
               [self handleSuccess:success task:task responseObject:responseObject completion:completion];
@@ -205,7 +205,7 @@ MJCodingImplementation
     
     
     
-    [manager POST:self.urlConfig.urlString parameters:[self.requestParam getPropertyKeyValueOnlyHaveValueDictionary] constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    [manager POST:self.urlConfig.urlString parameters:[self.requestParam dictionaryOfPropertyKeyValues] constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         NSArray *images = [self.messageSender.images copy];
         if (images) {
             for (NSInteger i = 0; i < images.count; i ++) {
@@ -239,7 +239,7 @@ MJCodingImplementation
 - (NSString *)handleGetParam
 {
     
-    NSDictionary *propertyDic = [self.requestParam getPropertyKeyValueOnlyHaveValueDictionary];
+    NSDictionary *propertyDic = [self.requestParam dictionaryOfPropertyKeyValues];
     
     
     NSString *getRequestURlString;
@@ -259,7 +259,7 @@ MJCodingImplementation
 {
     
     
-    NSDictionary *paramPackageDic =  [self.paramPackage getPropertyKeyValueOnlyHaveValueDictionary];
+    NSDictionary *paramPackageDic =  [self.paramPackage dictionaryOfPropertyKeyValues];
     if (paramPackageDic.count) {
         self.requestParam.jsonData = [paramPackageDic mj_JSONString];
         
@@ -294,9 +294,9 @@ MJCodingImplementation
 #endif
     
 #if DEBUG
-    NSDictionary *propertyDic = [self.requestParam getPropertyKeyValueOnlyHaveValueDictionary];
+    NSDictionary *propertyDic = [self.requestParam dictionaryOfPropertyKeyValues];
     
-    NSData *data = [[self.paramPackage getPropertyKeyValueOnlyHaveValueDictionary] mj_JSONData];
+    NSData *data = [[self.paramPackage dictionaryOfPropertyKeyValues] mj_JSONData];
     
     NSJSONSerialization *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
     

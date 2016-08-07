@@ -78,6 +78,8 @@
     [mutAttrStr appendAttributedString:[[NSAttributedString alloc] initWithString:text]];
     cell.textLabel.attributedText = mutAttrStr;
     cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"test"]];
+    
+  
     return cell;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
