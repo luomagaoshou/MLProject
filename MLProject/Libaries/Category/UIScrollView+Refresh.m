@@ -7,8 +7,24 @@
 //
 
 #import "UIScrollView+Refresh.h"
-
+#import <MJRefresh/MJRefresh.h>
 @implementation UIScrollView (Refresh)
+- (void)closeMJRefreshHeaderAndFooter
+{
+    //if (self.loadType == UIScrollViewLoadTypeRefresh) {
+        if (self.mj_header) {
+            [self.mj_header endRefreshing];
+        }
+    
+  //  }
+  //  else if (self.loadType == UIScrollViewLoadTypeLoadMore){
+        if (self.mj_footer) {
+            [self.mj_footer endRefreshing];
+        }
+        
+   //}
+}
+
 #pragma mark - ========= Setter & Getter =========
 - (void)setCellDatas:(NSMutableArray *)cellDatas
 {
@@ -18,11 +34,12 @@
 {
     NSMutableArray *cellDatas = objc_getAssociatedObject(self, @selector(cellDatas));
     if (cellDatas == nil) {
-       cellDatas = [[NSMutableArray alloc] init];
+        cellDatas = [[NSMutableArray alloc] init];
         objc_setAssociatedObject(self, @selector(cellDatas), cellDatas, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     return cellDatas;
 }
+
 - (void)setPageSize:(NSInteger)pageSize
 {
     objc_setAssociatedObject(self, @selector(pageSize), @(pageSize), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -32,13 +49,16 @@
     return [objc_getAssociatedObject(self, @selector(pageSize)) integerValue];
 }
 
-- (void)setPageNumber:(NSInteger)pageNumber
+- (void)setCurrentPage:(NSInteger)currentPage
 {
-    objc_setAssociatedObject(self, @selector(pageNumber), @(pageNumber), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(currentPage), @(currentPage), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-- (NSInteger)pageNumber
+- (NSInteger)currentPage
 {
-    return [objc_getAssociatedObject(self, @selector(pageNumber)) integerValue];
+    if (![objc_getAssociatedObject(self, @selector(currentPage)) integerValue]) {
+        self.currentPage = 1;
+    } ;
+    return [objc_getAssociatedObject(self, @selector(currentPage)) integerValue];
 }
 - (void)setStatusType:(UIScrollViewStatusType)statusType
 {
@@ -56,4 +76,30 @@
 {
     return [objc_getAssociatedObject(self, @selector(loadType)) integerValue];
 }
+@end
+
+@implementation UITableView(CellDatas)
+- (NSMutableArray<NSArray *> *)cellDatas
+{
+    NSMutableArray *cellDatas = objc_getAssociatedObject(self, @selector(cellDatas));
+    if (cellDatas == nil) {
+        cellDatas = [[NSMutableArray alloc] init];
+        objc_setAssociatedObject(self, @selector(cellDatas), cellDatas, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    return cellDatas;
+}
+
+@end
+@implementation UICollectionView(CellDatas)
+
+- (NSMutableArray<NSArray *> *)cellDatas
+{
+    NSMutableArray *cellDatas = objc_getAssociatedObject(self, @selector(cellDatas));
+    if (cellDatas == nil) {
+        cellDatas = [[NSMutableArray alloc] init];
+        objc_setAssociatedObject(self, @selector(cellDatas), cellDatas, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    return cellDatas;
+}
+
 @end

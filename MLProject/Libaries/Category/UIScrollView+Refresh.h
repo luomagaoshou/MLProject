@@ -10,22 +10,30 @@
 
 typedef NS_ENUM(NSInteger ,UIScrollViewStatusType) {
     UIScrollViewStatusTypeDefault = 0,
-    UIScrollViewStatusTypeEmptyData,
-    UIScrollViewStatusTypeNetworkError,
-    UIScrollViewStatusTypeNoConnetion,
+    UIScrollViewStatusTypeEmptyData,///<返回数据为空
+    UIScrollViewStatusTypeNetworkError,///<网络错误
+    UIScrollViewStatusTypeNoConnetion,///<网络无连接
     
 };
 typedef NS_ENUM(NSInteger, UIScrollViewLoadType) {
-    UIScrollViewLoadTypeFirstTime = 0,
+    UIScrollViewLoadTypeShowHUD = 0,
     UIScrollViewLoadTypeRefresh,
     UIScrollViewLoadTypeLoadMore,
     
 };
 @interface UIScrollView (Refresh)
-@property (nonatomic, strong) NSMutableArray <NSArray *> *cellDatas;
+@property (nonatomic, strong, readonly) NSMutableArray <NSArray *> *cellDatas;
+
 @property (nonatomic, assign) NSInteger pageSize;
-@property (nonatomic, assign) NSInteger pageNumber;
+@property (nonatomic, assign) NSInteger currentPage;
 @property (nonatomic, assign) UIScrollViewStatusType statusType;
 @property (nonatomic, assign) UIScrollViewLoadType loadType;
 
+- (void)closeMJRefreshHeaderAndFooter;
+@end
+@interface UITableView ()
+@property (nonatomic, strong, readonly) NSMutableArray <NSArray *> *cellDatas;
+@end
+@interface UICollectionView ()
+@property (nonatomic, strong, readonly) NSMutableArray <NSArray *> *cellDatas;
 @end
