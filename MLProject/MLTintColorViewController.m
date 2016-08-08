@@ -100,7 +100,8 @@
 //    image = [UIImage imageWithCGImage:cgImage];
 //    CGImageRelease(cgImage);
 //    NSLog(@"%@", image);
-    cell.imageView_.image = [image imageByConvertingToGray];
+
+   
     [cell.button setImage:image forState:UIControlStateNormal];
   //  cell.button.tintColor = [UIColor greenColor];
     return cell;

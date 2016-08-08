@@ -49,5 +49,5 @@
  *  @return 获得灰度图片
  */
 - (UIImage*)imageByConvertingToGray;
-
+- (UIImage*)imageByConvertingWithColorSpace:(CGColorSpaceRef)colorSpace;
 @end

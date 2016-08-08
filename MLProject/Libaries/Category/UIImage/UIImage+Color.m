@@ -151,10 +151,14 @@
 
 - (UIImage*)imageByConvertingToGray
 {
+    return [self imageByConvertingWithColorSpace:CGColorSpaceCreateDeviceGray()];
+    }
+
+- (UIImage *)imageByConvertingWithColorSpace:(CGColorSpaceRef)colorSpace
+{
     int width = self.size.width;
     int height = self.size.height;
     
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceGray();
     CGContextRef context = CGBitmapContextCreate (nil,width,height,8,0,colorSpace,kCGImageAlphaNone);
     CGColorSpaceRelease(colorSpace);
     
@@ -164,12 +168,11 @@
     
     CGContextDrawImage(context,CGRectMake(0, 0, width, height), self.CGImage);
     CGImageRef contextRef = CGBitmapContextCreateImage(context);
-    UIImage *grayImage = [UIImage imageWithCGImage:contextRef];
+    UIImage *resultImage = [UIImage imageWithCGImage:contextRef];
     CGContextRelease(context);
     CGImageRelease(contextRef);
     
-    return grayImage;
+    return resultImage;
+
 }
-
-
 @end
