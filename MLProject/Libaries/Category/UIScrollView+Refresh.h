@@ -25,15 +25,13 @@ typedef NS_ENUM(NSInteger, UIScrollViewLoadType) {
 @property (nonatomic, strong, readonly) NSMutableArray <NSArray *> *cellDatas;
 
 @property (nonatomic, assign) NSInteger pageSize;
+//当前页码  从1开始
 @property (nonatomic, assign) NSInteger currentPage;
+//状态类型
 @property (nonatomic, assign) UIScrollViewStatusType statusType;
+//加载类型
 @property (nonatomic, assign) UIScrollViewLoadType loadType;
 
 - (void)closeMJRefreshHeaderAndFooter;
 @end
-@interface UITableView ()
-@property (nonatomic, strong, readonly) NSMutableArray <NSArray *> *cellDatas;
-@end
-@interface UICollectionView ()
-@property (nonatomic, strong, readonly) NSMutableArray <NSArray *> *cellDatas;
-@end
+

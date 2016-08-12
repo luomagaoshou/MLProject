@@ -78,28 +78,4 @@
 }
 @end
 
-@implementation UITableView(CellDatas)
-- (NSMutableArray<NSArray *> *)cellDatas
-{
-    NSMutableArray *cellDatas = objc_getAssociatedObject(self, @selector(cellDatas));
-    if (cellDatas == nil) {
-        cellDatas = [[NSMutableArray alloc] init];
-        objc_setAssociatedObject(self, @selector(cellDatas), cellDatas, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }
-    return cellDatas;
-}
 
-@end
-@implementation UICollectionView(CellDatas)
-
-- (NSMutableArray<NSArray *> *)cellDatas
-{
-    NSMutableArray *cellDatas = objc_getAssociatedObject(self, @selector(cellDatas));
-    if (cellDatas == nil) {
-        cellDatas = [[NSMutableArray alloc] init];
-        objc_setAssociatedObject(self, @selector(cellDatas), cellDatas, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }
-    return cellDatas;
-}
-
-@end

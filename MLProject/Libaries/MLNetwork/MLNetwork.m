@@ -417,7 +417,7 @@ MJCodingImplementation
 - (void)showHUDAccrodingFlag:(BOOL)flag
 {
     if (flag) {
-        if (self.messageSender.scrollViewOfShowingData.loadType != UIScrollViewLoadTypeFirstTime) {
+        if (self.messageSender.scrollViewOfShowingData.loadType != UIScrollViewLoadTypeShowHUD) {
             return;
         }
         
