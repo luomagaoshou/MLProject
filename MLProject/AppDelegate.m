@@ -64,8 +64,8 @@
 
    // [ProjectManager pushStoryboardControllerWithNibName:@"MLCustomCLViewController" storyboardID:@"MLReuseVCViewController"];
     //[ProjectManager pushStoryboardControllerWithNibName:@"MLPageViewController" storyboardID:@"MLPageViewController"];
-    
-    [ProjectManager pushStoryboardControllerWithNibName:@"MLTintColor" storyboardID:@"MLTintColorViewController" title:@""];
+    [ProjectManager pushStoryboardControllerWithNibName:@"MLAttributeString" storyboardID:@"MLAttributeStringController" title:nil];
+  //  [ProjectManager pushStoryboardControllerWithNibName:@"MLTintColor" storyboardID:@"MLTintColorViewController" title:@""];
    // [ProjectManager pushStoryboardControllerWithNibName:@"MLRealm" storyboardID:@"MLRealmViewController"];
   //  [ProjectManager pushStoryboardControllerWithNibName:@"MLMJRefresh" storyboardID:@"MLMJRefreshViewController"];
     

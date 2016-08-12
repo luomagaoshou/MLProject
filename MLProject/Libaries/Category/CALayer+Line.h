@@ -8,10 +8,10 @@
 
 #import <QuartzCore/QuartzCore.h>
 typedef NS_OPTIONS(NSInteger, CALayerDrawLinePositionOption) {
-    CALayerDrawLinePositionOptionTop,
-    CALayerDrawLinePositionOptionLeft,
-    CALayerDrawLinePositionOptionBottom,
-    CALayerDrawLinePositionOptionRight
+    CALayerDrawLinePositionOptionTop = 1,
+    CALayerDrawLinePositionOptionLeft = 1 << 1,
+    CALayerDrawLinePositionOptionBottom = 1 << 2,
+    CALayerDrawLinePositionOptionRight = 1 << 3,
     
 };
 @interface CALayer (Line)

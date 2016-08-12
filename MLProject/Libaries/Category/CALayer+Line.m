@@ -11,7 +11,7 @@
 @implementation CALayer (Line)
 -(NSArray <CALayer *>*)drawLineWithPositionOption:(CALayerDrawLinePositionOption)positionOption lineColor:(UIColor *)lineColor
 {
-    return [self drawLineWithPositionOption:positionOption lineColor:lineColor lineWidthOrHeight:-1/[UIScreen mainScreen].scale];
+    return [self drawLineWithPositionOption:positionOption lineColor:lineColor lineWidthOrHeight:1/[UIScreen mainScreen].scale];
 }
 - (NSArray <CALayer *>*)drawLineWithPositionOption:(CALayerDrawLinePositionOption)positionOption lineColor:(UIColor *)lineColor lineWidthOrHeight:(CGFloat)lineWidthOrHeight
 {
@@ -24,17 +24,17 @@
                                insets:(UIEdgeInsets)insets
 {
     NSMutableArray *layers = [[NSMutableArray alloc] init];
-    if (positionOption | CALayerDrawLinePositionOptionTop) {
+    if (positionOption & CALayerDrawLinePositionOptionTop) {
        [layers addObject:[self _drawLineWithPositionOption:CALayerDrawLinePositionOptionTop lineColor:lineColor lineWidthOrHeight:lineWidthOrHeight insets:insets]];
     }
-    if (positionOption | CALayerDrawLinePositionOptionLeft) {
+    if (positionOption & CALayerDrawLinePositionOptionLeft) {
        [layers addObject:[self _drawLineWithPositionOption:CALayerDrawLinePositionOptionLeft lineColor:lineColor lineWidthOrHeight:lineWidthOrHeight insets:insets]];
     }
    
-    if (positionOption | CALayerDrawLinePositionOptionBottom) {
+    if (positionOption & CALayerDrawLinePositionOptionBottom) {
         [layers addObject:[self _drawLineWithPositionOption:CALayerDrawLinePositionOptionBottom lineColor:lineColor lineWidthOrHeight:lineWidthOrHeight insets:insets]];
     }
-    if (positionOption | CALayerDrawLinePositionOptionRight) {
+    if (positionOption & CALayerDrawLinePositionOptionRight) {
         [layers addObject:[self _drawLineWithPositionOption:CALayerDrawLinePositionOptionRight lineColor:lineColor lineWidthOrHeight:lineWidthOrHeight insets:insets]];
     }
     return layers;

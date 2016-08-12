@@ -10,6 +10,7 @@
 #import "NSString+Size.h"
 #import "NSString+MutAttrStr.h"
 #import "NSMutableAttributedString+ML_Tools.h"
+#import "UIImage+AttributeString.h"
 @interface MLAttributeStringController ()
 @property (weak, nonatomic) IBOutlet UILabel *testLabel1;
 
@@ -92,12 +93,17 @@
 - (void)initUI
 {
     
+    UIImage *image = [UIImage imageNamed:@"test@2x"];
+    NSMutableAttributedString *imageMutAttrStr = [image mutableAttributedStringWithBounds:CGRectMake(0, 0, 50, 50)];
     NSMutableAttributedString *mutAttrStr = [@"1111111111111111111111111111111111111111" mutableAttributedStringWithColor:[UIColor redColor] fontSize:16];
+    [mutAttrStr appendAttributedString:imageMutAttrStr];
     [mutAttrStr appendAttributedString:[@"222222222222222222222222222222222222222222222222" mutableAttributedStringWithColor:[UIColor greenColor] fontSize:18]];
-    [mutAttrStr appendAttributedString:[@"33333333333333333333333333333哈哈" mutableAttributedStringWithColor:[UIColor blueColor] fontSize:30]];
+    [mutAttrStr appendAttributedString:[@"33333333333333333333333333333哈哈asdsssddd" mutableAttributedStringWithColor:[UIColor blueColor] fontSize:30]];
+    
+    mutAttrStr = [[NSMutableAttributedString alloc] initWithString:mutAttrStr.string];
     self.testLabel1.numberOfLines = 0;
     self.testLabel1.attributedText = mutAttrStr;
-   
+    self.testLabel1.backgroundColor = [UIColor cyanColor];
     #pragma mark - ========= 方法 =========
     CGRect testRect = [mutAttrStr boundingRectWithSize:CGSizeMake(self.testLabel1.width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingTruncatesLastVisibleLine context:nil];
     dispatch_async(dispatch_get_main_queue(), ^{
