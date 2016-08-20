@@ -16,4 +16,5 @@ pod 'DZNEmptyDataSet'
 pod 'Realm'
 pod 'Reachability'
 pod 'CSStickyHeaderFlowLayout'
+pod 'Aspects'
 end

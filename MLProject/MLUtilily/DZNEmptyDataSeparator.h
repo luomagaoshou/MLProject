@@ -14,33 +14,56 @@ typedef void(^DZNEmptyDataSeparatorConfigBlock)(DZNEmptyDataSeparatorModel *mode
 + (instancetype)modelWithTableViewStatus:(UIScrollViewStatusType)statusType
                                imageName:(NSString *)imageName
                             title:(NSString *)title
-                     buttonTitle:(NSString *)buttonTitle;
+                     descriptionString:(NSString *)descriptionString;
 + (instancetype)modelWithTableViewStatus:(UIScrollViewStatusType)statusType
                                imageName:(NSString *)imageName
                            title:(NSString *)title
-                     buttonTitle:(NSString *)buttonTitle
+                     descriptionString:(NSString *)descriptionString
                       moreConfig:(DZNEmptyDataSeparatorConfigBlock)configBlock;
-
++ (instancetype)modelWithTableViewStatus:(UIScrollViewStatusType)statusType
+                               imageName:(NSString *)imageName
+                                   title:(NSString *)title
+                       descriptionString:(NSString *)descriptionString
+                             buttonTitle:(NSString *)buttonTitle
+                              moreConfig:(DZNEmptyDataSeparatorConfigBlock)configBlock;
 @property (nonatomic, assign) UIScrollViewStatusType statusType;
+//original property
 @property (nonatomic, copy) NSString *imageName;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *descriptionString;
 @property (nonatomic, copy) NSString *buttonTitle;
 @property (nonatomic, copy) UIColor *backgourdColor;
+
+
+@property (nonatomic, strong) UIImage *image;
+@property (nonatomic, copy) NSAttributedString *titleAttrStr;
+@property (nonatomic, copy) NSAttributedString *descriptionAttrStr;
+@property (nonatomic, copy) NSAttributedString *buttonAttrStr;
+
+
 @property (nonatomic, assign) BOOL allowTouch;
 @property (nonatomic, assign) BOOL allowScroll;
+
+@property (nonatomic, assign) CGFloat verticalOffset;
+@property (nonatomic, assign) CGFloat spaceHeight;
+
+
 @property (nonatomic, copy) void (^tapViewBlock)(void);
 @property (nonatomic, copy) void (^tapButtonClock)(void);
 
-+ (instancetype)noSignalModel;
-+ (instancetype)noSignalModelWithTapViewBlock:(void(^)(void))tapViewBlock;
-+ (instancetype)delayModel;
-+ (instancetype)delayModelWithTapViewBlock:(void(^)(void))tapViewBlock;
 
+//custum property
+@property (nonatomic, assign) CGFloat verticalOffsetOfEmptyDataSetView;
+@property (nonatomic, assign) BOOL hidden;
++ (instancetype)noConnectionModelWithTapViewBlock:(void(^)(void))tapViewBlock;
++ (instancetype)noConnectionModelWithMoreConfig:(DZNEmptyDataSeparatorConfigBlock)configBlock;
++ (instancetype)errorModelWithTapViewBlock:(void(^)(void))tapViewBlock;
++ (instancetype)errorModelWithMoreConfig:(DZNEmptyDataSeparatorConfigBlock)configBlock;
 @end
+
 @interface DZNEmptyDataSeparator : NSObject
-+ (instancetype)separatorWithScrollView:(__kindof UIScrollView *)tableView;
-- (void)configWithModels:(NSArray <DZNEmptyDataSeparatorModel *> *)models;
++ (instancetype)separatorWithScrollView:(__kindof UIScrollView *)scrollView;
+- (void)configureWithModels:(NSArray <DZNEmptyDataSeparatorModel *> *)models;
 @end
 
 

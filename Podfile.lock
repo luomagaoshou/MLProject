@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.0.4)
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
+  - Aspects (1.4.1)
   - CSStickyHeaderFlowLayout (0.2.10)
   - dyci (0.1.5.6):
     - dyci/Injections (= 0.1.5.6)
@@ -59,6 +60,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - Aspects
   - CSStickyHeaderFlowLayout
   - dyci (from `https://github.com/DyCI/dyci-main.git`)
   - DZNEmptyDataSet
@@ -86,6 +88,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
+  Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
   CSStickyHeaderFlowLayout: 5366582779d8b7c9ba9b9cc729c218cc23888776
   dyci: 099c2e6dc98abb8f21b370cabbf1443ff700608a
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
@@ -102,6 +105,6 @@ SPEC CHECKSUMS:
   UITableView+FDTemplateLayoutCell: 234e1582bcc4e18461af91155123bb96538ed030
   YYKit: 8b618ca8d8cefa534d8d4fe2cad10fe9fbd030ed
 
-PODFILE CHECKSUM: 5ce9196875270729858f158889e97b12fef1fc61
+PODFILE CHECKSUM: 7cae4ff571bdf9d0bdc8f7660e7dfef64dfebc54
 
 COCOAPODS: 1.0.1

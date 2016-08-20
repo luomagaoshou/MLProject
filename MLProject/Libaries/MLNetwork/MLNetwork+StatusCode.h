@@ -10,4 +10,5 @@
 
 @interface MLNetwork (StatusCode)
 + (NSDictionary *)statusCodeDicionary;
++ (NSString *)toastStringWithCode:(NSString *)code;
 @end
