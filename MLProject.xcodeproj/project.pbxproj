@@ -41,7 +41,6 @@
 		16E7CB001D680D4A00D39011 /* MLHookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E7CAFF1D680D4A00D39011 /* MLHookViewController.m */; };
 		16F2B6861D5D9990003592DB /* UIScrollView+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F2B6851D5D9990003592DB /* UIScrollView+Refresh.m */; };
 		16F2B6A81D5DC7FF003592DB /* CALayer+Line.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F2B6A71D5DC7FF003592DB /* CALayer+Line.m */; };
-		16F3E9EE1D55DF38005FB632 /* NSObject+RunTimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F3E9ED1D55DF38005FB632 /* NSObject+RunTimeHelper.m */; };
 		16F3E9F11D55DF59005FB632 /* MBProgressHUD+Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F3E9F01D55DF59005FB632 /* MBProgressHUD+Loading.m */; };
 		16FA9EC01D48487400C28972 /* MLMenuCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9EB91D48487400C28972 /* MLMenuCollectionView.m */; };
 		16FA9EC11D48487400C28972 /* MLMenuCLLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9EBB1D48487400C28972 /* MLMenuCLLabelCell.m */; };
@@ -191,6 +190,8 @@
 		FE384E071D2E9D2400D5F282 /* MLNavigationTestViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = FE384E061D2E9D2400D5F282 /* MLNavigationTestViewController2.m */; };
 		FE384E0B1D2FD39200D5F282 /* MLTextFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE384E0A1D2FD39200D5F282 /* MLTextFieldViewController.m */; };
 		FE384E0D1D2FD39C00D5F282 /* MLTextField.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE384E0C1D2FD39C00D5F282 /* MLTextField.storyboard */; };
+		FE3C2F6D1D76CB9600198D30 /* MLAttributeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3C2F6C1D76CB9600198D30 /* MLAttributeViewController.m */; };
+		FE3C2F6F1D76CB9F00198D30 /* MLAttribute.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE3C2F6E1D76CB9F00198D30 /* MLAttribute.storyboard */; };
 		FE3C4A731C2EBA66004CBA21 /* ChainableController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE3C4A711C2EBA66004CBA21 /* ChainableController.xib */; };
 		FE48EE1B1D3A89DF002FE0A3 /* test2.png in Resources */ = {isa = PBXBuildFile; fileRef = FE48EE191D3A89DF002FE0A3 /* test2.png */; };
 		FE48EE1C1D3A89DF002FE0A3 /* test1.png in Resources */ = {isa = PBXBuildFile; fileRef = FE48EE1A1D3A89DF002FE0A3 /* test1.png */; };
@@ -264,6 +265,7 @@
 		FEA1C8791CB16F4300B5A9D3 /* MLStructController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA1C8781CB16F4300B5A9D3 /* MLStructController.m */; };
 		FEA1C87C1CB5394300B5A9D3 /* PaiLie.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA1C87A1CB5394300B5A9D3 /* PaiLie.m */; };
 		FEA1C87E1CB6B60A00B5A9D3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA1C87D1CB6B60A00B5A9D3 /* UIKit.framework */; };
+		FEA3C1411D75174B00131A34 /* NSObject+RunTimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA3C1401D75174B00131A34 /* NSObject+RunTimeHelper.m */; };
 		FEB529D21BEF1EBA00EAA6C1 /* RootController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB529D11BEF1EBA00EAA6C1 /* RootController.m */; };
 		FEB529D41BEF208A00EAA6C1 /* RootController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB529D31BEF208A00EAA6C1 /* RootController.xib */; };
 		FEC349441BEEFB0D0076E88B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC349431BEEFB0D0076E88B /* main.m */; };
@@ -274,6 +276,7 @@
 		FEC65C0E1D4DEFA800DA823E /* MLPageSubViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC65C0D1D4DEFA800DA823E /* MLPageSubViewController2.m */; };
 		FEC65C111D4DEFAF00DA823E /* MLPageSubViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC65C101D4DEFAF00DA823E /* MLPageSubViewController3.m */; };
 		FED38B5D1CD6394C0007B0D0 /* NSObject+ChainFileCreater.m in Sources */ = {isa = PBXBuildFile; fileRef = FED38B5C1CD6394C0007B0D0 /* NSObject+ChainFileCreater.m */; };
+		FED84DAC1D6EE68C00090503 /* UIView+OutsideBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = FED84DAB1D6EE68C00090503 /* UIView+OutsideBorder.m */; };
 		FEDC82421D4E654B009C6445 /* test@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEDC82401D4E654B009C6445 /* test@2x.png */; };
 		FEDC82431D4E654B009C6445 /* test@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEDC82411D4E654B009C6445 /* test@3x.png */; };
 		FEDC82461D4FA9B3009C6445 /* MLPageViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDC82451D4FA9B3009C6445 /* MLPageViewController2.m */; };
@@ -385,8 +388,6 @@
 		16F2B6851D5D9990003592DB /* UIScrollView+Refresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Refresh.m"; sourceTree = "<group>"; };
 		16F2B6A61D5DC7FF003592DB /* CALayer+Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Line.h"; sourceTree = "<group>"; };
 		16F2B6A71D5DC7FF003592DB /* CALayer+Line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Line.m"; sourceTree = "<group>"; };
-		16F3E9EC1D55DF38005FB632 /* NSObject+RunTimeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+RunTimeHelper.h"; sourceTree = "<group>"; };
-		16F3E9ED1D55DF38005FB632 /* NSObject+RunTimeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RunTimeHelper.m"; sourceTree = "<group>"; };
 		16F3E9EF1D55DF59005FB632 /* MBProgressHUD+Loading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Loading.h"; sourceTree = "<group>"; };
 		16F3E9F01D55DF59005FB632 /* MBProgressHUD+Loading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Loading.m"; sourceTree = "<group>"; };
 		16FA9EB81D48487400C28972 /* MLMenuCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLMenuCollectionView.h; sourceTree = "<group>"; };
@@ -656,6 +657,9 @@
 		FE384E091D2FD39200D5F282 /* MLTextFieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLTextFieldViewController.h; sourceTree = "<group>"; };
 		FE384E0A1D2FD39200D5F282 /* MLTextFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLTextFieldViewController.m; sourceTree = "<group>"; };
 		FE384E0C1D2FD39C00D5F282 /* MLTextField.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLTextField.storyboard; sourceTree = "<group>"; };
+		FE3C2F6B1D76CB9600198D30 /* MLAttributeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLAttributeViewController.h; sourceTree = "<group>"; };
+		FE3C2F6C1D76CB9600198D30 /* MLAttributeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLAttributeViewController.m; sourceTree = "<group>"; };
+		FE3C2F6E1D76CB9F00198D30 /* MLAttribute.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLAttribute.storyboard; sourceTree = "<group>"; };
 		FE3C4A6F1C2EBA66004CBA21 /* ChainableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChainableController.h; sourceTree = "<group>"; };
 		FE3C4A701C2EBA66004CBA21 /* ChainableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChainableController.m; sourceTree = "<group>"; };
 		FE3C4A711C2EBA66004CBA21 /* ChainableController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChainableController.xib; sourceTree = "<group>"; };
@@ -785,6 +789,8 @@
 		FEA1C87A1CB5394300B5A9D3 /* PaiLie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaiLie.m; sourceTree = "<group>"; };
 		FEA1C87B1CB5394300B5A9D3 /* PaiLie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaiLie.h; sourceTree = "<group>"; };
 		FEA1C87D1CB6B60A00B5A9D3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FEA3C13F1D75174B00131A34 /* NSObject+RunTimeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+RunTimeHelper.h"; sourceTree = "<group>"; };
+		FEA3C1401D75174B00131A34 /* NSObject+RunTimeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RunTimeHelper.m"; sourceTree = "<group>"; };
 		FEB529CF1BEF057700EAA6C1 /* Public.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Public.h; sourceTree = "<group>"; };
 		FEB529D01BEF1EBA00EAA6C1 /* RootController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootController.h; sourceTree = "<group>"; };
 		FEB529D11BEF1EBA00EAA6C1 /* RootController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootController.m; sourceTree = "<group>"; };
@@ -807,6 +813,8 @@
 		FEC65C101D4DEFAF00DA823E /* MLPageSubViewController3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPageSubViewController3.m; sourceTree = "<group>"; };
 		FED38B5B1CD6394C0007B0D0 /* NSObject+ChainFileCreater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ChainFileCreater.h"; sourceTree = "<group>"; };
 		FED38B5C1CD6394C0007B0D0 /* NSObject+ChainFileCreater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ChainFileCreater.m"; sourceTree = "<group>"; };
+		FED84DAA1D6EE68C00090503 /* UIView+OutsideBorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+OutsideBorder.h"; sourceTree = "<group>"; };
+		FED84DAB1D6EE68C00090503 /* UIView+OutsideBorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+OutsideBorder.m"; sourceTree = "<group>"; };
 		FEDC82401D4E654B009C6445 /* test@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test@2x.png"; sourceTree = "<group>"; };
 		FEDC82411D4E654B009C6445 /* test@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test@3x.png"; sourceTree = "<group>"; };
 		FEDC82441D4FA9B3009C6445 /* MLPageViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPageViewController2.h; sourceTree = "<group>"; };
@@ -1116,6 +1124,8 @@
 			children = (
 				18C275BE1C7D41020055C19D /* ChainableKit */,
 				18C275C41C7D41020055C19D /* ML_Category.h */,
+				FED84DAA1D6EE68C00090503 /* UIView+OutsideBorder.h */,
+				FED84DAB1D6EE68C00090503 /* UIView+OutsideBorder.m */,
 				16BC0B891D2CFEF10041D124 /* UILabel+CommonType.h */,
 				16BC0B8A1D2CFEF10041D124 /* UILabel+CommonType.m */,
 				16BC0B861D2CFEDD0041D124 /* UIButton+CommonType.h */,
@@ -1158,10 +1168,10 @@
 				18C275E01C7D41020055C19D /* NSObject+Add.m */,
 				18C275E31C7D41020055C19D /* NSObject+ML_CGRect.h */,
 				18C275E41C7D41020055C19D /* NSObject+ML_CGRect.m */,
+				FEA3C13F1D75174B00131A34 /* NSObject+RunTimeHelper.h */,
+				FEA3C1401D75174B00131A34 /* NSObject+RunTimeHelper.m */,
 				18C275E51C7D41020055C19D /* NSObject+ML_ModelMethodHelper.h */,
 				18C275E61C7D41020055C19D /* NSObject+ML_ModelMethodHelper.m */,
-				16F3E9EC1D55DF38005FB632 /* NSObject+RunTimeHelper.h */,
-				16F3E9ED1D55DF38005FB632 /* NSObject+RunTimeHelper.m */,
 				18C275E91C7D41020055C19D /* NSPredicate+Regex.h */,
 				18C275EA1C7D41020055C19D /* NSPredicate+Regex.m */,
 				18C275EB1C7D41020055C19D /* NSPredicate+Tools.h */,
@@ -1450,6 +1460,16 @@
 				FE384E0C1D2FD39C00D5F282 /* MLTextField.storyboard */,
 			);
 			path = MLTextField;
+			sourceTree = "<group>";
+		};
+		FE3C2F6A1D76CB8000198D30 /* Attribute */ = {
+			isa = PBXGroup;
+			children = (
+				FE3C2F6B1D76CB9600198D30 /* MLAttributeViewController.h */,
+				FE3C2F6C1D76CB9600198D30 /* MLAttributeViewController.m */,
+				FE3C2F6E1D76CB9F00198D30 /* MLAttribute.storyboard */,
+			);
+			path = Attribute;
 			sourceTree = "<group>";
 		};
 		FE3C4A6B1C2EBA00004CBA21 /* Chainable */ = {
@@ -1753,6 +1773,7 @@
 				FEB529D01BEF1EBA00EAA6C1 /* RootController.h */,
 				FEB529D11BEF1EBA00EAA6C1 /* RootController.m */,
 				FEB529D31BEF208A00EAA6C1 /* RootController.xib */,
+				FE3C2F6A1D76CB8000198D30 /* Attribute */,
 				16E7CAFB1D680CC600D39011 /* Hook */,
 				FEDC824B1D56FD05009C6445 /* TintColor */,
 				1690CABC1D49A9F7001A0B3C /* PageViewController */,
@@ -2111,6 +2132,7 @@
 				18230C3D1CD1ACF00056C5FB /* MLKVC_KVO.storyboard in Resources */,
 				FE60DBC71C510748009D836E /* MLStoryboard.storyboard in Resources */,
 				FEE6546D1C130A0D004C44D4 /* LoadNibController.xib in Resources */,
+				FE3C2F6F1D76CB9F00198D30 /* MLAttribute.storyboard in Resources */,
 				FE0127101CFFD62400593576 /* MLBlueTooth.storyboard in Resources */,
 				16B8B1C31D4201D000434758 /* MLCustomCLCell.xib in Resources */,
 				164019151D2B46F100B6FD30 /* MLRealm.storyboard in Resources */,
@@ -2162,7 +2184,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		1F14560FF77DE000387BAC5F /* [CP] Embed Pods Frameworks */ = {
@@ -2235,6 +2257,7 @@
 				187D54AE1C8400ED0066EC67 /* MLAttributeStringController.m in Sources */,
 				18C2765C1C7D41020055C19D /* NSMutableAttributedString+ML_Tools.m in Sources */,
 				169176B11D3A45F200086A5A /* MLTextField+CommonType.m in Sources */,
+				FEA3C1411D75174B00131A34 /* NSObject+RunTimeHelper.m in Sources */,
 				18C276681C7D41020055C19D /* NSString+Base64.m in Sources */,
 				FE0C63001D15729900F73C95 /* NestView.m in Sources */,
 				FEFB49DF1C95205200634A97 /* NSObject+vk_msgSend.m in Sources */,
@@ -2319,6 +2342,7 @@
 				FE945AB11C1D5746007A2421 /* SBHSplitOrderModel.m in Sources */,
 				18C276951C7D41020055C19D /* UIView+Shade.m in Sources */,
 				FE0C62FD1D141A3600F73C95 /* MLNestNibViewController.m in Sources */,
+				FE3C2F6D1D76CB9600198D30 /* MLAttributeViewController.m in Sources */,
 				FEE55D011BF244D100C8F783 /* FranchiseVerifyingStatusView.m in Sources */,
 				FED38B5D1CD6394C0007B0D0 /* NSObject+ChainFileCreater.m in Sources */,
 				FEDF13C51CB9521F00156D85 /* CABasicAnimation+ML_make.m in Sources */,
@@ -2367,6 +2391,7 @@
 				1822284B1CAE86DD00A7E43D /* ALFootballLotteryController.m in Sources */,
 				16BC0B8B1D2CFEF10041D124 /* UILabel+CommonType.m in Sources */,
 				FEC65C0B1D4DEF9F00DA823E /* MLPageSubViewController1.m in Sources */,
+				FED84DAC1D6EE68C00090503 /* UIView+OutsideBorder.m in Sources */,
 				FE328C8F1D26AB4D00F96691 /* MLMJRefreshViewController.m in Sources */,
 				18C276871C7D41020055C19D /* UITableView+ML_Tools.m in Sources */,
 				FE6B22691CD65178007733FD /* MLChain4CALayer.m in Sources */,
@@ -2427,7 +2452,6 @@
 				18230C3B1CD1ACCC0056C5FB /* MLKVC_KVOController.m in Sources */,
 				FE514DB21C1BFCDB00E3AC0C /* RunTimeController.m in Sources */,
 				16FA9EC11D48487400C28972 /* MLMenuCLLabelCell.m in Sources */,
-				16F3E9EE1D55DF38005FB632 /* NSObject+RunTimeHelper.m in Sources */,
 				FE384E041D2E81D300D5F282 /* MLNavigationTestViewController.m in Sources */,
 				18C276671C7D41020055C19D /* NSPredicate+Tools.m in Sources */,
 				18BD05301CE478BB00EDBA62 /* MLJSMaker.m in Sources */,

@@ -15,19 +15,18 @@
 + (NSArray *)arrayOfIvars
 {
     unsigned int count = 0;
-    //获取类中所有属性名
     Ivar *ivar = class_copyIvarList([self class], &count);
-    NSMutableArray *propertyNameArray = [[NSMutableArray alloc] init];
+    NSMutableArray *ivarNameArray = [[NSMutableArray alloc] init];
     for (int i = 0; i<count; i++) {
         Ivar iva = ivar[i];
         const char *name = ivar_getName(iva);
         NSString *strName = [NSString stringWithUTF8String:name];
-        [propertyNameArray addObject:strName];
+        [ivarNameArray addObject:strName];
         
     }
     
     free(ivar);
-    return propertyNameArray;
+    return ivarNameArray;
     
 }
 
@@ -35,7 +34,6 @@
 + (NSArray *)arrayOfProperties
 {
     unsigned int count = 0;
-    //获取类中所有成员变量
     objc_property_t *properties = class_copyPropertyList(self, &count);
     
     NSMutableArray *propertyNameArray = [[NSMutableArray alloc] init];
@@ -52,21 +50,15 @@
     
 }
 
+
 + (NSArray *)arrayOfInstanceMethods
 {
     unsigned int count = 0;
-    Method *methodList = class_copyMethodList([self class], &count);
+    Method *methodList = class_copyMethodList(self, &count);
     NSMutableArray *methods = [[NSMutableArray alloc] init];
-
+    
     for (NSInteger i = 0; i < count; i++) {
         SEL selector = method_getName(methodList[i]);
-        Method method = class_getInstanceMethod([self class], selector);
-        
-     
-        if (!method) {
-            continue;
-        }
-        
         NSString *selString = NSStringFromSelector(selector);
         [methods addObject:selString];
     }
@@ -77,37 +69,25 @@
 
 + (NSArray *)arrayOfClassMethods
 {
-
+    
     unsigned int count = 0;
     Method *methodList = class_copyMethodList(object_getClass(self), &count);
     NSMutableArray *methods = [[NSMutableArray alloc] init];
-   
+    
     for (NSInteger i = 0; i < count; i++) {
         SEL selector = method_getName(methodList[i]);
-             const char * type = method_getTypeEncoding(methodList[i]);
-        Method classMethod = class_getClassMethod(object_getClass(self), selector);
-        if (!classMethod) {
-            continue;
-        }
-        
         NSString *methodString = NSStringFromSelector(selector);
         [methods addObject:methodString];
     }
-  
+    
     free(methodList);
     return methods;
 }
 
-
-+ (NSArray *)arrayOfProtocols
-{
++ (NSArray *)arrayOfProtocols{
     
-     Protocol * protocols1 = objc_getProtocol("NSCoding");
     unsigned int count = 0;
     Protocol * __unsafe_unretained *protocols = class_copyProtocolList(self, &count);
-    struct objc_category *categories;
-
-   
     NSMutableArray *protocolArray = [[NSMutableArray alloc] init];
     for (int i = 0; i < count; i++) {
         [protocolArray addObject:[NSString stringWithUTF8String:protocol_getName(protocols[i])]];

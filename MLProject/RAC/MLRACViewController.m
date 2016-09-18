@@ -9,9 +9,18 @@
 #import "MLRACViewController.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <ReactiveCocoa/RACReturnSignal.h>
+#import <ReactiveCocoa/NSInvocation+RACTypeParsing.h>
+#import "NSObject+RunTimeHelper.h"
+#import "UIViewController+ML_Tools.h"
+#import <Aspects/Aspects.h>
+#define POINTERIZE(x) ((__typeof__(x) []){ x })
+
+#define BOX(x) [NSValue valueWithBytes: POINTERIZE(x) objCType: @encode(__typeof__(x))]
 @interface MLRACViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *testLabel;
 @property (weak, nonatomic) IBOutlet UITextField *testTextField;
+@property (weak, nonatomic) IBOutlet UIButton *button1;
+@property (weak, nonatomic) IBOutlet UIButton *button2;
 
 @end
 
@@ -82,7 +91,7 @@
   
 
    // RAC(self.testTextField, alpha) = self.testTextField.rac_textSignal;
-    self.testTextField.backgroundColor = [UIColor blueColor];
+  // self.testTextField.backgroundColor = [UIColor blueColor];
 //
 //    RACSignal *signal = RACObserve(self.testTextField, text);
 //    RAC(self.testLabel, alpha) = [signal map:^id(id value) {
@@ -111,11 +120,62 @@
 //       NSLog(@"%@", x);
 //   }];
     
-    RAC(self.testLabel, text) = self.testTextField.rac_textSignal;
+   // RAC(self.testLabel, text) = self.testTextField.rac_textSignal;
+    
+    [RACObserve(self.view.layer, backgroundColor) subscribeNext:^(id x) {
+        NSLog(@"%@", x);
+    }];
+    
+    self.view.layer.backgroundColor = [UIColor redColor].CGColor;
+    
+    char type = POINTERIZE(333);
+    NSLog(@"POINTERIZE = %c", type);
+    
+    
+    NSValue *value = BOX(UIEdgeInsetsMake(2, 2, 2, 2));
+    value = BOX([UIColor redColor].CGColor);
+    NSLog(@"BOX =%@", value);
+    
+#if 0
+    
+    [UIButton aspect_hookSelector:@selector(touchUpInsideAction:) withOptions:AspectPositionBefore usingBlock:^(id info, id  sender){
+        NSObject *obj = sender;
+        if (obj.featureIdentifier) {
+        NSLog(@"勾到了---%@", obj.featureIdentifier);
+        }
+
+    }error:nil];
+    
+    self.button1.featureIdentifier = @"事件1";
+    self.button2.featureIdentifier = @"事件2";
+    [self.button1 touchUpInside:^{
+        NSLog(@"%@", self.button1.featureIdentifier);
+      id ctl = [UIViewController getLastViewControllerWithClass:[self class]];
+        //NSLog(@"%@", NSStringFromClass([ctl class]));
+        
+    }];
+    [self.button2 touchUpInside:^{
+        NSLog(@"%@", self.button2.featureIdentifier);
+        id ctl = [UIViewController getLastViewControllerWithClass:[self class]];
+       // NSLog(@"%@", NSStringFromClass([ctl class]));
+    }];
+#endif
+   
 }
 #pragma mark - ========= DownloadData =========
 - (void)downloadData
 {
+   // [self testRacInvocation];
+}
+
+- (void)testRacInvocation
+{
+    CALayer *layer = [CALayer layer];
+    layer.frame = CGRectMake(200, 200, 200, 200);
+    [self.view.layer addSublayer:layer];
+    NSMethodSignature *methodSignature = [layer methodSignatureForSelector:@selector(setBackgroundColor:)];
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSignature];
+    [invocation rac_setArgument:[UIColor redColor] atIndex:2];
     
 }
 

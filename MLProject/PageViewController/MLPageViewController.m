@@ -26,12 +26,14 @@
 
 @end
 @interface MLPageViewController ()<UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIScrollViewDelegate>
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewTopConstraint;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet MLPageViewStickyView *stickyView;
 
 @property (weak, nonatomic) IBOutlet UIView *pageView;
 @property (strong, nonatomic) UIPageViewController *pageViewController;
 @property (nonatomic, strong) NSArray *viewControllers;
+@property (nonatomic, strong) NSMutableArray *tableViewsOfSubVC;
 @end
 
 @implementation MLPageViewController
@@ -95,55 +97,38 @@
     [self.pageViewController setViewControllers:@[page1] direction:UIPageViewControllerNavigationDirectionReverse animated:YES completion:nil];
     [self addChildViewController:self.pageViewController];
  
-    self.viewControllers = @[page1, page2, page3];
+    self.viewControllers = @[page1, page2, /*page3*/];
     
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:@"SubPageViewTableViewContentOffsetChanged" object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
-        NSLog(@"%@\n%@\n%@\n", note.name, note.userInfo, note.object);
-        UITableView *tableView = note.object;
-        CGFloat y = ((UITableView *)note.object).contentOffset.y;
-//        if (y > 0  && y < 100) {
-//          
-//           
-//        }else if (y >= 100){
-//           
-//            
-//        }else if (y < 0){
-//            
-//            
-//        }
-//        else if (y == 0){
-//            
-//        }
-        if (self.scrollView.contentOffset.y  > 0) {
+    
+    RACSignal *signal1 = RACObserve(page1, tableView);
+    RACSignal *signal2 = RACObserve(page2, tableView);
+    RACSignal *totalSignal = [signal1 merge:signal2];
+    [totalSignal subscribeNext:^(UITableView *tableView) {
+        if (tableView != nil && ![self.tableViewsOfSubVC containsObject:tableView]) {
+            [self.tableViewsOfSubVC addObject:tableView];
+            [RACObserve(tableView, contentOffset) subscribeNext:^(NSValue *offsetValue) {
+                CGFloat y = [offsetValue CGPointValue].y;
+                //当前变化的tableView
+                if (y <= 0) {
+                    
+                }else{
+                    if (tableView.window) {
+                        self.topViewTopConstraint.constant = -y;
+                        
+                    }
+                    
+                }
+               
+            }];
+            
             
         }
-        
-//        if (y < 0) {
-//            self.pageView.userInteractionEnabled = NO;
-//            self.scrollView.scrollEnabled = YES;
-//        }
-//        else
-//        {
-//            self.pageView.userInteractionEnabled = YES;
-//            self.scrollView.scrollEnabled = NO;
-//        }
-//      
     }];
+    
+
   
-//     [page2.tableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionNew context:nil];
-//     [page3.tableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionNew context:nil];
-    
-    
-//    [RACObserve(page1.tableView, contentOffset) subscribeNext:^(id x) {
-//        NSLog(@"%@", x);
-//    }];
-//    [RACObserve(page2.tableView, contentOffset) subscribeNext:^(id x) {
-//        NSLog(@"%@", x);
-//    }];
-//    [RACObserve(page3.tableView, contentOffset) subscribeNext:^(id x) {
-//        NSLog(@"%@", x);
-//    }];
+
     
 }
 - (void)configureScrollView
@@ -157,7 +142,7 @@
         ((MLMenuCLLabelCell *)cell).titleLabel.text = cellDatas[indexPath.section][indexPath.row];
     }];
     @weakify(self);
-    [self.stickyView.menuCollectionView setTitles:@[@"1", @"2", @"3"] clickBlock:^(NSInteger index) {
+    [self.stickyView.menuCollectionView setTitles:@[@"1", @"2"] clickBlock:^(NSInteger index) {
         @strongify(self);
         NSLog(@"%ld", index);
       
@@ -240,5 +225,11 @@
 
 
 #pragma mark - ========= Setter & Getter =========
-
+- (NSMutableArray *)tableViewsOfSubVC
+{
+    if (_tableViewsOfSubVC == nil) {
+        _tableViewsOfSubVC = [[NSMutableArray alloc] init];
+    }
+    return _tableViewsOfSubVC;
+}
 @end

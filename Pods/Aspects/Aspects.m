@@ -127,6 +127,7 @@ static id aspect_add(id self, SEL selector, AspectOptions options, id block, NSE
             }
         }
     });
+    
     return identifier;
 }
 

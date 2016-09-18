@@ -15,6 +15,21 @@ PODS:
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
   - Aspects (1.4.1)
+  - BlocksKit (2.2.5):
+    - BlocksKit/All (= 2.2.5)
+  - BlocksKit/All (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+    - BlocksKit/MessageUI
+    - BlocksKit/UIKit
+  - BlocksKit/Core (2.2.5)
+  - BlocksKit/DynamicDelegate (2.2.5)
+  - BlocksKit/MessageUI (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - BlocksKit/UIKit (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
   - CSStickyHeaderFlowLayout (0.2.10)
   - dyci (0.1.5.6):
     - dyci/Injections (= 0.1.5.6)
@@ -61,6 +76,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - Aspects
+  - BlocksKit
   - CSStickyHeaderFlowLayout
   - dyci (from `https://github.com/DyCI/dyci-main.git`)
   - DZNEmptyDataSet
@@ -89,6 +105,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
   Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
+  BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   CSStickyHeaderFlowLayout: 5366582779d8b7c9ba9b9cc729c218cc23888776
   dyci: 099c2e6dc98abb8f21b370cabbf1443ff700608a
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
@@ -105,6 +122,6 @@ SPEC CHECKSUMS:
   UITableView+FDTemplateLayoutCell: 234e1582bcc4e18461af91155123bb96538ed030
   YYKit: 8b618ca8d8cefa534d8d4fe2cad10fe9fbd030ed
 
-PODFILE CHECKSUM: 7cae4ff571bdf9d0bdc8f7660e7dfef64dfebc54
+PODFILE CHECKSUM: ac2347b07723585c182137e1e8de2fe1a54c0098
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.0.beta.1

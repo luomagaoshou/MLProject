@@ -133,13 +133,7 @@
 - (void)configEmpeyDataSet
 {
     DZNEmptyDataSeparator *separator = [DZNEmptyDataSeparator separatorWithScrollView:self.tableView];
-    DZNEmptyDataSeparatorModel *modelOfEmpty = [DZNEmptyDataSeparatorModel modelWithTableViewStatus:UIScrollViewStatusTypeEmptyData imageName:@"test" title:@"gagag" buttonTitle:@"fgggg" moreConfig:^(DZNEmptyDataSeparatorModel *model) {
-        model.allowTouch = YES;
-        [model setTapViewBlock:^{
-            NSLog(@"%@", @"ffff");
-        }];
-    }];
-    [separator configWithModels:@[modelOfEmpty]];
+ 
     self.tableView.statusType = UIScrollViewStatusTypeEmptyData;
    // [self.tableView reloadData];
 }

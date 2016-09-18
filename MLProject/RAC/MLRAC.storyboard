@@ -36,6 +36,14 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVz-4K-wYB">
+                                <rect key="frame" x="65" y="307" width="52" height="30"/>
+                                <state key="normal" title="Button1"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aW2-Hp-Vsw">
+                                <rect key="frame" x="207" y="307" width="55" height="30"/>
+                                <state key="normal" title="Button2"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -52,6 +60,8 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="button1" destination="hVz-4K-wYB" id="UUh-IK-kpc"/>
+                        <outlet property="button2" destination="aW2-Hp-Vsw" id="ay0-x8-uMA"/>
                         <outlet property="testLabel" destination="ddL-02-cwp" id="ZW2-bm-YFk"/>
                         <outlet property="testTextField" destination="mgC-zE-e03" id="TDx-zk-aF7"/>
                     </connections>

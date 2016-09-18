@@ -7,31 +7,31 @@
 //
 
 #import "BondTool+Secure.h"
-#import "KeychainWrapper.h"
+//#import "KeychainWrapper.h"
 #import "sys/utsname.h"
 NSString *const kBGTClientType = @"1";
 @implementation BondTool (Secure)
-+ (NSString *)deviceId
-{
-    static NSString *deviceId;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        deviceId = [KeychainWrapper keychainStringFromMatchingIdentifier:@"DeviceId"];
-        if (!deviceId) {
-            if ([self respondsToSelector:@selector(identifierForVendor)]) {
-                deviceId = [self identifierForVendor];
-            }
-            
-            if (deviceId) {
-                [KeychainWrapper createKeychainValue:deviceId forIdentifier:@"DeviceId"];
-            } else {
-                NSAssert(0, @"Device ID not found");
-                deviceId = [self randomDeviceId];
-            }
-        }
-    });
-    return deviceId;
-}
+//+ (NSString *)deviceId
+//{
+//    static NSString *deviceId;
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        deviceId = [KeychainWrapper keychainStringFromMatchingIdentifier:@"DeviceId"];
+//        if (!deviceId) {
+//            if ([self respondsToSelector:@selector(identifierForVendor)]) {
+//                deviceId = [self identifierForVendor];
+//            }
+//            
+//            if (deviceId) {
+//                [KeychainWrapper createKeychainValue:deviceId forIdentifier:@"DeviceId"];
+//            } else {
+//                NSAssert(0, @"Device ID not found");
+//                deviceId = [self randomDeviceId];
+//            }
+//        }
+//    });
+//    return deviceId;
+//}
 + (NSString *)identifierForVendor
 {
     NSString *identifier = [[[UIDevice currentDevice] identifierForVendor] UUIDString];

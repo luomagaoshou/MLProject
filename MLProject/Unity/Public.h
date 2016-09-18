@@ -37,4 +37,5 @@
 #import "UIButton+Init.h"
 #import "MLChain.h"
 #import "UIScrollView+Refresh.h"
+#import "ProjectManager.h"
 #endif /* Public_h */

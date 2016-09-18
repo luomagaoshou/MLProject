@@ -30,6 +30,7 @@
 
 @property (strong, nonatomic) UIPageViewController *pageViewController;
 @property (nonatomic, strong) NSArray *viewControllers;
+@property (nonatomic, strong) NSMutableArray *tableViewsOfSubVC;
 @end
 
 @implementation MLPageViewController2
@@ -78,10 +79,10 @@
 - (void)configurePageViewController
 {
     MLPageSubViewController1 *page1 = [[UIStoryboard storyboardWithName:@"MLPageViewController" bundle:nil] instantiateViewControllerWithIdentifier:@"MLPageSubViewController1"];
-    
+ 
     MLPageSubViewController2 *page2 = [[UIStoryboard storyboardWithName:@"MLPageViewController" bundle:nil] instantiateViewControllerWithIdentifier:@"MLPageSubViewController2"];
-    
-    MLPageSubViewController3 *page3 = [[UIStoryboard storyboardWithName:@"MLPageViewController" bundle:nil] instantiateViewControllerWithIdentifier:@"MLPageSubViewController3"];
+
+  //  MLPageSubViewController3 *page3 = [[UIStoryboard storyboardWithName:@"MLPageViewController" bundle:nil] instantiateViewControllerWithIdentifier:@"MLPageSubViewController3"];
     
     self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     self.pageViewController.delegate = self;
@@ -93,63 +94,77 @@
     [self.pageViewController setViewControllers:@[page1] direction:UIPageViewControllerNavigationDirectionReverse animated:YES completion:nil];
     [self addChildViewController:self.pageViewController];
     
-    self.viewControllers = @[page1, page2, page3];
+    self.viewControllers = @[page1, page2];
     
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:@"SubPageViewTableViewContentOffsetChanged" object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
-        NSLog(@"%@\n%@\n%@\n", note.name, note.userInfo, note.object);
-        UITableView *tableView = note.object;
-        CGFloat y = ((UITableView *)note.object).contentOffset.y;
-//        if (y < 100 && y > 0) {
-//            self.stickyViewTopConstraint.constant = -y;
-//        }else if (y < 0)
-//        {
-//            self.stickyViewTopConstraint.constant = -y;
-//        }
-//        else if(y > 100){
-//            self.stickyViewTopConstraint.constant = -100;
-//        }
+    RACSignal *signal1 = RACObserve(page1, tableView);
+    RACSignal *signal2 = RACObserve(page2, tableView);
+    RACSignal *totalSignal = [signal1 merge:signal2];
+    [totalSignal subscribeNext:^(UITableView *tableView) {
+        if (tableView != nil && ![self.tableViewsOfSubVC containsObject:tableView]) {
+            [self.tableViewsOfSubVC addObject:tableView];
         
-        if (self.stickyViewTopConstraint.constant == -100) {
-            if (y > 0) {
-                return ;
-            }
-        }
-//        if (self.stickyViewTopConstraint.constant < 0 && self.stickyViewTopConstraint.constant != -100) {
-//            if (-self.stickyViewTopConstraint.constant > y) {
-//                return;
-//            }
-//        }
-        
-        if (y < 100 && y > 0) {
-            self.stickyViewTopConstraint.constant = -y;
-        }else if (y < 0)
-        {
-           [UIView animateWithDuration:0.2 animations:^{
-                  self.stickyViewTopConstraint.constant = 0;
-               [self.view layoutIfNeeded];
+            [RACObserve(tableView, contentOffset) subscribeNext:^(NSValue *offsetValue) {
+                if (!tableView.window) {
+                    return ;
+                }
+                //当前变化的tableView
+                CGFloat y = [offsetValue CGPointValue].y;
+
+                
+                
+                
+                if (y == 0) {
+                    NSArray *gestures = tableView.gestureRecognizers;
+                    for (UIGestureRecognizer *gesture in gestures) {
+                        if ([gesture isMemberOfClass:NSClassFromString(@"UIScrollViewPanGestureRecognizer")]) {
+                            UIPanGestureRecognizer *panGesture = (UIPanGestureRecognizer *)gesture;
+                            CGPoint offset = [panGesture translationInView:tableView];
+                            NSLog(@"%@", NSStringFromCGPoint(offset));
+  
+                            self.stickyViewTopConstraint.constant   =  MIN(offset.y, 0);
+
+                            
+                        }
+                    }
+                    
+                
+                    
+                }else if (y > 0){
+                    if (tableView.window) {
+                        
+                        
+                        CGFloat  y1 = page1.tableView.contentOffset.y;
+                        CGFloat y2 = page2.tableView.contentOffset.y;
+                        
+                        if (y1 != y2) {
+                            if ((y1 == 0 && y2 != 0) ||
+                                (y2 == 0 && y1 != 0)) {
+                                
+                            }
+                            
+                            
+                        }
+                        
+           
+                        if (y >= 100) {
+                            self.stickyViewTopConstraint.constant = -100;
+                        }else {
+                            self.stickyViewTopConstraint.constant = -y;
+                            
+                        }
+                        
+                    }
+                }else if (y < 0){
+                    
+                }
+                
             }];
-          
+            
+            
         }
-        else if(y > 100){
-            self.stickyViewTopConstraint.constant = -100;
-        }
-        
     }];
     
-    //     [page2.tableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionNew context:nil];
-    //     [page3.tableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionNew context:nil];
-    
-    
-    //    [RACObserve(page1.tableView, contentOffset) subscribeNext:^(id x) {
-    //        NSLog(@"%@", x);
-    //    }];
-    //    [RACObserve(page2.tableView, contentOffset) subscribeNext:^(id x) {
-    //        NSLog(@"%@", x);
-    //    }];
-    //    [RACObserve(page3.tableView, contentOffset) subscribeNext:^(id x) {
-    //        NSLog(@"%@", x);
-    //    }];
     
 }
 
@@ -160,7 +175,7 @@
         ((MLMenuCLLabelCell *)cell).titleLabel.text = cellDatas[indexPath.section][indexPath.row];
     }];
     @weakify(self);
-    [self.stickyView.menuCollectionView setTitles:@[@"1", @"2", @"3"] clickBlock:^(NSInteger index) {
+    [self.stickyView.menuCollectionView setTitles:@[@"1", @"2"] clickBlock:^(NSInteger index) {
         @strongify(self);
         NSLog(@"%ld", index);
         NSInteger direction = [self.viewControllers indexOfObject:self.pageViewController.viewControllers.firstObject] < index;
@@ -225,7 +240,13 @@
 
 
 #pragma mark - ========= Setter & Getter =========
-
+- (NSMutableArray *)tableViewsOfSubVC
+{
+    if (_tableViewsOfSubVC == nil) {
+        _tableViewsOfSubVC = [[NSMutableArray alloc] init];
+    }
+    return _tableViewsOfSubVC;
+}
 
 
 

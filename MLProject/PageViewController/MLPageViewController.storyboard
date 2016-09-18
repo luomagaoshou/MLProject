@@ -205,6 +205,7 @@
                         <outlet property="pageView" destination="c3M-87-wSE" id="5gD-xo-tmu"/>
                         <outlet property="scrollView" destination="v0e-0D-exJ" id="DTB-Th-aHZ"/>
                         <outlet property="stickyView" destination="dbz-rG-o7n" id="oYO-ky-F4u"/>
+                        <outlet property="topViewTopConstraint" destination="3Bo-9B-FQ7" id="gVl-7p-jLz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XJr-Jq-Mdb" userLabel="First Responder" sceneMemberID="firstResponder"/>

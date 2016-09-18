@@ -11,35 +11,63 @@
 
 @interface NSObject (RunTimeHelper)
 
-
-
 /**
- *  取得属性列表
+ *  获取该类成员变量列表
  *
- *  @return
+ *  @return 该类成员变量列表
  */
 
 + (NSArray *)arrayOfIvars;
 
-//获取成员变量列表
-
+/**
+ *  取得该类属性列表
+ *
+ *  @return 该类属性列表
+ */
 + (NSArray *)arrayOfProperties;
 
 
-
+/**
+ *  取得该类实例方法列表
+ *
+ *  @return 该类实例方法列表
+ */
 
 + (NSArray *)arrayOfInstanceMethods;
+
+/**
+ *  取得该类方法方法列表
+ *
+ *  @return 该类方法方法列表
+ */
 + (NSArray *)arrayOfClassMethods;
 
-
+/**
+ *  取得该类遵循协议列表
+ *
+ *  @return 该类遵循协议列表
+ */
 + (NSArray *)arrayOfProtocols;
 
-+ (NSArray *)arrayOfClassesWithPrefixs:(NSArray *)prefixs;
+/**
+ *  取得该工程所有类的列表
+ *
+ *  @return 该工程所有类的列表
+ */
 + (NSArray *)arrayOfAllClass;
+
++ (NSArray *)arrayOfClassesWithPrefixs:(NSArray *)prefixs;
+
+
 + (NSArray *)arrayOfSubClasses;
 
-
+/**
+ *  取得该对象中有值的的property字典
+ *
+ *  @return 该对象中有值的的property字典
+ */
 - (NSDictionary *)dictionaryOfPropertyKeyValues;
+
 + (NSArray *)arrayOfPropertyAttributes;
 
 /**

@@ -55,6 +55,7 @@
 {
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.bounces = NO;
     [self.tableView ml_registerClassForCellWithNameOrClass:[UITableViewCell class]];
     [self.tableView.cellDatas addObjectsFromArray:@[@[@"1", @"2", @"3", @"4", @"4", @"4", @"4", @"4", @"4", @"4", @"4", @"4", @"4", @"4", @"4", @"4", @"4", @"4", @"4", @"4", @"4", @"4", @"4", @"4", @"4", @"4", @"4", @"4", @"4", @"4", @"4", @"4", @"4", @"4", @"4", @"4", @"4", @"4", @"4"]]];
       [self.tableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionNew context:nil];

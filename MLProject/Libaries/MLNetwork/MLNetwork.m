@@ -152,7 +152,7 @@ MJCodingImplementation
 
     if (networkCtl.messageSender.isCheckNetworkState) {
         if (![Reachability reachabilityForInternetConnection].isReachable) {
-            [MBProgressHUD showHudOnKeywindowWithTitle:kToast.noConnection];
+           // [MBProgressHUD showHudOnKeywindowWithTitle:kToast.noConnection];
             networkCtl.hudManager.scrollViewOfShowingData.statusType = UIScrollViewStatusTypeNoConnetion;
             [networkCtl.hudManager.scrollViewOfShowingData closeMJRefreshHeaderAndFooter];
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -406,7 +406,7 @@ MJCodingImplementation
         [MBProgressHUD showHudOnKeywindowWithTitle:[MLNetwork toastStringWithCode:statusCodeObject]];
     }
     if (statusCode == 10003) {
-        [ProjectManager pushStoryboardControllerWithNibName:kStoryboardNameOfLogin storyboardID:@"BGTLoginViewController" title:@"登录"];
+       // [ProjectManager pushStoryboardControllerWithNibName:kStoryboardNameOfLogin storyboardID:@"BGTLoginViewController" title:@"登录"];
     }
     [self.hudManager.scrollViewOfShowingData closeMJRefreshHeaderAndFooter];
     
@@ -431,7 +431,7 @@ MJCodingImplementation
     failure(task, error, self.urlConfig, self.requestParam, self.requestID, self.paramPackage);
     
     //处理错误显示
-        [MBProgressHUD showHudOnKeywindowWithTitle:self.hudManager.toastOfNetworkError ? : kToast.networkError];
+       // [MBProgressHUD showHudOnKeywindowWithTitle:self.hudManager.toastOfNetworkError ? : kToast.networkError];
    
     if (self.hudManager.scrollViewOfShowingData) {
         self.hudManager.scrollViewOfShowingData.statusType = UIScrollViewStatusTypeNetworkError;

@@ -38,7 +38,20 @@
     typedef NSString *(^testBlcok)(NSString *);
 
 
-@interface ChainableController ()
+
+@protocol MLTestViewChain <NSObject>
+@optional
+- (NSObject  <MLTestViewChain> * (^)(id args,...))testView;
+- (instancetype (^)(id args,...))testView2;
+@end
+
+@protocol MLTestButtonChain <MLTestViewChain>
+@optional
+- (NSObject <MLTestButtonChain> * (^)(id args,...))testButton;
+- (instancetype (^)(id args,...))testButton2;
+@end
+
+@interface ChainableController ()<MLTestButtonChain>
 
 @property (weak, nonatomic) IBOutlet UIButton *xibButton;
 
@@ -52,7 +65,9 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-    
+//        self.testButton(@"").testView(@"").testView(@"");
+        [[self.testView2(@"") testButton2](@"") testView](@"").testView(@"").testView2(@"");
+        
     }
     return self;
 }
@@ -61,7 +76,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-    
+       
     }
     return self;
 }
