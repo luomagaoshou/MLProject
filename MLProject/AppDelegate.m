@@ -75,7 +75,9 @@
     //    [ProjectManager pushStoryboardControllerWithNibName:@"MLNavigation" storyboardID:@"MLNavigationViewController"];
     //    [ProjectManager pushStoryboardControllerWithNibName:@"MLTextField" storyboardID:@"MLTextFieldViewController"];
     
-    [ProjectManager pushStoryboardControllerWithNibName:@"MLRAC" storyboardID:@"MLRACViewController"];
+  //  [ProjectManager pushStoryboardControllerWithNibName:@"MLRAC" storyboardID:@"MLRACViewController"];
+    
+   // [ProjectManager pushStoryboardControllerWithNibName:@"MLBooksExercise" storyboardID:@"MLBooksExerciseViewController" title:@"书本测试"];
  //   [ProjectManager pushStoryboardControllerWithNibName:@"MLAttribute" storyboardID:@"MLAttributeViewController"];
     //[ProjectManager pushStoryboardControllerWithNibName:@"MLPropertyKeyword" storyboardID:@"MLPropertyKeywordController"];
     
@@ -106,6 +108,10 @@
     
     //[ProjectManager pushToControllerWithController:@"ChainableController"];
     // [ProjectManager pushStoryboardControllerWithNibName:@"MLKVC_KVO" storyboardID:@"MLKVC_KVOController"];
+    
+    //[ProjectManager pushStoryboardControllerWithNibName:@"IQKeyboardManager" storyboardID:@"IQKeyboardManagerController" title:nil];
+   // [ProjectManager pushStoryboardControllerWithNibName:@"MLBlocksKit" storyboardID:@"MLBlocksKitViewController" title:@""];
+    [ProjectManager pushToControllerWithController:@"MLCollectionView" title:@"MLCollectionViewController"];
 #pragma mark - ========= XIB =========
     //[ProjectManager pushToControllerWithController:@"MultiThreadController"];
     

@@ -7,8 +7,9 @@
 //
 
 #import "IQKeyboardManagerController.h"
-
-@interface IQKeyboardManagerController ()
+#import <ReactiveCocoa/ReactiveCocoa.h>
+@interface IQKeyboardManagerController ()<UITextViewDelegate>
+@property (weak, nonatomic) IBOutlet UITextView *textView11;
 
 @end
 
@@ -88,7 +89,14 @@
 #pragma mark - ========= InitialUI =========
 - (void)initUI
 {
+    [self configureTextView];
     
+}
+- (void)configureTextView{
+    self.textView11.delegate = self;
+    [RACObserve(self.textView11, text) subscribeNext:^(id x) {
+        UITextViewTextDidChangeNotification;
+    }];
 }
 
 
@@ -96,6 +104,19 @@
 - (void)downloadData
 {
     
+}
+#pragma mark - TextView delegate
+- (void)textViewDidChange:(UITextView *)textView{
+    NSLog(@"%@", textView.text);
+}
+- (void)textViewDidEndEditing:(UITextView *)textView{
+      NSLog(@"%@", textView.text);
+}
+- (void)textViewDidBeginEditing:(UITextView *)textView{
+      NSLog(@"%@", textView.text);
+}
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
+    return textView.text.length < 10;
 }
 
 

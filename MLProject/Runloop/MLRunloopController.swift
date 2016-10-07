@@ -13,13 +13,13 @@ class MLRunloopController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { 
+        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async { 
             while true {
-                let macPort = NSPort()
+                let macPort = Port()
                 print("while begin")
-                let runloop = NSRunLoop.currentRunLoop()
-                runloop.addPort(macPort, forMode: NSDefaultRunLoopMode)
-                runloop.runMode(NSDefaultRunLoopMode, beforeDate: NSDate.distantFuture())
+                let runloop = RunLoop.current
+                runloop.add(macPort, forMode: RunLoopMode.defaultRunLoopMode)
+                runloop.run(mode: RunLoopMode.defaultRunLoopMode, before: Date.distantFuture)
                 
                 print("while end")
                 
@@ -28,7 +28,7 @@ class MLRunloopController: UIViewController {
       
     }
     func tryPerformSelectorOnMianThread() -> Void {
-        self.performSelector(#selector(self.mainThreadMethod))
+        self.perform(#selector(self.mainThreadMethod))
         
     }
     func mainThreadMethod() -> Void {

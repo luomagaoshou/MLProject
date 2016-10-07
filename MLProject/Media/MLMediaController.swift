@@ -38,28 +38,28 @@ class MLMediaController: UIViewController{
     }
     
 
-    func trueVideoUrl(webUrlString:String) -> Void {
-        var httpUrl = "http://apis.baidu.com/dmxy/truevideourl/truevideourl"
-        var httpArg = "url=" + webUrlString
+    func trueVideoUrl(_ webUrlString:String) -> Void {
+        let httpUrl = "http://apis.baidu.com/dmxy/truevideourl/truevideourl"
+        let httpArg = "url=" + webUrlString
         self.requestFortrueVideoUrl(httpUrl, httpArg: httpArg)
         
     }
-    func requestFortrueVideoUrl(httpUrl:String, httpArg:String) -> Void {
-        var request = NSMutableURLRequest(URL: NSURL(string: httpUrl + "?" + httpArg)!)
+    func requestFortrueVideoUrl(_ httpUrl:String, httpArg:String) -> Void {
+        let request = NSMutableURLRequest(url: URL(string: httpUrl + "?" + httpArg)!)
         request.timeoutInterval = 6
-        request.HTTPMethod = "GET"
+        request.httpMethod = "GET"
         request.addValue("f99d5ff8921d80c3c2f655a8f8a2c347", forHTTPHeaderField: "apikey")
         
 
         
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (response, data, error) in
-            let result = response as! NSHTTPURLResponse
+        NSURLConnection.sendAsynchronousRequest(request as URLRequest, queue: OperationQueue.main) { (response, data, error) in
+            let result = response as! HTTPURLResponse
             print(result.statusCode)
             if let e = error{
                 print("请求失败")
             }
             if let d = data{
-                var content = NSString(data: d, encoding: NSUTF8StringEncoding)
+                let content = NSString(data: d, encoding: String.Encoding.utf8.rawValue)
                 print(content)
              
                 
@@ -83,43 +83,43 @@ class MLMediaController: UIViewController{
     }
     */
     
-    func playMediaOnWebViewWithUrlString(urlString:String) -> Void {
+    func playMediaOnWebViewWithUrlString(_ urlString:String) -> Void {
         
-        var webView:UIWebView = UIWebView.init(frame: self.view.bounds) as! UIWebView
+        let webView:UIWebView = UIWebView.init(frame: self.view.bounds) 
         webView.delegate = self
         self.view.addSubview(webView)
-        var urlRequest = NSURLRequest.init(URL: NSURL(string: urlString)!)
+        let urlRequest = URLRequest.init(url: URL(string: urlString)!)
     
         webView.loadRequest(urlRequest)
         
     }
 
-    func playMediaOnMPMoviePlayerViewControllerWithUrlString(urlString:String) -> Void {
-        let playerViewController = MPMoviePlayerViewController(contentURL: NSURL(string: urlString))
+    func playMediaOnMPMoviePlayerViewControllerWithUrlString(_ urlString:String) -> Void {
+        let playerViewController = MPMoviePlayerViewController(contentURL: URL(string: urlString))
 
         self.presentMoviePlayerViewControllerAnimated(playerViewController)
 
         
     }
-    func playMediaOnMPMoviePlayerControllerWithUrlString(urlString:String) -> Void {
+    func playMediaOnMPMoviePlayerControllerWithUrlString(_ urlString:String) -> Void {
         
               let playerController = MPMoviePlayerController()
-        playerController.contentURL = NSURL(string: urlString)
+        playerController.contentURL = URL(string: urlString)
 
-        playerController.view.backgroundColor = UIColor.orangeColor()
+        playerController.view.backgroundColor = UIColor.orange
         
-        playerController.view.frame = CGRectMake(0, 64, 414, 400)
+        playerController.view.frame = CGRect(x: 0, y: 64, width: 414, height: 400)
         
         self.view.addSubview(playerController.view)
-     self.playButton.touchUpInside { 
+     self.playButton.touchUp { 
         playerController.play()
         }
     
         
     }
-    func playMediaOnAVPlayerLayer(urlString:String) -> Void {
+    func playMediaOnAVPlayerLayer(_ urlString:String) -> Void {
       
-        let playerItem = AVPlayerItem(URL: NSURL(string: urlString)!)
+        let playerItem = AVPlayerItem(url: URL(string: urlString)!)
           let player = AVPlayer.init(playerItem: playerItem)
         let layer = AVPlayerLayer.init(player: player)
         layer.frame = self.view.bounds
@@ -131,7 +131,7 @@ class MLMediaController: UIViewController{
             #endif
         
         
-        self.playButton.touchUpInside { 
+        self.playButton.touchUp { 
         player.play()
         }
         
@@ -139,10 +139,10 @@ class MLMediaController: UIViewController{
 }
 
 extension MLMediaController:UIWebViewDelegate{
-    func  webViewDidStartLoad(webView: UIWebView) {
+    func  webViewDidStartLoad(_ webView: UIWebView) {
         
     }
-    func webViewDidFinishLoad(webView: UIWebView) {
+    func webViewDidFinishLoad(_ webView: UIWebView) {
         
     }
 }

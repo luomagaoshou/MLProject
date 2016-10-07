@@ -12,9 +12,9 @@ import UIKit
 class MLSwiftController: UIViewController {
     @IBOutlet weak var pushNowButton: UIButton!
     @IBOutlet weak var createThenPushButton: UIButton!
-    private var name:String!
+    fileprivate var name:String!
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         
@@ -74,36 +74,36 @@ class MLSwiftController: UIViewController {
         print(self.name)
         
         
-                self.pushNowButton.touchUpInside {
+                self.pushNowButton.touchUp {
                     var swiftVar = MLSwift.init() as MLSwift
                    
                     swiftVar.setClosureMothod("haha", closureImp: { (str) -> String in
                         return str + str
                     })
-                    print(swiftVar.closureMethod!(str:"gaga"))
+                    print(swiftVar.closureMethod!("gaga"))
                     
                     swiftVar.setClosureMothod("pipi", closureImp: { str in
                         str + str
                     })
-                    print(swiftVar.closureMethod!(str:"hihi"))
+                    print(swiftVar.closureMethod!("hihi"))
                     
                     swiftVar.setClosureMothod("gege", closureImp: {
                       return $0 + $0
                     })
                     
-                    print(swiftVar.closureMethod!(str:"hehe"))
+                    print(swiftVar.closureMethod!("hehe"))
                     swiftVar.closureMethod = { (str) -> String in
                         return str + str
                     }
-                    print(swiftVar.closureMethod!(str:"koko"))
+                    print(swiftVar.closureMethod!("koko"))
                     
                     
                  
                     
         }
             
-        self.createThenPushButton.touchUpInside {
-            let ctl = UIStoryboard.loadViewControllerWithNibName("MLCLanguage", storyboardID: "MLCLPointerController") as? UIViewController
+        self.createThenPushButton.touchUp {
+            let ctl = UIStoryboard.loadViewController(withNibName: "MLCLanguage", storyboardID: "MLCLPointerController") as? UIViewController
            self.navigationController?.pushViewController(ctl!, animated: true)
             
         }

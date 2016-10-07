@@ -27,7 +27,7 @@ extension MLAudioController
 {
     
     func audioRecord() -> AVAudioRecorder {
-        let audioRecord:AVAudioRecorder? = try? AVAudioRecorder(URL: NSURL(string: "")!, settings:self.recordSetting())
+        let audioRecord:AVAudioRecorder? = try? AVAudioRecorder(url: URL(string: "")!, settings:self.recordSetting())
 //        do{
 //                try  audioRecord = AVAudioRecorder(URL: NSURL(string: "")!, settings:self.recordSetting())
 //            audioRecord?.prepareToRecord()
@@ -42,9 +42,9 @@ extension MLAudioController
         
     }
     func recordSetting() -> Dictionary<String, AnyObject> {
-        var dic:Dictionary<String, AnyObject> = [AVFormatIDKey:NSNumber(unsignedInt:kAudioFormatLinearPCM)]
-        dic[AVSampleRateKey] = NSNumber(integer: 8000)
-        dic[AVNumberOfChannelsKey] = NSNumber(integer: 2)
+        var dic:Dictionary<String, AnyObject> = [AVFormatIDKey:NSNumber(value: kAudioFormatLinearPCM as UInt32)]
+        dic[AVSampleRateKey] = NSNumber(value: 8000 as Int)
+        dic[AVNumberOfChannelsKey] = NSNumber(value: 2 as Int)
         
         
         return dic

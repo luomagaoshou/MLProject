@@ -17,11 +17,11 @@ enum MLSwiftMixEnum {
     case firstParam(Int, Int)
     case secondParam(String, String)
 }
-enum ErrorMLTestType:ErrorType {
+enum ErrorMLTestType:Error {
     case notEnoughLong
     case tooLong
 }
-typealias sendClosure = (str:String) -> String
+typealias sendClosure = (_ str:String) -> String
 class class1: NSObject {
     func fuck() -> Void {
         print("fuck")
@@ -31,20 +31,20 @@ class class1: NSObject {
 
 class MLSwift: NSObject {
     
-     var closureMethod:((str:String) -> String)?
-    var closureMothod2:((str:String)->sendClosure)?
+     var closureMethod:((_ str:String) -> String)?
+    var closureMothod2:((_ str:String)->sendClosure)?
     
     
     
-   static func instanceTest(str:String)->String
+   static func instanceTest(_ str:String)->String
     {
         return str + str
     }
-    class func classTest(str:String)->String
+    class func classTest(_ str:String)->String
     {
         return str + str + str
     }
-    class func swiftDic(strs:String...)->Dictionary<String, String>
+    class func swiftDic(_ strs:String...)->Dictionary<String, String>
     {
     
         
@@ -58,13 +58,13 @@ class MLSwift: NSObject {
         
     }
     
-    func someFunctionThatTakesAClosure(closure: () -> ()) {
+    func someFunctionThatTakesAClosure(_ closure: () -> ()) {
         // 函数体部分
     }
 
-    static let numberFormatter: NSNumberFormatter = {
-        let formatter = NSNumberFormatter()
-        formatter.numberStyle = .DecimalStyle
+    static let numberFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
         return formatter
     }()
 
@@ -72,19 +72,19 @@ class MLSwift: NSObject {
         return "fuck"
     }()
     
-    func Say(num:Int) -> Bool {
+    func Say(_ num:Int) -> Bool {
         return num > 10
     }
   
     
     
     
-    func setClosureMothod(firstString:String, closureImp:(str:String) -> String) {
+    func setClosureMothod(_ firstString:String, closureImp:@escaping (_ str:String) -> String) {
         self.closureMethod = closureImp
         
     }
     
-   class func valueTest(num:NSNumber = false) -> Bool {
+   class func valueTest(_ num:NSNumber = false) -> Bool {
         if Bool(num) {
             return true
         }else
@@ -92,11 +92,11 @@ class MLSwift: NSObject {
             return false
         }
     }
-    class func enumTest(enumValue:MLSwiftEnum = MLSwiftEnum.second)->MLSwiftEnum{
+    class func enumTest(_ enumValue:MLSwiftEnum = MLSwiftEnum.second)->MLSwiftEnum{
         
         return enumValue;
     }
-    class func guardTest(string:String) throws-> String? {
+    class func guardTest(_ string:String) throws-> String? {
         let resultString = string + string
         guard resultString.characters.count > 5 else{
             throw ErrorMLTestType.notEnoughLong

@@ -45,6 +45,7 @@
     [super viewDidLoad];
     [self initUI];
     [self downloadData];
+  
 }
 //即将出现
 - (void)viewWillAppear:(BOOL)animated
@@ -88,6 +89,12 @@
 - (void)initUI
 {
    // [self pointerAddressValue];
+  
+    //[self swapTest];
+      [self allocTest1];
+    [self allocTest2];
+}
+- (void)swapTest{
     int p = 1111;
     int q = 2222;
     [self swap:p :q];
@@ -96,14 +103,12 @@
     int p2 = 3333;
     int q2 = 4444;
     [self swapWithPoint:&p2 :&q2];
-       NSLog(@"%d---%d", p2, q2);
+    NSLog(@"%d---%d", p2, q2);
     
     @"";
     int *o = &p2;
     *o = 555;
     NSLog(@"%d", p2);
-    
-    
 }
 - (void)pointerAddressValue
 {
@@ -125,7 +130,23 @@
     *q = temp;
 }
 
-
+#pragma mark -  alloc
+- (void)allocTest1{
+    char *p, *q;
+    p = (char *)malloc(10);
+    q = p;
+    p = (char *)realloc(p, 10);
+    printf("p=0x%x\n",p);
+    printf("q=0x%x\n",q);
+}
+- (void)allocTest2{
+    char *p, *q;
+    p = (char *)malloc(10);
+    q = p;
+    p = (char *)realloc(p, 17);
+    printf("p=0x%x\n",p);
+    printf("q=0x%x\n",q);
+}
 #pragma mark - ========= DownloadData =========
 - (void)downloadData
 {

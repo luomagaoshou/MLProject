@@ -13,7 +13,7 @@
 /** @name DEBUG 模式下打印日志和当前行数 */
 // @{
 #if DEBUG
-
+extern void _objc_autoreleasePoolPrint();
 //For color log
 #define XCODE_COLORS_ESCAPE_MAC @"\033["
 #define XCODE_COLORS_ESCAPE  XCODE_COLORS_ESCAPE_MAC

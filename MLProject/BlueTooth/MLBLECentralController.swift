@@ -34,35 +34,35 @@ class MLBLECentralController: UIViewController, CBCentralManagerDelegate, CBPeri
       
         
     }
-    func centralManagerDidUpdateState(central: CBCentralManager) {
+    func centralManagerDidUpdateState(_ central: CBCentralManager) {
         switch central.state {
-        case CBCentralManagerState.PoweredOn:
+        case .poweredOn:
                    NSLog("power on")
-              self.centralManager.scanForPeripheralsWithServices(nil, options: nil)
-        case CBCentralManagerState.PoweredOff:
+              self.centralManager.scanForPeripherals(withServices: nil, options: nil)
+        case .poweredOff:
                      NSLog("power off")
         default: break
             
         }
     }
-    func centralManager(central: CBCentralManager, didConnectPeripheral peripheral: CBPeripheral) {
+    func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         NSLog("didConnectPeripheral")
        self.peripheral.discoverServices(nil)
     }
-    func centralManager(central: CBCentralManager, willRestoreState dict: [String : AnyObject]) {
+    func centralManager(_ central: CBCentralManager, willRestoreState dict: [String : Any]) {
         print("willRestoreState")
     }
-    func centralManager(central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: NSError?) {
+    func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
                 print("didDisconnectPeripheral")
     }
-    func centralManager(central: CBCentralManager, didFailToConnectPeripheral peripheral: CBPeripheral, error: NSError?) {
+    func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
                         print("didFailToConnectPeripheral")
     }
-    func centralManager(central: CBCentralManager, didDiscoverPeripheral peripheral: CBPeripheral, advertisementData: [String : AnyObject], RSSI: NSNumber) {
+    func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         central.stopScan()
         self.peripheral = peripheral
         self.peripheral?.delegate = self
-        central.connectPeripheral(peripheral, options: nil)
+        central.connect(peripheral, options: nil)
     }
     
     
@@ -70,14 +70,14 @@ class MLBLECentralController: UIViewController, CBCentralManagerDelegate, CBPeri
     
     
     //peripheral
-    func peripheralDidUpdateName(peripheral: CBPeripheral) {
+    func peripheralDidUpdateName(_ peripheral: CBPeripheral) {
         
     }
     
-    func peripheralDidUpdateRSSI(peripheral: CBPeripheral, error: NSError?) {
+    func peripheralDidUpdateRSSI(_ peripheral: CBPeripheral, error: Error?) {
         
     }     
-    func peripheral(peripheral: CBPeripheral, didDiscoverServices error: NSError?) {
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
 //        let services = peripheral.services
 //        for service  in services! {
 //            print(service.UUID)
@@ -85,43 +85,43 @@ class MLBLECentralController: UIViewController, CBCentralManagerDelegate, CBPeri
 //        }
         
         let service = peripheral.services?.last
-        peripheral.discoverCharacteristics(nil, forService: service!)
+        peripheral.discoverCharacteristics(nil, for: service!)
         
     }
-    func peripheral(peripheral: CBPeripheral, didModifyServices invalidatedServices: [CBService]) {
+    func peripheral(_ peripheral: CBPeripheral, didModifyServices invalidatedServices: [CBService]) {
         
     }
-    func peripheral(peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: NSError?) {
+    func peripheral(_ peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: Error?) {
         
     }
-    func peripheral(peripheral: CBPeripheral, didWriteValueForDescriptor descriptor: CBDescriptor, error: NSError?) {
+    func peripheral(_ peripheral: CBPeripheral, didWriteValueFor descriptor: CBDescriptor, error: Error?) {
         
     }
-    func peripheral(peripheral: CBPeripheral, didUpdateValueForDescriptor descriptor: CBDescriptor, error: NSError?) {
+    func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor descriptor: CBDescriptor, error: Error?) {
         
     }
-    func peripheral(peripheral: CBPeripheral, didDiscoverCharacteristicsForService service: CBService, error: NSError?) {
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         print(service.characteristics)
         self.characteriestic = service.characteristics?.first!
         peripheral.delegate = self
-        peripheral.setNotifyValue(true, forCharacteristic:self.characteriestic)
-          peripheral.writeValue("hahagagag".dataUsingEncoding(NSUTF8StringEncoding)!, forCharacteristic: self.characteriestic, type: CBCharacteristicWriteType.WithResponse)
+        peripheral.setNotifyValue(true, for:self.characteriestic)
+          peripheral.writeValue("hahagagag".data(using: String.Encoding.utf8)!, for: self.characteriestic, type: CBCharacteristicWriteType.withResponse)
         
         
     }
-    func peripheral(peripheral: CBPeripheral, didDiscoverIncludedServicesForService service: CBService, error: NSError?) {
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverIncludedServicesFor service: CBService, error: Error?) {
         
     }
-    func peripheral(peripheral: CBPeripheral, didWriteValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
+    func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
         
     }
-    func peripheral(peripheral: CBPeripheral, didUpdateValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
-        print(NSString.init(data: (characteristic.value)!, encoding: NSUTF8StringEncoding))
+    func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
+        print(NSString.init(data: (characteristic.value)!, encoding: String.Encoding.utf8.rawValue))
     }
-    func peripheral(peripheral: CBPeripheral, didDiscoverDescriptorsForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverDescriptorsFor characteristic: CBCharacteristic, error: Error?) {
         
     }
-    func peripheral(peripheral: CBPeripheral, didUpdateNotificationStateForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
+    func peripheral(_ peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: Error?) {
         
 //        peripheral.readValueForCharacteristic(characteriestic)
 //        print(NSString.init(data: (characteristic.value)!, encoding: NSUTF8StringEncoding))

@@ -62,14 +62,11 @@
 		1822284E1CAE86DD00A7E43D /* AthleticsLotteryMaster.m in Sources */ = {isa = PBXBuildFile; fileRef = 182228481CAE86DD00A7E43D /* AthleticsLotteryMaster.m */; };
 		18230C3B1CD1ACCC0056C5FB /* MLKVC_KVOController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18230C3A1CD1ACCC0056C5FB /* MLKVC_KVOController.m */; };
 		18230C3D1CD1ACF00056C5FB /* MLKVC_KVO.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18230C3C1CD1ACF00056C5FB /* MLKVC_KVO.storyboard */; };
-		1827CF6F1CED4FCF00552F14 /* MLSwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1827CF6E1CED4FCF00552F14 /* MLSwiftController.swift */; };
 		183853DB1CE1CAA0006B3262 /* MLSplit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183853DA1CE1CAA0006B3262 /* MLSplit.storyboard */; };
 		183853E31CE1CE72006B3262 /* MLSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183853E21CE1CE72006B3262 /* MLSplitViewController.m */; };
 		18463CEC1CA247E300DD87BE /* UIBezierPath+ML_Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18463CEA1CA247E300DD87BE /* UIBezierPath+ML_Tools.m */; };
 		185947631CEC0C0E008E4582 /* MLCLanguage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 185947621CEC0C0E008E4582 /* MLCLanguage.storyboard */; };
 		185947661CEC0C96008E4582 /* MLCLPointerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185947651CEC0C96008E4582 /* MLCLPointerController.m */; };
-		1859476C1CEC1594008E4582 /* MLSwift.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1859476B1CEC1594008E4582 /* MLSwift.storyboard */; };
-		1859476F1CEC1689008E4582 /* MLSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859476E1CEC1689008E4582 /* MLSwift.swift */; };
 		1879DDAA1CD9D0AD000ECD8F /* NSObject+ChainProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 1879DDA91CD9D0AD000ECD8F /* NSObject+ChainProperty.m */; };
 		187C149F1CE5ADD3008A532C /* huangyibiaoTest.html in Resources */ = {isa = PBXBuildFile; fileRef = 187C149D1CE5ADD3008A532C /* huangyibiaoTest.html */; };
 		187C14A01CE5ADD3008A532C /* huangyibiaoTest1.html in Resources */ = {isa = PBXBuildFile; fileRef = 187C149E1CE5ADD3008A532C /* huangyibiaoTest1.html */; };
@@ -155,8 +152,6 @@
 		18FCA2311C7D3B5C002C4E5C /* WHC_ModelCreate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FCA22C1C7D3B5C002C4E5C /* WHC_ModelCreate.m */; };
 		18FCA2321C7D3B5C002C4E5C /* WHC_XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FCA22E1C7D3B5C002C4E5C /* WHC_XMLParser.m */; };
 		5F578BD3276B47EFCA95FA70 /* libPods-MLProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0416FDCC5F62AC7434E6D346 /* libPods-MLProject.a */; };
-		FE0127101CFFD62400593576 /* MLBlueTooth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE01270F1CFFD62400593576 /* MLBlueTooth.storyboard */; };
-		FE0127121CFFD63100593576 /* MLBlueToothController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0127111CFFD63100593576 /* MLBlueToothController.swift */; };
 		FE06A08C1CA7AE7500758B37 /* MLImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE06A08B1CA7AE7500758B37 /* MLImageController.m */; };
 		FE06A08E1CA7AE8600758B37 /* MLImage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE06A08D1CA7AE8600758B37 /* MLImage.storyboard */; };
 		FE06A0911CA7AEDF00758B37 /* MLImageNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE06A0901CA7AEDF00758B37 /* MLImageNavController.m */; };
@@ -178,6 +173,8 @@
 		FE2095E21C951C8A000CBE16 /* libdyci.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE2095E11C951C8A000CBE16 /* libdyci.a */; };
 		FE29A26F1C513365006FF01E /* 44C5FC76-E862-43F6-824E-0FBBAFADA5CA.png in Resources */ = {isa = PBXBuildFile; fileRef = FE29A26E1C513365006FF01E /* 44C5FC76-E862-43F6-824E-0FBBAFADA5CA.png */; };
 		FE29A27F1C54F7D0006FF01E /* UIViewController+Storyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = FE29A27E1C54F7D0006FF01E /* UIViewController+Storyboard.m */; };
+		FE2CD5C81D903DBE00C264D4 /* MLBooksExercise.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE2CD5C71D903DBE00C264D4 /* MLBooksExercise.storyboard */; };
+		FE2CD5CB1D903DCE00C264D4 /* MLBooksExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2CD5CA1D903DCE00C264D4 /* MLBooksExerciseViewController.m */; };
 		FE31D0E51BFE15FF00D63286 /* MultiThreadController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE31D0E31BFE15FF00D63286 /* MultiThreadController.m */; };
 		FE31D0E61BFE15FF00D63286 /* MultiThreadController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE31D0E41BFE15FF00D63286 /* MultiThreadController.xib */; };
 		FE328C8C1D26AB3100F96691 /* MLMJRefresh.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE328C8B1D26AB3100F96691 /* MLMJRefresh.storyboard */; };
@@ -213,8 +210,19 @@
 		FE60DBD61C5108A3009D836E /* MLSBTestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE60DBD41C5108A3009D836E /* MLSBTestCell.m */; };
 		FE60DBD71C5108A3009D836E /* MLSBTestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE60DBD51C5108A3009D836E /* MLSBTestCell.xib */; };
 		FE60DBDA1C510948009D836E /* MLTBFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = FE60DBD91C510948009D836E /* MLTBFooter.m */; };
-		FE614CF01D0C487200B6D0F0 /* MLBLEPeripheralController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE614CEF1D0C487200B6D0F0 /* MLBLEPeripheralController.swift */; };
-		FE614CF21D0C488200B6D0F0 /* MLBLECentralController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE614CF11D0C488200B6D0F0 /* MLBLECentralController.swift */; };
+		FE6735C11DA77F2D008CE06E /* MLCollectionView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE6735C01DA77F2D008CE06E /* MLCollectionView.storyboard */; };
+		FE6735C41DA77F3D008CE06E /* MLCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6735C31DA77F3D008CE06E /* MLCollectionViewController.m */; };
+		FE6735C71DA78052008CE06E /* MLCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6735C61DA78052008CE06E /* MLCollectionView.m */; };
+		FE6735CD1DA794DE008CE06E /* MLBLECentralController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6735C91DA794DE008CE06E /* MLBLECentralController.swift */; };
+		FE6735CE1DA794DE008CE06E /* MLBLEPeripheralController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6735CA1DA794DE008CE06E /* MLBLEPeripheralController.swift */; };
+		FE6735CF1DA794DE008CE06E /* MLBlueTooth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE6735CB1DA794DE008CE06E /* MLBlueTooth.storyboard */; };
+		FE6735D01DA794DE008CE06E /* MLBlueToothController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6735CC1DA794DE008CE06E /* MLBlueToothController.swift */; };
+		FE6735D61DA795F1008CE06E /* MLSwift.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE6735D31DA795F1008CE06E /* MLSwift.storyboard */; };
+		FE6735D71DA795F1008CE06E /* MLSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6735D41DA795F1008CE06E /* MLSwift.swift */; };
+		FE6735D81DA795F1008CE06E /* MLSwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6735D51DA795F1008CE06E /* MLSwiftController.swift */; };
+		FE6735E21DA79615008CE06E /* MLAudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6735DF1DA79615008CE06E /* MLAudioController.swift */; };
+		FE6735E31DA79615008CE06E /* MLMedia.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE6735E01DA79615008CE06E /* MLMedia.storyboard */; };
+		FE6735E41DA79615008CE06E /* MLMediaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6735E11DA79615008CE06E /* MLMediaController.swift */; };
 		FE6B221B1CD650AF007733FD /* ChainableController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3C4A701C2EBA66004CBA21 /* ChainableController.m */; };
 		FE6B225E1CD65178007733FD /* CAAnimation+MLChain.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6B221E1CD65178007733FD /* CAAnimation+MLChain.m */; };
 		FE6B225F1CD65178007733FD /* CABasicAnimation+MLChain.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6B22201CD65178007733FD /* CABasicAnimation+MLChain.m */; };
@@ -257,8 +265,6 @@
 		FE945AB11C1D5746007A2421 /* SBHSplitOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FE945AAF1C1D5746007A2421 /* SBHSplitOrderModel.m */; };
 		FE972D061C5FAB6800C34DC0 /* MLCALayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE972D051C5FAB6800C34DC0 /* MLCALayer.storyboard */; };
 		FE972D091C5FAB8B00C34DC0 /* MLCALayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE972D081C5FAB8B00C34DC0 /* MLCALayerController.m */; };
-		FE9F364D1CFC4ACC00A16744 /* MLMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE9F364C1CFC4ACC00A16744 /* MLMap.storyboard */; };
-		FE9F364F1CFC4B0600A16744 /* MLMapOfAmapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9F364E1CFC4B0600A16744 /* MLMapOfAmapController.swift */; };
 		FEA1C86F1CAEDD2300B5A9D3 /* ReuseButtonCLCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA1C86D1CAEDD2300B5A9D3 /* ReuseButtonCLCell.m */; };
 		FEA1C8701CAEDD2300B5A9D3 /* ReuseButtonCLCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEA1C86E1CAEDD2300B5A9D3 /* ReuseButtonCLCell.xib */; };
 		FEA1C8761CB16F3300B5A9D3 /* MLStruct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEA1C8751CB16F3300B5A9D3 /* MLStruct.storyboard */; };
@@ -266,6 +272,9 @@
 		FEA1C87C1CB5394300B5A9D3 /* PaiLie.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA1C87A1CB5394300B5A9D3 /* PaiLie.m */; };
 		FEA1C87E1CB6B60A00B5A9D3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA1C87D1CB6B60A00B5A9D3 /* UIKit.framework */; };
 		FEA3C1411D75174B00131A34 /* NSObject+RunTimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA3C1401D75174B00131A34 /* NSObject+RunTimeHelper.m */; };
+		FEB345881D9E4D0B00FDFAC5 /* MLBlocksKit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEB345871D9E4D0B00FDFAC5 /* MLBlocksKit.storyboard */; };
+		FEB3458B1D9E4D1900FDFAC5 /* MLBlocksKitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB3458A1D9E4D1900FDFAC5 /* MLBlocksKitViewController.m */; };
+		FEB3458E1D9E4D2300FDFAC5 /* MLBlocksKitView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB3458D1D9E4D2300FDFAC5 /* MLBlocksKitView.m */; };
 		FEB529D21BEF1EBA00EAA6C1 /* RootController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB529D11BEF1EBA00EAA6C1 /* RootController.m */; };
 		FEB529D41BEF208A00EAA6C1 /* RootController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB529D31BEF208A00EAA6C1 /* RootController.xib */; };
 		FEC349441BEEFB0D0076E88B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC349431BEEFB0D0076E88B /* main.m */; };
@@ -296,11 +305,6 @@
 		FEE30BBA1C03421C00B79F8D /* SubView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE30BB61C03421C00B79F8D /* SubView.m */; };
 		FEE30BBB1C03421C00B79F8D /* UIView+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE30BB81C03421C00B79F8D /* UIView+Ext.m */; };
 		FEE3DC9F1CF70AE00046B515 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEE3DC9E1CF70AE00046B515 /* MediaPlayer.framework */; };
-		FEE3DCA31CF72BB60046B515 /* MLMedia.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEE3DCA11CF72BB60046B515 /* MLMedia.storyboard */; };
-		FEE3DCA41CF72BB60046B515 /* MLMediaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE3DCA21CF72BB60046B515 /* MLMediaController.swift */; };
-		FEE3DCA71CF72BEA0046B515 /* MLOpenGL.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEE3DCA61CF72BEA0046B515 /* MLOpenGL.storyboard */; };
-		FEE3DCA91CF72BF50046B515 /* MLOpenGLController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE3DCA81CF72BF50046B515 /* MLOpenGLController.swift */; };
-		FEE3DCAB1CF961A80046B515 /* MLAudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE3DCAA1CF961A80046B515 /* MLAudioController.swift */; };
 		FEE4D01F1D00622400F694D7 /* CALayer+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE4D01E1D00622400F694D7 /* CALayer+Animation.m */; };
 		FEE55CFC1BF244CC00C8F783 /* UILabel+CommonType.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE55CFA1BF244CC00C8F783 /* UILabel+CommonType.m */; };
 		FEE55D011BF244D100C8F783 /* FranchiseVerifyingStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE55CFF1BF244D100C8F783 /* FranchiseVerifyingStatusView.m */; };
@@ -316,8 +320,6 @@
 		FEE6A6961C691196008760CA /* AlgorithmPlayController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE6A6951C691196008760CA /* AlgorithmPlayController.m */; };
 		FEE6A69A1C734C5C008760CA /* MLAnimationsController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE6A6991C734C5C008760CA /* MLAnimationsController.m */; };
 		FEE6A69C1C734C66008760CA /* MLAnimations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEE6A69B1C734C66008760CA /* MLAnimations.storyboard */; };
-		FEED3FBF1D104E520084A143 /* MLRunloop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEED3FBE1D104E520084A143 /* MLRunloop.storyboard */; };
-		FEED3FC31D104F000084A143 /* MLRunloopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEED3FC21D104F000084A143 /* MLRunloopController.swift */; };
 		FEF6708F1D4312CF00AF7115 /* MLCustomCLInCLCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF6708D1D4312CF00AF7115 /* MLCustomCLInCLCell.m */; };
 		FEF670901D4312CF00AF7115 /* MLCustomCLInCLCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEF6708E1D4312CF00AF7115 /* MLCustomCLInCLCell.xib */; };
 		FEF7DDA51C7B1C2900BF3630 /* MLCALayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF7DDA41C7B1C2900BF3630 /* MLCALayerView.m */; };
@@ -423,7 +425,6 @@
 		18230C391CD1ACCC0056C5FB /* MLKVC_KVOController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLKVC_KVOController.h; sourceTree = "<group>"; };
 		18230C3A1CD1ACCC0056C5FB /* MLKVC_KVOController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLKVC_KVOController.m; sourceTree = "<group>"; };
 		18230C3C1CD1ACF00056C5FB /* MLKVC_KVO.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLKVC_KVO.storyboard; sourceTree = "<group>"; };
-		1827CF6E1CED4FCF00552F14 /* MLSwiftController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLSwiftController.swift; sourceTree = "<group>"; };
 		183853DA1CE1CAA0006B3262 /* MLSplit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLSplit.storyboard; sourceTree = "<group>"; };
 		183853E11CE1CE72006B3262 /* MLSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSplitViewController.h; sourceTree = "<group>"; };
 		183853E21CE1CE72006B3262 /* MLSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSplitViewController.m; sourceTree = "<group>"; };
@@ -432,9 +433,6 @@
 		185947621CEC0C0E008E4582 /* MLCLanguage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLCLanguage.storyboard; sourceTree = "<group>"; };
 		185947641CEC0C96008E4582 /* MLCLPointerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLCLPointerController.h; sourceTree = "<group>"; };
 		185947651CEC0C96008E4582 /* MLCLPointerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLCLPointerController.m; sourceTree = "<group>"; };
-		1859476B1CEC1594008E4582 /* MLSwift.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLSwift.storyboard; sourceTree = "<group>"; };
-		1859476D1CEC1689008E4582 /* MLProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MLProject-Bridging-Header.h"; sourceTree = "<group>"; };
-		1859476E1CEC1689008E4582 /* MLSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLSwift.swift; sourceTree = "<group>"; };
 		1879DDA81CD9D0AD000ECD8F /* NSObject+ChainProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ChainProperty.h"; sourceTree = "<group>"; };
 		1879DDA91CD9D0AD000ECD8F /* NSObject+ChainProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ChainProperty.m"; sourceTree = "<group>"; };
 		187C149D1CE5ADD3008A532C /* huangyibiaoTest.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = huangyibiaoTest.html; sourceTree = "<group>"; };
@@ -601,8 +599,6 @@
 		18FCA22D1C7D3B5C002C4E5C /* WHC_XMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHC_XMLParser.h; sourceTree = "<group>"; };
 		18FCA22E1C7D3B5C002C4E5C /* WHC_XMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHC_XMLParser.m; sourceTree = "<group>"; };
 		B10E92504C3F16A91A3887E5 /* Pods-MLProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MLProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-MLProject/Pods-MLProject.release.xcconfig"; sourceTree = "<group>"; };
-		FE01270F1CFFD62400593576 /* MLBlueTooth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLBlueTooth.storyboard; sourceTree = "<group>"; };
-		FE0127111CFFD63100593576 /* MLBlueToothController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLBlueToothController.swift; sourceTree = "<group>"; };
 		FE06A08A1CA7AE7500758B37 /* MLImageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLImageController.h; sourceTree = "<group>"; };
 		FE06A08B1CA7AE7500758B37 /* MLImageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLImageController.m; sourceTree = "<group>"; };
 		FE06A08D1CA7AE8600758B37 /* MLImage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLImage.storyboard; sourceTree = "<group>"; };
@@ -637,6 +633,9 @@
 		FE29A26E1C513365006FF01E /* 44C5FC76-E862-43F6-824E-0FBBAFADA5CA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "44C5FC76-E862-43F6-824E-0FBBAFADA5CA.png"; sourceTree = "<group>"; };
 		FE29A27D1C54F7D0006FF01E /* UIViewController+Storyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Storyboard.h"; sourceTree = "<group>"; };
 		FE29A27E1C54F7D0006FF01E /* UIViewController+Storyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Storyboard.m"; sourceTree = "<group>"; };
+		FE2CD5C71D903DBE00C264D4 /* MLBooksExercise.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLBooksExercise.storyboard; sourceTree = "<group>"; };
+		FE2CD5C91D903DCE00C264D4 /* MLBooksExerciseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLBooksExerciseViewController.h; sourceTree = "<group>"; };
+		FE2CD5CA1D903DCE00C264D4 /* MLBooksExerciseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLBooksExerciseViewController.m; sourceTree = "<group>"; };
 		FE31D0E21BFE15FF00D63286 /* MultiThreadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiThreadController.h; sourceTree = "<group>"; };
 		FE31D0E31BFE15FF00D63286 /* MultiThreadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiThreadController.m; sourceTree = "<group>"; };
 		FE31D0E41BFE15FF00D63286 /* MultiThreadController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultiThreadController.xib; sourceTree = "<group>"; };
@@ -696,8 +695,22 @@
 		FE60DBD51C5108A3009D836E /* MLSBTestCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MLSBTestCell.xib; sourceTree = "<group>"; };
 		FE60DBD81C510948009D836E /* MLTBFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLTBFooter.h; sourceTree = "<group>"; };
 		FE60DBD91C510948009D836E /* MLTBFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLTBFooter.m; sourceTree = "<group>"; };
-		FE614CEF1D0C487200B6D0F0 /* MLBLEPeripheralController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLBLEPeripheralController.swift; sourceTree = "<group>"; };
-		FE614CF11D0C488200B6D0F0 /* MLBLECentralController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLBLECentralController.swift; sourceTree = "<group>"; };
+		FE6735C01DA77F2D008CE06E /* MLCollectionView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLCollectionView.storyboard; sourceTree = "<group>"; };
+		FE6735C21DA77F3D008CE06E /* MLCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLCollectionViewController.h; sourceTree = "<group>"; };
+		FE6735C31DA77F3D008CE06E /* MLCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLCollectionViewController.m; sourceTree = "<group>"; };
+		FE6735C51DA78052008CE06E /* MLCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLCollectionView.h; sourceTree = "<group>"; };
+		FE6735C61DA78052008CE06E /* MLCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLCollectionView.m; sourceTree = "<group>"; };
+		FE6735C91DA794DE008CE06E /* MLBLECentralController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLBLECentralController.swift; sourceTree = "<group>"; };
+		FE6735CA1DA794DE008CE06E /* MLBLEPeripheralController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLBLEPeripheralController.swift; sourceTree = "<group>"; };
+		FE6735CB1DA794DE008CE06E /* MLBlueTooth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLBlueTooth.storyboard; sourceTree = "<group>"; };
+		FE6735CC1DA794DE008CE06E /* MLBlueToothController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLBlueToothController.swift; sourceTree = "<group>"; };
+		FE6735D21DA795F1008CE06E /* MLProject-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MLProject-Bridging-Header.h"; sourceTree = "<group>"; };
+		FE6735D31DA795F1008CE06E /* MLSwift.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLSwift.storyboard; sourceTree = "<group>"; };
+		FE6735D41DA795F1008CE06E /* MLSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLSwift.swift; sourceTree = "<group>"; };
+		FE6735D51DA795F1008CE06E /* MLSwiftController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLSwiftController.swift; sourceTree = "<group>"; };
+		FE6735DF1DA79615008CE06E /* MLAudioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLAudioController.swift; sourceTree = "<group>"; };
+		FE6735E01DA79615008CE06E /* MLMedia.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLMedia.storyboard; sourceTree = "<group>"; };
+		FE6735E11DA79615008CE06E /* MLMediaController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLMediaController.swift; sourceTree = "<group>"; };
 		FE6B221D1CD65178007733FD /* CAAnimation+MLChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CAAnimation+MLChain.h"; sourceTree = "<group>"; };
 		FE6B221E1CD65178007733FD /* CAAnimation+MLChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CAAnimation+MLChain.m"; sourceTree = "<group>"; };
 		FE6B221F1CD65178007733FD /* CABasicAnimation+MLChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CABasicAnimation+MLChain.h"; sourceTree = "<group>"; };
@@ -778,8 +791,6 @@
 		FE972D051C5FAB6800C34DC0 /* MLCALayer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLCALayer.storyboard; sourceTree = "<group>"; };
 		FE972D071C5FAB8B00C34DC0 /* MLCALayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLCALayerController.h; sourceTree = "<group>"; };
 		FE972D081C5FAB8B00C34DC0 /* MLCALayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLCALayerController.m; sourceTree = "<group>"; };
-		FE9F364C1CFC4ACC00A16744 /* MLMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLMap.storyboard; sourceTree = "<group>"; };
-		FE9F364E1CFC4B0600A16744 /* MLMapOfAmapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLMapOfAmapController.swift; sourceTree = "<group>"; };
 		FEA1C86C1CAEDD2300B5A9D3 /* ReuseButtonCLCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReuseButtonCLCell.h; sourceTree = "<group>"; };
 		FEA1C86D1CAEDD2300B5A9D3 /* ReuseButtonCLCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReuseButtonCLCell.m; sourceTree = "<group>"; };
 		FEA1C86E1CAEDD2300B5A9D3 /* ReuseButtonCLCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReuseButtonCLCell.xib; sourceTree = "<group>"; };
@@ -791,6 +802,11 @@
 		FEA1C87D1CB6B60A00B5A9D3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FEA3C13F1D75174B00131A34 /* NSObject+RunTimeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+RunTimeHelper.h"; sourceTree = "<group>"; };
 		FEA3C1401D75174B00131A34 /* NSObject+RunTimeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RunTimeHelper.m"; sourceTree = "<group>"; };
+		FEB345871D9E4D0B00FDFAC5 /* MLBlocksKit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLBlocksKit.storyboard; sourceTree = "<group>"; };
+		FEB345891D9E4D1900FDFAC5 /* MLBlocksKitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLBlocksKitViewController.h; sourceTree = "<group>"; };
+		FEB3458A1D9E4D1900FDFAC5 /* MLBlocksKitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLBlocksKitViewController.m; sourceTree = "<group>"; };
+		FEB3458C1D9E4D2300FDFAC5 /* MLBlocksKitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLBlocksKitView.h; sourceTree = "<group>"; };
+		FEB3458D1D9E4D2300FDFAC5 /* MLBlocksKitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLBlocksKitView.m; sourceTree = "<group>"; };
 		FEB529CF1BEF057700EAA6C1 /* Public.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Public.h; sourceTree = "<group>"; };
 		FEB529D01BEF1EBA00EAA6C1 /* RootController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootController.h; sourceTree = "<group>"; };
 		FEB529D11BEF1EBA00EAA6C1 /* RootController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootController.m; sourceTree = "<group>"; };
@@ -846,11 +862,6 @@
 		FEE30BB71C03421C00B79F8D /* UIView+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Ext.h"; sourceTree = "<group>"; };
 		FEE30BB81C03421C00B79F8D /* UIView+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Ext.m"; sourceTree = "<group>"; };
 		FEE3DC9E1CF70AE00046B515 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		FEE3DCA11CF72BB60046B515 /* MLMedia.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLMedia.storyboard; sourceTree = "<group>"; };
-		FEE3DCA21CF72BB60046B515 /* MLMediaController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLMediaController.swift; sourceTree = "<group>"; };
-		FEE3DCA61CF72BEA0046B515 /* MLOpenGL.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLOpenGL.storyboard; sourceTree = "<group>"; };
-		FEE3DCA81CF72BF50046B515 /* MLOpenGLController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLOpenGLController.swift; sourceTree = "<group>"; };
-		FEE3DCAA1CF961A80046B515 /* MLAudioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLAudioController.swift; sourceTree = "<group>"; };
 		FEE4D01D1D00622400F694D7 /* CALayer+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Animation.h"; sourceTree = "<group>"; };
 		FEE4D01E1D00622400F694D7 /* CALayer+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Animation.m"; sourceTree = "<group>"; };
 		FEE55CF91BF244CC00C8F783 /* UILabel+CommonType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+CommonType.h"; sourceTree = "<group>"; };
@@ -876,8 +887,6 @@
 		FEE6A6981C734C5C008760CA /* MLAnimationsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLAnimationsController.h; sourceTree = "<group>"; };
 		FEE6A6991C734C5C008760CA /* MLAnimationsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLAnimationsController.m; sourceTree = "<group>"; };
 		FEE6A69B1C734C66008760CA /* MLAnimations.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLAnimations.storyboard; sourceTree = "<group>"; };
-		FEED3FBE1D104E520084A143 /* MLRunloop.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLRunloop.storyboard; sourceTree = "<group>"; };
-		FEED3FC21D104F000084A143 /* MLRunloopController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLRunloopController.swift; sourceTree = "<group>"; };
 		FEF6708C1D4312CF00AF7115 /* MLCustomCLInCLCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLCustomCLInCLCell.h; sourceTree = "<group>"; };
 		FEF6708D1D4312CF00AF7115 /* MLCustomCLInCLCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLCustomCLInCLCell.m; sourceTree = "<group>"; };
 		FEF6708E1D4312CF00AF7115 /* MLCustomCLInCLCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MLCustomCLInCLCell.xib; sourceTree = "<group>"; };
@@ -1070,17 +1079,6 @@
 				185947651CEC0C96008E4582 /* MLCLPointerController.m */,
 			);
 			path = CLanguage;
-			sourceTree = "<group>";
-		};
-		1859476A1CEC1585008E4582 /* Swift */ = {
-			isa = PBXGroup;
-			children = (
-				1859476B1CEC1594008E4582 /* MLSwift.storyboard */,
-				1827CF6E1CED4FCF00552F14 /* MLSwiftController.swift */,
-				1859476E1CEC1689008E4582 /* MLSwift.swift */,
-				1859476D1CEC1689008E4582 /* MLProject-Bridging-Header.h */,
-			);
-			path = Swift;
 			sourceTree = "<group>";
 		};
 		187D54AB1C8400CB0066EC67 /* AttributeString */ = {
@@ -1365,17 +1363,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		FE01270E1CFFD61A00593576 /* BlueTooth */ = {
-			isa = PBXGroup;
-			children = (
-				FE01270F1CFFD62400593576 /* MLBlueTooth.storyboard */,
-				FE0127111CFFD63100593576 /* MLBlueToothController.swift */,
-				FE614CF11D0C488200B6D0F0 /* MLBLECentralController.swift */,
-				FE614CEF1D0C487200B6D0F0 /* MLBLEPeripheralController.swift */,
-			);
-			path = BlueTooth;
-			sourceTree = "<group>";
-		};
 		FE06A0891CA7AE5D00758B37 /* Image */ = {
 			isa = PBXGroup;
 			children = (
@@ -1406,6 +1393,16 @@
 				FE285B8E1CCB55880054B2EE /* Info.plist */,
 			);
 			path = MLProjectTests;
+			sourceTree = "<group>";
+		};
+		FE2CD5C41D903DA200C264D4 /* BooksExercise */ = {
+			isa = PBXGroup;
+			children = (
+				FE2CD5C71D903DBE00C264D4 /* MLBooksExercise.storyboard */,
+				FE2CD5C91D903DCE00C264D4 /* MLBooksExerciseViewController.h */,
+				FE2CD5CA1D903DCE00C264D4 /* MLBooksExerciseViewController.m */,
+			);
+			path = BooksExercise;
 			sourceTree = "<group>";
 		};
 		FE31D0E11BFE0A3300D63286 /* MultiThread */ = {
@@ -1565,6 +1562,50 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
+		FE6735BF1DA77F1C008CE06E /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				FE6735C01DA77F2D008CE06E /* MLCollectionView.storyboard */,
+				FE6735C21DA77F3D008CE06E /* MLCollectionViewController.h */,
+				FE6735C31DA77F3D008CE06E /* MLCollectionViewController.m */,
+				FE6735C51DA78052008CE06E /* MLCollectionView.h */,
+				FE6735C61DA78052008CE06E /* MLCollectionView.m */,
+			);
+			path = Collection;
+			sourceTree = "<group>";
+		};
+		FE6735C81DA794DE008CE06E /* BlueTooth */ = {
+			isa = PBXGroup;
+			children = (
+				FE6735C91DA794DE008CE06E /* MLBLECentralController.swift */,
+				FE6735CA1DA794DE008CE06E /* MLBLEPeripheralController.swift */,
+				FE6735CB1DA794DE008CE06E /* MLBlueTooth.storyboard */,
+				FE6735CC1DA794DE008CE06E /* MLBlueToothController.swift */,
+			);
+			path = BlueTooth;
+			sourceTree = "<group>";
+		};
+		FE6735D11DA795F1008CE06E /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				FE6735D21DA795F1008CE06E /* MLProject-Bridging-Header.h */,
+				FE6735D31DA795F1008CE06E /* MLSwift.storyboard */,
+				FE6735D41DA795F1008CE06E /* MLSwift.swift */,
+				FE6735D51DA795F1008CE06E /* MLSwiftController.swift */,
+			);
+			path = Swift;
+			sourceTree = "<group>";
+		};
+		FE6735DE1DA79615008CE06E /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				FE6735DF1DA79615008CE06E /* MLAudioController.swift */,
+				FE6735E01DA79615008CE06E /* MLMedia.storyboard */,
+				FE6735E11DA79615008CE06E /* MLMediaController.swift */,
+			);
+			path = Media;
+			sourceTree = "<group>";
+		};
 		FE6B221C1CD65148007733FD /* MLChain */ = {
 			isa = PBXGroup;
 			children = (
@@ -1684,15 +1725,6 @@
 			path = CALayer;
 			sourceTree = "<group>";
 		};
-		FE9F364B1CFC4AC300A16744 /* Map */ = {
-			isa = PBXGroup;
-			children = (
-				FE9F364C1CFC4ACC00A16744 /* MLMap.storyboard */,
-				FE9F364E1CFC4B0600A16744 /* MLMapOfAmapController.swift */,
-			);
-			path = Map;
-			sourceTree = "<group>";
-		};
 		FEA1C8741CB16F1E00B5A9D3 /* Struct */ = {
 			isa = PBXGroup;
 			children = (
@@ -1701,6 +1733,18 @@
 				FEA1C8781CB16F4300B5A9D3 /* MLStructController.m */,
 			);
 			path = Struct;
+			sourceTree = "<group>";
+		};
+		FEB345861D9E4CBE00FDFAC5 /* BlocksKit */ = {
+			isa = PBXGroup;
+			children = (
+				FEB345871D9E4D0B00FDFAC5 /* MLBlocksKit.storyboard */,
+				FEB345891D9E4D1900FDFAC5 /* MLBlocksKitViewController.h */,
+				FEB3458A1D9E4D1900FDFAC5 /* MLBlocksKitViewController.m */,
+				FEB3458C1D9E4D2300FDFAC5 /* MLBlocksKitView.h */,
+				FEB3458D1D9E4D2300FDFAC5 /* MLBlocksKitView.m */,
+			);
+			path = BlocksKit;
 			sourceTree = "<group>";
 		};
 		FEB529CE1BEF056B00EAA6C1 /* Unity */ = {
@@ -1773,6 +1817,12 @@
 				FEB529D01BEF1EBA00EAA6C1 /* RootController.h */,
 				FEB529D11BEF1EBA00EAA6C1 /* RootController.m */,
 				FEB529D31BEF208A00EAA6C1 /* RootController.xib */,
+				FE6735DE1DA79615008CE06E /* Media */,
+				FE6735D11DA795F1008CE06E /* Swift */,
+				FE6735C81DA794DE008CE06E /* BlueTooth */,
+				FE6735BF1DA77F1C008CE06E /* Collection */,
+				FEB345861D9E4CBE00FDFAC5 /* BlocksKit */,
+				FE2CD5C41D903DA200C264D4 /* BooksExercise */,
 				FE3C2F6A1D76CB8000198D30 /* Attribute */,
 				16E7CAFB1D680CC600D39011 /* Hook */,
 				FEDC824B1D56FD05009C6445 /* TintColor */,
@@ -1784,12 +1834,7 @@
 				166218A51D2B4B3900DF9FAF /* RAC */,
 				1640190F1D2B46F100B6FD30 /* Realm */,
 				FE328C8A1D26AB2600F96691 /* MJRefresh */,
-				FE01270E1CFFD61A00593576 /* BlueTooth */,
-				FE9F364B1CFC4AC300A16744 /* Map */,
-				FEE3DCA51CF72BCB0046B515 /* OpenGL */,
-				FEE3DCA01CF72BB60046B515 /* Media */,
 				FE84ED811CEEBA2E004FC7B3 /* PropertyKeyword */,
-				1859476A1CEC1585008E4582 /* Swift */,
 				185947611CEC0C01008E4582 /* CLanguage */,
 				18EB94331CE9580300C24368 /* DataStructures */,
 				18BD051C1CE4156F00EDBA62 /* WebView */,
@@ -1804,7 +1849,6 @@
 				FEE55D081BF4D63900C8F783 /* NibToViewController */,
 				FEB529D51BEF21CE00EAA6C1 /* NibController */,
 				FEE30B9C1C0339FC00B79F8D /* LoadNibView */,
-				FEED3FBD1D104E450084A143 /* Runloop */,
 				FE514D0B1C1BF94000E3AC0C /* Runtime */,
 				187D54AB1C8400CB0066EC67 /* AttributeString */,
 				FE3C4A6B1C2EBA00004CBA21 /* Chainable */,
@@ -1925,25 +1969,6 @@
 			path = LoadNibCommon;
 			sourceTree = "<group>";
 		};
-		FEE3DCA01CF72BB60046B515 /* Media */ = {
-			isa = PBXGroup;
-			children = (
-				FEE3DCA11CF72BB60046B515 /* MLMedia.storyboard */,
-				FEE3DCA21CF72BB60046B515 /* MLMediaController.swift */,
-				FEE3DCAA1CF961A80046B515 /* MLAudioController.swift */,
-			);
-			path = Media;
-			sourceTree = "<group>";
-		};
-		FEE3DCA51CF72BCB0046B515 /* OpenGL */ = {
-			isa = PBXGroup;
-			children = (
-				FEE3DCA61CF72BEA0046B515 /* MLOpenGL.storyboard */,
-				FEE3DCA81CF72BF50046B515 /* MLOpenGLController.swift */,
-			);
-			path = OpenGL;
-			sourceTree = "<group>";
-		};
 		FEE55CF81BF244CC00C8F783 /* UILabel+CommonType */ = {
 			isa = PBXGroup;
 			children = (
@@ -2009,15 +2034,6 @@
 			path = Animations;
 			sourceTree = "<group>";
 		};
-		FEED3FBD1D104E450084A143 /* Runloop */ = {
-			isa = PBXGroup;
-			children = (
-				FEED3FBE1D104E520084A143 /* MLRunloop.storyboard */,
-				FEED3FC21D104F000084A143 /* MLRunloopController.swift */,
-			);
-			path = Runloop;
-			sourceTree = "<group>";
-		};
 		FEFB49DB1C95205200634A97 /* vk_msgSend */ = {
 			isa = PBXGroup;
 			children = (
@@ -2064,6 +2080,7 @@
 					FEC3493D1BEEFB0D0076E88B = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = SER3U3578Y;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -2095,15 +2112,14 @@
 				FE0C636A1D1707B600F73C95 /* NestView2.xib in Resources */,
 				FEE55D021BF244D100C8F783 /* FranchiseVerifyingStatusView.xib in Resources */,
 				1822284D1CAE86DD00A7E43D /* AthleticsLottery.storyboard in Resources */,
-				1859476C1CEC1594008E4582 /* MLSwift.storyboard in Resources */,
 				1895E1301C5B50840046411D /* IQKeyboardManager.storyboard in Resources */,
 				FEE30BA71C03412500B79F8D /* LoadNibSubView.xib in Resources */,
 				FE29A26F1C513365006FF01E /* 44C5FC76-E862-43F6-824E-0FBBAFADA5CA.png in Resources */,
 				FEDC82431D4E654B009C6445 /* test@3x.png in Resources */,
 				FE48EE1E1D3A8A29002FE0A3 /* test0.png in Resources */,
-				FEE3DCA31CF72BB60046B515 /* MLMedia.storyboard in Resources */,
 				FE31D0E61BFE15FF00D63286 /* MultiThreadController.xib in Resources */,
 				FE0C63121D1683E900F73C95 /* NibCLCell.xib in Resources */,
+				FEB345881D9E4D0B00FDFAC5 /* MLBlocksKit.storyboard in Resources */,
 				FE60DBD71C5108A3009D836E /* MLSBTestCell.xib in Resources */,
 				FEDC82551D57003B009C6445 /* MLTintColorTBCell.xib in Resources */,
 				FEF670901D4312CF00AF7115 /* MLCustomCLInCLCell.xib in Resources */,
@@ -2113,14 +2129,15 @@
 				187C149F1CE5ADD3008A532C /* huangyibiaoTest.html in Resources */,
 				FE384DFE1D2E817800D5F282 /* MLNavigation.storyboard in Resources */,
 				FE972D061C5FAB6800C34DC0 /* MLCALayer.storyboard in Resources */,
+				FE2CD5C81D903DBE00C264D4 /* MLBooksExercise.storyboard in Resources */,
 				FEE55D181BF4DA2C00C8F783 /* NibToViewView.xib in Resources */,
 				FE514DB31C1BFCDB00E3AC0C /* RunTimeController.xib in Resources */,
 				169176B01D3A45F200086A5A /* MLAlertView.xib in Resources */,
 				FE328C8C1D26AB3100F96691 /* MLMJRefresh.storyboard in Resources */,
 				FEDC82421D4E654B009C6445 /* test@2x.png in Resources */,
+				FE6735E31DA79615008CE06E /* MLMedia.storyboard in Resources */,
 				FEE6A6931C691188008760CA /* AlgorithmPlay.storyboard in Resources */,
 				FE48EE1C1D3A89DF002FE0A3 /* test1.png in Resources */,
-				FE9F364D1CFC4ACC00A16744 /* MLMap.storyboard in Resources */,
 				18FCA2301C7D3B5C002C4E5C /* image2.jpg in Resources */,
 				181F99131CE091A900DB57CA /* MLResponderChain.storyboard in Resources */,
 				FE514DB91C1C128400E3AC0C /* ECPOrderJSONStr.json in Resources */,
@@ -2133,18 +2150,17 @@
 				FE60DBC71C510748009D836E /* MLStoryboard.storyboard in Resources */,
 				FEE6546D1C130A0D004C44D4 /* LoadNibController.xib in Resources */,
 				FE3C2F6F1D76CB9F00198D30 /* MLAttribute.storyboard in Resources */,
-				FE0127101CFFD62400593576 /* MLBlueTooth.storyboard in Resources */,
 				16B8B1C31D4201D000434758 /* MLCustomCLCell.xib in Resources */,
 				164019151D2B46F100B6FD30 /* MLRealm.storyboard in Resources */,
 				FEA1C8701CAEDD2300B5A9D3 /* ReuseButtonCLCell.xib in Resources */,
 				187D54B21C84011E0066EC67 /* MLAttributeString.storyboard in Resources */,
 				FE76C9EE1C08BAA600192239 /* test.png in Resources */,
+				FE6735CF1DA794DE008CE06E /* MLBlueTooth.storyboard in Resources */,
 				FE3C4A731C2EBA66004CBA21 /* ChainableController.xib in Resources */,
 				1822284A1CAE86DD00A7E43D /* ALFootballLotteryCLCell.xib in Resources */,
 				FE0C62FA1D14195700F73C95 /* MLNestNib.storyboard in Resources */,
 				16FA9EC41D48487400C28972 /* MLMenuCLButtonCell.xib in Resources */,
 				185947631CEC0C0E008E4582 /* MLCLanguage.storyboard in Resources */,
-				FEE3DCA71CF72BEA0046B515 /* MLOpenGL.storyboard in Resources */,
 				FEC3494F1BEEFB0D0076E88B /* Images.xcassets in Resources */,
 				FE84ED831CEEBA3C004FC7B3 /* MLPropertyKeyword.storyboard in Resources */,
 				18EB94351CE9583E00C24368 /* MLDataStructures.storyboard in Resources */,
@@ -2154,14 +2170,15 @@
 				181F990D1CE066E900DB57CA /* MLSQLite.storyboard in Resources */,
 				FE384DF81D2C047200D5F282 /* MLNetwork.storyboard in Resources */,
 				18BD051E1CE4158000EDBA62 /* MLWebView.storyboard in Resources */,
-				FEED3FBF1D104E520084A143 /* MLRunloop.storyboard in Resources */,
 				16FA9EC21D48487400C28972 /* MLMenuCLLabelCell.xib in Resources */,
 				166218A91D2B4B3900DF9FAF /* MLRAC.storyboard in Resources */,
 				FEDF1FEC1C4A641400DF9A8D /* FDTBCellAutoHeight.storyboard in Resources */,
+				FE6735C11DA77F2D008CE06E /* MLCollectionView.storyboard in Resources */,
 				16E7CAFD1D680D1E00D39011 /* MLHook.storyboard in Resources */,
 				FE0C63101D1683E900F73C95 /* NestNib.storyboard in Resources */,
 				16B8B1BE1D41FC0A00434758 /* MLCustomCLHeader.xib in Resources */,
 				1690CABE1D49AA0E001A0B3C /* MLPageViewController.storyboard in Resources */,
+				FE6735D61DA795F1008CE06E /* MLSwift.storyboard in Resources */,
 				18FCA22F1C7D3B5C002C4E5C /* image1.jpg in Resources */,
 				187C14A01CE5ADD3008A532C /* huangyibiaoTest1.html in Resources */,
 				FE0C631D1D16973B00F73C95 /* NibTBCell.xib in Resources */,
@@ -2235,6 +2252,7 @@
 				16FA9EC31D48487400C28972 /* MLMenuCLButtonCell.m in Sources */,
 				16B8B1BD1D41FC0A00434758 /* MLCustomCLHeader.m in Sources */,
 				16E7CB001D680D4A00D39011 /* MLHookViewController.m in Sources */,
+				FE6735C41DA77F3D008CE06E /* MLCollectionViewController.m in Sources */,
 				18008A4F1CA69E4600EFA08E /* UITabBarController+ML_Create.m in Sources */,
 				FE84ED861CEEBA4B004FC7B3 /* MLPropertyKeywordController.m in Sources */,
 				FE1141D01CA6C6AD00302A03 /* MBProgressHUD.m in Sources */,
@@ -2253,7 +2271,6 @@
 				18C276691C7D41020055C19D /* NSString+ML_Tools.m in Sources */,
 				FE6B22731CD65178007733FD /* MLChain4UITextView.m in Sources */,
 				FE6B22701CD65178007733FD /* MLChain4UIResponder.m in Sources */,
-				FEE3DCAB1CF961A80046B515 /* MLAudioController.swift in Sources */,
 				187D54AE1C8400ED0066EC67 /* MLAttributeStringController.m in Sources */,
 				18C2765C1C7D41020055C19D /* NSMutableAttributedString+ML_Tools.m in Sources */,
 				169176B11D3A45F200086A5A /* MLTextField+CommonType.m in Sources */,
@@ -2272,7 +2289,6 @@
 				18C276661C7D41020055C19D /* NSPredicate+Regex.m in Sources */,
 				FE6B226E1CD65178007733FD /* MLChain4UIControl.m in Sources */,
 				FE6B227D1CD65178007733FD /* UIView+MLChain.m in Sources */,
-				1827CF6F1CED4FCF00552F14 /* MLSwiftController.swift in Sources */,
 				18EB94381CE9585B00C24368 /* MLDataStructuresController.m in Sources */,
 				18C276521C7D41020055C19D /* ChainableKit.m in Sources */,
 				16FB11EC1D4B89F300F1BC45 /* NSDate+ML_Tools.m in Sources */,
@@ -2280,11 +2296,13 @@
 				FE60DBDA1C510948009D836E /* MLTBFooter.m in Sources */,
 				1895E1331C5B534B0046411D /* IQKeyboardManagerView.m in Sources */,
 				FE6B22791CD65178007733FD /* UIResponder+MLChain.m in Sources */,
+				FEB3458B1D9E4D1900FDFAC5 /* MLBlocksKitViewController.m in Sources */,
 				FE495AB31D47BC8200606B2D /* MLReuseVCViewController.m in Sources */,
 				FEDC82501D56FD28009C6445 /* MLTintColorViewController.m in Sources */,
 				18D8E07D1C84576400706195 /* NSObject+ML_Tools.m in Sources */,
 				FEE30BBB1C03421C00B79F8D /* UIView+Ext.m in Sources */,
 				FE0C63111D1683E900F73C95 /* NibCLCell.m in Sources */,
+				FE2CD5CB1D903DCE00C264D4 /* MLBooksExerciseViewController.m in Sources */,
 				18C276881C7D41020055C19D /* UITableView+Separator.m in Sources */,
 				183853E31CE1CE72006B3262 /* MLSplitViewController.m in Sources */,
 				FEA1C8791CB16F4300B5A9D3 /* MLStructController.m in Sources */,
@@ -2296,8 +2314,10 @@
 				18C276901C7D41020055C19D /* UIView+DrawRectBlock.m in Sources */,
 				FE6B22751CD65178007733FD /* NSObject+MLChain.m in Sources */,
 				18FCA2311C7D3B5C002C4E5C /* WHC_ModelCreate.m in Sources */,
+				FE6735D01DA794DE008CE06E /* MLBlueToothController.swift in Sources */,
 				18DC19841C58C9C40049BD18 /* UITableView+MLSeparationManager.m in Sources */,
 				18C2766A1C7D41020055C19D /* NSString+MutAttrStr.m in Sources */,
+				FE6735D71DA795F1008CE06E /* MLSwift.swift in Sources */,
 				FEDF1FF41C4A64BB00DF9A8D /* FDTBCellAutoHeightController.m in Sources */,
 				FE514DBC1C1C239F00E3AC0C /* SomeClass.m in Sources */,
 				FE0C63681D1707AE00F73C95 /* NestView2.m in Sources */,
@@ -2319,7 +2339,6 @@
 				18C2768F1C7D41020055C19D /* UIView+ClearColorShade.m in Sources */,
 				FE6B225F1CD65178007733FD /* CABasicAnimation+MLChain.m in Sources */,
 				18C276611C7D41020055C19D /* NSObject+Add.m in Sources */,
-				1859476F1CEC1689008E4582 /* MLSwift.swift in Sources */,
 				160A86541D688ACD004793BD /* NSString+Hashing.m in Sources */,
 				FE60DBCA1C5107D8009D836E /* MLTBHeader.m in Sources */,
 				FEB529D21BEF1EBA00EAA6C1 /* RootController.m in Sources */,
@@ -2334,6 +2353,7 @@
 				1895E12D1C5B506E0046411D /* IQKeyboardManagerController.m in Sources */,
 				FEE6A6961C691196008760CA /* AlgorithmPlayController.m in Sources */,
 				18C2767B1C7D41020055C19D /* UIImage+FX.m in Sources */,
+				FE6735CD1DA794DE008CE06E /* MLBLECentralController.swift in Sources */,
 				18C2765D1C7D41020055C19D /* NSMutableString+ML_Tools.m in Sources */,
 				1822284C1CAE86DD00A7E43D /* ALFootballLotteryView.m in Sources */,
 				185947661CEC0C96008E4582 /* MLCLPointerController.m in Sources */,
@@ -2349,7 +2369,6 @@
 				16F2B6A81D5DC7FF003592DB /* CALayer+Line.m in Sources */,
 				16BF0E0C1D40B405007FFAAE /* NSObject+CreateCode.m in Sources */,
 				18DC197E1C58C9C40049BD18 /* MLCollectionSeparationManager.m in Sources */,
-				FE614CF01D0C487200B6D0F0 /* MLBLEPeripheralController.swift in Sources */,
 				18C276761C7D41020055C19D /* UIColor+ML_Tools.m in Sources */,
 				18C2768D1C7D41020055C19D /* UIView+Animation.m in Sources */,
 				169176B21D3A45F200086A5A /* MLTextField.m in Sources */,
@@ -2366,21 +2385,22 @@
 				FEE6546C1C130A0D004C44D4 /* LoadNibController.m in Sources */,
 				FEE30BA51C03411900B79F8D /* LoadNibSubView.m in Sources */,
 				FE6B22631CD65178007733FD /* CAPropertyAnimation+MLChain.m in Sources */,
+				FE6735E21DA79615008CE06E /* MLAudioController.swift in Sources */,
+				FE6735CE1DA794DE008CE06E /* MLBLEPeripheralController.swift in Sources */,
 				FE6B22711CD65178007733FD /* MLChain4UIScrollView.m in Sources */,
 				18C2766B1C7D41020055C19D /* NSString+NumberFormat.m in Sources */,
 				18C276861C7D41020055C19D /* UIStoryboard+Load.m in Sources */,
+				FE6735D81DA795F1008CE06E /* MLSwiftController.swift in Sources */,
 				FEE6A69A1C734C5C008760CA /* MLAnimationsController.m in Sources */,
 				18C276831C7D41020055C19D /* UILabel+ML_Tools.m in Sources */,
 				18C276931C7D41020055C19D /* UIView+ML_ModelMethod.m in Sources */,
 				FE0C63131D1683E900F73C95 /* NibController.m in Sources */,
 				FE514DBF1C1C272700E3AC0C /* MyRunTimeClass.m in Sources */,
-				FE0127121CFFD63100593576 /* MLBlueToothController.swift in Sources */,
 				18C276911C7D41020055C19D /* UIView+Frame.m in Sources */,
 				FE48EE2D1D412432002FE0A3 /* MLCustomCLView.m in Sources */,
 				18C2766C1C7D41020055C19D /* NSString+Size.m in Sources */,
 				18C2768E1C7D41020055C19D /* UIView+CellXib.m in Sources */,
 				FE31D0E51BFE15FF00D63286 /* MultiThreadController.m in Sources */,
-				FEE3DCA91CF72BF50046B515 /* MLOpenGLController.swift in Sources */,
 				164019161D2B46F100B6FD30 /* MLRealmViewController.m in Sources */,
 				18463CEC1CA247E300DD87BE /* UIBezierPath+ML_Tools.m in Sources */,
 				FEDD9EFA1D43D4FB00DC2FC4 /* MLViewInCLView.m in Sources */,
@@ -2406,7 +2426,6 @@
 				FE48EE211D3C7FB3002FE0A3 /* BGTToastManager.m in Sources */,
 				182228491CAE86DD00A7E43D /* ALFootballLotteryCLCell.m in Sources */,
 				FE6B226F1CD65178007733FD /* MLChain4UILabel.m in Sources */,
-				FE614CF21D0C488200B6D0F0 /* MLBLECentralController.swift in Sources */,
 				16F3E9F11D55DF59005FB632 /* MBProgressHUD+Loading.m in Sources */,
 				18C2765F1C7D41020055C19D /* NSNotificationCenter+Block.m in Sources */,
 				16BC0B911D2CFF5C0041D124 /* UINavigationBar+Appearance.m in Sources */,
@@ -2426,6 +2445,7 @@
 				18C276821C7D41020055C19D /* UILabel+Init.m in Sources */,
 				FEE30BBA1C03421C00B79F8D /* SubView.m in Sources */,
 				18C2767D1C7D41020055C19D /* UIImage+RoundedCorner.m in Sources */,
+				FE6735C71DA78052008CE06E /* MLCollectionView.m in Sources */,
 				FE6B22681CD65178007733FD /* MLChain4CAEmitterLayer.m in Sources */,
 				160A86571D689185004793BD /* DZNEmptyDataSeparator.m in Sources */,
 				FE495AB01D47BC0800606B2D /* MLReuseVCView.m in Sources */,
@@ -2436,17 +2456,17 @@
 				1690CAC41D49ACDB001A0B3C /* MLPageViewController.m in Sources */,
 				181F99161CE091B900DB57CA /* MLResponderChainController.m in Sources */,
 				181F990F1CE066E900DB57CA /* MLSQLMaker.m in Sources */,
-				FE9F364F1CFC4B0600A16744 /* MLMapOfAmapController.swift in Sources */,
 				16BC0B881D2CFEDD0041D124 /* UIButton+CommonType.m in Sources */,
 				18C276561C7D41020055C19D /* NSData+Base64.m in Sources */,
 				160A864B1D688964004793BD /* MLNetwork+StatusCode.m in Sources */,
 				1879DDAA1CD9D0AD000ECD8F /* NSObject+ChainProperty.m in Sources */,
-				FEE3DCA41CF72BB60046B515 /* MLMediaController.swift in Sources */,
 				FEE4D01F1D00622400F694D7 /* CALayer+Animation.m in Sources */,
+				FEB3458E1D9E4D2300FDFAC5 /* MLBlocksKitView.m in Sources */,
 				FE0C631C1D16973B00F73C95 /* NibTBCell.m in Sources */,
 				FE972D091C5FAB8B00C34DC0 /* MLCALayerController.m in Sources */,
 				FE82FA8A1CD51A0B00824A1A /* NSObject+ChainMethod.m in Sources */,
 				FE29A27F1C54F7D0006FF01E /* UIViewController+Storyboard.m in Sources */,
+				FE6735E41DA79615008CE06E /* MLMediaController.swift in Sources */,
 				16D5D22D1D3E681B003CA180 /* UIViewController+ML_Tools.m in Sources */,
 				FEA1C87C1CB5394300B5A9D3 /* PaiLie.m in Sources */,
 				18230C3B1CD1ACCC0056C5FB /* MLKVC_KVOController.m in Sources */,
@@ -2455,7 +2475,6 @@
 				FE384E041D2E81D300D5F282 /* MLNavigationTestViewController.m in Sources */,
 				18C276671C7D41020055C19D /* NSPredicate+Tools.m in Sources */,
 				18BD05301CE478BB00EDBA62 /* MLJSMaker.m in Sources */,
-				FEED3FC31D104F000084A143 /* MLRunloopController.swift in Sources */,
 				18DC19891C58CA5B0049BD18 /* DelegateSeparationController.m in Sources */,
 				FE6B53D71CD3D01B0071F64E /* NSString+Class.m in Sources */,
 				18ADDE921C48BF8E00E6171E /* MenuScrollView.m in Sources */,
@@ -2629,6 +2648,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MLProject/Swift/MLProject-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -2702,6 +2722,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MLProject/Swift/MLProject-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
