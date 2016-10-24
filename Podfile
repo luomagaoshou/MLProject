@@ -18,4 +18,6 @@ pod 'Reachability'
 pod 'CSStickyHeaderFlowLayout'
 pod 'Aspects'
 pod 'BlocksKit'
+pod 'dyci', :git => 'https://github.com/DyCI/dyci-main.git'
+pod 'PromiseKit'
 end

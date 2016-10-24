@@ -69,7 +69,9 @@
    // [ProjectManager pushStoryboardControllerWithNibName:@"MLPageViewController" storyboardID:@"MLPageViewController2"];
     //[ProjectManager pushStoryboardControllerWithNibName:@"MLAttributeString" storyboardID:@"MLAttributeStringController" title:nil];
     //  [ProjectManager pushStoryboardControllerWithNibName:@"MLTintColor" storyboardID:@"MLTintColorViewController" title:@""];
-    //[ProjectManager pushStoryboardControllerWithNibName:@"MLRealm" storyboardID:@"MLRealmViewController"];
+   // [ProjectManager pushStoryboardControllerWithNibName:@"MLRealm" storyboardID:@"MLRealmViewController"];
+  //  [ProjectManager pushStoryboardControllerWithNibName:@"MLPromiseKit" storyboardID:@"MLPromiseKitViewController" title:nil];
+    [ProjectManager pushStoryboardControllerWithNibName:@"MLTableView" storyboardID:@"MLTableViewController"];
     //  [ProjectManager pushStoryboardControllerWithNibName:@"MLMJRefresh" storyboardID:@"MLMJRefreshViewController"];
     
     //    [ProjectManager pushStoryboardControllerWithNibName:@"MLNavigation" storyboardID:@"MLNavigationViewController"];
@@ -109,9 +111,9 @@
     //[ProjectManager pushToControllerWithController:@"ChainableController"];
     // [ProjectManager pushStoryboardControllerWithNibName:@"MLKVC_KVO" storyboardID:@"MLKVC_KVOController"];
     
-    //[ProjectManager pushStoryboardControllerWithNibName:@"IQKeyboardManager" storyboardID:@"IQKeyboardManagerController" title:nil];
+    // [ProjectManager pushStoryboardControllerWithNibName:@"IQKeyboardManager" storyboardID:@"IQKeyboardManagerController" title:nil];
    // [ProjectManager pushStoryboardControllerWithNibName:@"MLBlocksKit" storyboardID:@"MLBlocksKitViewController" title:@""];
-    [ProjectManager pushToControllerWithController:@"MLCollectionView" title:@"MLCollectionViewController"];
+   // [ProjectManager pushToControllerWithController:@"MLCollectionView" title:@"MLCollectionViewController"];
 #pragma mark - ========= XIB =========
     //[ProjectManager pushToControllerWithController:@"MultiThreadController"];
     
