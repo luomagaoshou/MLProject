@@ -12,8 +12,11 @@
 #import "MLImageController.h"
 #import "MLImageNextController.h"
 #import "ProjectManager.h"
+#import "UIImage+Convolution.h"
 @interface MLImageController ()
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
+@property (weak, nonatomic) IBOutlet UIImageView *imageview;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView2;
 
 @end
 
@@ -92,13 +95,24 @@
 #pragma mark - ========= InitialUI =========
 - (void)initUI
 {
-        [self.nextButton touchUpInside:^{
-            UIImage *image = [self screenShot];
-          MLImageNextController *ctl =   [ProjectManager pushStoryboardControllerWithNibName:@"MLImage" storyboardID:@"MLImageNextController" title:@"下一页"];
-            ctl.image = image;
-        }];
+    [self alipayTest];
 }
-
+- (void)alipayTest{
+    
+  UIImage *image = [UIImage imageNamed:@"alipay"];
+    self.imageview.image = image;
+    self.imageView2.image = [image emboss];
+//    [self.nextButton touchUpInside:^{
+//        self.imageView2.image = [image sharpen];
+//    }];
+}
+- (void)pushNextVC{
+    [self.nextButton touchUpInside:^{
+        UIImage *image = [self screenShot];
+        MLImageNextController *ctl =   [ProjectManager pushStoryboardControllerWithNibName:@"MLImage" storyboardID:@"MLImageNextController" title:@"下一页"];
+        ctl.image = image;
+    }];
+}
 - (UIImage *)screenShot
 {
 //

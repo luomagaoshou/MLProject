@@ -31,10 +31,9 @@ PODS:
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
   - CSStickyHeaderFlowLayout (0.2.10)
-  - dyci (0.1.5.6):
-    - dyci/Injections (= 0.1.5.6)
-  - dyci/Injections (0.1.5.6)
   - DZNEmptyDataSet (1.8.1)
+  - FBRetainCycleDetector (0.1.3)
+  - FLAnimatedImage (1.0.12)
   - FMDB (2.6.2):
     - FMDB/standard (= 2.6.2)
   - FMDB/standard (2.6.2)
@@ -45,6 +44,8 @@ PODS:
   - Masonry (0.6.4)
   - MJExtension (3.0.7)
   - MJRefresh (3.1.9)
+  - MLeaksFinder (0.2.0):
+    - FBRetainCycleDetector
   - MMDrawerController (0.6.0):
     - MMDrawerController/Core (= 0.6.0)
     - MMDrawerController/MMDrawerBarButtonItem (= 0.6.0)
@@ -109,6 +110,9 @@ PODS:
   - Realm (1.0.1):
     - Realm/Headers (= 1.0.1)
   - Realm/Headers (1.0.1)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
   - UITableView+FDTemplateLayoutCell (1.4)
   - YYKit (1.0.1):
     - YYKit/no-arc (= 1.0.1)
@@ -119,53 +123,49 @@ DEPENDENCIES:
   - Aspects
   - BlocksKit
   - CSStickyHeaderFlowLayout
-  - dyci (from `https://github.com/DyCI/dyci-main.git`)
   - DZNEmptyDataSet
+  - FLAnimatedImage
   - FMDB
   - IQKeyboardManager
   - Mantle
   - Masonry
   - MJExtension
   - MJRefresh
+  - MLeaksFinder
   - MMDrawerController
   - PromiseKit
   - Reachability
   - ReactiveCocoa
   - Realm
+  - SDWebImage
   - UITableView+FDTemplateLayoutCell (~> 1.3)
   - YYKit
-
-EXTERNAL SOURCES:
-  dyci:
-    :git: https://github.com/DyCI/dyci-main.git
-
-CHECKOUT OPTIONS:
-  dyci:
-    :commit: fa8a47d7913e977c9150962ca0260cc629d0b4bc
-    :git: https://github.com/DyCI/dyci-main.git
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
   Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   CSStickyHeaderFlowLayout: 5366582779d8b7c9ba9b9cc729c218cc23888776
-  dyci: 099c2e6dc98abb8f21b370cabbf1443ff700608a
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  FBRetainCycleDetector: f0c7b290bf48ae77f6ae060843ce34ae341781eb
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   IQKeyboardManager: 037cf3aec1d0a045108859a47818714eb1bfc149
   Mantle: 299966b00759634931699f69cb6a30b9239b944d
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
   MJExtension: 290cc966f0f849b12b6391a38e296e0004ae8e5e
   MJRefresh: c5f1f1653e5a1b932c90f78074f2bc86f3f9bd5e
+  MLeaksFinder: 07ab450d72d3bf5ef4201b74047d74ceae66d605
   MMDrawerController: e3a54a5570388463ad3b36975251575b50c4e1a0
   OMGHTTPURLRQ: c4268dea4295b585d711055dbcd87bfa82badd5f
   PromiseKit: 102844c7b5ccff53f693e0710365c445d8df3871
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   Realm: 2e15e39d35b08abb529e212ed5d8af107b5236c8
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   UITableView+FDTemplateLayoutCell: 234e1582bcc4e18461af91155123bb96538ed030
   YYKit: 8b618ca8d8cefa534d8d4fe2cad10fe9fbd030ed
 
-PODFILE CHECKSUM: e6ad1cbee3ce5376d40450fe416f4f5edf486114
+PODFILE CHECKSUM: 38eabae442942e82d28f5dc9c8d2099ead0460d0
 
 COCOAPODS: 1.1.0.beta.1

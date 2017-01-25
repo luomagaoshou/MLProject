@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 @interface UIView (Shade)
-@property (nonatomic, strong) UIView *shadeView;
-+ (instancetype)shareShadeViewInstance;
-+ (void)addFullScreenShade;
-+ (void)addFullScreenShadeWithTapEvent:(void (^)(void))tapActionCallback;
+
++ (instancetype)currentShadeView;
+
++ (instancetype)addFullScreenShade;
+
++ (instancetype)addFullScreenShadeWithTapEvent:(void (^)(void))tapActionCallback;
+
 + (void)removeShadeView;
 
 

@@ -10,10 +10,17 @@
 
 @interface MBProgressHUD (Loading)
 + (void)showNativeLoadingHudOnKeywindow;
++ (void)showNativeLoadingHudOnView:(UIView *)view;
++ (void)showNativeLoadingHudOnView:(UIView *)view moreConfig:(void (^)(MBProgressHUD *hud))config;
+
 + (void)showLoadingHudOnKeywindow;
 + (void)showLoadingHudOnView:(UIView *)view;
-+ (void)showHudOnKeywindowWithTitle:(NSString *)title;
-+ (void)showHudWithTitle:(NSString *)title moreConfig:(void (^)(MBProgressHUD *hud))config;
++ (void)showLoadingHudOnView:(UIView *)view moreConfig:(void (^)(MBProgressHUD *hud))config;
 
-+ (void)removeProgressHudOnKeywindow;
+
++ (void)showHudOnKeywindowWithTitle:(NSString *)title;
++ (void)showHudOnView:(UIView *)view withTitle:(NSString *)title;
++ (void)showHudOnView:(UIView *)view withTitle:(NSString *)title moreConfig:(void (^)(MBProgressHUD *hud))config;
+
+
 @end

@@ -10,14 +10,14 @@
 #import "UIView+GestureBlock.h"
 
 
-#import "MLChain.h"
+
 #import <AFNetworking/AFNetworking.h>
 #import <Masonry/Masonry.h>
 
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "NSObject+ChainInvocation.h"
 #import <NSObject+YYAdd.h>
-#import <dyci/NSSet+ClassesList.h>
+
 #import <objc/runtime.h>
 #import "vk_msgSend.h"
 #import "NSObject+vk_msgSend.h"
@@ -27,34 +27,44 @@
 #import "UIView+DrawRectBlock.h"
 #import "UIBezierPath+ML_Tools.h"
 #import <YYKit/CALayer+YYAdd.h>
-#import "NSObject+ChainMethod.h"
 #import <Foundation/NSProxy.h>
 #import "NSObject+CreateCode.h"
 #import "NSFileManager+ML_Tools.h"
 #import "NSString+Class.h"
-#import "NSObject+ChainInvocation.h"
+#import "CABasicAnimation+ml_make.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
 #import "NSObject+ChainFileCreater.h"
-#import "CABasicAnimation+ML_make.h"
+#import "MLChain.h"
     typedef NSString *(^testBlcok)(NSString *);
 
+#define mlkeypath(...) \
+metamacro_if_eq(1, metamacro_argcount(__VA_ARGS__))(mlkeypath1(__VA_ARGS__))(mlkeypath2(__VA_ARGS__))
+
+#define mlkeypath1(PATH) \
+(((void)(NO && ((void)PATH, NO)), strchr(# PATH, '.') + 1))
+
+#define mlkeypath2(OBJ, PATH) \
+(((void)(NO && ((void)OBJ.PATH, NO)), # PATH))
 
 
+
+@class ChainableController;
 @protocol MLTestViewChain <NSObject>
 @optional
 - (NSObject  <MLTestViewChain> * (^)(id args,...))testView;
-- (instancetype (^)(id args,...))testView2;
+- (ChainableController *(^)())testView2;
 @end
 
 @protocol MLTestButtonChain <MLTestViewChain>
 @optional
 - (NSObject <MLTestButtonChain> * (^)(id args,...))testButton;
-- (instancetype (^)(id args,...))testButton2;
+- (instancetype (^)())testButton2;
 @end
 
-@interface ChainableController ()<MLTestButtonChain>
+@interface ChainableController ()<MLTestButtonChain, MLTestViewChain>
 
 @property (weak, nonatomic) IBOutlet UIButton *xibButton;
-
+- (ChainableController * (^)())chain;
 @end
 
 @implementation ChainableController
@@ -66,9 +76,17 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
 //        self.testButton(@"").testView(@"").testView(@"");
-        [[self.testView2(@"") testButton2](@"") testView](@"").testView(@"").testView2(@"");
-        
+//        [[self.testView2(@"") testButton2](@"") testView](@"").testView(@"").testView2(@"");
+//        self.testView2();
+//        self.chain(@"").chain().self.chain();
     }
+    self.testView2().testView2().testView2().testView2();
+  
+    
+    
+    id obj = ^{
+      return @"333";
+    }();
     return self;
 }
 //初始化，是UIViewController的子类就会调用
@@ -90,10 +108,24 @@
 //加载完成
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initUI];
-    [self downloadData];
+    [NSObject mlc_chainCreateChainFileWithClassNames:
+     @[[UITableView class],
+       [UICollectionView class],
+       [UITextField class],
+       [UITableViewCell class],
+       [UICollectionView class],
+       [CABasicAnimation class],
+       [CAShapeLayer class],
+       [CAGradientLayer class],
+       [UILabel class],
+       [UIButton class],
+       [UIApplication class],
+       [UIImageView class]]];
+   // [self initUI];
+    //[self downloadData];
 
 }
+#if 1
 //即将出现
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -172,6 +204,9 @@ return numberOfArguments;
 #pragma mark - ========= InitialUI =========
 - (void)initUI
 {
+     self.view.hidden = YES;
+    //[self changeFile];
+    [self chainMethodAdd];
     
 #if 0
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -179,28 +214,28 @@ return numberOfArguments;
     btn.backgroundColor = [UIColor greenColor];
     [self.view addSubview:btn];
     btn.frame = CGRectMake(0, 0, 200, 200);
-    btn.ml_make.backgroundColor([UIColor redColor]);
+    btn.mlc_make.backgroundColor([UIColor redColor]);
  
-    btn.ml_make.size_(150, 200);
-    btn.ml_make.title_forState(@"ff", UIControlStateNormal).size_(3, 5);
-    btn = btn.ml_make.button;
-    btn.ml_make.tintColor([UIColor greenColor]);
+    btn.mlc_make.size_(150, 200);
+    btn.mlc_make.title_forState(@"ff", UIControlStateNormal).size_(3, 5);
+    btn = btn.mlc_make.button;
+    btn.mlc_make.tintColor([UIColor greenColor]);
     
     
-  UIButton *button = UIButton.ml_make.size_(150, 200)
-    .lookUpMakerOfUIButton.title_forState(@"kk", UIControlStateNormal).backgroundColor([UIColor greenColor]).lookUpMakerOfUIButton.lookUpMakerOfUIButton.backgroundColor([UIColor redColor]).lookUpMakerOfUIButton.button;
+  UIButton *button = UIButton.mlc_make.size_(150, 200)
+    .title_forState(@"kk", UIControlStateNormal).backgroundColor([UIColor greenColor]).backgroundColor([UIColor redColor]).button;
     
-    button.ml_make.tintColor([UIColor redColor]);
+    button.mlc_make.tintColor([UIColor redColor]);
     
     [self.view addSubview:button];
     
     
-    CALayer *layer = CALayer.ml_make.backgroundColor([UIColor blueColor]).frame_(200, 200, 300, 300).layer;
+    CALayer *layer = CALayer.mlc_make.backgroundColor([UIColor blueColor]).frame_(200, 200, 300, 300).layer;
     [self.view.layer addSublayer:layer];
     
-    UIView.ml_make.frame_(333, 333,111, 211).backgroundColor([UIColor greenColor]);
-    CALayer *layer2 = CALayer.ml_make.backgroundColor([UIColor yellowColor]).frame(CGRectMake(200, 200, 50, 50)).lookUpMakerOf(CALayer).layer;
-    layer2.ml_make.affineTransform(CGAffineTransformMakeRotation(1)).affineTransform(CGAffineTransformScale(layer2.affineTransform, 5, 5));
+    UIView.mlc_make.frame_(333, 333,111, 211).backgroundColor([UIColor greenColor]);
+    CALayer *layer2 = CALayer.mlc_make.backgroundColor([UIColor yellowColor]).frame(CGRectMake(200, 200, 50, 50)).layer;
+    layer2.mlc_make.affineTransform(CGAffineTransformMakeRotation(1)).affineTransform(CGAffineTransformScale(layer2.affineTransform, 5, 5));
 
     
     
@@ -216,11 +251,13 @@ return numberOfArguments;
     [self.view addSubview:view];
     view.backgroundColor = [UIColor blueColor];
    
-    CABasicAnimation *animation =  [CABasicAnimation animation].ml_make.keyPath(@"backgroundColor").lookUpMakerOfCABasicAnimation.toValue((id)[UIColor greenColor].CGColor).duration(3).lookUpMakerOfCABasicAnimation.basicAnimation;
+    
+    
+    CABasicAnimation *animation =  [CABasicAnimation animation].mlc_make.keyPath(@"backgroundColor").toValue((id)[UIColor greenColor].CGColor).duration(3).chainObject;
 
-//    CABasicAnimation *animation2 = [CABasicAnimation animation].ml_make.keyPath(M_AniKeyPath(transform.scale)).lookUpMakerOfCABasicAnimation.toValue(@3).duration(2).lookUpMakerOf(basicAnimation).basicAnimation;
+//    CABasicAnimation *animation2 = [CABasicAnimation animation].mlc_make.keyPath(M_AniKeyPath(transform.scale))(@3).duration(2).basicAnimation;
   
-//    view.layer.ml_make.addAnimation_forKey(animation, @"").addAnimation_forKey(animation2, @"");
+//    view.layer.mlc_make.addAnimation_forKey(animation, @"").addAnimation_forKey(animation2, @"");
 
 
 
@@ -247,10 +284,48 @@ return numberOfArguments;
                             ];
     [NSObject ml_chainCreateChainFileWithClassNames:classeNames];
 #endif
-   
+    
+#if 0
+    NSArray *classeNames= @[
+                            [UIView class],
+                            [NSObject class],
+                            
+                            
+                            ];
+    [NSObject mlc_chainCreateChainFileWithClassNames:classeNames];
+#endif
+    
     
 }
 
+
+- (void)chainMethodAdd{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 200, 200)];
+    view.backgroundColor = [UIColor cyanColor];
+    [self.view addSubview:view];
+    //view.mlc_make.frame(10, 10, 20, 200);
+  
+    view.mlc_make.frame(CGRectMake(200, 200, 50, 300));
+  view.mlc_make.frame_(10, 10, 20, 200);
+    @"";
+}
+- (void)changeFile{
+    
+     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"ChainInfo" ofType:@"plist"];
+    NSDictionary *dic = [[NSDictionary alloc] initWithContentsOfFile:filePath];
+    NSArray *directoryPaths = NSSearchPathForDirectoriesInDomains
+    (NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    NSString *fileStr = [[NSString alloc] initWithData:[[NSFileManager defaultManager] contentsAtPath:filePath] encoding:NSUTF8StringEncoding];
+    fileStr = [fileStr stringByAppendingString:fileStr];
+    
+    {
+        fileStr = @"aha";
+    }
+    [[NSFileManager defaultManager] writefileString:filePath ToFileWithDiretory:fileStr fileName:@"MLChainTest" fileType:@"h" moveToTrashWhenFileExists:NO];
+    
+    
+}
 
 - (void)emitterLayer
 {
@@ -334,5 +409,5 @@ return numberOfArguments;
 #pragma mark - ========= Setter & Getter =========
 
 
-
+#endif
 @end

@@ -24,7 +24,7 @@
 - (void)awakeFromNib {
     // Initialization code
     [self commitInit];
-    self.backgroundColor = kUI_COLOR_WHITE_000000;
+    self.backgroundColor = kUI_COLOR_WHITE_ffffff;
 }
 - (void)setMaster:(AthleticsLotteryMaster *)master model:(AthleticsLotteryMatchArray *)model lotteryID:(NSString *)lotteryID
 {
@@ -52,7 +52,7 @@
     ReuseButtonCLCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ReuseButtonCLCell" forIndexPath:indexPath];
     
     //LayerCornerRadius_borderWidth_borderColor(cell.tagButton.layer, 0, 1/SCREEN_SCALE, kUI_SEPARATOR_COLOR_GRAY);
-     [cell.tagButton setBackgroundImage:[UIImage imageWithColor:kUI_COLOR_WHITE_000000] forState:UIControlStateNormal];
+     [cell.tagButton setBackgroundImage:[UIImage imageWithColor:kUI_COLOR_WHITE_ffffff] forState:UIControlStateNormal];
 //    
 //    [cell.tagButton setTitleColor:kUI_TEXT_COLOR_LIGHT_GRAY forState:UIControlStateSelected];
 //    [cell.tagButton setBackgroundImage:[UIImage imageWithColor:kUI_OBJECT_BACKGROUND_COLOR_GREEN] forState:UIControlStateSelected];
@@ -313,7 +313,7 @@
 {
     
     //self.collectionView = <#code#>
-    self.collectionView.backgroundColor = kUI_COLOR_WHITE_000000;
+    self.collectionView.backgroundColor = kUI_COLOR_WHITE_ffffff;
     
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;

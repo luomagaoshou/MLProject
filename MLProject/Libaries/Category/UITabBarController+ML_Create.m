@@ -1,12 +1,12 @@
 //
-//  UITabBarController+ML_Create.m
+//  UITabBarController+ml_create.m
 //  LotterySteward
 //
 //  Created by apple on 16/3/25.
 //  Copyright © 2016年 ytx. All rights reserved.
 //
 
-#import "UITabBarController+ML_Create.h"
+#import "UITabBarController+ml_create.h"
 #import "UIImage+ML_Tools.h"
 #import "UINavigationBar+Appearance.h"
 #import "UIStoryboard+Load.h"
@@ -29,7 +29,7 @@
     return model;
 }
 @end
-@implementation UITabBarController (ML_Create)
+@implementation UITabBarController (ml_create)
 - (void)configControllersWithModels:(NSArray *)models
 {
  

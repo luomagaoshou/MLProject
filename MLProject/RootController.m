@@ -73,13 +73,13 @@
 
 //    self.startTimeButton.frame = CGRectMake(0, 350, SCREEN_WIDTH, 50);
 //    [self.view addSubview:self.startTimeButton];
-//   NSString *fileString = ML_create_HeaderFileAndCodeSourceFileOfViewWithClassByFinishIsOutPutToDeskTop([NibTBCell class], YES, @"m");
+//   NSString *fileString = ml_create_HeaderFileAndCodeSourceFileOfViewWithClassByFinishIsOutPutToDeskTop([NibTBCell class], YES, @"m");
     
 //    NSData *JSONData = [[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ECPOrderJSONStr" ofType:@"json"]];
 //  NSString * JSONString = [[NSString alloc] initWithData:JSONData encoding:NSUTF8StringEncoding];
-//    ML_create_ModelFileToDeskTopWithJSON_className(JSONString, @"model");
+//    ml_create_ModelFileToDeskTopWithJSON_className(JSONString, @"model");
    
-   // ML_create_XibViewInitHelperByFinishIsOutPutToDeskTop([NibTBCell class], YES);
+   // ml_create_XibViewInitHelperByFinishIsOutPutToDeskTop([NibTBCell class], YES);
     
 }
 //排列SubViews
@@ -119,7 +119,7 @@
 {
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
 
-   
+    self.view.hidden = YES;
 }
 
 

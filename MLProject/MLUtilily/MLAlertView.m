@@ -104,9 +104,11 @@
 
 - (void)configTitleLabel
 {
-    
+ 
     //self.titleLabel = <#code#>
-    LabelAlignment_fontSizeOfPx_textColor(self.titleLabel, kUI_COLOR_BLUE_00b4e9, 32, NSTextAlignmentCenter);
+    LabelTextColor_fontSizeOfPx_alignment(self.titleLabel, kUI_COLOR_BLUE_00b4e9, 32, NSTextAlignmentCenter);
+    
+  
     self.titleLabel.numberOfLines = 0;
     
     
@@ -117,7 +119,7 @@
     
     //self.detailLabel = <#code#>
     
-     LabelAlignment_fontSizeOfPx_textColor(self.detailLabel, kUI_COLOR_GRAY_999999, 28, NSTextAlignmentLeft);
+     LabelTextColor_fontSizeOfPx_alignment(self.detailLabel, kUI_COLOR_GRAY_999999, 28, NSTextAlignmentLeft);
     self.detailLabel.numberOfLines = 0;
 }
 

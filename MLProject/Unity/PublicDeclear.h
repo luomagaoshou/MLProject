@@ -41,8 +41,7 @@ fprintf(stderr, "-------\n");                                               \
 
 #define NSLog(FORMAT, ...)          nil
 
-#define LogGreen(FORMAT, ...)       nil
-#define LogWarning(FORMAT, ...)     nil
+
 
 
 #endif
@@ -72,18 +71,23 @@ CGPointMake(originPoint.x + offsetPoint.x, originPoint.y + offsetPoint.y)
 #define STATUSBAR_HEIGHT (IOS_VERSION < 7.0?20:0)
 // @}end of 状态栏 高度
 
+
+
+//iOS10使用xib时，在awakWithNib设置layer，由于layer的大小不正确，会产生显示不对，故在主线程执行完后再设置layer
 #define LayerCornerRadius_borderWidth_borderColor(Layer, Radius, Width, Color)\
+dispatch_async(dispatch_get_main_queue(), ^{\
 [Layer setCornerRadius:(Radius)];\
-[Layer setMasksToBounds:YES];\
 [Layer setBorderWidth:(Width)];\
-[Layer setBorderColor:[(Color == nil ?[UIColor clearColor]:Color) CGColor]]
+[Layer setMasksToBounds:YES];\
+[Layer setBorderColor:[(Color == nil ?[UIColor clearColor]:Color) CGColor]];\
+})
 
 #define LabelAlignment_fontSize_textColor(Label, TextColor, FontSize, Alignment)\
 Label.textAlignment = Alignment;\
 Label.font = [UIFont systemFontOfSize:FontSize];\
 Label.textColor = TextColor
 
-#define LabelAlignment_fontSizeOfPx_textColor(Label, TextColor, FontSize, Alignment)\
+#define LabelTextColor_fontSizeOfPx_alignment(Label, TextColor, FontSize, Alignment)\
 Label.textAlignment = Alignment;\
 Label.font = [UIFont systemFontOfSize:FontSize * 0.5];\
 Label.textColor = TextColor
@@ -98,7 +102,8 @@ Button.backgroundColor = BackgroundColor
 #define ButtonTextColor_fontSizeOfPx_backgroundColor(Button, TextColor, FontSize,  BackgroundColor)\
 [Button setTitleColor:TextColor forState:UIControlStateNormal];\
 Button.titleLabel.font = [UIFont systemFontOfSize:FontSize * 0.5];\
-Button.backgroundColor = BackgroundColor
-
+if(BackgroundColor){\
+Button.backgroundColor = BackgroundColor;\
+}
 
 #endif /* PublicDeclear_h */

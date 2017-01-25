@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@interface ML_CreateCodeModel:NSObject
+@interface ml_createCodeModel:NSObject
 @property (nonatomic, copy) NSString *className;//
 @property (nonatomic, copy) NSString *superclassName;//
 @property (nonatomic, copy, readonly) NSString *endString;
@@ -36,39 +36,52 @@
 @property (nonatomic, copy) NSString *classDeclearString;
 //更多设置
 @property (nonatomic, copy) NSString *categoryName;
+
+/**
+ 生成h m文件
+
+ @param className 该类类名
+ @param superclassName 该类父类
+ @param hFileImportFileNames h文件要import的file名
+ @param hFileContentString h文件的内容
+ @param mFileImportFileNames m文件要import的file名
+ @param mFileContentString m文件要import的内容
+ @param moreConfigBlock 更多设置
+ @return <#return value description#>
+ */
 + (instancetype)modelWithClassName:(NSString *)className
                     superclassName:(NSString *)superclassName
               hFileImportFileNames:(NSArray *)hFileImportFileNames
                 hFileContentString:(NSString *)hFileContentString
               mFileImportFileNames:(NSArray *)mFileImportFileNames
                 mFileContentString:(NSString *)mFileContentString
-                        moreConfig:(void(^)(ML_CreateCodeModel *modelOfSelf))moreConfigBlock;
+                        moreConfig:(void(^)(ml_createCodeModel *modelOfSelf))moreConfigBlock;
 
 @end
 
 
-extern NSString *const kML_CreateCodeFileType_h;
-extern NSString *const kML_CreateCodeFileType_m;
+extern NSString *const kML_CreatCodeFileType_h;
+extern NSString *const kML_CreatCodeFileType_m;
 
 @interface NSObject (CreateCode)
 
 
 //未完成
-+ (NSString *)ML_createPropertyStringWithClass:(Class)aClass;
++ (NSString *)ml_createPropertyStringWithClass:(Class)aClass;
 
 #pragma mark - ========= View =========
-+ (NSString *)ML_createViewCodeWithClass:(Class)aClass;
-+ (NSString *)ML_createViewCodeWithClass:(Class)aClass isOutPutToDeskTop:(BOOL)isOutPutToDeskTop;
++ (NSString *)ml_createViewCodeWithClass:(Class)aClass;
++ (NSString *)ml_createViewCodeWithClass:(Class)aClass isOutPutToDeskTop:(BOOL)isOutPutToDeskTop;
 
-+ (NSString *)ML_createInitStringWithClass:(Class)aClass;
-+ (NSString *)ML_createLayoutStringWithClass:(Class)aClass;
-+ (NSString *)ML_createEventMothodString;
-+ (NSString *)ML_createGetterMethodStringWithClass:(Class)aClass;
++ (NSString *)ml_createInitStringWithClass:(Class)aClass;
++ (NSString *)ml_createLayoutStringWithClass:(Class)aClass;
++ (NSString *)ml_createEventMothodString;
++ (NSString *)ml_createGetterMethodStringWithClass:(Class)aClass;
 
 
 #pragma mark - ========= Xib =========
-+ (NSString *)ML_createXibViewInitHelperWithClass:(Class)aClass;
-+ (NSString *)ML_createXibViewInitHelperWithClass:(Class)aClass isOutPutToDeskTop:(BOOL)isOutPutToDeskTop;
++ (NSString *)ml_createXibViewInitHelperWithClass:(Class)aClass;
++ (NSString *)ml_createXibViewInitHelperWithClass:(Class)aClass isOutPutToDeskTop:(BOOL)isOutPutToDeskTop;
 
 #pragma mark - ========= Method =========
 /**
@@ -77,7 +90,7 @@ extern NSString *const kML_CreateCodeFileType_m;
  *  @param JSON      <#JSON description#>
  *  @param className <#className description#>
  */
-+ (NSString *)ML_createModelFileToDeskTopWithJSON:(id)JSON className:(NSString *)className;
++ (NSString *)ml_createModelFileToDeskTopWithJSON:(id)JSON className:(NSString *)className;
 
 /**
  *  生成h或m文件的介绍

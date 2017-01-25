@@ -53,22 +53,55 @@
 #pragma mark - ========= Config UI =========
 - (void)configUI
 {
+    dispatch_async(dispatch_get_main_queue(), ^{
+      //   [self setUpLabel];
+    });
+   
+
+}
+
+- (void)setUpLabel{
+    
+    for (NSInteger i = 0; i < 100; i++) {
+        UILabel *label = [[UILabel alloc] init];
+        label.frame = CGRectMake(80, 0 + i * 20, 60 + i * 1, 20);
+        [self.view addSubview:label];
+        label.lineBreakMode = NSLineBreakByTruncatingTail;
+        label.text = @"地球米饭不哈";
+    }
+}
+- (void)setUpTextField{
+    
     self.textField.textFieldCommonOption = UITextFieldCommonOptionLeftImageView | UITextFieldCommonOptionRightImageView;
     self.textField.leftViewMode = UITextFieldViewModeAlways;
     self.textField.rightViewMode = UITextFieldViewModeAlways;
     self.textField.backgroundColor = [UIColor greenColor];
     self.textField.clipsToBounds = NO;
-  
     
-
-   
-   ((UIImageView *) self.textField.leftView).image = [UIImage imageNamed:@"test"];
-        ((UIImageView *) self.textField.rightView).image = [UIImage imageNamed:@"test"];
     
-//    self.textField.leftViewOffset = CGPointMake(50, 0);
-//    self.textField.rightViewOffset = CGPointMake(-50, 0);
-//    [self.textField setMiddleLabelsOffset:CGPointMake(50, 0)];
-
+    
+    
+    ((UIImageView *) self.textField.leftView).image = [UIImage imageNamed:@"test"];
+    ((UIImageView *) self.textField.rightView).image = [UIImage imageNamed:@"test"];
+    
+    //    self.textField.leftViewOffset = CGPointMake(50, 0);
+    //    self.textField.rightViewOffset = CGPointMake(-50, 0);
+    //
+    self.textField.textFieldCommonOption = UITextFieldCommonOptionLeftImageView | UITextFieldCommonOptionRightImageView;
+    self.textField.leftViewMode = UITextFieldViewModeAlways;
+    self.textField.rightViewMode = UITextFieldViewModeAlways;
+    self.textField.backgroundColor = [UIColor greenColor];
+    self.textField.clipsToBounds = NO;
+    
+    
+    
+    
+    ((UIImageView *) self.textField.leftView).image = [UIImage imageNamed:@"test"];
+    ((UIImageView *) self.textField.rightView).image = [UIImage imageNamed:@"test"];
+    
+    //    self.textField.leftViewOffset = CGPointMake(50, 0);
+    //    self.textField.rightViewOffset = CGPointMake(-50, 0);
+    //
 }
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {

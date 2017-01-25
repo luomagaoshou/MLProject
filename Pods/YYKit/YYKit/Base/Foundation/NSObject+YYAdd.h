@@ -296,7 +296,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param unarchiver NSKeyedUnarchiver clsas or any class inherited.
  */
 - (nullable id)deepCopyWithArchiver:(Class)archiver unarchiver:(Class)unarchiver;
-
++ (void)setInv:(NSInvocation *)inv withSig:(NSMethodSignature *)sig andArgs:(va_list)args;
 @end
 
 NS_ASSUME_NONNULL_END

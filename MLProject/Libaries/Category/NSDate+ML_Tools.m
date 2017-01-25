@@ -10,7 +10,7 @@
 
 @implementation NSDate (ML_Tools)
 
-+ (NSString *)getCurrentTimeWithDateFormat:(NSString *)dateFormat
++ (NSString *)currentTimeStringWithDateFormat:(NSString *)dateFormat
 {
     NSTimeInterval  currentTimeInterval = [NSDate date].timeIntervalSince1970;
     return [self timeStringWithTimestamp:@(currentTimeInterval) dateFormat:dateFormat];

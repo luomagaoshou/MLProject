@@ -1,5 +1,5 @@
 //
-//  UITabBarController+ML_Create.h
+//  UITabBarController+ml_create.h
 //  LotterySteward
 //
 //  Created by apple on 16/3/25.
@@ -33,6 +33,6 @@ typedef NS_ENUM(NSUInteger, ML_TabBarControllerLoadType) {
 + (instancetype)modelWithTitleString:(NSString *)titleString normalImageString:(NSString *)normalImageString selectImageString:(NSString *)selectImageString classString:(NSString *)classString loadType:(ML_TabBarControllerLoadType)loadType nibNameString:(NSString *)nibNameString;
 @end
 
-@interface UITabBarController (ML_Create)
+@interface UITabBarController (ml_create)
 - (void)configControllersWithModels:(NSArray *)models;
 @end

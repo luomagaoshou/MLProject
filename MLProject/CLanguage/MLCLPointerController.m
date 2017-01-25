@@ -20,7 +20,7 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        
+    
     }
     return self;
 }
@@ -91,8 +91,9 @@
    // [self pointerAddressValue];
   
     //[self swapTest];
-      [self allocTest1];
-    [self allocTest2];
+     // [self allocTest1];
+//    [self allocTest2];
+    [self pointerTest];
 }
 - (void)swapTest{
     int p = 1111;
@@ -146,6 +147,15 @@
     p = (char *)realloc(p, 17);
     printf("p=0x%x\n",p);
     printf("q=0x%x\n",q);
+}
+- (void)pointerTest{
+    //ff
+    char a[] = "hello";
+    a[0] = 'X';
+    NSLog(@"%s--%d", a, sizeof(a));
+    char *p = "world"; // 注意p指向常量字符串
+    p[0] = 'X';// 编译器不能发现该错误
+    NSLog(@"%s--%d", p, sizeof(p));
 }
 #pragma mark - ========= DownloadData =========
 - (void)downloadData

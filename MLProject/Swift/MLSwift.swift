@@ -29,7 +29,7 @@ class class1: NSObject {
 }
 
 
-class MLSwift: NSObject {
+class MLSwift: AnyObject {
     
      var closureMethod:((_ str:String) -> String)?
     var closureMothod2:((_ str:String)->sendClosure)?
@@ -39,6 +39,9 @@ class MLSwift: NSObject {
    static func instanceTest(_ str:String)->String
     {
         return str + str
+    }
+    static func instanceTest(_ str:CGRect)->String{
+        return "xx"
     }
     class func classTest(_ str:String)->String
     {

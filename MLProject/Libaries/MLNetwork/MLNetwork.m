@@ -351,7 +351,7 @@ MJCodingImplementation
 //        
 //    }
     if ([MLNetwork isShouldHideHudWhenFinishReuqest]) {
-        [MBProgressHUD removeProgressHudOnKeywindow];
+       
     }
     
 
@@ -425,7 +425,7 @@ MJCodingImplementation
 //        
 //    }
     if ([MLNetwork isShouldHideHudWhenFinishReuqest]) {
-        [MBProgressHUD removeProgressHudOnKeywindow];
+        //[MBProgressHUD removeProgressHudOnKeywindow];
     }
     
     failure(task, error, self.urlConfig, self.requestParam, self.requestID, self.paramPackage);

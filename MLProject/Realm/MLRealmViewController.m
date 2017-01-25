@@ -84,6 +84,7 @@ RLM_ARRAY_TYPE(Dog)
 - (void)configUI
 {
     [self createModel];
+   // [self createDog];
 }
 - (void)createModel
 {
@@ -93,7 +94,7 @@ RLM_ARRAY_TYPE(Dog)
     book.price = 59;
     
     NSLog(@"%@", [MLBook allObjects]);
-    NSArray *booksOfStored = [MLBook objectsWhere:@"price < 51"];
+   
     MLBook *dicBook = [[MLBook alloc] initWithValue:@{@"name":@"OC", @"price":@50}];
     MLBook *arrBook = [[MLBook alloc] initWithValue:@[@"swift", @51]];
     

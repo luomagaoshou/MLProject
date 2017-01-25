@@ -8,83 +8,77 @@
 
 #import "UIView+Shade.h"
 #import <objc/runtime.h>
-static const char *externTapActionCallbackKey;
-static const char *externShadeViewKey;
 @implementation UIView (Shade)
-+ (instancetype)shareShadeViewInstance
++ (instancetype)currentShadeView
 {
-    static dispatch_once_t onceToken;
-    static UIView *shadeView = nil;
-    dispatch_once(&onceToken, ^{
+    UIView *shadeView = objc_getAssociatedObject(self, @selector(currentShadeView));
+    if (!shadeView) {
+    
         shadeView = [[UIView alloc] init];
-        
-    });
+        objc_setAssociatedObject(self, @selector(currentShadeView), shadeView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
     return shadeView;
 }
-+ (void)addFullScreenShade
+
++ (instancetype)addFullScreenShade
 
 {
-    [[UIView shareShadeViewInstance] addFullScreenShade];
+   return [[self currentShadeView] addFullScreenShade];
 }
 
-
-- (void)addFullScreenShade
+- (instancetype)addFullScreenShade
 {
-    [self addFullScreenShadeWithTapEvent:nil];
+   return [self addFullScreenShadeWithTapEvent:nil];
 }
-+ (void)addFullScreenShadeWithTapEvent:(void (^)(void))tapActionCallback
++ (instancetype)addFullScreenShadeWithTapEvent:(void (^)(void))tapActionCallback
 {
-    [[UIView shareShadeViewInstance] addFullScreenShadeWithTapEvent:tapActionCallback];
+    return [[UIView currentShadeView] addFullScreenShadeWithTapEvent:tapActionCallback];
 }
-- (void)addFullScreenShadeWithTapEvent:(void (^)(void))tapActionCallback
+- (instancetype)addFullScreenShadeWithTapEvent:(void (^)(void))tapActionCallback
 {
-    self.shadeView = [UIView shareShadeViewInstance];
-    [UIView shareShadeViewInstance].frame = [UIScreen mainScreen].bounds;
+   
+    self.frame = [UIScreen mainScreen].bounds;
  
-    
-    [UIView shareShadeViewInstance].autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
-     [UIView shareShadeViewInstance].backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] init];
-    [tapGesture addTarget:self action:@selector(tapEvent:)];
-    [[UIView shareShadeViewInstance] addGestureRecognizer:tapGesture];
-    
+    self.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+     self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
     if (tapActionCallback) {
-        objc_setAssociatedObject(self, &externTapActionCallbackKey, tapActionCallback, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] init];
+        [tapGesture addTarget:self action:@selector(tapEvent:)];
+        [self addGestureRecognizer:tapGesture];
+            objc_setAssociatedObject(self, @selector(tapEvent:), tapActionCallback, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }else{
+        objc_setAssociatedObject(self, @selector(tapEvent:), nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     
-    [[UIApplication sharedApplication].keyWindow addSubview:[UIView shareShadeViewInstance]];
+    
+    [[[UIApplication sharedApplication].delegate window] addSubview:self];
+    return self;
 }
 + (void)removeShadeView
 {
-    if ([UIView shareShadeViewInstance].superview) {
-        [[UIView shareShadeViewInstance] removeFromSuperview];
-        for (UIView *subView in [UIView shareShadeViewInstance].subviews) {
-            [subView removeFromSuperview];
-        }
-        
-    }
+    [[UIView currentShadeView] _removeShadeView];
+ 
     
 }
+- (void)_removeShadeView
+{
+    if (self.superview) {
+        [self removeFromSuperview];
+        for (UIView *subView in self.subviews) {
+            [subView removeFromSuperview];
+        }
+        objc_setAssociatedObject([UIView class], @selector(currentShadeView), nil, OBJC_ASSOCIATION_COPY_NONATOMIC);
+        
+    }
+}
+
 #pragma mark - ========= Event Methods =========
 - (void)tapEvent:(UITapGestureRecognizer *)tapGesture
 {
-    if (objc_getAssociatedObject(self, &externTapActionCallbackKey)) {
-        ((void(^)(void))objc_getAssociatedObject(self, &externTapActionCallbackKey))();
+    if (objc_getAssociatedObject(self,@selector(tapEvent:))) {
+        ((void(^)(void))objc_getAssociatedObject(self, @selector(tapEvent:)))();
     }
    
 }
-#pragma mark - ========= Setter & Getter =========
-- (void)setShadeView:(UIView *)shadeView
-{
-    
-    objc_setAssociatedObject(self, &externShadeViewKey, shadeView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-- (UIView *)shadeView
-{
-    if (objc_getAssociatedObject(self, &externShadeViewKey) == nil) {
-        self.shadeView = [UIView shareShadeViewInstance];
-        
-    }
-    return objc_getAssociatedObject(self, &externShadeViewKey);
-}
+
 @end

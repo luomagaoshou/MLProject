@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Face Detector View Controller-->
+        <scene sceneID="Oh0-pD-ATP">
+            <objects>
+                <viewController storyboardIdentifier="MLFaceDetectorViewController" id="DgT-F2-WCU" customClass="MLFaceDetectorViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kT0-pT-4IS"/>
+                        <viewControllerLayoutGuide type="bottom" id="lRC-Qq-Yfk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QD4-3z-xBy" customClass="MLFaceDetectorView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nxd-pg-hAP">
+                                <rect key="frame" x="155" y="9" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="BGH-kO-Dpu"/>
+                                    <constraint firstAttribute="height" constant="30" id="OFt-4U-qpw"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hW2-Gs-LlZ">
+                                <rect key="frame" x="0.0" y="47" width="375" height="358"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="ed4-5v-Ltl"/>
+                                    <constraint firstAttribute="height" constant="358" id="udr-ZS-cJY"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O1B-Ed-agX">
+                                <rect key="frame" x="26" y="426" width="316" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="Uhf-Hm-fkZ"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hW2-Gs-LlZ" firstAttribute="top" secondItem="Nxd-pg-hAP" secondAttribute="bottom" constant="8" id="Ai7-zj-qpr"/>
+                            <constraint firstItem="O1B-Ed-agX" firstAttribute="top" secondItem="hW2-Gs-LlZ" secondAttribute="bottom" constant="21" id="C8j-uR-m1L"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="O1B-Ed-agX" secondAttribute="trailing" constant="17" id="Gtw-GI-MqR"/>
+                            <constraint firstItem="Nxd-pg-hAP" firstAttribute="top" secondItem="QD4-3z-xBy" secondAttribute="top" constant="9" id="eQO-rp-CK6"/>
+                            <constraint firstItem="O1B-Ed-agX" firstAttribute="leading" secondItem="QD4-3z-xBy" secondAttribute="leadingMargin" constant="10" id="opT-S1-cBe"/>
+                            <constraint firstItem="Nxd-pg-hAP" firstAttribute="centerX" secondItem="QD4-3z-xBy" secondAttribute="centerX" id="ujO-0u-QUo"/>
+                            <constraint firstItem="hW2-Gs-LlZ" firstAttribute="leading" secondItem="QD4-3z-xBy" secondAttribute="leading" id="vI8-Jh-Ww5"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="detectButton" destination="Nxd-pg-hAP" id="V6d-NP-id4"/>
+                            <outlet property="faceImageView" destination="hW2-Gs-LlZ" id="ECc-2j-H1T"/>
+                            <outlet property="resultImageView" destination="O1B-Ed-agX" id="Wgo-4a-8UV"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="view_" destination="QD4-3z-xBy" id="FVz-Xz-J1X"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jLj-Oa-OzV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-159.19999999999999" y="-20.239880059970016"/>
+        </scene>
+    </scenes>
+</document>

@@ -13,30 +13,51 @@
 #import "UIStoryboard+Load.h"
 #import "UIImage+FX.h"
 #import "UIImage+Color.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
+#import "NSObject+AppearTime.h"
+
 @interface MLNavigationViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *button;
 
 @end
 
 @implementation MLNavigationViewController
-- (UIStatusBarStyle)preferredStatusBarStyle
-{
-    return UIStatusBarStyleLightContent;
-}
 #pragma mark - ========= View LifeCycle =========
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        
+        
+        //        [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+        //        [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+        //        UINavigationBar *navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 64)];
+        // navigationBar.alpha = (alpha++)%2;
+        //  [self.view addSubview:navigationBar];
+        
+
+        
+    }
+    return self;
+}
+- (void)loadView{
+    [super loadView];
+    
+}
+- (void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    self.navigationBarCommonType = arc4random() % 3 + 1;
+    [UINavigationBar setUpIndependentNavigationBarWithViewController:self type:self.navigationBarCommonType];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configUI];
     [self downloadData];
-    UIBarButtonItem *BBI = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"test"] style:UIBarButtonItemStylePlain target:self action:@selector(haha:)];
-   // self.navigationItem.backBarButtonItem = BBI;
     
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-      //  self.navigationController.navigationBar.navigationBarCommonType = UINavigationBarCommonTypeBlue;
     
 }
 
@@ -62,51 +83,31 @@
 
 
 #pragma mark - ========= Config UI =========
+static int alpha = 0;
 - (void)configUI
 {
-
-    self.view.backgroundColor = [UIColor grayColor];
+    self.view.backgroundColor = kCOLOR_RANDOM_COLOR;
+    
+    [self bindButtonEvent];
+}
+- (void)bindButtonEvent{
+    
+    @weakify(self);
     [self.button touchUpInside:^{
-      //[ProjectManager pushStoryboardControllerWithNibName:@"MLNavigation" storyboardID:@"MLNavigationTestViewController" title:@""];
-        UIViewController *ctl = [UIStoryboard loadViewControllerWithNibName:@"MLNavigation"  storyboardID:@"MLNavigationTestViewController"];
-        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:ctl];
+        @strongify(self);
+        
+        UIViewController *ctl = [UIStoryboard loadViewControllerWithNibName:@"MLNavigation"  storyboardID:@"MLNavigationViewController"];
+        ctl = [MLNavigationViewController new];
         [self.navigationController pushViewController:ctl animated:YES];
-      //  [self presentViewController:nav animated:YES completion:nil];
         
         
     }];
 }
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    MLNavigationViewController *vc =  [ProjectManager pushStoryboardControllerWithNibName:@"MLNavigation" storyboardID:@"MLNavigationViewController"];
-    NSInteger nextNavigationBarCommonType = self.navigationBarCommonType + 1;
-    if (nextNavigationBarCommonType == 2) {
-        nextNavigationBarCommonType = 101;
-    }else if (nextNavigationBarCommonType == 103)
-    {
-        nextNavigationBarCommonType = 0;
-    }
-    vc.navigationBarCommonType = nextNavigationBarCommonType;
-   // self.navigationController.navigationBar.navigationBarCommonType = nextNavigationBarCommonType;
-    UIImage *image = [UIImage imageNamed:@"test"];
-   UIGraphicsBeginImageContextWithOptions(CGSizeMake(14 + 3, 20), NO, 0.f);
-    [image drawInRect:CGRectMake(0, 0, 14, 20)];
-    [[UIImage imageWithColor:[UIColor redColor]] drawInRect:CGRectMake(14, 0, 3, 20)];
-    UIImage *targetImage  =  UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-   // targetImage = [targetImage resizableImageWithCapInsets:UIEdgeInsetsMake(0, image.size.width - 1, 0, 0) resizingMode:UIImageResizingModeTile];
-    targetImage = [targetImage stretchableImageWithLeftCapWidth:14 topCapHeight:0];
-    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:targetImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    //[UINavigationBar appearance].backItem.backBarButtonItem.image = image;
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [vc.button setImage:targetImage forState:UIControlStateNormal];
-        LayerCornerRadius_borderWidth_borderColor(vc.button.layer, vc.button.height/2, vc.button.height/3, [UIColor greenColor]);
-        vc.button.layer.masksToBounds = NO;
-    });
-    
-   
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+//      UIViewController *ctl = [UIStoryboard loadViewControllerWithNibName:@"MLNavigation"  storyboardID:@"MLNavigationViewController"];
+//    //ctl = [MLNavigationViewController new];
+//    [self.navigationController pushViewController:ctl animated:YES];
+    [ProjectManager pushStoryboardControllerWithNibName:@"MLNavigation" storyboardID:@"MLNavigationViewController"];
 }
 #pragma mark - ========= DownloadData =========
 - (void)downloadData
@@ -116,6 +117,5 @@
 
 
 #pragma mark - ========= Setter & Getter =========
-
 
 @end

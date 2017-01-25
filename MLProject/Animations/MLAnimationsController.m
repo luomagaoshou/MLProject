@@ -108,7 +108,7 @@
     [self.view addSubview:view];
     [view.layer ml_shake];
     
-    UIView.ml_make.frame_(100, 100, 100 ,100).backgroundColor([UIColor blueColor]);
+
     
 }
 - (void)animationMaker

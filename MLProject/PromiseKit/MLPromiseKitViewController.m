@@ -60,14 +60,26 @@
 
 - (void)viewPromistTest{
     [UIView promiseWithDuration:1 animations:^{
-      self.view_.button1.backgroundColor = [UIColor greenColor];
+        self.view_.button1.backgroundColor = [UIColor greenColor];
     }]
-    .then(^{
+    .finally(^{
+        NSLog(@"%@", @"hahahah");
+    })
+    .then(^(id obj){
         NSLog(@"%@--%@",self, NSStringFromSelector(_cmd));
-    }).thenOn(dispatch_get_main_queue(), ^{
+        NSLog(@"%@", obj);
+    })
+    .thenOn(dispatch_get_main_queue(), ^{
         NSLog(@"%@", @"fff");
     })
     ;
+    
+    [self test:^(id obj){
+        
+    }];
+}
+- (void)test:(void(^)(id))testBlock{
+    
 }
 #pragma mark - ========= DownloadData =========
 - (void)downloadData

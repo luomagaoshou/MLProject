@@ -71,7 +71,7 @@
 {
     
     unsigned int count = 0;
-    Method *methodList = class_copyMethodList(object_getClass(self), &count);
+    Method *methodList = class_copyMethodList(objc_getMetaClass(class_getName(self)), &count);
     NSMutableArray *methods = [[NSMutableArray alloc] init];
     
     for (NSInteger i = 0; i < count; i++) {
@@ -87,7 +87,7 @@
 + (NSArray *)arrayOfProtocols{
     
     unsigned int count = 0;
-    Protocol * __unsafe_unretained *protocols = class_copyProtocolList(self, &count);
+    Protocol *__unsafe_unretained *protocols = class_copyProtocolList(self, &count);
     NSMutableArray *protocolArray = [[NSMutableArray alloc] init];
     for (int i = 0; i < count; i++) {
         [protocolArray addObject:[NSString stringWithUTF8String:protocol_getName(protocols[i])]];
@@ -100,7 +100,7 @@
 }
 + (NSArray *)arrayOfSubClasses
 {
-     NSMutableArray * classList = [NSMutableArray array];
+     NSMutableArray *classList = [NSMutableArray array];
     NSArray *allClassList = [self arrayOfClassesWithPrefixs:@[@"NS", @"UI", @"CA"]];
     
     
@@ -115,7 +115,7 @@
 + (NSArray *)arrayOfClassesWithPrefixs:(NSArray *)prefixs
 {
     
-    NSMutableArray * classList = [NSMutableArray array];
+    NSMutableArray *classList = [NSMutableArray array];
     NSArray *allClassList = [self arrayOfAllClass];
     for (NSString *className in allClassList) {
        
@@ -133,10 +133,10 @@
     return classList;
 }
 + (NSArray *)arrayOfAllClass {
-    NSMutableArray * classList = [NSMutableArray array];
+    NSMutableArray *classList = [NSMutableArray array];
     
     unsigned int classesCount = 0;
-    Class * classes = objc_copyClassList(&classesCount);
+    Class *classes = objc_copyClassList(&classesCount);
     
     
     for ( int i = 0; i < classesCount; ++i) {
@@ -175,18 +175,7 @@
 
 }
 
-- (id)createSameObject
-{
 
-    id object =  [[[self class] alloc] init];
-    NSArray *urlConfigProperties = [[self class] arrayOfProperties];
-    for (NSInteger i = 0; i< urlConfigProperties.count; i++) {
-        if ([self valueForKey:urlConfigProperties[i]]) {
-            [object setValue:[self valueForKey:urlConfigProperties[i]] forKey:urlConfigProperties[i]];
-        }
-    }
-    return object;
-}
 - (void)setObjectPropertyAllKeyValueNil
 {
     NSArray *properties = [[self class] arrayOfProperties];
@@ -238,6 +227,54 @@
     }
     return postParameter;
 }
+
+
++ (void)ml_swizzleInstanceMethodSEL:(SEL)originalSEL withSEL:(SEL)swizzledSEL {
+
+    
+    Class class = [self class];
+    
+    Method originalMethod = class_getInstanceMethod(class, originalSEL);
+    Method swizzledMethod = class_getInstanceMethod(class, swizzledSEL);
+    
+    BOOL didAddMethod =
+    class_addMethod(class,
+                    originalSEL,
+                    method_getImplementation(swizzledMethod),
+                    method_getTypeEncoding(swizzledMethod));
+    
+    if (didAddMethod) {
+        class_replaceMethod(class,
+                            swizzledSEL,
+                            method_getImplementation(originalMethod),
+                            method_getTypeEncoding(originalMethod));
+    } else {
+        method_exchangeImplementations(originalMethod, swizzledMethod);
+    }
+
+}
+
++ (void)ml_swizzleClassMethodSEL:(SEL)originalSEL withSEL:(SEL)swizzledSEL {
+    
+        
+    Method originalMethod = class_getClassMethod(object_getClass(self), originalSEL);
+    Method swizzledMethod = class_getClassMethod(object_getClass(self), swizzledSEL);
+    Class metaClass = objc_getMetaClass(class_getName([self class]));
+    BOOL didAddMethod =
+    class_addMethod(metaClass,
+                    originalSEL,
+                    method_getImplementation(swizzledMethod),
+                    method_getTypeEncoding(swizzledMethod));
+  
+    if(!didAddMethod) {
+
+        method_exchangeImplementations(originalMethod, swizzledMethod);
+    }
+
+    
+    
+}
+
 #pragma mark - ========= Setter & Getter =========
 - (void)setOperationIdentifier:(NSString *)operationIdentifier
 {

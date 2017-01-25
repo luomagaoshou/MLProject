@@ -10,18 +10,27 @@
 #import "UINavigationBar+Appearance.h"
 #import "UIView+GestureBlock.h"
 #import "ProjectManager.h"
+#import "MLNetwork.h"
 @interface MLNavigationTestViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
 @implementation MLNavigationTestViewController
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        
+    }
+    return self;
+ }
 #pragma mark - ========= View LifeCycle =========
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configUI];
     [self downloadData];
     
+  
 }
 
 - (void)viewWillAppear:(BOOL)animated

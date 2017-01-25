@@ -2,7 +2,7 @@
 //  MLRACViewController.m
 //  MLProject
 //
-//  Created by 妙龙赖 on 16/7/4.
+//  Created by 妙龙赖 on 16/1/4.
 //  Copyright © 2016年 妙龙赖. All rights reserved.
 //
 
@@ -21,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *testTextField;
 @property (weak, nonatomic) IBOutlet UIButton *button1;
 @property (weak, nonatomic) IBOutlet UIButton *button2;
-
+@property (nonatomic, strong) NSString *testString;
 @end
 
 @implementation MLRACViewController
@@ -69,10 +69,14 @@
 
 - (void)testRACSignal
 {
+    
 
- //  RAC(self.testLabel, text) = self.testTextField.rac_textSignal;
+    {
+        RAC(self.testLabel, text) = self.testTextField.rac_textSignal;
+    }
+  
     
-    
+
 //    [self.testTextField.rac_textSignal subscribeNext:^(id x) {
 //        self.testLabel.text = x;
 //    }];
@@ -90,6 +94,9 @@
 //    
   
 
+    
+    
+    
    // RAC(self.testTextField, alpha) = self.testTextField.rac_textSignal;
   // self.testTextField.backgroundColor = [UIColor blueColor];
 //
@@ -121,21 +128,53 @@
 //   }];
     
    // RAC(self.testLabel, text) = self.testTextField.rac_textSignal;
+    {
+       // RACSignal *signal = RACObserve(self.view.layer, backgroundColor);
+      //  [signal subscribeNext:^(id x) {
+        //    NSLog(@"%@", x);
+        //}];
+        //self.view.layer.backgroundColor = [UIColor redColor].CGColor;
+    };
+   
     
-    [RACObserve(self.view.layer, backgroundColor) subscribeNext:^(id x) {
-        NSLog(@"%@", x);
-    }];
     
-    self.view.layer.backgroundColor = [UIColor redColor].CGColor;
+   
+    
+    return;
+#define keypath1(PATH) \
+(((void)(NO && ((void)PATH, NO)), strchr(# PATH, '.') + 1))
+    
+#define keypath2(OBJ, PATH) \
+(((void)(NO && ((void)OBJ.PATH, NO)), # PATH))
+    
+    NSLog(@"%s", metamacro_if_eq0_1("true")("false"));
+    
     
     char type = POINTERIZE(333);
-    NSLog(@"POINTERIZE = %c", type);
+    NSLog(@"POINTERIZE = %c---%@", type, BOX(333));
     
     
     NSValue *value = BOX(UIEdgeInsetsMake(2, 2, 2, 2));
     value = BOX([UIColor redColor].CGColor);
     NSLog(@"BOX =%@", value);
     
+ 
+    
+   ({
+        NSString *str1 = [NSString stringWithFormat:@"%@%d", @"str", 1];
+        id str2 = [[UIView alloc] init];
+        
+        CFArrayCallBacks callbacks = kCFTypeArrayCallBacks;
+        callbacks.equal = NULL;
+        callbacks.retain = NULL;
+        callbacks.release = NULL;
+        CFMutableArrayRef array = CFArrayCreateMutable(NULL, 0, &callbacks);
+        CFArrayAppendValue(array, (__bridge void *)str1);
+        CFArrayAppendValue(array, (__bridge  void *)str2);
+        str1 = nil;
+        str2 = nil;
+        NSLog(@"%@", (__bridge id)array);
+    });
 #if 0
     
     [UIButton aspect_hookSelector:@selector(touchUpInsideAction:) withOptions:AspectPositionBefore usingBlock:^(id info, id  sender){
@@ -150,13 +189,13 @@
     self.button2.featureIdentifier = @"事件2";
     [self.button1 touchUpInside:^{
         NSLog(@"%@", self.button1.featureIdentifier);
-      id ctl = [UIViewController getLastViewControllerWithClass:[self class]];
+     // id ctl = [UIViewController getLastViewControllerWithClass:[self class]];
         //NSLog(@"%@", NSStringFromClass([ctl class]));
         
     }];
     [self.button2 touchUpInside:^{
         NSLog(@"%@", self.button2.featureIdentifier);
-        id ctl = [UIViewController getLastViewControllerWithClass:[self class]];
+        //id ctl = [UIViewController getLastViewControllerWithClass:[self class]];
        // NSLog(@"%@", NSStringFromClass([ctl class]));
     }];
 #endif

@@ -91,7 +91,7 @@
 {
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    [self.tableView ml_registerNibForCellWithNameOrClasses:@[@"UITableViewCell"]];
+    [self.tableView ml_registerClassForCellWithNameOrClasses:@[@"UITableViewCell"]];
     
     [self.dataSource addObjectsFromArray:@[@"水仙花数",
                                            @"韩信点兵",
@@ -100,10 +100,54 @@
                                            @"排列组合",
                                            @"竖式乘法",
                                            @"排列组合2",]];
-
+    [self moneyManager];
+    [self moneyManager2];
+    [self moneyManager3];
 }
 
+- (void)moneyManager{
 
+    CGFloat rotation = 0.03;
+    CGFloat daysOfYear = 365;
+    CGFloat originalMoney = 1;
+    for (NSInteger i = 1; i <= daysOfYear; i++) {
+        originalMoney = originalMoney * (1 + rotation/ daysOfYear);
+    }
+    NSLog(@"%f--%f", originalMoney, pow(1+ rotation/daysOfYear, daysOfYear));
+}
+
+- (void)moneyManager2{
+    CGFloat rotation = 0.04;
+    CGFloat monthCount = 6;
+    CGFloat originalMoney = 1;
+    CGFloat resultMoney = 0;
+    for (NSInteger i = 1; i <= monthCount; i++) {
+        CGFloat currentRotation = pow(1 + rotation/monthCount, monthCount - i + 1);
+        currentRotation = rotation/monthCount + 1;
+        resultMoney += originalMoney/monthCount * currentRotation;
+    }
+    NSLog(@"%f", resultMoney);
+}
+- (void)moneyManager3{
+    double rotation = 0.086;
+    double monthCount = 12;
+    double originalMoney = 10000;
+    double resultMoney = 0;
+    double rotationOfMonth = rotation/monthCount;
+    for (NSInteger i = 1; i <= monthCount; i++) {
+       
+        double everyTimeMoney = (originalMoney * (monthCount - i) / monthCount) * rotationOfMonth * pow(1 + rotationOfMonth, monthCount - i)
+        /
+        (pow(1 + rotationOfMonth, monthCount - i) - 1);
+        resultMoney += everyTimeMoney;
+        
+    }
+    NSLog(@"%f", resultMoney);
+    
+    resultMoney = originalMoney * (1 + rotation)/12;
+    
+    
+}
 #pragma mark - ========= DownloadData =========
 - (void)downloadData
 {

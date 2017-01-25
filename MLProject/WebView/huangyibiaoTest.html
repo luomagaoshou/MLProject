@@ -14,6 +14,12 @@
 
 <body>
   
+  <div>
+      <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png"  id = "imageSource1" onclick="OChandler.sendDic({'ddd':333})"/>
+   <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png" onclick="sayGagaFunc({'gaga':'ff'})" id = "imageSource2" onclick = "sayHahaFunc('jjj')"/>
+    <img src="http://pic.qiantucdn.com/58pic/18/32/10/27R58PICDMI_1024.png" onclick="MLWebModelInstance.test()" id = "imageSource3" />
+  </div>
+  
 <div style="color: red;margin-top: 100px">
     <h2>fuck</h2>
 	<h1>Test how to use objective-c call js</h1>
@@ -105,6 +111,20 @@ var jsParamFunc = function(argument) {
 <script type="text/javascript" id="sayHahaJSFunc">
     var sayHahaFunc = function(string){
         alert(string);
+        window.webkit.messageHandlers.AppleModel.postMessage({body: 'call js confirm in js'});
     }
+
 </script>
+
+
+<script type="text/javascript">
+    var sayGagaFunc = function(dic){
+        alert('sayGagaFunc');
+        OChandler.sendDic('gaga':3333);
+    }
+
+    </script>
+
+
+
 </html>

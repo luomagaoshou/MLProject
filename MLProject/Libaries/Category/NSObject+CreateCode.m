@@ -15,22 +15,22 @@
 #import "NSDate+ML_Tools.h"
 #import "NSBundle+ML_Tools.h"
 
-@implementation ML_CreateCodeModel
+@implementation ml_createCodeModel
 + (instancetype)modelWithClassName:(NSString *)className
                     superclassName:(NSString *)superclassName
               hFileImportFileNames:(NSArray *)hFileImportFileNames
                 hFileContentString:(NSString *)hFileContentString
               mFileImportFileNames:(NSArray *)mFileImportFileNames
                 mFileContentString:(NSString *)mFileContentString
-                        moreConfig:(void (^)(ML_CreateCodeModel *))moreConfigBlock
+                        moreConfig:(void (^)(ml_createCodeModel *))moreConfigBlock
 {
-    ML_CreateCodeModel *model = [[super alloc] init];
+    ml_createCodeModel *model = [[super alloc] init];
     model.className = className;
     model.superclassName = superclassName;
     model.hFileImportFileNames = hFileImportFileNames;
-    model.hFileContentString = hFileContentString ? hFileContentString : @"" ;
+    model.hFileContentString = hFileContentString ? : @"" ;
     model.mFileImportFileNames = mFileImportFileNames;
-    model.mFileContentString = mFileContentString ? mFileContentString : @"";
+    model.mFileContentString = mFileContentString ? : @"";
     
     model.typedefString = @"";
     model.classDeclearString = @"";
@@ -45,10 +45,10 @@
 {
     NSString *fileName = self.className;
     if (self.categoryName) {
-       fileName = [NSString stringWithFormat:@"%@+%@",self.className, self.categoryName];
+        fileName = [NSString stringWithFormat:@"%@+%@",self.className, self.categoryName];
     }
     
-    return [NSObject ml_hFileOrMFileTopIntroduceWithClassName:fileName fileType:kML_CreateCodeFileType_h];
+    return [NSObject ml_hFileOrMFileTopIntroduceWithClassName:fileName fileType:kML_CreatCodeFileType_h];
 }
 - (NSString *)hFileInterfaceString
 {
@@ -56,19 +56,19 @@
     if (self.categoryName) {
         hFileInterfaceString = [NSString stringWithFormat:@"@interface %@(%@)",self.className, self.categoryName];
     }else
-        {
+    {
         if (!self.className) {
             return nil;
         }
         hFileInterfaceString = [NSString stringWithFormat:@"@interface %@:%@", self.className, self.superclassName];
-        }
-
+    }
+    
     return hFileInterfaceString;
 }
 - (NSString *)hFileImportString
 {
     NSMutableArray *importFileNames = [[NSMutableArray alloc] init];
-   
+    
     if (![self.hFileImportFileNames containsObject:self.superclassName] && self.superclassName) {
         if ([NSBundle isSystemClass:NSClassFromString(self.superclassName)]) {
             [importFileNames addObject:[NSString stringWithFormat:@"#import \"%@.h\"", self.superclassName]];
@@ -89,12 +89,12 @@
     if (self.categoryName) {
         fileName = [NSString stringWithFormat:@"%@+%@",self.className, self.categoryName];
     }
-    return [NSObject ml_hFileOrMFileTopIntroduceWithClassName:self.className fileType:kML_CreateCodeFileType_m];
+    return [NSObject ml_hFileOrMFileTopIntroduceWithClassName:self.className fileType:kML_CreatCodeFileType_m];
 }
 - (NSString *)mFileImplementationString
 {
     if (self.categoryName) {
-       return [NSString stringWithFormat:@"@implementation %@(%@)",self.className, self.categoryName];
+        return [NSString stringWithFormat:@"@implementation %@(%@)",self.className, self.categoryName];
     }
     return [NSString stringWithFormat:@"@implementation %@", self.className];
 }
@@ -160,24 +160,24 @@
 }
 @end
 
-NSString *const kML_CreateCodeFileType_h = @"h";
-NSString *const kML_CreateCodeFileType_m = @"m";
+NSString *const kML_CreatCodeFileType_h = @"h";
+NSString *const kML_CreatCodeFileType_m = @"m";
 #define DESK_TOP_DIR @"XcodeCreateCode"
 
 @implementation NSObject (CreateCode)
 
-+ (NSString *)ML_createViewCodeWithClass:(Class)aClass
++ (NSString *)ml_createViewCodeWithClass:(Class)aClass
 {
-    return [self ML_createViewCodeWithClass:aClass isOutPutToDeskTop:NO];
+    return [self ml_createViewCodeWithClass:aClass isOutPutToDeskTop:NO];
 }
-+ (NSString *)ML_createViewCodeWithClass:(Class)aClass isOutPutToDeskTop:(BOOL)isOutPutToDeskTop
++ (NSString *)ml_createViewCodeWithClass:(Class)aClass isOutPutToDeskTop:(BOOL)isOutPutToDeskTop
 {
     NSMutableString *viewString = [[NSMutableString alloc] init];
     // [viewString appendString:@"==========Begining=========\n\n\n\n\n"];
-    [viewString appendString:[NSObject ML_createInitStringWithClass:aClass]];
-    [viewString appendString:[NSObject ML_createLayoutStringWithClass:aClass]];
-    [viewString appendString:[NSObject ML_createEventMothodString]];
-    [viewString appendString:[NSObject ML_createGetterMethodStringWithClass:aClass]];
+    [viewString appendString:[NSObject ml_createInitStringWithClass:aClass]];
+    [viewString appendString:[NSObject ml_createLayoutStringWithClass:aClass]];
+    [viewString appendString:[NSObject ml_createEventMothodString]];
+    [viewString appendString:[NSObject ml_createGetterMethodStringWithClass:aClass]];
     //[viewString appendString:@"\n\n\n\n\n==========Ending========"];
     NSLog(@"%@", viewString);
     
@@ -191,7 +191,7 @@ NSString *const kML_CreateCodeFileType_m = @"m";
     return viewString;
 }
 
-+ (NSString *)ML_createModelFileToDeskTopWithJSON:(id)JSON className:(NSString *)className
++ (NSString *)ml_createModelFileToDeskTopWithJSON:(id)JSON className:(NSString *)className
 {
     
     WHC_ModelCreate *creater = [[WHC_ModelCreate alloc] init];
@@ -204,43 +204,43 @@ NSString *const kML_CreateCodeFileType_m = @"m";
     
     
     
-    NSString *headerPreStr = [NSObject ml_hFileOrMFileTopIntroduceWithClassName:className fileType:kML_CreateCodeFileType_h];
+    NSString *headerPreStr = [NSObject ml_hFileOrMFileTopIntroduceWithClassName:className fileType:kML_CreatCodeFileType_h];
     
     NSString *headerTotalStr = [NSString stringWithFormat:@"%@\n%@\n",headerPreStr, creater.classString];
     
     
     NSString *XcodeCreateCodeDirectory = [[NSFileManager macDeskTopDiretory]  stringByAppendingPathComponent:DESK_TOP_DIR];
-    [[NSFileManager defaultManager] writefileString:headerTotalStr ToFileWithDiretory:XcodeCreateCodeDirectory fileName:className fileType:kML_CreateCodeFileType_h moveToTrashWhenFileExists:YES];
+    [[NSFileManager defaultManager] writefileString:headerTotalStr ToFileWithDiretory:XcodeCreateCodeDirectory fileName:className fileType:kML_CreatCodeFileType_h moveToTrashWhenFileExists:YES];
     
-    NSString *codeSourcePreStr = [NSObject ml_hFileOrMFileTopIntroduceWithClassName:className fileType:kML_CreateCodeFileType_m];
+    NSString *codeSourcePreStr = [NSObject ml_hFileOrMFileTopIntroduceWithClassName:className fileType:kML_CreatCodeFileType_m];
     
     NSString *resultStr = [NSString stringWithFormat:@"%@\n%@\n",codeSourcePreStr,  creater.classMString];
     
     
-    [[NSFileManager defaultManager] writefileString:resultStr ToFileWithDiretory:XcodeCreateCodeDirectory fileName:className fileType:kML_CreateCodeFileType_m moveToTrashWhenFileExists:YES];
+    [[NSFileManager defaultManager] writefileString:resultStr ToFileWithDiretory:XcodeCreateCodeDirectory fileName:className fileType:kML_CreatCodeFileType_m moveToTrashWhenFileExists:YES];
     return resultStr;
 }
-+ (NSString *)ML_createHeaderFileAndCodeSourceFileOfViewWithClass:(Class)aClass fileType:(NSString *)fileType
++ (NSString *)ml_createHeaderFileAndCodeSourceFileOfViewWithClass:(Class)aClass fileType:(NSString *)fileType
 {
     
     NSString *preStr = [NSObject ml_hFileOrMFileTopIntroduceWithClassName:NSStringFromClass(aClass) fileType:fileType];
-   
     
-    NSString *resultString = [NSString stringWithFormat:@"%@@implementation %@\n\n%@@end\n",preStr, NSStringFromClass(aClass), [NSObject ML_createViewCodeWithClass:aClass]];
     
-   
+    NSString *resultString = [NSString stringWithFormat:@"%@@implementation %@\n\n%@@end\n",preStr, NSStringFromClass(aClass), [NSObject ml_createViewCodeWithClass:aClass]];
+    
+    
     
     NSString *XcodeCreateCodeDirectory = [[NSFileManager macDeskTopDiretory]  stringByAppendingPathComponent:DESK_TOP_DIR];
-      [[NSFileManager defaultManager] writefileString:resultString ToFileWithDiretory:XcodeCreateCodeDirectory fileName:NSStringFromClass(aClass) fileType:fileType moveToTrashWhenFileExists:YES];
+    [[NSFileManager defaultManager] writefileString:resultString ToFileWithDiretory:XcodeCreateCodeDirectory fileName:NSStringFromClass(aClass) fileType:fileType moveToTrashWhenFileExists:YES];
     return resultString;
 }
 
 
-+ (NSString *)ML_createPropertyStringWithClass:(Class)aClass
++ (NSString *)ml_createPropertyStringWithClass:(Class)aClass
 {
- 
+    
     NSArray *attrs = [aClass arrayOfPropertyAttributes];
-         NSMutableString *createString = [[NSMutableString alloc] init];
+    NSMutableString *createString = [[NSMutableString alloc] init];
     [createString appendString:@"#pragma mark - ========= Setter & Getter =========\n"];
     for (NSInteger i = 0; i < attrs.count; i++) {
         
@@ -249,12 +249,11 @@ NSString *const kML_CreateCodeFileType_m = @"m";
         if ([attrs[i][3] isEqualToString:@"N"]) {
             [createString appendString:@"nonatomic"];
         }
-        else if ([attrs[i][3] isEqualToString:@"A"])
-        {
+        else if ([attrs[i][3] isEqualToString:@"A"]){
             [createString appendString:@"(atomic"];
-
+            
         }
-       [createString appendString:@","];
+        [createString appendString:@","];
         [createString appendString:@" "];
         
         
@@ -280,19 +279,19 @@ NSString *const kML_CreateCodeFileType_m = @"m";
 }
 
 
-+ (NSString *)ML_createInitStringWithClass:(Class)aClass
++ (NSString *)ml_createInitStringWithClass:(Class)aClass
 {
     NSMutableString *mutStr = [[NSMutableString alloc] init];
     if ([aClass isSubclassOfClass:[UITableViewCell class]]) {
         
         [mutStr appendString:@"- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier\n{\n\n"];
-         [mutStr appendString:@"self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];\n"];
+        [mutStr appendString:@"self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];\n"];
     }
     else if ([aClass isSubclassOfClass:[UIView class]]){
         [mutStr appendString:@"- (instancetype)initWithFrame:(CGRect)frame\n{\n\nself = [super initWithFrame:frame];\n"];
-         
+        
     }
-   
+    
     [mutStr appendString:@"if (self) {\n"];
     NSArray *properties = [aClass arrayOfProperties];
     for (NSInteger i = 0; i < properties.count; i++) {
@@ -304,14 +303,14 @@ NSString *const kML_CreateCodeFileType_m = @"m";
     return mutStr;
 }
 
-+ (NSString *)ML_createLayoutStringWithClass:(Class)aClass
++ (NSString *)ml_createLayoutStringWithClass:(Class)aClass
 {
-   
+    
     NSMutableString *mutStr = [[NSMutableString alloc] init];
     [mutStr appendString:@"#pragma mark - ========= LayoutSubviews =========\n"];
- 
+    
     [mutStr appendString:@"- (void)layoutSubviews\n{\n"];
-       NSArray *properties = [aClass arrayOfProperties];
+    NSArray *properties = [aClass arrayOfProperties];
     for (NSInteger i = 0; i < properties.count; i++) {
         [mutStr appendString:[NSString stringWithFormat:@"//self.%@.frame = CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>);\n",properties[i]]];
     }
@@ -319,18 +318,18 @@ NSString *const kML_CreateCodeFileType_m = @"m";
     [mutStr appendString:@"\n}\n\n"];
     return mutStr;
 }
-+ (NSString *)ML_createEventMothodString
++ (NSString *)ml_createEventMothodString
 {
     NSMutableString *mutStr = [[NSMutableString alloc] init];
     [mutStr appendString:@"#pragma mark - ========= Event Methods =========\n"];
     [mutStr appendString:@"- (void)clickEvent:(UIView *)sender\n{\n"];
     [mutStr appendString:@"NSLog(@\"%@\",sender.featureIdentifier);\n"];
     [mutStr appendString:@"\n}\n\n"];
-
+    
     return mutStr;
 }
 
-+ (NSString *)ML_createGetterMethodStringWithClass:(Class)aClass
++ (NSString *)ml_createGetterMethodStringWithClass:(Class)aClass
 {
     NSArray *attrs = [aClass arrayOfPropertyAttributes];
     NSMutableString *getterMethodString = [[NSMutableString alloc] init];
@@ -345,7 +344,7 @@ NSString *const kML_CreateCodeFileType_m = @"m";
         [getterMethodString appendString:[NSString stringWithFormat:@"//_%@ = <#code#>\n", [attrs[i] lastObject]]];
         [getterMethodString appendString:@"\n}\n"];
         [getterMethodString appendString:[NSString stringWithFormat:@"return _%@;\n}\n",[attrs[i]lastObject]]];
-         
+        
     }
     return getterMethodString;
 }
@@ -390,33 +389,33 @@ NSString *const kML_CreateCodeFileType_m = @"m";
 
 
 #pragma mark - ========= Xib =========
-+ (NSString *)ML_createXibViewInitHelperWithClass:(Class)aClass
++ (NSString *)ml_createXibViewInitHelperWithClass:(Class)aClass
 {
-    return [self ML_createXibViewInitHelperWithClass:aClass isOutPutToDeskTop:NO];
+    return [self ml_createXibViewInitHelperWithClass:aClass isOutPutToDeskTop:NO];
 }
-+ (NSString *)ML_createXibViewInitHelperWithClass:(Class)aClass isOutPutToDeskTop:(BOOL)isOutPutToDeskTop
++ (NSString *)ml_createXibViewInitHelperWithClass:(Class)aClass isOutPutToDeskTop:(BOOL)isOutPutToDeskTop
 {
     NSArray *properties= [aClass arrayOfProperties];
     NSMutableString *initHelperString = [[NSMutableString alloc] init];
     
-    NSString *layoutStr = [NSObject ML_createLayoutStringWithClass:aClass];
+    NSString *layoutStr = [NSObject ml_createLayoutStringWithClass:aClass];
     [initHelperString appendString:layoutStr];
     
-
+    
     NSString *helperHintStr = @"#pragma mark - ========= Xib View Config Helper =========\n\n";
-        [initHelperString appendString:helperHintStr];
+    [initHelperString appendString:helperHintStr];
     
     NSMutableString *porpertyInitStr = [[NSMutableString alloc] init];
-      for (NSInteger i = 0; i < properties.count; i++) {
-          NSString *property = properties[i];
-          NSString *upperFirstLetterString = [NSObject upperWriteFirstLetter:property];
-          [porpertyInitStr appendFormat:@"[self configure%@];\n", upperFirstLetterString];
-      }
+    for (NSInteger i = 0; i < properties.count; i++) {
+        NSString *property = properties[i];
+        NSString *upperFirstLetterString = [NSObject upperWriteFirstLetter:property];
+        [porpertyInitStr appendFormat:@"[self configure%@];\n", upperFirstLetterString];
+    }
     NSString *commitInitStr = [NSString stringWithFormat:@"- (void)commitConfig{\n\n%@\n\n}\n\n", porpertyInitStr];
     [initHelperString appendString:commitInitStr];
     
     
-
+    
     for (NSInteger i = 0; i < properties.count; i++) {
         
         NSString *property = properties[i];
@@ -424,12 +423,12 @@ NSString *const kML_CreateCodeFileType_m = @"m";
         
         [initHelperString appendFormat:@"- (void)configure%@\n", upperFirstLetterString];
         
-       // NSString *containerViewStr = [NSString stringWithFormat:@"%@ *cell = (%@ *)[self containerView];\n//cell.%@ = <#code#>",NSStringFromClass(aClass), NSStringFromClass(aClass),property];
+        // NSString *containerViewStr = [NSString stringWithFormat:@"%@ *cell = (%@ *)[self containerView];\n//cell.%@ = <#code#>",NSStringFromClass(aClass), NSStringFromClass(aClass),property];
         
         
         [initHelperString appendFormat:@"{\n\n//self.%@ = <#code#>\n\n\n}\n\n", property];
         
-     
+        
         
     }
     
