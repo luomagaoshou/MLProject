@@ -2,14 +2,14 @@
 //  CAPropertyAnimation.m
 //  MLProject
 //  
-//  Created by 赖妙龙 on 2017/01/25.
+//  Created by 赖妙龙 on 2017/01/26.
 //  Copyright © 2017年 myCompany. All rights reserved.
 //  
 
 
-
 #import "CAPropertyAnimation+MLChain.h"
 #import "NSObject+MLChain.h"
+
 @implementation CAPropertyAnimation(MLChain)
 + (MLChain4CAPropertyAnimation *)mlc_make {         
          

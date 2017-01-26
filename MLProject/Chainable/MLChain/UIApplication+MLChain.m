@@ -2,14 +2,14 @@
 //  UIApplication.m
 //  MLProject
 //  
-//  Created by 赖妙龙 on 2017/01/25.
+//  Created by 赖妙龙 on 2017/01/26.
 //  Copyright © 2017年 myCompany. All rights reserved.
 //  
 
 
-
 #import "UIApplication+MLChain.h"
 #import "NSObject+MLChain.h"
+
 @implementation UIApplication(MLChain)
 + (MLChain4UIApplication *)mlc_make {         
          

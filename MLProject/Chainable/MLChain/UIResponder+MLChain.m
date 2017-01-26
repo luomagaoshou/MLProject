@@ -2,14 +2,14 @@
 //  UIResponder.m
 //  MLProject
 //  
-//  Created by 赖妙龙 on 2017/01/25.
+//  Created by 赖妙龙 on 2017/01/26.
 //  Copyright © 2017年 myCompany. All rights reserved.
 //  
 
 
-
 #import "UIResponder+MLChain.h"
 #import "NSObject+MLChain.h"
+
 @implementation UIResponder(MLChain)
 + (MLChain4UIResponder *)mlc_make {         
          

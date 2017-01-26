@@ -2,7 +2,7 @@
 //  MLChain4UITableViewCell.h
 //  MLProject
 //  
-//  Created by 赖妙龙 on 2017/01/25.
+//  Created by 赖妙龙 on 2017/01/26.
 //  Copyright © 2017年 myCompany. All rights reserved.
 //  
 
@@ -55,15 +55,6 @@ SEL:   setTarget: '@'
 SEL:   setLineBreakMode: 'q'
      */
 - (MLChain4UITableViewCell *(^)())lineBreakMode;
-
-
-#ifndef drawingEnabled                                  
-#define drawingEnabled(...)  drawingEnabled(@"setDrawingEnabled:", (int)metamacro_at(0, __VA_ARGS__))                                  
-#endif
-/**     ClassName-> UITableViewCell                                
-SEL:   setDrawingEnabled: 'B'
-     */
-- (MLChain4UITableViewCell *(^)())drawingEnabled;
 
 
 #ifndef layoutSubviews                              
@@ -671,6 +662,15 @@ SEL:   setAccessoryActionSegueTemplate: '@'
 SEL:   setSelectionSegueTemplate: '@'
      */
 - (MLChain4UITableViewCell *(^)())selectionSegueTemplate;
+
+
+#ifndef drawingEnabled                                  
+#define drawingEnabled(...)  drawingEnabled(@"setDrawingEnabled:", (int)metamacro_at(0, __VA_ARGS__))                                  
+#endif
+/**     ClassName-> UITableViewCell                                
+SEL:   setDrawingEnabled: 'B'
+     */
+- (MLChain4UITableViewCell *(^)())drawingEnabled;
 
 
 #ifndef selectedTextColor                                  

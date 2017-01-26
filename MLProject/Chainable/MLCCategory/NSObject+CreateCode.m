@@ -165,8 +165,8 @@
 {
     NSString *resultString = [NSString stringWithFormat:@"%@\n%@\n%@\n%@\n%@\n%@\n%@\n",
                               self.mFileTopString,
-                              self.mFileStringBeforeImplementation ? : @"",
                               self.mFileImportString,
+                              self.mFileStringBeforeImplementation ? : @"",
                               self.mFileImplementationString,
                               self.mFileContentString,
                               self.endString,

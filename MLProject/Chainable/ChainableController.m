@@ -108,6 +108,7 @@ metamacro_if_eq(1, metamacro_argcount(__VA_ARGS__))(mlkeypath1(__VA_ARGS__))(mlk
 //加载完成
 - (void)viewDidLoad {
     [super viewDidLoad];
+#if 1
     [NSObject mlc_chainCreateChainFileWithClassNames:
      @[[UITableView class],
        [UICollectionView class],
@@ -121,7 +122,8 @@ metamacro_if_eq(1, metamacro_argcount(__VA_ARGS__))(mlkeypath1(__VA_ARGS__))(mlk
        [UIButton class],
        [UIApplication class],
        [UIImageView class]]];
-   // [self initUI];
+#endif
+    [self initUI];
     //[self downloadData];
 
 }
@@ -204,7 +206,6 @@ return numberOfArguments;
 #pragma mark - ========= InitialUI =========
 - (void)initUI
 {
-     self.view.hidden = YES;
     //[self changeFile];
     [self chainMethodAdd];
     
@@ -303,11 +304,17 @@ return numberOfArguments;
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 200, 200)];
     view.backgroundColor = [UIColor cyanColor];
     [self.view addSubview:view];
-    //view.mlc_make.frame(10, 10, 20, 200);
-  
-    view.mlc_make.frame(CGRectMake(200, 200, 50, 300));
-  view.mlc_make.frame_(10, 10, 20, 200);
-    @"";
+
+    
+    CABasicAnimation *basiAni = [CABasicAnimation mlc_makeConfigs:^(MLChain4CABasicAnimation *maker) {
+        maker.keyPath(@"transform.scale").duration(1).repeatCount(MAXFLOAT);
+        maker.fromValue(@0.5).toValue(@2.0);
+        maker.autoreverses(YES).fillMode(kCAFillModeForwards);
+    }].chainObject;
+    view.layer.mlc_make.addAnimation_forKey(basiAni, @"");
+    
+    
+
 }
 - (void)changeFile{
     
