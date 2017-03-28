@@ -38,4 +38,5 @@
 //#import "MLChain.h"
 #import "UIScrollView+Refresh.h"
 #import "ProjectManager.h"
+#import "UIView+ML_ModelMethod.h"
 #endif /* Public_h */

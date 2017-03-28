@@ -13,15 +13,14 @@
 #import "NSObject+RunTimeHelper.h"
 #import "UIViewController+ML_Tools.h"
 #import <Aspects/Aspects.h>
-#define POINTERIZE(x) ((__typeof__(x) []){ x })
-
-#define BOX(x) [NSValue valueWithBytes: POINTERIZE(x) objCType: @encode(__typeof__(x))]
 @interface MLRACViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *testLabel;
 @property (weak, nonatomic) IBOutlet UITextField *testTextField;
 @property (weak, nonatomic) IBOutlet UIButton *button1;
 @property (weak, nonatomic) IBOutlet UIButton *button2;
 @property (nonatomic, strong) NSString *testString;
+
+@property (nonatomic, strong) UILabel *testLabel_;
 @end
 
 @implementation MLRACViewController
@@ -63,12 +62,43 @@
 #pragma mark - ========= Config UI =========
 - (void)configUI
 {
-    [self testRACSignal];
- 
+    //[self testRACSignal];
+  
+    [self test];
+   // [self test2];
 }
 
-- (void)testRACSignal
-{
+- (void)test {
+    self.testLabel_ = [[UILabel alloc] init];
+    RACSignal *signal = RACObserve(self.testLabel_, text) ;
+    [signal subscribeNext:^(id x) {
+        NSLog(@"%@", x);
+    }];
+    self.testLabel_.text = @"ff";
+    //    UILabel *label2 = [[UILabel alloc] init];
+    //    UITextField *textFiled = [[UITextField alloc] init];
+    //    self.testLabel_ = (id)textFiled;
+    //    self.testLabel_.text = @"gaga";
+    //    self.testLabel_.text = @"haha";
+    
+    
+    
+    
+}
+
+- (void)test2{
+    
+    RACSignal *signal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [subscriber sendNext:@"fuck"];
+        
+        return nil;
+    }];
+    [signal subscribeNext:^(id x) {
+        NSLog(@"%@", x);
+    }];
+    
+}
+- (void)testRACSignald{
     
 
     {
@@ -150,14 +180,7 @@
     NSLog(@"%s", metamacro_if_eq0_1("true")("false"));
     
     
-    char type = POINTERIZE(333);
-    NSLog(@"POINTERIZE = %c---%@", type, BOX(333));
-    
-    
-    NSValue *value = BOX(UIEdgeInsetsMake(2, 2, 2, 2));
-    value = BOX([UIColor redColor].CGColor);
-    NSLog(@"BOX =%@", value);
-    
+       
  
     
    ({

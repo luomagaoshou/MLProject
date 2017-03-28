@@ -8,6 +8,7 @@
 
 #import "MLDebugViewController.h"
 #import "NSObject+ML_Debug.h"
+#import "XYDebugToy.h"
 @interface MLDebugViewController ()
 
 @end
@@ -51,17 +52,20 @@
 #pragma mark - ========= Config UI =========
 - (void)configUI
 {
+    
+    
+    
 //    NSMutableString *mutStr = [[NSMutableString alloc] initWithCapacity:8];
 //    [mutStr insertString:@"|_" atIndex:mutStr.length - 1];
 //    NSLog(@"%@", mutStr);
     for (NSInteger i = 0; i < 1; i++) {
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(50 + i * 2, 100+ i * 2, SCREEN_WIDTH * ((10.0-i)/10.0), SCREEN_HEIGHT * ((10.0-i)/10.0))];
-        view.backgroundColor = kCOLOR_RANDOM_COLOR;
+       // view.backgroundColor = kCOLOR_RANDOM_COLOR;
         [self.view addSubview:view];
         
         for (NSInteger j = 0; j < 5; j++) {
             UIView *subview2 =[[UIView alloc] initWithFrame:CGRectMake(50 + i * 2, 100+ i * 2, SCREEN_WIDTH * ((10.0-i)/10.0), SCREEN_HEIGHT * ((10.0-i)/10.0))];
-            subview2.backgroundColor = kCOLOR_RANDOM_COLOR;
+           // subview2.backgroundColor = kCOLOR_RANDOM_COLOR;
             if (j == 0) {
                 [view addSubview:subview2];
             } else if (j == 1){
@@ -79,19 +83,25 @@
         
         for (NSInteger j = 0; j < 5; j++) {
             UIView *subview =[[UIView alloc] initWithFrame:CGRectMake(50 + i * 2, 100+ i * 2, SCREEN_WIDTH * ((10.0-i)/10.0), SCREEN_HEIGHT * ((10.0-i)/10.0))];
-            subview.backgroundColor = kCOLOR_RANDOM_COLOR;
+            //subview.backgroundColor = kCOLOR_RANDOM_COLOR;
             [view addSubview:subview];
         }
         
         
     }
-   
+    
+
+ 
+    
+  id srt =  [self.view performSelector:@selector(recursiveDescription)];
+   // NSLog(@"%@", [XYDebugToy displayViews:self.view]);
    // dispatch_async(dispatch_get_main_queue(), ^{
-        MLViewNode *node = [self.view printViewInfo];
-        NSLog(@"%@", node);
+//        MLTreeNode *node = [self.view printViewInfo];
+//        NSLog(@"%@", node);
    // });
-    
-    
+    MLTree *tree = [MLTree treeWithView:self.view];
+    NSArray *descendants = tree.rootNode.descendants;
+    NSLog(@"%@", tree, descendants);
      //[self testArgs:@"haha", [UIColor redColor], (float)6.1, (int)1 ,(int)2, (float)5.1, @"end"];
 }
 

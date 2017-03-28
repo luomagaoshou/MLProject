@@ -88,11 +88,11 @@
 /**
 * 更换实例方法指针
 */
-+ (void)ml_swizzleInstanceMethodSEL:(SEL)originalSEL withSEL:(SEL)swizzledSEL;
++ (void)ml_swizzleInstanceMethodSel:(SEL)originalSel withTargetClass:(Class)targetClass andSel:(SEL)targetSel;
 /**
  * 更换类方法指针
  */
-+ (void)ml_swizzleClassMethodSEL:(SEL)originalSEL withSEL:(SEL)swizzledSEL;
++ (void)ml_swizzleClassMethodSel:(SEL)originalSel withSel:(SEL)targetSel;
 @property (nonatomic, strong) NSString *featureIdentifier;
 @property (nonatomic, strong) NSString *operationIdentifier;
 

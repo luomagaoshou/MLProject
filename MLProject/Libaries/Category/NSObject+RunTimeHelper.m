@@ -229,23 +229,23 @@
 }
 
 
-+ (void)ml_swizzleInstanceMethodSEL:(SEL)originalSEL withSEL:(SEL)swizzledSEL {
++ (void)ml_swizzleInstanceMethodSel:(SEL)originalSel withTargetClass:(__unsafe_unretained Class)targetClass andSel:(SEL)targetSel {
 
     
     Class class = [self class];
     
-    Method originalMethod = class_getInstanceMethod(class, originalSEL);
-    Method swizzledMethod = class_getInstanceMethod(class, swizzledSEL);
+    Method originalMethod = class_getInstanceMethod(class, originalSel);
+    Method swizzledMethod = class_getInstanceMethod(targetClass, targetSel);
     
     BOOL didAddMethod =
     class_addMethod(class,
-                    originalSEL,
+                    originalSel,
                     method_getImplementation(swizzledMethod),
                     method_getTypeEncoding(swizzledMethod));
     
     if (didAddMethod) {
         class_replaceMethod(class,
-                            swizzledSEL,
+                            targetSel,
                             method_getImplementation(originalMethod),
                             method_getTypeEncoding(originalMethod));
     } else {
@@ -254,15 +254,15 @@
 
 }
 
-+ (void)ml_swizzleClassMethodSEL:(SEL)originalSEL withSEL:(SEL)swizzledSEL {
++ (void)ml_swizzleClassMethodSel:(SEL)originalSel withSEL:(SEL)targetSel {
     
         
-    Method originalMethod = class_getClassMethod(object_getClass(self), originalSEL);
-    Method swizzledMethod = class_getClassMethod(object_getClass(self), swizzledSEL);
+    Method originalMethod = class_getClassMethod(object_getClass(self), originalSel);
+    Method swizzledMethod = class_getClassMethod(object_getClass(self), targetSel);
     Class metaClass = objc_getMetaClass(class_getName([self class]));
     BOOL didAddMethod =
     class_addMethod(metaClass,
-                    originalSEL,
+                    originalSel,
                     method_getImplementation(swizzledMethod),
                     method_getTypeEncoding(swizzledMethod));
   

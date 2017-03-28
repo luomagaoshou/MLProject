@@ -39,7 +39,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     RootController *rootCtl = [[RootController alloc] initWithNibName:@"RootController" bundle:nil];
-    UINavigationController *nav = [[NSClassFromString(@"XFOpaqueNavigationController") alloc] initWithRootViewController:rootCtl];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:rootCtl];
     
     self.window.rootViewController = nav;
     
@@ -80,16 +80,17 @@
     //[ProjectManager pushStoryboardControllerWithNibName:@"MLFaceDetector" storyboardID:@"MLFaceDetectorViewController"];
     
  //   [ProjectManager pushStoryboardControllerWithNibName:@"MLStoneAgeToolView" storyboardID:@"MLStoneAgeToolViewController" title:@""];
-//[ProjectManager pushStoryboardControllerWithNibName:@"MLRAC" storyboardID:@"MLRACViewController"];
-    //[ProjectManager pushStoryboardControllerWithNibName:@"MLMacro" storyboardID:@"MLMacroViewController"];
+    //  [ProjectManager pushStoryboardControllerWithNibName:@"MLRAC" storyboardID:@"MLRACViewController"];
+  // [ProjectManager pushStoryboardControllerWithNibName:@"MLMacro" storyboardID:@"MLMacroViewController"];
+    //[ProjectManager pushStoryboardControllerWithNibName:@"MLGNUAttribute" storyboardID:@"MLGNUAttributeViewController"];
    // [ProjectManager pushStoryboardControllerWithNibName:@"MLMobClick" storyboardID:@"MLMobClickViewController"];
    // [ProjectManager pushStoryboardControllerWithNibName:@"MLBooksExercise" storyboardID:@"MLBooksExerciseViewController" title:@"书本测试"];
  //   [ProjectManager pushStoryboardControllerWithNibName:@"MLAttribute" storyboardID:@"MLAttributeViewController"];
     //[ProjectManager pushStoryboardControllerWithNibName:@"MLPropertyKeyword" storyboardID:@"MLPropertyKeywordController"];
     
     
-    
-   
+ //   [ProjectManager pushStoryboardControllerWithNibName:@"BGTCalendar" storyboardID:@"BGTNestTBViewController"];
+    [ProjectManager pushStoryboardControllerWithNibName:@"MLMJ" storyboardID:@"MLMJViewController"];
     
     // [ProjectManager pushStoryboardControllerWithNibName:@"MLAnimations" storyboardID:@"MLAnimationsController" title:@""];
     //[ProjectManager pushStoryboardControllerWithNibName:@"MLSQLite" storyboardID:@"MLSQLiteController" title:nil];
@@ -112,7 +113,7 @@
  //    [nav pushViewController:[UIStoryboard loadViewControllerWithNibName:@"MLCALayer" storyboardID:@"MLCALayerController"] animated:YES];
     
   //  [ProjectManager pushStoryboardControllerWithNibName:@"MLAssembleComputer" storyboardID:@"MLAssembleComputerController" title:@"组装电脑"];
-    [ProjectManager pushToControllerWithController:@"ChainableController"];
+    //[ProjectManager pushToControllerWithController:@"ChainableController"];
     // [ProjectManager pushStoryboardControllerWithNibName:@"MLKVC_KVO" storyboardID:@"MLKVC_KVOController"];
     
     // [ProjectManager pushStoryboardControllerWithNibName:@"IQKeyboardManager" storyboardID:@"IQKeyboardManagerController" title:nil];
@@ -131,6 +132,7 @@
     
  //  [ProjectManager pushToControllerWithController:@"RunTimeController"];
    // [ProjectManager pushStoryboardControllerWithNibName:@"MLDebug" storyboardID:@"MLDebugViewController"];
+   // [ProjectManager pushStoryboardControllerWithNibName:@"MLResponerChain" storyboardID:@"MLResponerChainViewController"];
     return YES;
 }
 

@@ -15,7 +15,7 @@
 #import "UIImage+Color.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "NSObject+AppearTime.h"
-
+#import <Aspects/Aspects.h>
 @interface MLNavigationViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *button;
 
@@ -27,15 +27,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         
-        
-        //        [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-        //        [self.navigationController.navigationBar setShadowImage:[UIImage new]];
-        //        UINavigationBar *navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 64)];
-        // navigationBar.alpha = (alpha++)%2;
-        //  [self.view addSubview:navigationBar];
-        
-
-        
+    
     }
     return self;
 }
@@ -52,7 +44,8 @@
     [super viewDidLoad];
     [self configUI];
     [self downloadData];
-    
+ 
+    self.navigationController.navigationBar.navigationBarCommonType = UINavigationBarCommonTypeClear;
 }
 
 - (void)viewWillAppear:(BOOL)animated

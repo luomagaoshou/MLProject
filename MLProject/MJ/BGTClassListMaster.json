@@ -1,0 +1,34 @@
+
+{"resCode":"0",
+    "resDesc":"暂无课堂信息",
+    "data":
+    [
+     {
+     "quarterName":"2016秋季",
+     "classInfos":[
+     {"course":"数学","classLevel":"提高","quarterName":"2016秋季","className":"花花初二数学","daikeFlag":"0","grade":"初二","subject":"常规课程","numberOfStudent":"4","classTime":"19:00~21:00","classTable":{"skTime":"21:30","xkTime":"23:30","status":"上课中","id":"810D6E6E-2B9B-4656-838B-05ED5523E5A4","classNumber":"1608107122016090932","yingDaoNum":"3","classTime":"46","startTime":"2016-09-09 00:00:00.0"},"classId":"CFDBEDD1-4047-4C4F-AA1E-B25A0F411753"},
+     {"course":"数学","classLevel":"提高","quarterName":"2016秋季","className":"陈立龙之初二数学","daikeFlag":"0","grade":"初二","subject":"常规课程","numberOfStudent":"6","classTime":"12:00-17:00","classTable":{"skTime":"12:00","xkTime":"17:00","status":"上课中","id":"91D403CD-B094-464C-B6AB-EF77413707DE","classNumber":"160910728201609097","yingDaoNum":"0","classTime":"7","startTime":"2016-09-09 00:00:00.0"},"classId":"CF5DCA1C-BEA7-43E0-A685-D256DB3799A1"}]
+     },
+     {
+     "quarterName":"2016冬季",
+     "classInfos":[
+                   {"course":"数学","classLevel":"提高","quarterName":"2016秋季","className":"花花初二数学","daikeFlag":"0","grade":"初二","subject":"常规课程","numberOfStudent":"4","classTime":"19:00~21:00","classTable":{"skTime":"21:30","xkTime":"23:30","status":"上课中","id":"810D6E6E-2B9B-4656-838B-05ED5523E5A4","classNumber":"1608107122016090932","yingDaoNum":"3","classTime":"46","startTime":"2016-09-09 00:00:00.0"},"classId":"CFDBEDD1-4047-4C4F-AA1E-B25A0F411753"},
+                   {"course":"数学","classLevel":"提高","quarterName":"2016秋季","className":"陈立龙之初二数学","daikeFlag":"0","grade":"初二","subject":"常规课程","numberOfStudent":"6","classTime":"12:00-17:00","classTable":{"skTime":"12:00","xkTime":"17:00","status":"上课中","id":"91D403CD-B094-464C-B6AB-EF77413707DE","classNumber":"160910728201609097","yingDaoNum":"0","classTime":"7","startTime":"2016-09-09 00:00:00.0"},"classId":"CF5DCA1C-BEA7-43E0-A685-D256DB3799A1"}]
+     },
+     
+     {
+     "quarterName":"2017春季",
+     "classInfos":[
+                   {"course":"数学","classLevel":"提高","quarterName":"2016秋季","className":"花花初二数学","daikeFlag":"0","grade":"初二","subject":"常规课程","numberOfStudent":"4","classTime":"19:00~21:00","classTable":{"skTime":"21:30","xkTime":"23:30","status":"上课中","id":"810D6E6E-2B9B-4656-838B-05ED5523E5A4","classNumber":"1608107122016090932","yingDaoNum":"3","classTime":"46","startTime":"2016-09-09 00:00:00.0"},"classId":"CFDBEDD1-4047-4C4F-AA1E-B25A0F411753"},
+                   {"course":"数学","classLevel":"提高","quarterName":"2016秋季","className":"陈立龙之初二数学","daikeFlag":"0","grade":"初二","subject":"常规课程","numberOfStudent":"6","classTime":"12:00-17:00","classTable":{"skTime":"12:00","xkTime":"17:00","status":"上课中","id":"91D403CD-B094-464C-B6AB-EF77413707DE","classNumber":"160910728201609097","yingDaoNum":"0","classTime":"7","startTime":"2016-09-09 00:00:00.0"},"classId":"CF5DCA1C-BEA7-43E0-A685-D256DB3799A1"}]
+     },
+     {
+     "quarterName":"2017夏季",
+     "classInfos":[
+                   {"course":"数学","classLevel":"提高","quarterName":"2016秋季","className":"花花初二数学","daikeFlag":"0","grade":"初二","subject":"常规课程","numberOfStudent":"4","classTime":"19:00~21:00","classTable":{"skTime":"21:30","xkTime":"23:30","status":"上课中","id":"810D6E6E-2B9B-4656-838B-05ED5523E5A4","classNumber":"1608107122016090932","yingDaoNum":"3","classTime":"46","startTime":"2016-09-09 00:00:00.0"},"classId":"CFDBEDD1-4047-4C4F-AA1E-B25A0F411753"},
+                   {"course":"数学","classLevel":"提高","quarterName":"2016秋季","className":"陈立龙之初二数学","daikeFlag":"0","grade":"初二","subject":"常规课程","numberOfStudent":"6","classTime":"12:00-17:00","classTable":{"skTime":"12:00","xkTime":"17:00","status":"上课中","id":"91D403CD-B094-464C-B6AB-EF77413707DE","classNumber":"160910728201609097","yingDaoNum":"0","classTime":"7","startTime":"2016-09-09 00:00:00.0"},"classId":"CF5DCA1C-BEA7-43E0-A685-D256DB3799A1"}]
+     }
+
+
+     ]
+}
