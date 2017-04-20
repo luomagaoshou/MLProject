@@ -98,7 +98,7 @@
 #pragma mark - ========= InitialUI =========
 - (void)initUI
 {
-   // [self initWebView];
+   [self initWebView];
    // [self createMethodInOC];
     [self initWKWebView];
 }
@@ -115,7 +115,7 @@
 }
 - (void)initWKWebView{
     
-  
+#if 0
                     WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
                     config.preferences.javaScriptEnabled = YES;
                     config.preferences.javaScriptCanOpenWindowsAutomatically = YES;
@@ -136,11 +136,11 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [self.wk_webView loadRequest:request];
     
-        return;
+
+#endif
     
     
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
+   // dispatch_async(dispatch_get_main_queue(), ^{
     
         WKWebViewConfiguration *config = [WKWebViewConfiguration new];
 
@@ -157,11 +157,18 @@
         [config.userContentController addScriptMessageHandler:self name:@"AppleModel"];
         [config.userContentController addScriptMessageHandler:self name:@"WebviewBridge"];
        //Web对比 context[@"AppleModel"] = AppleModelInstacnce;
-        
+       
         //UIWebView由对象处理，wk用可以设置处理对象
-//        WKUserScript *userScript = [[WKUserScript alloc] initWithSource:@"(function showAlert() { alert('在载入webview时通过Swift注入的JS方法'); })()" injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
-//        
-//        [config.userContentController addUserScript:userScript];
+        WKUserScript *userScript = [[WKUserScript alloc] initWithSource:
+                                    @"function printImage() {\
+                                    var imgs = document.getElementsByTagName(\"img\");\
+                                    if(imgs.length) {\
+                                    return imgs[0].src;\
+                                    }\
+                                    }" injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
+        
+        [config.userContentController addUserScript:userScript];
+        
         
         
         self.wk_webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT/2, SCREEN_WIDTH, SCREEN_HEIGHT/2) configuration:config];
@@ -172,7 +179,7 @@
         NSURL *url = [[NSBundle mainBundle] URLForResource:@"huangyibiaoTest" withExtension:@"html"];
      //   url = [NSURL URLWithString:@"http://10.0.1.163:8080/study/studyReport.html"];
       //  url = [NSURL URLWithString:@"http://10.0.1.137:8080/study/studyReport.html"];
-        url= [NSURL URLWithString:@"http://thlsshare.bondwebapp.com/select?student_id=19000208&class_id=3583F5C8-56B6-431F-8567-AE380D9868BF&classroom_id=5AA1B1FF-0679-472E-A905-195355C2394E"];
+     //   url= [NSURL URLWithString:@"http://thlsshare.bondwebapp.com/select?student_id=19000208&class_id=3583F5C8-56B6-431F-8567-AE380D9868BF&classroom_id=5AA1B1FF-0679-472E-A905-195355C2394E"];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         [self.wk_webView loadRequest:request];
       
@@ -191,7 +198,7 @@
 //                          options:NSKeyValueObservingOptionNew
                         // context:nil];
         
-    });
+   // });
 }
 - (void)createMethodInOC
 {
@@ -234,7 +241,7 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
 
-    
+   id obj = [webView stringByEvaluatingJavaScriptFromString:@"printImageUrl()"];
   //  [self getInnerHtml];
 //    [self alertMessage];
    // [self callJSFuncByName];
@@ -252,7 +259,7 @@
 {
     
 }
-#pragma mark - ========= finishLoad =========
+#pragma mark - ========= UIWebView FinishLoad =========
 - (void)getInnerHtml
 {
     NSString *jsToGetHTMLSource = @"document.getElementsByTagName('html')[0].innerHTML";
@@ -456,6 +463,7 @@
 #pragma mark 页面开始加载时调用
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(null_unspecified WKNavigation *)navigation {
     NSLog(@"%s",__FUNCTION__);
+   
 }
 
 #pragma mark 当内容开始返回时调用
@@ -466,7 +474,48 @@
 #pragma mark 页面加载完成之后调用
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
     NSLog(@"%s",__FUNCTION__);
+     [self getImgs];
+    [webView evaluateJavaScript:@"printImage()" completionHandler:^(id _Nullable obj, NSError * _Nullable error) {
+        
+    }];
+    [webView evaluateJavaScript:@"sayHahaFunc()" completionHandler:^(id _Nullable obj, NSError * _Nullable error) {
+        
+    }];
+    [webView evaluateJavaScript:@"printImageUrl()" completionHandler:^(id _Nullable obj, NSError * _Nullable error) {
+        
+    }];
+   
     
+}
+- (NSArray *)getImgs
+{
+    NSMutableArray *arrImgURL = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [self nodeCountOfTag:@"img"]; i++) {
+        NSString *jsString = [NSString stringWithFormat:@"document.getElementsByTagName('img')[%d].src", i];
+        [arrImgURL addObject:[self.webView stringByEvaluatingJavaScriptFromString:jsString]];
+        [self.wk_webView evaluateJavaScript:jsString completionHandler:^(id _Nullable obj, NSError * _Nullable error) {
+            
+        }];
+        
+    }
+    return arrImgURL;
+}
+
+/// 获取某个标签的结点个数
+- (int)nodeCountOfTag:(NSString *)tag {
+    NSString *jsString = [NSString stringWithFormat:@"document.getElementsByTagName('%@').length", tag];
+    
+    int len = [[self.webView stringByEvaluatingJavaScriptFromString:jsString] intValue];
+
+    __block NSNumber *imageCount;
+  
+    [self.wk_webView evaluateJavaScript:jsString completionHandler:^(id _Nullable obj, NSError * _Nullable error) {
+        imageCount = obj;
+    }];
+
+
+    
+        return imageCount.intValue;
 }
 
 #pragma mark 页面加载失败时调用

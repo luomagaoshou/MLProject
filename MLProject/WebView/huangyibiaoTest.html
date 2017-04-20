@@ -126,5 +126,16 @@ var jsParamFunc = function(argument) {
     </script>
 
 
+<script type="text/javascript">
+    var printImageUrl = function(){
+        var imgs = document.getElementsByTagName('img');
+        if(imgs.length) {
+            return getBase64Image(imgs[0]);
+        }
+        
+    }
+
+    </script>
+
 
 </html>

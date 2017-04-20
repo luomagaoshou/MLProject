@@ -314,6 +314,9 @@
 		FE76C9EE1C08BAA600192239 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = FE76C9ED1C08BAA600192239 /* test.png */; };
 		FE84ED831CEEBA3C004FC7B3 /* MLPropertyKeyword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE84ED821CEEBA3C004FC7B3 /* MLPropertyKeyword.storyboard */; };
 		FE84ED861CEEBA4B004FC7B3 /* MLPropertyKeywordController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE84ED851CEEBA4B004FC7B3 /* MLPropertyKeywordController.m */; };
+		FE8AF9FF1E9CB649003A732D /* MLTextView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE8AF9FE1E9CB649003A732D /* MLTextView.storyboard */; };
+		FE8AFA021E9CB665003A732D /* MLTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8AFA011E9CB665003A732D /* MLTextViewController.m */; };
+		FE8AFA051E9CB66C003A732D /* MLTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8AFA041E9CB66C003A732D /* MLTextView.m */; };
 		FE945AB01C1D5746007A2421 /* SBHSplitOrderMaster.m in Sources */ = {isa = PBXBuildFile; fileRef = FE945AAD1C1D5746007A2421 /* SBHSplitOrderMaster.m */; };
 		FE945AB11C1D5746007A2421 /* SBHSplitOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FE945AAF1C1D5746007A2421 /* SBHSplitOrderModel.m */; };
 		FE972D061C5FAB6800C34DC0 /* MLCALayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE972D051C5FAB6800C34DC0 /* MLCALayer.storyboard */; };
@@ -325,6 +328,8 @@
 		FEA1C8791CB16F4300B5A9D3 /* MLStructController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA1C8781CB16F4300B5A9D3 /* MLStructController.m */; };
 		FEA1C87C1CB5394300B5A9D3 /* PaiLie.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA1C87A1CB5394300B5A9D3 /* PaiLie.m */; };
 		FEA1C87E1CB6B60A00B5A9D3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA1C87D1CB6B60A00B5A9D3 /* UIKit.framework */; };
+		FEA4DA421EA8ABD80022E50A /* NSObject+ApplePrivateDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA4DA3F1EA8ABD80022E50A /* NSObject+ApplePrivateDebug.m */; };
+		FEA4DA431EA8ABD80022E50A /* UIView+ApplePrivateDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA4DA411EA8ABD80022E50A /* UIView+ApplePrivateDebug.m */; };
 		FEA8A0C71E1BA16800448F12 /* XFOpaqueNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA8A0C41E1BA16800448F12 /* XFOpaqueNavigationController.m */; };
 		FEA8A0C81E1BA16800448F12 /* XFOpaqueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA8A0C61E1BA16800448F12 /* XFOpaqueViewController.m */; };
 		FEB104FA1E34C6F700051806 /* NSObject+ML_Debug.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB104F91E34C6F700051806 /* NSObject+ML_Debug.m */; };
@@ -343,6 +348,7 @@
 		FEC65C0B1D4DEF9F00DA823E /* MLPageSubViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC65C0A1D4DEF9F00DA823E /* MLPageSubViewController1.m */; };
 		FEC65C0E1D4DEFA800DA823E /* MLPageSubViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC65C0D1D4DEFA800DA823E /* MLPageSubViewController2.m */; };
 		FEC65C111D4DEFAF00DA823E /* MLPageSubViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC65C101D4DEFAF00DA823E /* MLPageSubViewController3.m */; };
+		FEC6F1CE1E988C9300EDFA41 /* NSObject+WebViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC6F1CD1E988C9300EDFA41 /* NSObject+WebViewHelper.m */; };
 		FEC798291DBB46A60097857D /* MLTableView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEC798281DBB46A60097857D /* MLTableView.storyboard */; };
 		FEC7982C1DBB46B40097857D /* MLTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC7982B1DBB46B40097857D /* MLTableViewController.m */; };
 		FEC7982F1DBB46D30097857D /* MLTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC7982E1DBB46D30097857D /* MLTableView.m */; };
@@ -961,6 +967,11 @@
 		FE84ED821CEEBA3C004FC7B3 /* MLPropertyKeyword.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLPropertyKeyword.storyboard; sourceTree = "<group>"; };
 		FE84ED841CEEBA4B004FC7B3 /* MLPropertyKeywordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPropertyKeywordController.h; sourceTree = "<group>"; };
 		FE84ED851CEEBA4B004FC7B3 /* MLPropertyKeywordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPropertyKeywordController.m; sourceTree = "<group>"; };
+		FE8AF9FE1E9CB649003A732D /* MLTextView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLTextView.storyboard; sourceTree = "<group>"; };
+		FE8AFA001E9CB665003A732D /* MLTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLTextViewController.h; sourceTree = "<group>"; };
+		FE8AFA011E9CB665003A732D /* MLTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLTextViewController.m; sourceTree = "<group>"; };
+		FE8AFA031E9CB66C003A732D /* MLTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLTextView.h; sourceTree = "<group>"; };
+		FE8AFA041E9CB66C003A732D /* MLTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLTextView.m; sourceTree = "<group>"; };
 		FE945AAC1C1D5746007A2421 /* SBHSplitOrderMaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBHSplitOrderMaster.h; sourceTree = "<group>"; };
 		FE945AAD1C1D5746007A2421 /* SBHSplitOrderMaster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBHSplitOrderMaster.m; sourceTree = "<group>"; };
 		FE945AAE1C1D5746007A2421 /* SBHSplitOrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBHSplitOrderModel.h; sourceTree = "<group>"; };
@@ -978,6 +989,10 @@
 		FEA1C87A1CB5394300B5A9D3 /* PaiLie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaiLie.m; sourceTree = "<group>"; };
 		FEA1C87B1CB5394300B5A9D3 /* PaiLie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaiLie.h; sourceTree = "<group>"; };
 		FEA1C87D1CB6B60A00B5A9D3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FEA4DA3E1EA8ABD80022E50A /* NSObject+ApplePrivateDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ApplePrivateDebug.h"; sourceTree = "<group>"; };
+		FEA4DA3F1EA8ABD80022E50A /* NSObject+ApplePrivateDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ApplePrivateDebug.m"; sourceTree = "<group>"; };
+		FEA4DA401EA8ABD80022E50A /* UIView+ApplePrivateDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ApplePrivateDebug.h"; sourceTree = "<group>"; };
+		FEA4DA411EA8ABD80022E50A /* UIView+ApplePrivateDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ApplePrivateDebug.m"; sourceTree = "<group>"; };
 		FEA8A0C31E1BA16800448F12 /* XFOpaqueNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFOpaqueNavigationController.h; sourceTree = "<group>"; };
 		FEA8A0C41E1BA16800448F12 /* XFOpaqueNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFOpaqueNavigationController.m; sourceTree = "<group>"; };
 		FEA8A0C51E1BA16800448F12 /* XFOpaqueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFOpaqueViewController.h; sourceTree = "<group>"; };
@@ -1014,6 +1029,8 @@
 		FEC65C0D1D4DEFA800DA823E /* MLPageSubViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPageSubViewController2.m; sourceTree = "<group>"; };
 		FEC65C0F1D4DEFAF00DA823E /* MLPageSubViewController3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPageSubViewController3.h; sourceTree = "<group>"; };
 		FEC65C101D4DEFAF00DA823E /* MLPageSubViewController3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPageSubViewController3.m; sourceTree = "<group>"; };
+		FEC6F1CC1E988C9300EDFA41 /* NSObject+WebViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+WebViewHelper.h"; sourceTree = "<group>"; };
+		FEC6F1CD1E988C9300EDFA41 /* NSObject+WebViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WebViewHelper.m"; sourceTree = "<group>"; };
 		FEC798281DBB46A60097857D /* MLTableView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MLTableView.storyboard; sourceTree = "<group>"; };
 		FEC7982A1DBB46B40097857D /* MLTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLTableViewController.h; sourceTree = "<group>"; };
 		FEC7982B1DBB46B40097857D /* MLTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLTableViewController.m; sourceTree = "<group>"; };
@@ -1359,6 +1376,10 @@
 			children = (
 				18C275BE1C7D41020055C19D /* ChainableKit */,
 				18C275C41C7D41020055C19D /* ML_Category.h */,
+				FEA4DA3E1EA8ABD80022E50A /* NSObject+ApplePrivateDebug.h */,
+				FEA4DA3F1EA8ABD80022E50A /* NSObject+ApplePrivateDebug.m */,
+				FEA4DA401EA8ABD80022E50A /* UIView+ApplePrivateDebug.h */,
+				FEA4DA411EA8ABD80022E50A /* UIView+ApplePrivateDebug.m */,
 				FE6463961E1B5485006C9356 /* UIView+OuterBorder.h */,
 				FE6463971E1B5485006C9356 /* UIView+OuterBorder.m */,
 				FE4944201E0E79AD002AEAAA /* UIImage+Convolution.h */,
@@ -1508,6 +1529,8 @@
 				16F2B6A71D5DC7FF003592DB /* CALayer+Line.m */,
 				FE5969931DC2EF05009745DF /* NSObject+UM_MobClick.h */,
 				FE5969941DC2EF05009745DF /* NSObject+UM_MobClick.m */,
+				FEC6F1CC1E988C9300EDFA41 /* NSObject+WebViewHelper.h */,
+				FEC6F1CD1E988C9300EDFA41 /* NSObject+WebViewHelper.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -2120,6 +2143,18 @@
 			path = PropertyKeyword;
 			sourceTree = "<group>";
 		};
+		FE8AF9FD1E9CB63B003A732D /* TextView */ = {
+			isa = PBXGroup;
+			children = (
+				FE8AF9FE1E9CB649003A732D /* MLTextView.storyboard */,
+				FE8AFA001E9CB665003A732D /* MLTextViewController.h */,
+				FE8AFA011E9CB665003A732D /* MLTextViewController.m */,
+				FE8AFA031E9CB66C003A732D /* MLTextView.h */,
+				FE8AFA041E9CB66C003A732D /* MLTextView.m */,
+			);
+			path = TextView;
+			sourceTree = "<group>";
+		};
 		FE945AB21C1D5751007A2421 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -2249,6 +2284,7 @@
 				FEB529D01BEF1EBA00EAA6C1 /* RootController.h */,
 				FEB529D11BEF1EBA00EAA6C1 /* RootController.m */,
 				FEB529D31BEF208A00EAA6C1 /* RootController.xib */,
+				FE8AF9FD1E9CB63B003A732D /* TextView */,
 				FE36D21D1E864D730005C73F /* MJ */,
 				FED1485D1E665E2E00B3CE6D /* TBEmbedCL */,
 				FE23D2CD1E5BD59E00B173AB /* MLResponerChain */,
@@ -2635,6 +2671,7 @@
 				FE48EE2A1D41240A002FE0A3 /* MLCustomCLViewController.storyboard in Resources */,
 				FE0C636A1D1707B600F73C95 /* NestView2.xib in Resources */,
 				FEE55D021BF244D100C8F783 /* FranchiseVerifyingStatusView.xib in Resources */,
+				FE8AF9FF1E9CB649003A732D /* MLTextView.storyboard in Resources */,
 				1822284D1CAE86DD00A7E43D /* AthleticsLottery.storyboard in Resources */,
 				1895E1301C5B50840046411D /* IQKeyboardManager.storyboard in Resources */,
 				FEE30BA71C03412500B79F8D /* LoadNibSubView.xib in Resources */,
@@ -2852,6 +2889,7 @@
 				18EB94381CE9585B00C24368 /* MLDataStructuresController.m in Sources */,
 				18C276521C7D41020055C19D /* ChainableKit.m in Sources */,
 				16FB11EC1D4B89F300F1BC45 /* NSDate+ML_Tools.m in Sources */,
+				FEC6F1CE1E988C9300EDFA41 /* NSObject+WebViewHelper.m in Sources */,
 				FEDD9EF71D43D4CC00DC2FC4 /* MLViewInCLViewController.m in Sources */,
 				FE711B421E3A12EB008911E0 /* MLChain4UICollectionView.m in Sources */,
 				FEA8A0C81E1BA16800448F12 /* XFOpaqueViewController.m in Sources */,
@@ -2862,6 +2900,7 @@
 				FEB3458B1D9E4D1900FDFAC5 /* MLBlocksKitViewController.m in Sources */,
 				FE711B501E3A12EB008911E0 /* UIControl+MLChain.m in Sources */,
 				FE495AB31D47BC8200606B2D /* MLReuseVCViewController.m in Sources */,
+				FE8AFA051E9CB66C003A732D /* MLTextView.m in Sources */,
 				FEDC82501D56FD28009C6445 /* MLTintColorViewController.m in Sources */,
 				FEE30BBB1C03421C00B79F8D /* UIView+Ext.m in Sources */,
 				FE0C63111D1683E900F73C95 /* NibCLCell.m in Sources */,
@@ -2871,6 +2910,7 @@
 				FEA1C8791CB16F4300B5A9D3 /* MLStructController.m in Sources */,
 				FE0856241DBF6F5E00FCB8B3 /* MLMacroView.m in Sources */,
 				FE711B441E3A12EB008911E0 /* MLChain4UIImageView.m in Sources */,
+				FEA4DA421EA8ABD80022E50A /* NSObject+ApplePrivateDebug.m in Sources */,
 				FED1487B1E6679F600B3CE6D /* BGTNestCalendarTBCell.m in Sources */,
 				FE26160D1DDEA09D006E0EAE /* XKPicPreViewViewController.m in Sources */,
 				18C276721C7D41020055C19D /* UIButton+Init.m in Sources */,
@@ -3014,6 +3054,7 @@
 				18C2767F1C7D41020055C19D /* UIImage+ML_Tools.m in Sources */,
 				FE711B3A1E3A12EB008911E0 /* MLChain4CABasicAnimation.m in Sources */,
 				FE711B431E3A12EB008911E0 /* MLChain4UIControl.m in Sources */,
+				FE8AFA021E9CB665003A732D /* MLTextViewController.m in Sources */,
 				FEDC82461D4FA9B3009C6445 /* MLPageViewController2.m in Sources */,
 				18C276641C7D41020055C19D /* NSObject+ML_ModelMethodHelper.m in Sources */,
 				18C276941C7D41020055C19D /* UIView+ML_Tools.m in Sources */,
@@ -3043,6 +3084,7 @@
 				FEE72D811E4DA8310059A41F /* UIView+ML_Debug.m in Sources */,
 				FEA8A0C71E1BA16800448F12 /* XFOpaqueNavigationController.m in Sources */,
 				18C2767D1C7D41020055C19D /* UIImage+RoundedCorner.m in Sources */,
+				FEA4DA431EA8ABD80022E50A /* UIView+ApplePrivateDebug.m in Sources */,
 				FE6735C71DA78052008CE06E /* MLCollectionView.m in Sources */,
 				160A86571D689185004793BD /* DZNEmptyDataSeparator.m in Sources */,
 				FE495AB01D47BC0800606B2D /* MLReuseVCView.m in Sources */,

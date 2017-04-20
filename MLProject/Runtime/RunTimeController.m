@@ -15,6 +15,8 @@
 #import "SBHSplitOrderMaster.h"
 #import "SBHSplitOrderModel.h"
 #import "MJExtension.h"
+
+
 @interface RTPerson : NSObject
 @end
 @implementation RTPerson
@@ -33,14 +35,19 @@
 
 #pragma mark - ========= View LifeCycle =========
 //nib初始化
+
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
+ 
+   
         
     }
     return self;
 }
+
+
 //初始化，是UIViewController的子类就会调用
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -61,7 +68,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
-   
+  
+    
 }
 //即将出现
 - (void)viewWillAppear:(BOOL)animated
